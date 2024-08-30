@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1B1B1F;
+    color: #fff;
+    line-height: 1.6;
+    padding: 0 20px 20px 20px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #1B1B1F;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #1B1B1F;
+    padding: 10px 20px 10px 20px;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #b19cd9;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 10px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    transition: border-bottom 0.12s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: #b19cd9;
+    border-bottom: 2px solid #b19cd9;
+}
+
+header nav ul li a:active {
+    color: #b19cd9;
+    border-bottom: 2px solid #b19cd9;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-top: 40px;
+
+}
+
+#win {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+tr th:first-child {
+    width: 220px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    background-color: #202127;
+    color: #fff;
+}
+
+.tool-name {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    margin: 0 1em;
+    color: #b19cd9;
+}
+
+a:hover {
+    color: #8f67db;
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        display: none;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    td {
+        min-width: 200px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #1B1B1F;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.announcement {
+    background-color: #1B1B1F;
+    color: #b19cd9;
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 svg {
+    position: relative;
+    top: 8px;
+}
+
+tbody tr svg,
+tbody tr span {
+    vertical-align: middle;
+}
+
+/* 弹窗 */
+/* 弹窗样式 */
+.notice {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 460px;
+    max-height: 500px;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+    background-color: #202127;
+    color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px rgb(124, 124, 124);
+    transition: 0.3s;
+    z-index: 1000;
+    display: none;
+    /* 初始隐藏 */
+}
+
+.notice:hover {
+    box-shadow: 0 0 5px 2px rgb(118, 103, 201);
+}
+
+
+.nv {
+    text-indent: 2em;
+}
+
+.nv .pc2 {
+    color: #9679e7ec;
+}
+
+.nv .pc1 {
+    color: #aaaaaa;
+}
+
+.text-label {
+    text-align: center;
+    color: #ff4747;
+    font-weight: bold;
+    font-size: 24px;
+    border-bottom: 1px solid #b19cd9;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.buttons {
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.buttons button {
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.buttons button.acknowledge {
+    background-color: #b19cd9;
+    transition: 0.15s ease-in-out;
+}
+
+.buttons button.acknowledge:hover {
+    background-color: #7945da;
+    color: #fff;
+}
+
+.buttons button.cancel {
+    background-color: #aaaaaa;
+    transition: 0.15s ease-in-out;
+}
+
+.buttons button.cancel:hover {
+    background-color: #d53d3d;
+    color: #fff;
+}
+
+/* 取消超过5次后显示的内容 */
+.canceled-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    color: #7d51f6ec;
+    font-weight: bold;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    display: none;
+}
+
+/* 警告信息样式 */
+.warning-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #ff0000;
+    color: #fff;
+    font-weight: bold;
+    z-index: 1001;
+    display: none;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+/* top按钮 */
+.scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #6a51c4;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    z-index: 101;
+}
+
+.scroll-to-top:hover {
+    background-color: #6a62de;
+    display: none;
+    position: fixed;
+    bottom: 28px;
+    right: 26px;
+    padding: 14px 18px;
+}
+
+.scroll-to-top:active {
+    background-color: #3667fa;
+}
+
+.scroll-to-top.show {
+    display: block;
+    z-index: 101;
+}
