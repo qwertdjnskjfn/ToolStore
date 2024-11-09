@@ -4,23 +4,6 @@ const navLinks = document.querySelectorAll('nav ul li a');
 // 获取所有内容区
 const sections = document.querySelectorAll('section[id]');
 
-// 监听hashchange事件
-window.addEventListener('hashchange', function () {
-    // 移除所有链接的激活状态
-    navLinks.forEach(link => {
-        link.style.color = ''; // 清除颜色
-        link.style.borderBottom = ''; // 清除下边框
-    });
-
-    // 获取当前激活的链接
-    const activeLink = document.querySelector(`nav ul li a[href="${location.hash}"]`);
-
-    if (activeLink) {
-        activeLink.style.color = '#b19cd9'; // 设置颜色
-        activeLink.style.borderBottom = '2px solid #b19cd9'; // 设置下边框
-    }
-});
-
 function highlightActiveSection() {
     // 移除所有链接的激活状态
     navLinks.forEach(link => {
@@ -42,15 +25,6 @@ function highlightActiveSection() {
             activeIndex = i;
         } else {
             break;
-        }
-    }
-
-    // 如果找到了一个活动的内容区
-    if (activeIndex >= 0) {
-        const activeLink = document.querySelector(`nav ul li a[href="#${sections[activeIndex].id}"]`);
-        if (activeLink) {
-            activeLink.style.color = '#b19cd9';
-            activeLink.style.borderBottom = '2px solid #b19cd9';
         }
     }
 }
@@ -228,27 +202,27 @@ const outputMessage = `\n\t我们的恋爱开始于: 2023年10月04日 \n\n\t我
 // 输出到控制台
 console.log(outputMessage);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('toggleButton');
     const navShow = document.getElementById('navLinks');
     const links = navShow.querySelectorAll('a');
 
-    toggleButton.addEventListener('click', function() {
+    toggleButton.addEventListener('click', function () {
         navShow.classList.toggle('active');
     });
 
     links.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             navShow.classList.remove('active');
         });
     });
 
     // 为导航栏本身添加鼠标悬停事件监听器
-    navShow.addEventListener('mouseover', function() {
+    navShow.addEventListener('mouseover', function () {
         navShow.classList.add('active');
     });
 
-    navShow.addEventListener('mouseout', function() {
+    navShow.addEventListener('mouseout', function () {
         navShow.classList.remove('active');
     });
 
@@ -259,21 +233,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 为文档添加点击事件监听器，点击空白处隐藏导航栏
     if (isMobileDevice()) {
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (!navShow.contains(event.target) && event.target !== toggleButton) {
                 navShow.classList.remove('active');
             }
         });
 
         // 为导航栏添加触摸事件监听器，处理移动端触摸移出
-        navShow.addEventListener('touchend', function(event) {
+        navShow.addEventListener('touchend', function (event) {
             if (!navShow.contains(event.target)) {
                 navShow.classList.remove('active');
             }
         });
     } else {
         // 为PC端添加点击事件监听器，点击空白处隐藏导航栏
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (!navShow.contains(event.target) && event.target !== toggleButton) {
                 navShow.classList.remove('active');
             }
