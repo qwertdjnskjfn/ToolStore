@@ -227,3 +227,56 @@ const outputMessage = `\n\t我们的恋爱开始于: 2023年10月04日 \n\n\t我
 
 // 输出到控制台
 console.log(outputMessage);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggleButton');
+    const navShow = document.getElementById('navLinks');
+    const links = navShow.querySelectorAll('a');
+
+    toggleButton.addEventListener('click', function() {
+        navShow.classList.toggle('active');
+    });
+
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            navShow.classList.remove('active');
+        });
+    });
+
+    // 为导航栏本身添加鼠标悬停事件监听器
+    navShow.addEventListener('mouseover', function() {
+        navShow.classList.add('active');
+    });
+
+    navShow.addEventListener('mouseout', function() {
+        navShow.classList.remove('active');
+    });
+
+    // 检测设备类型
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    // 为文档添加点击事件监听器，点击空白处隐藏导航栏
+    if (isMobileDevice()) {
+        document.addEventListener('click', function(event) {
+            if (!navShow.contains(event.target) && event.target !== toggleButton) {
+                navShow.classList.remove('active');
+            }
+        });
+
+        // 为导航栏添加触摸事件监听器，处理移动端触摸移出
+        navShow.addEventListener('touchend', function(event) {
+            if (!navShow.contains(event.target)) {
+                navShow.classList.remove('active');
+            }
+        });
+    } else {
+        // 为PC端添加点击事件监听器，点击空白处隐藏导航栏
+        document.addEventListener('click', function(event) {
+            if (!navShow.contains(event.target) && event.target !== toggleButton) {
+                navShow.classList.remove('active');
+            }
+        });
+    }
+});

@@ -17,8 +17,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 10px 20px;
+    padding: 0 20px;
 }
 
 .nav-links {
@@ -44,7 +43,9 @@ nav {
     font-size: 24px;
 }
 
-@media (max-width: 860px) {
+/* 移动端导航栏 */
+/* 导航栏暂时未实现下拉列表且跳转功能 */
+@media screen and (max-width: 930px) {
     .toggle-button {
         display: block;
     }
@@ -70,7 +71,11 @@ nav {
     }
 }
 
-
+@media screen and (min-width: 930px) {
+    .header-content #Tools-fly{
+        display: none;
+    }
+}
 
 
 body.light-mode {
@@ -172,7 +177,8 @@ a:hover {
     color: #8f67db;
 }
 
-@media (max-width: 768px) {
+/* 移动端优化 */
+@media (max-width: 930px) {
     header nav ul {
         display: none;
     }
