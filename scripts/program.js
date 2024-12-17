@@ -1,197 +1,3 @@
-// 获取所有导航链接
-const navLinks = document.querySelectorAll('nav ul li a');
-
-// 获取所有内容区
-const sections = document.querySelectorAll('section[id]');
-
-function highlightActiveSection() {
-    // 移除所有链接的激活状态
-    navLinks.forEach(link => {
-        link.style.color = '';
-        link.style.borderBottom = '';
-    });
-
-    // 计算每个内容区的顶部位置
-    let topPositions = [];
-    sections.forEach(section => {
-        topPositions.push(section.offsetTop);
-    });
-
-    // 确定哪个内容区在视口内
-    let activeIndex = -1;
-    let scrollTop = window.scrollY || window.pageYOffset;
-    for (let i = 0; i < topPositions.length; i++) {
-        if (scrollTop >= topPositions[i]) {
-            activeIndex = i;
-        } else {
-            break;
-        }
-    }
-}
-
-// 初始化
-if (location.hash) {
-    window.dispatchEvent(new Event('hashchange'));
-}
-
-// 添加滚动事件监听器
-window.addEventListener('scroll', highlightActiveSection);
-
-// 页面加载时初始化
-highlightActiveSection();
-
-document.addEventListener("DOMContentLoaded", function () {
-    const notice = document.getElementById('dailyNotice');
-    const acknowledgeButton = notice.querySelector('.acknowledge');
-    const cancelButton = notice.querySelector('.cancel');
-    const canceledMessage = document.getElementById('canceledMessage');
-    const warningMessage = document.getElementById('warningMessage');
-    const mask = document.getElementById('mask'); // 遮罩层
-    // 获取返回顶部按钮
-    const scrollToTopBtn = document.querySelector('.scroll-to-top');
-
-    let cancelCount = parseInt(localStorage.getItem('cancelCount')) || 0;
-    let hasAgreed = localStorage.getItem('hasAgreed') === 'true';
-    const startDate = new Date('2023-10-04'); // 修改为你想要的开始日期
-
-    function calculateLovedays() {
-        const now = new Date(); // 当前时间已经是北京时间
-        const diff = now - startDate;
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-        const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24)) + 1; // 加上开始的那一天
-        const totalHours = Math.floor(diff / (1000 * 60 * 60)) + 24; // 加上开始的那一天的24小时
-        const currentHour = now.getHours(); // 获取当前小时数
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        return {
-            years: years,
-            months: months,
-            days: days,
-            totalDays: totalDays,
-            totalHours: totalHours,
-            currentHour: currentHour,
-            minutes: minutes,
-            seconds: seconds
-        };
-    }
-
-    function printLovedays() {
-        const lovedays = calculateLovedays();
-
-        // 格式化输出
-        const formattedYearsMonthsDays = `相爱 ${lovedays.years} 年 ${lovedays.months} 月 ${lovedays.days} 日  当前时间:${lovedays.currentHour}:${lovedays.minutes}:${lovedays.seconds}`;
-        const formattedTotalDays = `相爱共 ${lovedays.totalDays} 天`;
-        const formattedTotalHours = `共 ${lovedays.totalHours} 小时`;
-
-        console.log(formattedYearsMonthsDays);
-        console.log(formattedTotalDays);
-        console.log(formattedTotalHours);
-        console.log('每30秒显示一次时间')
-    }
-
-    // 初始输出
-    printLovedays();
-
-    // 每隔一秒更新并输出
-    setInterval(printLovedays, 30000);
-
-    function toggleScrollToTopButton() {
-        if (window.pageYOffset > 100) { // 当滚动超过 100px 时显示按钮
-            scrollToTopBtn.classList.add('show');
-        } else {
-            scrollToTopBtn.classList.remove('show');
-        }
-    }
-
-    // 添加滚动事件监听器来显示/隐藏返回顶部按钮
-    window.addEventListener('scroll', toggleScrollToTopButton);
-
-    // 当点击按钮时滚动到页面顶部
-    scrollToTopBtn.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // 页面加载时初始化返回顶部按钮的状态
-    toggleScrollToTopButton();
-
-    function showDailyNotice() {
-        if (!hasAgreed && (isTwelveHoursPassed() || cancelCount < 5)) {
-            notice.style.display = 'block';
-            mask.style.display = 'block'; // 显示遮罩层
-        }
-    }
-
-    function hideNotice() {
-        notice.style.display = 'none';
-        mask.style.display = 'none'; // 隐藏遮罩层
-    }
-
-
-    function storeLastShownTime() {
-        localStorage.setItem('lastShownTime', new Date().getTime());
-    }
-
-    function getLastShownTime() {
-        return localStorage.getItem('lastShownTime');
-    }
-
-    function isTwelveHoursPassed() {
-        const lastShownTime = getLastShownTime();
-        if (!lastShownTime) {
-            return true;
-        }
-        const currentTime = new Date().getTime();
-        const twelveHoursInMs = 12 * 60 * 60 * 1000;
-        return (currentTime - lastShownTime) > twelveHoursInMs;
-    }
-
-    function showCancelMessage() {
-        // 清空整个 body 的内容
-        document.body.innerHTML = '';
-        // 添加新的内容
-        document.body.appendChild(canceledMessage);
-        canceledMessage.style.display = 'block';
-    }
-
-    function incrementCancelCount() {
-        cancelCount++;
-        localStorage.setItem('cancelCount', cancelCount);
-    }
-
-    function showWarning() {
-        warningMessage.style.display = 'block';
-        setTimeout(() => {
-            warningMessage.style.display = 'none';
-        }, 1200);
-    }
-
-    if (!hasAgreed && (isTwelveHoursPassed() || cancelCount < 5)) {
-        showDailyNotice();
-        storeLastShownTime();
-    }
-
-    acknowledgeButton.addEventListener('click', function () {
-        hideNotice();
-        localStorage.setItem('hasAgreed', 'true'); // 用户已同意
-    });
-
-    cancelButton.addEventListener('click', function () {
-        showWarning();
-        incrementCancelCount();
-        if (cancelCount >= 5) {
-            showCancelMessage();
-            localStorage.removeItem('cancelCount'); // 清除取消次数
-            localStorage.setItem('hasAgreed', 'false'); // 用户不同意
-        }
-    });
-});
-
 // 定义相关信息
 const loverName = "唐小姐";
 const message = "我爱她！超级超级爱她！人生目标搞钱搞钱，去把她娶回家，她当老大我当小弟！嘿嘿 \n\n\t2024.8.15\n\t我的宝宝! 女神大人！😭";
@@ -202,7 +8,164 @@ const outputMessage = `\n\t我们的恋爱开始于: 2023年10月04日 \n\n\t我
 // 输出到控制台
 console.log(outputMessage);
 
+// 移动端卡片创建函数
+function createMobileCards() {
+    const tables = document.querySelectorAll('table');
+    const defaultIcon = 'https://awafuns.cn/background.svg';
+
+    tables.forEach(table => {
+        const mobileGrid = document.createElement('div');
+        mobileGrid.className = 'mobile-grid';
+
+        // 判断表格类型
+        const isRecommendTable = table.closest('section#recommend');
+        const isToolsTable = table.closest('#Tools');
+        const isAwATable = table.classList.contains('AwA');
+
+        const rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach(row => {
+            if (!row.querySelector('.tool-name')?.textContent.trim()) return;
+
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            // 获取基础数据
+            const name = row.querySelector('.tool-name')?.textContent.trim() || '';
+            const icon = row.querySelector('svg')?.outerHTML || '';
+            let price = '';
+            let description = '';
+            let link = '#';
+
+            // 创建图标元素
+            const iconElement = document.createElement('div');
+            iconElement.className = 'card-icon';
+            if (icon) {
+                iconElement.innerHTML = icon;
+            } else {
+                const imgElement = document.createElement('img');
+                imgElement.src = defaultIcon;
+                imgElement.alt = name;
+                imgElement.onerror = () => {
+                    imgElement.style.display = 'none';
+                    iconElement.textContent = name.charAt(0).toUpperCase();
+                    iconElement.classList.add('text-icon');
+                };
+                iconElement.appendChild(imgElement);
+            }
+
+            // 根据不同机场表格类型处理数据
+            if (isAwATable) {
+                // 机场表格处理
+                price = row.cells[1]?.textContent.trim() || '';
+                description = row.cells[2]?.textContent.trim() || '';
+
+                // 获取机场链接
+                const linkCell = row.cells[3];
+                if (linkCell) {
+                    const aLink = linkCell.querySelector('a');
+                    if (aLink && aLink.href && !aLink.href.includes('javascript:void(0)')) {
+                        link = aLink.href;
+                    }
+                }
+            } else if (isRecommendTable) {
+                // 软件推荐表格处理
+                description = row.cells[1]?.textContent.trim() || '';
+                const officialLink = row.cells[2]?.querySelector('a')?.href || '#';
+                const downloadCell = row.cells[3];
+
+                if (downloadCell) {
+                    const links = Array.from(downloadCell.querySelectorAll('a'));
+
+                    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                        // iOS设备链接处理
+                        const iosLink = links.find(a =>
+                            a.href.includes('apps.apple.com') ||
+                            a.textContent.includes('App Store (ios)')
+                        );
+                        link = iosLink?.href || officialLink;
+                    } else if (/Android/i.test(navigator.userAgent)) {
+                        // Android设备链接处理
+                        const androidLink = links.find(a =>
+                            a.textContent.includes('Android') ||
+                            a.href.includes('apkpure.com')
+                        );
+                        link = androidLink?.href || officialLink;
+                    } else {
+                        // Windows设备链接处理
+                        const windowsLink = links.find(a =>
+                            a.textContent.includes('Windows') &&
+                            !a.hasAttribute('onclick')
+                        );
+                        link = windowsLink?.href || officialLink;
+                    }
+                }
+            } else {
+                // 其他表格处理
+                link = row.querySelector('a[href^="http"]')?.href || '#';
+                description = '点击前往下载';
+            }
+
+            // 创建卡片内容
+            const fragment = document.createDocumentFragment();
+            fragment.appendChild(iconElement);
+
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'card-title';
+            titleDiv.textContent = name;
+            fragment.appendChild(titleDiv);
+
+            if (price) {
+                const priceDiv = document.createElement('div');
+                priceDiv.className = 'card-price';
+                priceDiv.textContent = price;
+                fragment.appendChild(priceDiv);
+            }
+
+            const descDiv = document.createElement('div');
+            descDiv.className = 'card-description';
+            descDiv.textContent = description;
+            fragment.appendChild(descDiv);
+
+            card.appendChild(fragment);
+
+            // 添加点击事件
+            if (link && link !== '#' && link.startsWith('http')) {
+                card.classList.add('clickable');
+                card.addEventListener('click', () => {
+                    card.classList.add('clicking');
+                    setTimeout(() => {
+                        try {
+                            window.open(link, '_blank', 'noopener,noreferrer');
+                        } catch (e) {
+                            console.error('Failed to open link:', link);
+                            window.location.href = link;
+                        }
+                        card.classList.remove('clicking');
+                    }, 150);
+                });
+            }
+
+            mobileGrid.appendChild(card);
+        });
+
+        // 添加到容器
+        const container = table.parentNode.querySelector('.mobile-grid-container');
+        if (container) {
+            container.innerHTML = '';
+            container.style.opacity = '0';
+            container.appendChild(mobileGrid);
+            requestAnimationFrame(() => {
+                container.style.transition = 'opacity 0.3s ease';
+                container.style.opacity = '1';
+            });
+        }
+    });
+}
+
+// 统一的DOMContentLoaded事件处理
 document.addEventListener('DOMContentLoaded', function () {
+    // 导航栏相关
     const toggleButton = document.getElementById('toggleButton');
     const navShow = document.getElementById('navLinks');
     const links = navShow.querySelectorAll('a');
@@ -217,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 为导航栏本身添加鼠标悬停事件监听器
     navShow.addEventListener('mouseover', function () {
         navShow.classList.add('active');
     });
@@ -226,12 +188,11 @@ document.addEventListener('DOMContentLoaded', function () {
         navShow.classList.remove('active');
     });
 
-    // 检测设备类型
+    // 移动端处理
     function isMobileDevice() {
         return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
     }
 
-    // 为文档添加点击事件监听器，点击空白处隐藏导航栏
     if (isMobileDevice()) {
         document.addEventListener('click', function (event) {
             if (!navShow.contains(event.target) && event.target !== toggleButton) {
@@ -239,18 +200,36 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // 为导航栏添加触摸事件监听器，处理移动端触摸移出
         navShow.addEventListener('touchend', function (event) {
             if (!navShow.contains(event.target)) {
                 navShow.classList.remove('active');
             }
         });
     } else {
-        // 为PC端添加点击事件监听器，点击空白处隐藏导航栏
         document.addEventListener('click', function (event) {
             if (!navShow.contains(event.target) && event.target !== toggleButton) {
                 navShow.classList.remove('active');
             }
         });
     }
+
+    // 创建移动端卡片
+    createMobileCards();
+
+    // 处理显示切换
+    function handleDisplayToggle() {
+        const isMobile = window.innerWidth <= 930;
+        document.querySelectorAll('table').forEach(table => {
+            table.style.display = isMobile ? 'none' : 'table';
+        });
+        document.querySelectorAll('.mobile-grid').forEach(grid => {
+            grid.style.display = isMobile ? 'grid' : 'none';
+        });
+    }
+
+    // 初始化显示
+    handleDisplayToggle();
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', handleDisplayToggle);
 });
