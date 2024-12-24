@@ -1,0 +1,159 @@
+.recommend-badge {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+}
+
+/* 飘带背景 */
+.recommend-badge::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: -35px;
+    width: 120px;
+    height: 28px;
+    background: linear-gradient(135deg, #7c8aff 0%, #5664ff 100%);
+    transform: rotate(-45deg);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    box-shadow:
+        0 2px 4px rgba(124, 138, 255, 0.3),
+        inset 0 1px rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+/* 星星主体 */
+.recommend-badge::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 15px;
+    left: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform-origin: center;
+}
+
+/* 卡片光效 */
+.card:has(.recommend-badge) {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 主光效 */
+.card:has(.recommend-badge)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(124, 138, 255, 0) 20%,
+            rgba(124, 138, 255, 0.15) 50%,
+            rgba(124, 138, 255, 0) 80%,
+            transparent 100%);
+    transform: translateX(-100%) skewX(-15deg);
+    animation: cardShine 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 边缘光晕 */
+.card:has(.recommend-badge)::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg,
+            rgba(124, 138, 255, 0.15),
+            rgba(86, 100, 255, 0.15));
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 悬停效果 */
+.card:has(.recommend-badge):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(124, 138, 255, 0.1);
+}
+
+.card:has(.recommend-badge):hover::before {
+    animation: cardShine 4s ease-in-out infinite;
+}
+
+.card:hover .recommend-badge::before {
+    filter: brightness(1.05);
+    transform: rotate(-45deg) scale(1.02);
+}
+
+/* 动画定义 */
+@keyframes cardShine {
+    0% {
+        transform: translateX(-100%) skewX(-15deg);
+    }
+
+    30%,
+    100% {
+        transform: translateX(200%) skewX(-15deg);
+    }
+}
+
+@keyframes starFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-2px) rotate(5deg);
+    }
+}
+
+/* 星星悬停动画 */
+.card:hover .recommend-badge::after {
+    animation: starRotate 2s linear infinite;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffd700' d='M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z'/%3E%3C/svg%3E");
+}
+
+@keyframes starRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 飘带悬停效果 */
+.card:hover .recommend-badge::before {
+    background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+    transform: rotate(-45deg) scale(1.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+    .recommend-badge {
+        transform: scale(0.9);
+        transform-origin: top left;
+    }
+
+    .recommend-badge::after {
+        width: 20px;
+        height: 20px;
+        top: 18px;
+        left: 16px;
+    }
+}

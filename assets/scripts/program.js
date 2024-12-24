@@ -1,12 +1,22 @@
+import { LoveMessage } from './modules/love-message.js';
+
+document.addEventListener('DOMContentLoaded', function () {
+    // 其他初始化代码...
+
+    // 显示爱心消息
+    const loveMessage = new LoveMessage();
+    loveMessage.show();
+});
+
 // 定义相关信息
-const loverName = "唐小姐";
-const message = "我爱她！超级超级爱她！人生目标搞钱搞钱，去把她娶回家，她当老大我当小弟！嘿嘿 \n\n\t2024.8.15\n\t我的宝宝! 女神大人！😭";
+// const loverName = "唐小姐";
+// const message = "我爱她！超级超级爱她！人生目标搞钱搞钱，去把她娶回家，她当老大我当小弟！嘿嘿 \n\n\t2024.8.15\n\t我的宝宝! 女神大人！😭";
 
-// 构建输出信息
-const outputMessage = `\n\t我们的恋爱开始于: 2023年10月04日 \n\n\t我的恋人 ${loverName} \n\t她是一个美丽的娃娃\n\n\t${message}\n\n`;
+// // 构建输出信息
+// const outputMessage = `\n\t我们的恋爱开始于: 2023年10月04日 \n\n\t我的恋人 ${loverName} \n\t她是一个美丽的娃娃\n\n\t${message}\n\n`;
 
-// 输出到控制台
-console.log(outputMessage);
+// // 输出到控制台
+// console.log(outputMessage);
 
 // 在createCards函数之前定义platformIcons对象
 const platformIcons = {
@@ -117,7 +127,7 @@ const platformNames = {
 };
 
 // 导入下载链接配置
-import { downloadLinks } from './config.js';
+import { downloadLinks } from './configs/download-config.js';
 
 // 修改获取支持平台的函数
 function getSupportedPlatforms(toolName) {
@@ -128,8 +138,9 @@ function getSupportedPlatforms(toolName) {
 }
 
 // 在文件顶部添加导入
-import { initAirportCards } from './airport-modal.js';
-import { initSoftwareCards } from './software-cards.js';
+import { initAirportCards } from './modules/airport-modal.js';
+import { initSoftwareCards } from './modules/software-cards.js';
+import { RecommendManager } from './modules/recommend.js';
 
 // 统一的DOMContentLoaded事件处理
 document.addEventListener('DOMContentLoaded', function () {
@@ -195,60 +206,143 @@ document.addEventListener('DOMContentLoaded', function () {
     // 监听窗口大小变化
     window.addEventListener('resize', handleDisplayToggle);
 
-    // 添加提示窗处理代码
-    const dailyNotice = document.getElementById('dailyNotice');
-    const acknowledgeBtn = document.querySelector('.acknowledge');
-    const cancelBtn = document.querySelector('.cancel');
-    const canceledMessage = document.getElementById('canceledMessage');
-    const warningMessage = document.getElementById('warningMessage');
-    const mask = document.getElementById('mask');
+    // 提示窗口处理函数
+    function initNoticeHandler() {
+        const dailyNotice = document.getElementById('dailyNotice');
+        const canceledMessage = document.getElementById('canceledMessage');
+        const warningMessage = document.getElementById('warningMessage');
+        const mask = document.getElementById('mask');
+        const navLinks = document.getElementById('navLinks');
+        const logo = document.querySelector('h1 a');
+        const MAX_CANCEL_COUNT = 5;
 
-    let cancelCount = 0;
-    const maxCancelCount = 5;
+        // 禁用所有导航和链接
+        function disableAllNavigation(disable = true) {
+            // 禁用导航链接
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                if (disable) {
+                    link.style.pointerEvents = 'none';
+                    link.style.opacity = '0.5';
+                } else {
+                    link.style.pointerEvents = '';
+                    link.style.opacity = '';
+                }
+            });
 
-    // 检查是否��经显示过提示
-    if (!localStorage.getItem('noticeShown')) {
+            // 禁用卡片点击
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (disable) {
+                    card.style.pointerEvents = 'none';
+                    card.style.opacity = '0.5';
+                } else {
+                    card.style.pointerEvents = '';
+                    card.style.opacity = '';
+                }
+            });
+
+            // 禁用 logo 点击
+            if (logo) {
+                logo.style.pointerEvents = disable ? 'none' : '';
+            }
+        }
+
+        // 检查是否需要重置（每天凌晨重置）
+        function checkAndResetDaily() {
+            const lastDate = localStorage.getItem('lastAgreedDate');
+            const today = new Date().toDateString();
+
+            if (lastDate !== today) {
+                localStorage.removeItem('hasAgreedToTerms');
+                localStorage.removeItem('cancelCount');
+                localStorage.setItem('lastAgreedDate', today);
+                return false;
+            }
+            return localStorage.getItem('hasAgreedToTerms') === 'true';
+        }
+
+        // 更新警告消息
+        function updateWarningMessage(remainingTries) {
+            warningMessage.innerHTML = `警告：再取消 ${remainingTries} 次将无法访问！`;
+            warningMessage.style.display = 'flex';
+            warningMessage.style.animation = 'none';
+            warningMessage.offsetHeight; // 触发重排
+            warningMessage.style.animation = 'slideDown 0.3s ease-out';
+        }
+
+        // 检查是否已同意
+        const hasAgreed = checkAndResetDaily();
+        if (hasAgreed) {
+            dailyNotice.style.display = 'none';
+            mask.style.display = 'none';
+            disableAllNavigation(false);
+            return;
+        }
+
+        // 初始化显示
         dailyNotice.style.display = 'flex';
         mask.style.display = 'block';
-    }
+        disableAllNavigation(true);
 
-    acknowledgeBtn.addEventListener('click', function () {
-        dailyNotice.style.display = 'none';
-        mask.style.display = 'none';
-        localStorage.setItem('noticeShown', 'true');
-    });
+        // 取消次数计数
+        let cancelCount = parseInt(localStorage.getItem('cancelCount') || '0');
 
-    cancelBtn.addEventListener('click', function () {
-        cancelCount++;
-
-        if (cancelCount >= maxCancelCount) {
+        // 同意按钮点击事件
+        document.querySelector('.acknowledge').addEventListener('click', () => {
+            localStorage.setItem('hasAgreedToTerms', 'true');
+            localStorage.setItem('lastAgreedDate', new Date().toDateString());
             dailyNotice.style.display = 'none';
-            canceledMessage.style.display = 'block';
-            mask.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        } else {
-            warningMessage.style.display = 'block';
+            mask.style.display = 'none';
+            disableAllNavigation(false);
+        });
+
+        // 取消按钮点击事件
+        document.querySelector('.cancel').addEventListener('click', () => {
+            cancelCount++;
+            localStorage.setItem('cancelCount', cancelCount.toString());
+
+            const remainingTries = MAX_CANCEL_COUNT - cancelCount;
+
+            if (cancelCount >= MAX_CANCEL_COUNT) {
+                dailyNotice.style.display = 'none';
+                canceledMessage.style.display = 'flex';
+                mask.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                disableAllNavigation(true);
+                return;
+            }
+
+            // 立即更新并显示警告消息
+            updateWarningMessage(remainingTries);
             setTimeout(() => {
                 warningMessage.style.display = 'none';
             }, 2000);
+        });
+
+        // 每天凌晨重置
+        function resetAtMidnight() {
+            const now = new Date();
+            const night = new Date(
+                now.getFullYear(),
+                now.getMonth(),
+                now.getDate() + 1,
+                0, 0, 0
+            );
+            const msToMidnight = night.getTime() - now.getTime();
+
+            setTimeout(() => {
+                localStorage.removeItem('hasAgreedToTerms');
+                localStorage.removeItem('cancelCount');
+                location.reload(); // 重新加载页面以重置状态
+            }, msToMidnight);
         }
-    });
 
-    // 每24小时重置提示显示状态
-    const resetNoticeStatus = () => {
-        const lastShown = localStorage.getItem('lastShownTime');
-        const now = new Date().getTime();
+        resetAtMidnight();
+    }
 
-        if (lastShown && (now - parseInt(lastShown)) >= 24 * 60 * 60 * 1000) {
-            localStorage.removeItem('noticeShown');
-        }
-
-        if (!lastShown) {
-            localStorage.setItem('lastShownTime', now.toString());
-        }
-    };
-
-    resetNoticeStatus();
+    // 在 DOMContentLoaded 事件中调用
+    initNoticeHandler();
 
     // 修改导航链接点击事件
     navLinks.querySelectorAll('a').forEach(link => {
@@ -280,6 +374,10 @@ document.addEventListener('DOMContentLoaded', function () {
     createCards();
     initAirportCards();
     initSoftwareCards();
+
+    // 初始化推荐管理器
+    const recommendManager = new RecommendManager();
+    recommendManager.init();
 });
 
 function getPlatformName(platform) {

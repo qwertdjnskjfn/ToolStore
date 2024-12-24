@@ -1,3 +1,4 @@
+
 // 处理软件卡片点击事件
 function initSoftwareCards() {
     const softwareSection = document.querySelector('#software');

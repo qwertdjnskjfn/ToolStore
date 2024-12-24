@@ -1,5 +1,5 @@
 // 导入机场配置
-import { airportDetails } from './airport-config.js';
+import { airportDetails } from '../configs/config.js';
 
 // 创建机场详情弹窗
 function createAirportModal(airportName) {
