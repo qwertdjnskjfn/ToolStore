@@ -306,6 +306,7 @@ function createDownloadModal(toolName, downloadUrl) {
             <div class="download-header">
                 <h3>${toolName}</h3>
                 <p>选择下载平台</p>
+                <p>链接若需要维护，自行前往Github下载</p>
             </div>
             <div class="download-grid">
                 ${['windows', 'mac', 'linux', 'android', 'ios', 'github'].map(platform => `

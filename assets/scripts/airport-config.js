@@ -147,7 +147,7 @@ const airportDetails = {
                 </svg>`
             }
         ],
-        link: 'https://xn--9kqy92aw5h.com/#/register?code=O0Mcbu1C',
+        link: 'https://needaycloud.xyz/#/register?code=dWkLWMTf',
         tags: ['稳定', '高速', '性价比'] // 新增标签属性
     },
     // 星舰云
@@ -177,7 +177,7 @@ const airportDetails = {
                 </svg>`
             }
         ],
-        link: 'https://xn--9kqy92aw5h.com/#/register?code=O0Mcbu1C',
+        link: 'https://xingclouds.xyz/#/register?code=L3DcR9kF',
         tags: ['稳定', '高速', '性价比'] // 新增标签属性
     },
     // 云安云
@@ -207,7 +207,7 @@ const airportDetails = {
                 </svg>`
             }
         ],
-        link: 'https://xn--9kqy92aw5h.com/#/register?code=O0Mcbu1C',
+        link: 'https://yunanyun.app/#/register?code=QqGbRwUf',
         tags: ['稳定', '高速', '性价比'] // 新增标签属性
     },
     // Mitce
@@ -237,7 +237,7 @@ const airportDetails = {
                 </svg>`
             }
         ],
-        link: 'https://xn--9kqy92aw5h.com/#/register?code=O0Mcbu1C',
+        link: 'https://mitce.com/aff.php?aff=3878',
         tags: ['稳定', '高速', '性价比'] // 新增标签属性
     },
     // 可以添加更多机场配置...
