@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('href');
-            const targetElement = document.querySelector(target);
+            const targetElement = document.querySelector("target");
 
             // 关闭移动端菜单
             toggleButton.classList.remove('active');
