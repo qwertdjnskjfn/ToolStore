@@ -35,6 +35,7 @@ const downloadLinks = {
         windows: 'https://github.com/SagerNet/sing-box/releases/download/v1.10.5/sing-box-1.10.5-windows-386.zip',
         android: 'https://github.com/SagerNet/sing-box/releases/download/v1.10.5/SFA-1.10.5-universal.apk',
         linux: 'https://github.com/SagerNet/sing-box/releases/download/v1.10.5/sing-box-1.10.5-linux-386.tar.gz',
+        ios: 'https://apps.apple.com/us/app/sing-box-vt/id6673731168',
         github: 'https://github.com/SagerNet/sing-box'
     },
     // flclash
@@ -51,6 +52,7 @@ const downloadLinks = {
         android: 'https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Android-universal.apk',
         mac: 'https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-MacOS-Installer.pkg',
         linux: 'https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Linux-x64.AppImage',
+        ios: "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532",
         github: 'https://github.com/hiddify/hiddify-app'
     },
     // nekobox

@@ -7,6 +7,7 @@ export const recommendConfig = {
         'Mihomo Party',
         'ClashMeta',
         'Surfboard',
+        'singbox',
     ],
 
     // 软件类推荐
@@ -17,6 +18,7 @@ export const recommendConfig = {
     // 机场类推荐
     proxy: [
         '顶级机场',
-        'FSCloud'
+        'FSCloud',
+        '早安云'
     ]
 }; 
