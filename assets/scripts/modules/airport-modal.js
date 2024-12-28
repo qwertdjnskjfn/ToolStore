@@ -22,7 +22,12 @@ function createAirportModal(airportName) {
                 <div class="airport-tags">
                     ${details.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                <div class="airport-price">${details.price}</div>
+
+                <div class="packages-section">
+                    <div class="packages-content">
+                        ${createPriceTags(details.packages)}
+                    </div>
+                </div>
             </div>
             <div class="airport-body">
                 <div class="description-section">
@@ -106,6 +111,37 @@ function initAirportCards() {
             createAirportModal(airportName);
         });
     });
+}
+
+// 修改价格标签渲染函数
+function createPriceTags(packages) {
+    if (!packages || !packages.length) return '';
+
+    return `
+        <div class="packages-content">
+            ${packages.map(pkg => `
+                <div class="package-row">
+                    <div class="package-name">${pkg.name}</div>
+                    <div class="package-price">
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">${pkg.price}</span>
+                        <span class="price-period">/${pkg.period}</span>
+                    </div>
+                    <div class="package-traffic">${pkg.traffic}</div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// 解析价格文本的辅助函数
+function parsePriceText(text) {
+    // 示例: "¥15.60/年 200G/月"
+    const match = text.match(/¥(\d+\.?\d*)\/(年|月)\s*(\d+G\/月)/);
+    if (match) {
+        return [match[1], match[2], match[3]];
+    }
+    return [text, '', ''];
 }
 
 // 出函数

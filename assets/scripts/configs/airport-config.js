@@ -2,8 +2,15 @@
 const airportDetails = {
     // 顶级机场
     '顶级机场': {
-        price: '¥15.60/年 200G/月',
         description: '超便宜、稳定、快速、节点多、节点倍率消耗低',
+        packages: [
+            {
+                name: '基础套餐',
+                price: '15.60',
+                period: '年',
+                traffic: '200G/月'
+            }
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -28,12 +35,25 @@ const airportDetails = {
             }
         ],
         link: 'https://xn--mes358a9urctx.com/#/register?code=fY6Y8I3k',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // FSCloud
     'FSCloud': {
-        price: '￥13.00/年 100G/月',
         description: '家宽速度 万人群聊使用 秒开4K 直接访问',
+        packages: [
+            {
+                name: '入门套餐',
+                price: '13.00',
+                period: '年',
+                traffic: '100G/月'
+            },
+            {
+                name: '进阶套餐',
+                price: '25.00',
+                period: '年',
+                traffic: '200G/月'
+            }
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -58,12 +78,37 @@ const airportDetails = {
             }
         ],
         link: 'https://dash.fscloud.homes/#/register?code=LQF59pkU',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // 早安云
     '早安云': {
-        price: '￥1.00/月 500G/月 ￥10.00/年 ￥2.00/月 ￥18.00/年 1000G/月 ',
-        description: '十分优惠推荐备用、一次性付￥10.00/500G | ￥18.00/1000G',
+        description: '十分优惠推荐备用',
+        packages: [
+            {
+                name: '月付套餐',
+                price: '1.00',
+                period: '月',
+                traffic: '500G/月'
+            },
+            {
+                name: '年付套餐A',
+                price: '10.00',
+                period: '年',
+                traffic: '500G/月'
+            },
+            {
+                name: '月付进阶',
+                price: '2.00',
+                period: '月',
+                traffic: '1000G/月'
+            },
+            {
+                name: '年付套餐B',
+                price: '18.00',
+                period: '年',
+                traffic: '1000G/月'
+            },
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -88,12 +133,19 @@ const airportDetails = {
             }
         ],
         link: 'https://xn--9kqy92aw5h.com/#/register?code=O0Mcbu1C',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // 狗狗加速
     '狗狗加速': {
-        price: '￥15.00/月 160G/月',
         description: '稳定快速、速度保障秒开4K、价格偏于月付',
+        packages: [
+            {
+                name: '月付套餐',
+                price: '15.00',
+                period: '月',
+                traffic: '160G/月'
+            }
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -118,12 +170,19 @@ const airportDetails = {
             }
         ],
         link: 'https://go.dginv.click/#/register?code=FdXt0gA2',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // Needay
     'Needay': {
-        price: '￥15.00/年 300G/月',
-        description: '超便宜、稳定、快速、节点多、节点倍率适中(1.5x-5x)',
+        description: '超便宜、稳定、快速、节点多、节点倍率适中',
+        packages: [
+            {
+                name: '年付套餐',
+                price: '15.00',
+                period: '年',
+                traffic: '300G/月'
+            }
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -148,12 +207,19 @@ const airportDetails = {
             }
         ],
         link: 'https://needaycloud.xyz/#/register?code=dWkLWMTf',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // 星舰云
     '星舰云': {
-        price: '￥15.00/年 300G/月',
         description: '超便宜、稳定、快速、节点多、节点倍率适中(1.5x-5x)',
+        packages: [
+            {
+                name: '年付套餐',
+                price: '15.00',
+                period: '年',
+                traffic: '300G/月'
+            }
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -178,12 +244,19 @@ const airportDetails = {
             }
         ],
         link: 'https://xingclouds.xyz/#/register?code=L3DcR9kF',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // 云安云
     '云安云': {
-        price: '￥7.00/月 120G/月',
         description: '便宜、稳定、快速、但月付、有优惠',
+        packages: [
+            {
+                name: '月付套餐',
+                price: '7.00',
+                period: '月',
+                traffic: '120G/月'
+            }
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -208,12 +281,19 @@ const airportDetails = {
             }
         ],
         link: 'https://yunanyun.app/#/register?code=QqGbRwUf',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // Mitce
     'Mitce': {
-        price: '￥3.58/月 100G/月',
         description: '超便宜、全球网站排行17万左右、包稳定',
+        packages: [
+            {
+                name: '月付套餐',
+                price: '3.58',
+                period: '月',
+                traffic: '100G/月'
+            }
+        ],
         features: [
             {
                 title: '全球节点优质覆盖',
@@ -238,7 +318,7 @@ const airportDetails = {
             }
         ],
         link: 'https://mitce.com/aff.php?aff=3878',
-        tags: ['稳定', '高速', '性价比'] // 新增标签属性
+        tags: ['稳定', '高速', '性价比']
     },
     // 可以添加更多机场配置...
 };
