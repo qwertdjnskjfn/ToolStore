@@ -46,22 +46,22 @@ function createAirportModal(airportName) {
                             <div class="feature-item">
                                 <div class="feature-header">
                                     <div class="feature-icon">${feature.icon}</div>
-                                    <h5>${feature.title}</h5>
+                                    <div class="feature-title"><h5>${feature.title}</h5></div>
                                 </div>
-                                <p>${feature.description}</p>
+                                <div class="feature-description"><p>${feature.description}</p></div>
                             </div>
                         `).join('')}
                     </div>
                 </div>
             </div>
             <div class="airport-actions">
-                <button class="action-button cancel-button">取消</button>
                 <button class="action-button visit-button">
                     <svg viewBox="0 0 24 24">
                         <path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/>
                     </svg>
                     访问官网
                 </button>
+                <button class="action-button cancel-button">取消</button>
             </div>
         </div>
     `;
