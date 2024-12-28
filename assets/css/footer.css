@@ -1,0 +1,42 @@
+/* 页脚样式 */
+footer {
+    padding: 20px 0;
+    text-align: center;
+    background: linear-gradient(180deg, transparent, rgba(26, 29, 36, 0.5));
+}
+
+footer p {
+    font-size: 14px;
+    color: rgba(255, 255, 255);
+    margin: 0;
+}
+
+/* 项目链接样式 */
+.project-link {
+    color: #7c8aff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: #96a1ff;
+    text-shadow: 0 0 10px rgba(124, 138, 255, 0.3);
+}
+
+/* 链接下划线动画 */
+.project-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #7c8aff, #96a1ff);
+    transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
+    width: 100%;
+}
