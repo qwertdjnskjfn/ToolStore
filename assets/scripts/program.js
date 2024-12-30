@@ -1,4 +1,5 @@
 import { LoveMessage } from './modules/love-message.js';
+import { NavScroll } from './modules/nav-scroll.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     // 其他初始化代码...
@@ -6,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // 显示爱心消息
     const loveMessage = new LoveMessage();
     loveMessage.show();
+
+    // 初始化导航滚动
+    new NavScroll();
 });
 
 // 定义相关信息
