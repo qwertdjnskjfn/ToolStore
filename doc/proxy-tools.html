@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工具清单 | 介绍页</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L2 7L12 12L22 7L12 2Z' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 17L12 22L22 17' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 12L12 17L22 12' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon"
+        href="data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='180' height='180' fill='%231a1d24'/%3E%3Cpath d='M12 2L2 7L12 12L22 7L12 2Z' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 17L12 22L22 17' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 12L12 17L22 12' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <meta name="theme-color" content="#1a1d24">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --surface-color: #ffffff;
+            --primary-color: #4f46e5;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --hover-color: #f3f4f6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #111827;
+                --surface-color: #1f2937;
+                --primary-color: #818cf8;
+                --text-primary: #f3f4f6;
+                --text-secondary: #9ca3af;
+                --border-color: #374151;
+                --hover-color: #272f3d;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        #main {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        }
+
+        .page-title {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 表头样式 */
+        tr:first-child td {
+            font-weight: 500;
+            color: var(--text-primary);
+            background: var(--surface-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+        }
+
+        /* 链接样式 */
+        a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+            position: relative;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* 失效链接样式 */
+        a[href*="链接失效"] {
+            color: var(--text-secondary);
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        a[href*="链接失效"]:hover {
+            color: var(--text-secondary);
+        }
+
+        a[href*="链接失效"]::after {
+            display: none;
+        }
+
+        /* 移除特殊样式 */
+        td[rowspan],
+        td:last-child {
+            color: var(--text-secondary);
+            background: none;
+            font-weight: normal;
+            text-transform: none;
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            #main {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            td {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 优化滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+
+        /* 加载动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #main {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1 class="page-title">代理工具清单</h1>
+        <!-- 表格内容保持不变 -->
+        <table>
+            <tbody>
+                <tr>
+                    <td width="150">客户端类型</td>
+                    <td width="360">客户端版本</td>
+                    <td width="150">官网下载</td>
+                    <td width="150">使用教程(无)</td>
+                </tr>
+                <!-- 安卓手机端 -->
+                <tr>
+                    <td rowspan="4">安卓手机端</td>
+                    <td><a href="https://github.com/2dust/v2rayNG/releases" target="_blank"
+                            rel="noopener">V2rayNG安卓客户端apk下载</a>
+                    </td>
+                    <td><a href="https://github.com/2dust/v2rayNG/releases" target="_blank" rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://apkpure.com/bifrostv/com.github.dawndiy.bifrostv" target="_blank"
+                            rel="noopener">BifrostV安卓客户端apk下载</a></td>
+                    <td><a href="https://apkpure.com/bifrostv/com.github.dawndiy.bifrostv" target="_blank"
+                            rel="noopener">立即下载(链接失效)</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases" target="_blank"
+                            rel="noopener">Clash
+                            Meta安卓客户端apk下载</a></td>
+                    <td><a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases" target="_blank"
+                            rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://apkpure.com/kitsunebi/fun.kitsunebi.kitsunebi4android" target="_blank"
+                            rel="noopener">Kitsunebi安卓客户端apk下载</a></td>
+                    <td><a href="https://apkpure.com/kitsunebi/fun.kitsunebi.kitsunebi4android" target="_blank"
+                            rel="noopener">立即下载(链接失效)</a></td>
+
+                    <td>点击观看</td>
+                </tr>
+                <!-- 苹果IOS手机端 -->
+                <tr>
+                    <td rowspan="5">苹果IOS手机端</td>
+                    <!-- style="text-align: center;" -->
+                    <td colspan="4">市场里暂无免费IOS版本的V2Ray、Clash客户端,以下是Apple Store里付费的软件</td>
+                </tr>
+                <tr>
+                    <td><a href="https://apps.apple.com/us/app/shadowrocket/id932747118" target="_blank"
+                            rel="noopener">Shadowrocket(小火箭)</a></td>
+                    <td><a href="https://apps.apple.com/us/app/shadowrocket/id932747118" target="_blank"
+                            rel="noopener">美区商店</a></td>
+                    <td rowspan="4">点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://apps.apple.com/us/app/surge-5/id1442620678" target="_blank"
+                            rel=" noopener">Surge5</a></td>
+                    <td><a href="https://apps.apple.com/us/app/surge-5/id1442620678" target="_blank"
+                            rel=" noopener">美区商店</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://apps.apple.com/us/app/quantumult-x/id1443988620" target="_blank"
+                            rel=" noopener">Quantumult-X(圈儿)</a></td>
+                    <td><a href="https://apps.apple.com/us/app/quantumult-x/id1443988620" target="_blank"
+                            rel=" noopener">美区商店</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://apps.apple.com/us/app/quantumult/id1252015438" target="_blank"
+                            rel="noopener">Quantumult、</a>pepi、i2Ray、Kitsunebi
+                    </td>
+                    <td><a href="https://apps.apple.com/us/app/quantumult/id1252015438" target="_blank"
+                            rel="noopener">美区商店(Quantumult)</a></td>
+                </tr>
+                <!-- 苹果MAC电脑端 -->
+                <tr>
+                    <td rowspan=" 3">苹果MAC电脑端</td>
+                    <td><a href="https://github.com/yanue/V2rayU/releases" target="_blank" rel="noopener">V2rayU
+                            Mac客户端下载</a></td>
+                    <td><a href="https://github.com/yanue/V2rayU/releases" target="_blank" rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/Cenmrev/V2RayX/releases" target="_blank" rel="noopener">V2rayX
+                            Mac客户端下载</a></td>
+                    <td><a href="https://github.com/Cenmrev/V2RayX/releases" target="_blank" rel="noopener">立即下载</a>
+                    </td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank"
+                            rel="noopener">ClashX
+                            Mac客户端下载</a></td>
+                    <td><a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank"
+                            rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <!-- Windows电脑端 -->
+                <tr>
+                    <td rowspan="6">Windows电脑端</td>
+                    <td><a href="https://github.com/2dust/v2rayN/releases" target="_black"
+                            rel="noopener">V2rayN客户端下载</a>
+                    </td>
+                    <td><a href="https://github.com/2dust/v2rayN/releases" target="_black" rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/Cenmrev/V2RayW/releases" target="_black"
+                            rel="noopener">V2rayW客户端下载</a>
+                    </td>
+                    <td><a href="https://github.com/Cenmrev/V2RayW/releases" target="_black" rel="noopener">立即下载</a>
+                    </td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_black"
+                            rel="noopener">Clash Verge客户端下载</a></td>
+                    <td><a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_black"
+                            rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/Shinlor/V2RayS/releases" target="_black"
+                            rel="noopener">V2rayS客户端下载</a>
+                    </td>
+                    <td><a href="https://github.com/Shinlor/V2RayS/releases" target="_black" rel="noopener">立即下载</a>
+                    </td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/mellow-io/mellow/releases" target="_black"
+                            rel="noopener">Mellow客户端下载</a></td>
+                    <td><a href="https://github.com/mellow-io/mellow/releases" target="_black" rel="noopener">立即下载</a>
+                    </td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/Qv2ray/Qv2ray/releases" target="_black"
+                            rel="noopener">Qv2ray客户端下载</a>
+                    </td>
+                    <td><a href="https://github.com/Qv2ray/Qv2ray/releases" target="_black" rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <!-- Linux客户端 -->
+                <tr>
+                    <td rowspan="4">Linux客户端</td>
+                    <td><a href="https://github.com/Qv2ray/Qv2ray/releases" target="_black" rel="noopener">Qv2ray
+                            Linux客户端下载</a></td>
+                    <td><a href="https://github.com/Qv2ray/Qv2ray/releases" target="_black" rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/mellow-io/mellow/releases" target="_black" rel="noopener">Mellow
+                            Linux客户端下载</a></td>
+                    <td><a href="https://github.com/mellow-io/mellow/releases" target="_black" rel="noopener">立即下载</a>
+                    </td>
+                    <td>点击观看</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/jiangxufeng/v2rayL" target="_black" rel="noopener">V2rayL
+                            Linux客户端下载</a>
+                    </td>
+                    <td><a href="https://github.com/jiangxufeng/v2rayL" target="_black" rel="noopener">立即下载</a></td>
+                    <td>点击观看</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

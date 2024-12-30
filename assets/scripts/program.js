@@ -1,5 +1,9 @@
 import { LoveMessage } from './modules/love-message.js';
 import { NavScroll } from './modules/nav-scroll.js';
+import { copyEmail } from './modules/email-handler.js';
+
+// 使复制函数在全局可用
+window.copyEmail = copyEmail;
 
 document.addEventListener('DOMContentLoaded', function () {
     // 其他初始化代码...
