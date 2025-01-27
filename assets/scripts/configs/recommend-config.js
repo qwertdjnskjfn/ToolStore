@@ -8,15 +8,17 @@ export const recommendConfig = {
         'ClashMeta',
         'Surfboard',
         'singbox',
-        'Hiddify'
+        'Hiddify',
+        'Surge5'
     ],
 
     // 软件类推荐
     software: [
         'Spotify',
         'Netflix',
-        'APKPure'
-
+        'APKPure',
+        'Youtube',
+        'Gmail'
     ],
 
     // 机场类推荐
