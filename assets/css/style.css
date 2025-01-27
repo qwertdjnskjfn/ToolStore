@@ -1555,3 +1555,20 @@ main {
         background-size: 12px;
     }
 }
+
+.button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(124, 138, 255, 0.1);
+    margin-right: 16px;
+}
+
+.button:hover {
+    color: #7c8aff;
+    background: rgba(124, 138, 255, 0.15);
+    transform: translateY(-1px);
+}

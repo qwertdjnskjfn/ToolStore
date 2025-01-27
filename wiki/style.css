@@ -1,0 +1,225 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    font-size: 16px;
+    /* 设置基础字体大小 */
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 24px;
+    /* 增加标题字体大小 */
+}
+
+h2 {
+    color: #555;
+    margin-top: 20px;
+    font-size: 20px;
+    /* 增加副标题字体大小 */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#tabs {
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-right: 5px;
+}
+
+.tab-button:hover {
+    background-color: #ddd;
+}
+
+.tab-content {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.tab-content h2 {
+    margin-top: 0;
+}
+
+.container {
+    max-width: 800px;
+    /* 最大宽度 */
+    width: 90%;
+    /* 宽度自适应 */
+    margin: auto;
+    /* 居中对齐 */
+    padding: 20px;
+    /* 内边距 */
+    background: #fff;
+    /* 背景颜色 */
+    border-radius: 10px;
+    /* 圆角效果 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* 阴影效果 */
+}
+
+.container span {
+    display: block;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+    /* 链接颜色 */
+}
+
+a:hover {
+    text-decoration: underline;
+    /* 鼠标悬停时下划线 */
+}
+
+img {
+    max-width: 100%;
+    /* 确保图片自适应宽度 */
+    height: auto;
+    /* 保持图片比例 */
+    margin: 10px auto;
+    /* 图片上下间距，并水平居中 */
+    display: block;
+    /* 将图片设置为块级元素 */
+    border-radius: 5px;
+    /* 圆角效果 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 阴影效果 */
+}
+
+.button-container {
+    text-align: center;
+    /* 居中对齐 */
+    margin-top: 20px;
+    /* 上间距 */
+}
+
+.button {
+    display: inline-block;
+    /* 使链接表现为块级元素 */
+    padding: 10px 20px;
+    /* 内边距 */
+    background-color: #007BFF;
+    /* 背景颜色 */
+    color: white;
+    /* 字体颜色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+    border-radius: 5px;
+    /* 圆角效果 */
+    transition: background-color 0.3s;
+    /* 背景颜色过渡效果 */
+}
+
+.button:hover {
+    background-color: #0056b3;
+    /* 鼠标悬停时的背景颜色 */
+}
+
+.modal {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    /* 固定定位 */
+    z-index: 1000;
+    /* 在最上层 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* 背景颜色 */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    /* 最大宽度 */
+    max-height: 90%;
+    /* 最大高度 */
+    position: absolute;
+    /* 绝对定位 */
+    top: 50%;
+    /* 垂直居中 */
+    left: 50%;
+    /* 水平居中 */
+    transform: translate(-50%, -50%);
+    /* 通过平移使其居中 */
+    transition: transform 0.3s ease;
+    /* 添加过渡效果 */
+    transform-origin: center;
+    /* 设置缩放的原点为中心 */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    /* 适应文本 */
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+        /* 在小屏幕上减小字体大小 */
+    }
+
+    h1 {
+        font-size: 20px;
+        /* 减小标题字体大小 */
+    }
+
+    h2 {
+        font-size: 18px;
+        /* 减小副标题字体大小 */
+    }
+
+    .container {
+        padding: 10px;
+        /* 减小内边距 */
+    }
+}
