@@ -14,7 +14,7 @@ export const recommendConfig = {
 
     // 软件类推荐
     software: [
-        'Spotify',
+        'ChatGPT',
         'Netflix',
         'APKPure',
         'Youtube',

@@ -74,7 +74,7 @@ function createCards() {
             }
             imgElement.alt = name;
             imgElement.onerror = () => {
-                imgElement.src = 'assets/images/tools/default.png';
+                imgElement.src = '';
             };
             iconElement.appendChild(imgElement);
 
