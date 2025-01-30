@@ -1,4 +1,4 @@
-// 下载链接配置
+// 下载链接配置  全是小写
 const downloadLinks = {
     // clash verge
     'clash verge': {
@@ -42,6 +42,12 @@ const downloadLinks = {
         mac: "https://apps.apple.com/us/app/sing-box-vt/id6673731168",
         ios: 'https://apps.apple.com/us/app/sing-box-vt/id6673731168',
         github: 'https://github.com/SagerNet/sing-box'
+    },
+    // singboxgui
+    'gui.for.singbox': {
+        windows: 'https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.1/GUI.for.SingBox-windows-386.zip',
+        linux: 'https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.1/GUI.for.SingBox-linux-amd64.zip',
+        github: 'https://github.com/GUI-for-Cores/GUI.for.SingBox'
     },
     // flclash
     'flclash': {

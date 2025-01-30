@@ -24,7 +24,6 @@ export const recommendConfig = {
     // 机场类推荐
     proxy: [
         '顶级机场',
-        'FSCloud',
         '早安云'
     ]
 }; 

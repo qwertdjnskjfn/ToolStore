@@ -5,10 +5,40 @@ const airportDetails = {
         description: '超便宜、稳定、快速、节点多、节点倍率消耗低',
         packages: [
             {
-                name: '基础套餐',
+                name: '年付每月200G',
                 price: '15.60',
                 period: '年',
                 traffic: '200G/月'
+            },
+            {
+                name: '月付1000G',
+                price: '6.50',
+                period: '月',
+                traffic: '1000G/月'
+            },  
+            {
+                name: '月付3000G-高级套餐',
+                price: '13.60',
+                period: '月',
+                traffic: '3000G/月'
+            },
+            {
+                name: '不限时200G套餐',
+                price: '12.00',
+                period: '一次性',
+                traffic: '200G/一次性'
+            },
+            {
+                name: '不限时2000G套餐',
+                price: '45.00',
+                period: '一次性',
+                traffic: '2000G/一次性'
+            },
+            {
+                name: '不限时6000G套餐',
+                price: '90.00',
+                period: '一次性',
+                traffic: '6000G/一次性'
             }
         ],
         features: [
@@ -42,16 +72,22 @@ const airportDetails = {
         description: '家宽速度 万人群聊使用 秒开4K 直接访问',
         packages: [
             {
-                name: '入门套餐',
+                name: '小份套餐',
                 price: '13.00',
                 period: '年',
                 traffic: '100G/月'
             },
             {
-                name: '进阶套餐',
-                price: '25.00',
-                period: '年',
-                traffic: '200G/月'
+                name: '中份套餐',
+                price: '9.00',
+                period: '季',
+                traffic: '350G/月'
+            },
+            {
+                name: '大份套餐',
+                price: '10.00',
+                period: '月',
+                traffic: '120G/月'
             }
         ],
         features: [
