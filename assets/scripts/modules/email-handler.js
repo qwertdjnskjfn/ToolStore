@@ -1,5 +1,5 @@
 export function copyEmail() {
-    const email = 'mckekejun@gmail.com';
+    const email = 'toolstore@awafuns.cn';
 
     // 创建临时输入框
     const tempInput = document.createElement('input');
