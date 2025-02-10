@@ -39,21 +39,7 @@
 
 ### 💻 软件推荐
 
-| 名称 | 说明 | 官网链接 |
-|------|------|----------|
-| Pixiv | 插画分享平台 | [官网](https://www.pixiv.net/) |
-| TikTok | 短视频平台 | [官网](https://www.tiktok.com/) |
-| APKPure | 安卓应用下载 | [官网](https://apkpure.com/) |
-| Netflix | 流媒体视频服务 | [官网](https://www.netflix.com/) |
-| YouTube | 视频分享平台 | [官网](https://www.youtube.com/) |
-| Telegram | 即时通讯工具 | [官网](https://telegram.org/) |
-| Instagram | 图片社交平台 | [官网](https://www.instagram.com/) |
-| Discord | 社群语音聊天 | [官网](https://discord.com/) |
-| X | 社交媒体平台 | [官网](https://x.com/) |
-| Twitch | 直播平台 | [官网](https://www.twitch.tv/) |
-| GooglePlay | 安卓应用商店 | [官网](https://play.google.com/) |
-| Gspace | Google 服务框架 | [官网](https://gspaceteam.com/) |
-| Spotify | 音乐流媒体平台 | [官网](https://www.spotify.com/) |
+精选优质网站&&软件推荐
 
 ### 🌐 机场推荐
 
