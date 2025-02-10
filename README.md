@@ -6,7 +6,7 @@
                 stroke-linejoin="round" /><path d="M2 12L12 17L22 12" stroke="#7c8aff" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" /></svg>
     </a>
-  <h1>ProxyTool</h1>
+  <h1>ToolStore</h1>
   <h3>📖 简介</h3>
   <p>一个简洁的代理工具导航网站，提供各类工具、软件和机场服务的下载链接与介绍。</p>
 </div>
@@ -59,13 +59,6 @@
 
 精选优质稳定的机场服务推荐
 
-## 注意事项
-
-- 本站仅提供工具介绍，请合理使用
-- 遵守当地法律法规
-- 部分工具可能需要付费使用
-- 机场服务请自行甄别，谨防诈骗
-
 ---
-2024 | 仅供学习参考
+| 仅供学习参考
 
