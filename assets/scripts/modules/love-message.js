@@ -102,24 +102,24 @@ export class LoveMessage {
             console.warn = function () { };
 
             // 清空控制台并显示内容
-            console.clear();
-            console.log(this.loveArt, this.styles);
+            // console.clear();
+            // console.log(this.loveArt, this.styles);
 
             // 显示标题
-            console.log('%c❤ Love Story ❤', `
+            /* console.log('%c❤ Love Story ❤', `
                 color: ${this.colors.love};
                 font-size: 20px;
                 font-weight: bold;
                 text-shadow: 0 0 3px rgba(255,107,107,0.4);
                 padding: 10px 0;
                 border-bottom: 2px solid ${this.colors.love};
-            `);
+            `); */
 
             // 显示消息
-            for (const msg of this.messages) {
+            /* for (const msg of this.messages) {
                 await this.delay(600);
                 console.log(`%c${msg.text}`, msg.style);
-            }
+            } */
 
             // 恢复原始的 console.warn
             console.warn = originalWarn;
