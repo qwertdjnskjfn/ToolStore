@@ -1,6 +1,6 @@
 // 控制台爱心和信息
 export class LoveMessage {
-    constructor() {
+   /*  constructor() {
         this.loveArt = `
 %c
     永远爱你
@@ -92,7 +92,7 @@ export class LoveMessage {
             }
         ];
     }
-
+ */
     async show() {
         try {
             // 保存原始的 console.warn
@@ -133,3 +133,28 @@ export class LoveMessage {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 } 
+
+
+/*     <!--
+         ❤❤❤❤       ❤❤❤❤
+       ❤❤❤❤❤❤   ❤❤❤❤❤❤❤
+      ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤
+     ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤
+      ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤
+       ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤
+        ❤❤❤❤❤❤❤❤❤❤❤❤❤❤
+          ❤❤❤❤❤❤❤❤❤❤❤❤
+             ❤❤❤❤❤❤❤❤❤
+               ❤❤❤❤❤❤❤
+                 ❤❤❤❤❤
+                   ❤❤❤
+                    ❤
+
+        嘿嘿！ 女朋友喔！女朋友喔！
+        欸嘿！ 欸嘿嘿！！ 欸嘿嘿！！！
+
+        2024.8.15
+        宝宝！ 宝宝！ 我错啦！ 再也不分心了(哭泣)
+        给你准备好吃的喝的 回来迎接你的甜甜的日子！！！
+        给我吃大逼斗~qwq
+    --> */
