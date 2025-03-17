@@ -47,7 +47,8 @@
 
 ---
 | 贡献仓库  
-| 请提交一个 [Pulls](https://github.com/Re0XIAOPA/ToolStore/pulls)
+| 请提交一个 [Pulls](https://github.com/Re0XIAOPA/ToolStore/pulls)  
+| 或者克隆仓库完成之后同步分支
 
 配置文件在 assets/scripts/config
 
