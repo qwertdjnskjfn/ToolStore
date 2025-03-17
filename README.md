@@ -64,13 +64,13 @@
 download-config 配置文件
 ```js
 'Tools': {
-        // 下载地址
-        windows: '',
-        mac: '',
-        linux: '',
-        android: '',
-        ios: '',
-        github: ''
-    },
+    // 下载地址
+    windows: '',
+    mac: '',
+    linux: '',
+    android: '',
+    ios: '',
+    github: ''
+  },
 ```
 
