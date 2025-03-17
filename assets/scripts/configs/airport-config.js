@@ -15,7 +15,7 @@ const airportDetails = {
                 price: '6.50',
                 period: '月',
                 traffic: '1000G/月'
-            },  
+            },
             {
                 name: '月付3000G-高级套餐',
                 price: '13.60',
