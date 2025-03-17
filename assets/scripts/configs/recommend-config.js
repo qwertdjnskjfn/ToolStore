@@ -26,4 +26,4 @@ export const recommendConfig = {
         '顶级机场',
         '早安云'
     ]
-}; 
+};
