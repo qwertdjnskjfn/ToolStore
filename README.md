@@ -48,3 +48,29 @@
 ---
 | 仅供学习参考
 
+贡献仓库
+请提交一个 [Pulls](https://github.com/Re0XIAOPA/ToolStore/pulls)
+或者克隆本仓库本地完成之后并同步提交 [Pulls](https://github.com/Re0XIAOPA/ToolStore/pulls)
+
+---
+配置文件在 assets/scripts/config
+
+- airport-config 机场配置
+- download-config 下载配置
+- recommend-config 推荐配置
+- 邮箱配置不可用
+
+
+download-config 配置文件
+```js
+'Tools': {
+        // 下载地址
+        windows: '',
+        mac: '',
+        linux: '',
+        android: '',
+        ios: '',
+        github: ''
+    },
+```
+
