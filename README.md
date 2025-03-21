@@ -49,7 +49,7 @@
 | 贡献仓库  
 | 请提交一个 [Pulls](https://github.com/Re0XIAOPA/ToolStore/pulls)  
 | 或者克隆仓库完成之后同步分支  
-| 网址：[点击前往](https://toolstore.awafuns.cn/)
+| 网址：[点击前往](https://toolstore.awafuns.cn/) 参考
 
 配置文件在 assets/scripts/config
 

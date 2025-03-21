@@ -2,9 +2,9 @@
 const downloadLinks = {
     // clash verge
     'clash verge': {
-        windows: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.0.3/Clash.Verge_2.0.3_x64-setup.exe',
-        mac: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.0.3/Clash.Verge_2.0.3_x64.dmg',
-        linux: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.0.3/Clash.Verge-2.0.3-1.x86_64.rpm',
+        windows: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.0/Clash.Verge_2.2.0_x64-setup.exe',
+        mac: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.0/Clash.Verge_2.2.0_x64.dmg',
+        linux: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.0/Clash.Verge-2.2.0-1.x86_64.rpm',
         github: 'https://github.com/clash-verge-rev/clash-verge-rev'
     },
     // mihomo party
