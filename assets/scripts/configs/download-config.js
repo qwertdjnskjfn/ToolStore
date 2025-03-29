@@ -9,9 +9,9 @@ const downloadLinks = {
     },
     // mihomo party
     'mihomo party': {
-        windows: 'https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.6.0/mihomo-party-windows-1.6.0-x64-setup.exe',
-        mac: 'https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.6.0/mihomo-party-macos-1.6.0-x64.pkg',
-        linux: 'https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.6.0/mihomo-party-linux-1.6.0-x86_64.rpm',
+        windows: 'https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.7.2/mihomo-party-windows-1.7.2-x64-setup.exe',
+        mac: 'https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.7.2/mihomo-party-macos-1.7.2-x64.pkg',
+        linux: 'https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.7.2/mihomo-party-linux-1.7.2-x86_64.rpm',
         github: 'https://github.com/mihomo-party-org/mihomo-party'
     },
     // clashmeta
