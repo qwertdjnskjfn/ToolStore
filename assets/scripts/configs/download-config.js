@@ -43,25 +43,25 @@ const downloadLinks = {
     },
     // singbox
     'singbox': {
-        windows: 'https://github.com/SagerNet/sing-box/releases/download/v1.10.7/sing-box-1.10.7-windows-386.zip',
-        android: 'https://github.com/SagerNet/sing-box/releases/download/v1.10.7/SFA-1.10.7-universal.apk',
-        linux: 'https://github.com/SagerNet/sing-box/releases/download/v1.10.7/sing-box-1.10.7-linux-386.tar.gz',
+        windows: 'https://github.com/SagerNet/sing-box/releases/download/v1.11.6/sing-box-1.11.6-windows-386.zip',
+        android: 'https://github.com/SagerNet/sing-box/releases/download/v1.11.6/SFA-1.11.6-universal.apk',
+        linux: 'https://github.com/SagerNet/sing-box/releases/download/v1.11.6/sing-box-1.11.6-linux-386.tar.gz',
         mac: "https://apps.apple.com/us/app/sing-box-vt/id6673731168",
         ios: 'https://apps.apple.com/us/app/sing-box-vt/id6673731168',
         github: 'https://github.com/SagerNet/sing-box'
     },
     // singboxgui
     'gui.for.singbox': {
-        windows: 'https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.1/GUI.for.SingBox-windows-386.zip',
-        linux: 'https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.1/GUI.for.SingBox-linux-amd64.zip',
+        windows: 'https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.5/GUI.for.SingBox-windows-386.zip',
+        linux: 'https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.5/GUI.for.SingBox-linux-amd64.zip',
         github: 'https://github.com/GUI-for-Cores/GUI.for.SingBox'
     },
     // flclash
     'flclash': {
-        windows: 'https://github.com/chen08209/FlClash/releases/download/v0.8.72/FlClash-0.8.72-windows-amd64-setup.exe',
-        android: 'https://github.com/chen08209/FlClash/releases/download/v0.8.72/FlClash-0.8.72-android-armeabi-v7a.apk',
-        mac: 'https://github.com/chen08209/FlClash/releases/download/v0.8.72/FlClash-0.8.72-macos-arm64.dmg',
-        linux: 'https://github.com/chen08209/FlClash/releases/download/v0.8.72/FlClash-0.8.72-linux-amd64.deb',
+        windows: 'https://github.com/chen08209/FlClash/releases/download/v0.8.80/FlClash-0.8.80-windows-amd64-setup.exe',
+        android: 'https://github.com/chen08209/FlClash/releases/download/v0.8.80/FlClash-0.8.80-android-armeabi-v7a.apkk',
+        mac: 'https://github.com/chen08209/FlClash/releases/download/v0.8.80/FlClash-0.8.80-macos-arm64.dmg',
+        linux: 'https://github.com/chen08209/FlClash/releases/download/v0.8.80/FlClash-0.8.80-linux-amd64.deb',
         github: 'https://github.com/chen08209/FlClash'
     },
     // hiddify
@@ -75,12 +75,12 @@ const downloadLinks = {
     },
     // nekobox
     'nekobox': {
-        android: 'https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.3.4/NB4A-1.3.4-armeabi-v7a.apk',
+        android: 'https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.3.8/NekoBox-1.3.8-armeabi-v7a.apk',
         github: 'https://github.com/MatsuriDayo/NekoBoxForAndroid'
     },
     // v2rayu
     'v2rayu': {
-        mac: 'https://github.com/yanue/V2rayU/releases/download/2.1.0/V2rayU.dmg',
+        mac: 'https://github.com/yanue/V2rayU/releases/download/v4.2.5/V2rayU-64.dmg',
         github: 'https://github.com/yanue/V2rayU'
     },
     // shadowrocket
