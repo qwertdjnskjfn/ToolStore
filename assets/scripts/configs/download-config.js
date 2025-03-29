@@ -38,7 +38,7 @@ const downloadLinks = {
     },
     // v2rayn
     'v2rayng': {
-        android: 'https://github.com/2dust/v2rayNG/releases/download/1.9.31/v2rayNG_1.9.31_universal.apk',
+        android: 'https://github.com/2dust/v2rayNG/releases/download/1.9.39/v2rayNG_1.9.39_universal.apk',
         github: 'https://github.com/2dust/v2rayNG'
     },
     // singbox
