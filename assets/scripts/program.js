@@ -1,30 +1,24 @@
-import { LoveMessage } from './modules/love-message.js';
 import { NavScroll } from './modules/nav-scroll.js';
 import { copyEmail } from './modules/email-handler.js';
 
 // 使复制函数在全局可用
 window.copyEmail = copyEmail;
 
+
 document.addEventListener('DOMContentLoaded', function () {
+    // 优先初始化提示窗口
+    setTimeout(() => {
+        initNoticeHandler();
+    }, 0);
+
     // 其他初始化代码...
 
-    // 显示爱心消息
-    const loveMessage = new LoveMessage();
-    loveMessage.show();
-
-    // 初始化导航滚动
-    new NavScroll();
+    // 确保DOM完全加载后初始化导航滚动
+    setTimeout(() => {
+        new NavScroll();
+    }, 0);
 });
 
-// 定义相关信息
-// const loverName = "唐小姐";
-// const message = "我爱她！超级超级爱她！人生目标搞钱搞钱，去把她娶回家，她当老大我当小弟！嘿嘿 \n\n\t2024.8.15\n\t我的宝宝! 女神大人！😭";
-
-// // 构建输出信息
-// const outputMessage = `\n\t我们的恋爱开始于: 2023年10月04日 \n\n\t我的恋人 ${loverName} \n\t她是一个美丽的娃娃\n\n\t${message}\n\n`;
-
-// // 输出到控制台
-// console.log(outputMessage);
 
 // 在createCards函数之前定义platformIcons对象
 const platformIcons = {
