@@ -12,6 +12,14 @@
 
 配置文件在 assets/scripts/config
 
+<div class="grid cards" markdown>
+
+- :fontawesome-brands-html5: __HTML__ 用于文章内容和结构的构建
+- :fontawesome-brands-js: __JavaScript__ 用于实现网页交互
+- :fontawesome-brands-css3: __CSS__ 可以避免文字溢出容器
+- :fontawesome-brands-internet-explorer: __Internet Explorer__ ... 您哪位?
+
+</div>
 - airport-config 机场配置
 - download-config 下载配置
 - recommend-config 推荐配置
