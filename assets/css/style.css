@@ -109,8 +109,15 @@ nav {
 
 .nav-links a:hover {
     color: #7c8aff;
-    background: rgba(124, 138, 255, 0.15);
     transform: translateY(-1px);
+}
+
+@media screen and (min-width: 768px) {
+    .nav-links a:hover {
+        color: #7c8aff;
+        background: rgba(124, 138, 255, 0.15);
+        transform: translateY(-1px);
+    }
 }
 
 /* 主要内容区域优化 */
@@ -298,6 +305,11 @@ footer p {
         width: 100%;
     }
 
+    .nav-links li:hover {
+        color: #7c8aff;
+        background: rgba(124, 138, 255, 0.15);
+    }
+
     .nav-links a {
         display: block;
         padding: 15px 20px;
@@ -306,7 +318,6 @@ footer p {
     }
 
     .nav-links a:hover {
-        background: rgba(124, 138, 255, 0.1);
         transform: none;
     }
 
@@ -734,10 +745,10 @@ table {
 
         /* 修改显示方式 */
         display: flex;
-        flex-direction: row;
-        /* 改为水平排列 */
+        flex-direction: column;
+        /* 改为垂直排列 */
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
         padding: 15px;
         gap: 15px;
 
@@ -758,8 +769,13 @@ table {
         transform: translateY(-10px);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         transition-delay: 0.1s;
-        width: auto;
-        /* 改自适应宽度 */
+        width: 100%;
+        /* 改为100%宽度 */
+        background: rgba(124, 138, 255, 0.05);
+        border-radius: 8px;
+        text-align: center;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links.active li {
@@ -771,7 +787,6 @@ table {
         display: inline-block;
         padding: 10px 20px;
         border-radius: 8px;
-        background: rgba(124, 138, 255, 0.05);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         color: #fff;
         font-weight: 500;
@@ -788,7 +803,7 @@ table {
     }
 
     .nav-links a:hover {
-        background: rgba(124, 138, 255, 0.1);
+        width: 100%;
         transform: translateY(-2px);
     }
 

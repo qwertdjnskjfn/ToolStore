@@ -3,14 +3,9 @@ import { copyEmail } from './modules/email-handler.js';
 
 // 使复制函数在全局可用
 window.copyEmail = copyEmail;
-
+console.log('Hello World!');
 
 document.addEventListener('DOMContentLoaded', function () {
-    // 优先初始化提示窗口
-    setTimeout(() => {
-        initNoticeHandler();
-    }, 0);
-
     // 其他初始化代码...
 
     // 确保DOM完全加载后初始化导航滚动
