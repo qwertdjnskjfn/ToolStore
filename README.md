@@ -31,7 +31,9 @@ download-config 配置文件
   },
 ```
 
-如果你要添加 只需在index.html 中添加然后在配置文件中配置即可
+如果你要添加 只需在index.html 中添加相应内容，然后在配置文件中配置即可
+> [!IMPORTANT]
+> index内的动态内容在program.js里有问题，目前已放弃史🐎修改
 
 工具
 
