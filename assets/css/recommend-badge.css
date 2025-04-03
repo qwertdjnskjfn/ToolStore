@@ -1,3 +1,9 @@
+/* 
+ * 推荐徽章基础定位
+ * 绝对定位在卡片左上角外(-6px)
+ * 设置固定宽高(60px)确保视觉一致性
+ * 较高z-index(10)确保显示在卡片内容之上
+ */
 .recommend-badge {
     position: absolute;
     top: -6px;
@@ -7,7 +13,15 @@
     z-index: 10;
 }
 
-/* 飘带背景 */
+/* 
+ * 飘带背景效果
+ * 使用伪元素创建斜向装饰条
+ * 渐变背景(#7c8aff到#5664ff)增强视觉吸引力
+ * 旋转-45度形成斜向布局
+ * 多边形裁剪(clip-path)塑造飘带两端尖角
+ * 内外阴影增强立体感
+ * 平滑过渡动画(all 0.3s ease)
+ */
 .recommend-badge::before {
     content: '';
     position: absolute;
@@ -25,7 +39,14 @@
     transition: all 0.3s ease;
 }
 
-/* 星星主体 */
+/* 
+ * 星星图标
+ * 使用SVG内联数据URI确保高清显示
+ * 固定尺寸(24px)保持视觉平衡
+ * 精确定位在飘带中央
+ * 白色填充与渐变背景形成对比
+ * 设置变换原点(transform-origin)为中心
+ */
 .recommend-badge::after {
     content: '';
     position: absolute;

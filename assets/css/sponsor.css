@@ -1,3 +1,7 @@
+/* 
+ * 赞助商标题样式
+ * 赞助商部分的标题样式和布局
+ */
 .sponsors-title {
   text-align: center;
   font-size: 24px;
@@ -7,6 +11,10 @@
   width: 100%;
 }
 
+/* 
+ * 赞助商容器
+ * 主要赞助商容器的布局和间距
+ */
 .sponsors-container {
   display: flex;
   flex-direction: column;
@@ -18,6 +26,10 @@
   margin: 0 auto;
 }
 
+/* 
+ * 主要赞助商容器
+ * 顶级赞助商的特殊样式和布局
+ */
 .primary-sponsors-container {
   display: flex;
   justify-content: center;
@@ -29,6 +41,10 @@
   margin-bottom: 20px;
 }
 
+/* 
+ * 次要赞助商容器
+ * 普通赞助商的布局样式
+ */
 .secondary-sponsors-container {
   display: flex;
   justify-content: center;
@@ -36,6 +52,10 @@
   gap: 20px;
 }
 
+/* 
+ * 赞助商卡片基础样式
+ * 单个赞助商卡片的基本布局
+ */
 .sponsor-card {
   display: flex;
   flex-direction: column;
@@ -52,6 +72,10 @@
   font-weight: bold;
 }
 
+/* 
+ * 赞助商头像
+ * 赞助商logo的圆形样式和动画效果
+ */
 .sponsor-avatar {
   width: 80px;
   height: 80px;
