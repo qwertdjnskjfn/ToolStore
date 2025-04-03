@@ -133,14 +133,26 @@ const airportDetails = {
                 traffic: '500G/月'
             },
             {
+                name: '半年付套餐',
+                price: '5.00',
+                period: '月',
+                traffic: '100G/月'
+            },
+            {
+                name: '年付套餐B',
+                price: '8.00',
+                period: '年',
+                traffic: '100G/月'
+            },
+            {
                 name: '月付进阶',
-                price: '2.00',
+                price: '3.00',
                 period: '月',
                 traffic: '1000G/月'
             },
             {
-                name: '年付套餐B',
-                price: '18.00',
+                name: '年付套餐C',
+                price: '28.00',
                 period: '年',
                 traffic: '1000G/月'
             },
