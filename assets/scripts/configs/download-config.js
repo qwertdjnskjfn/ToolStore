@@ -21,7 +21,7 @@ const downloadLinks = {
     },
     // clashmeta
     'clashmeta': {
-        android: 'https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.7/cmfa-2.11.7-meta-x86_64-release.apk',
+        android: 'https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.8/cmfa-2.11.8-meta-universal-release.apk',
         github: 'https://github.com/MetaCubeX/ClashMetaForAndroid'
     },
     // surfboard
