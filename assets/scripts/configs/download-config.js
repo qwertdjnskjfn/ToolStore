@@ -1,10 +1,15 @@
 // 下载链接配置  全是小写
+
+// zjh 
+
+
+
 const downloadLinks = {
     // clash verge
     'clash verge': {
-        windows: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.0/Clash.Verge_2.2.0_x64-setup.exe',
-        mac: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.0/Clash.Verge_2.2.0_x64.dmg',
-        linux: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.0/Clash.Verge-2.2.0-1.x86_64.rpm',
+        windows: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.2/Clash.Verge_2.2.2_x64-setup.exe',
+        mac: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.2/Clash.Verge_2.2.2_x64.dmg',
+        linux: 'https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.2/Clash.Verge-2.2.2-1.x86_64.rpm',
         github: 'https://github.com/clash-verge-rev/clash-verge-rev'
     },
     // mihomo party
@@ -16,7 +21,7 @@ const downloadLinks = {
     },
     // clashmeta
     'clashmeta': {
-        android: 'https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.8/cmfa-2.11.8-meta-x86-release.apk',
+        android: 'https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.8/cmfa-2.11.8-meta-universal-release.apk',
         github: 'https://github.com/MetaCubeX/ClashMetaForAndroid'
     },
     // surfboard
@@ -26,7 +31,9 @@ const downloadLinks = {
     },
     // v2rayn
     'v2rayn': {
-        windows: 'https://github.com/2dust/v2rayN/releases/download/7.7.0/v2rayN-With-Core.zip',
+        windows: 'https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-windows-64.zip',
+        mac:'https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-macos-64.dmg',
+        linux: 'https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-linux-64.zip',
         github: 'https://github.com/2dust/v2rayN'
     },
     // v2rayn
