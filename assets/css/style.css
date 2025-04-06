@@ -1,4 +1,7 @@
-/* 全局样式优化 */
+/* 
+ * 全局样式优化
+ * 定义CSS变量和基础样式
+ */
 :root {
     --main-bg-color: #0f1318;
     --secondary-bg-color: #1a1d24;
@@ -40,7 +43,10 @@ body {
     min-height: 100vh;
 }
 
-/* 头部样式优化 */
+/* 
+ * 头部样式优化
+ * 固定顶部的导航栏样式
+ */
 header {
     background: rgba(26, 29, 36, 0.95);
     backdrop-filter: blur(10px);
@@ -83,7 +89,10 @@ h1 a:hover {
     transform: translateY(-1px);
 }
 
-/* 导航栏样式优化 */
+/* 
+ * 导航栏样式优化
+ * 主导航链接的样式和交互效果
+ */
 nav {
     display: flex;
     align-items: center;
@@ -109,11 +118,15 @@ nav {
 
 .nav-links a:hover {
     color: #7c8aff;
-    background: rgba(124, 138, 255, 0.15);
     transform: translateY(-1px);
 }
 
-/* 主要内容区域优化 */
+
+
+/* 
+ * 主要内容区域优化
+ * 页面主体内容的布局和间距
+ */
 main {
     position: relative;
     z-index: 1000;
@@ -152,7 +165,10 @@ main {
     border-radius: 8px;
 }
 
-/* 卡片样式优化 */
+/* 
+ * 卡片样式优化
+ * 工具/软件卡片的通用样式和悬停效果
+ */
 .card {
     background: linear-gradient(145deg, #1e222b, #252a35);
     border-radius: 16px;
@@ -214,37 +230,10 @@ main {
     margin-top: 5px;
 }
 
-/* 响应式调整 */
-@media screen and (max-width: 767px) {
-    .card {
-        padding: 20px;
-        min-height: 160px;
-    }
-
-    .card-icon {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-@media screen and (max-width: 479px) {
-    .card {
-        padding: 15px;
-        min-height: 140px;
-    }
-
-    .card-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 10px;
-    }
-
-    .card-title {
-        font-size: 14px;
-    }
-}
-
-/* 页脚样式优化 */
+/* 
+ * 页脚样式优化
+ * 页面底部版权信息和链接样式
+ */
 footer {
     text-align: center;
     padding: 30px 20px;
@@ -266,80 +255,10 @@ footer p {
     padding: 20px;
 }
 
-/* 响应式布局优化 */
-@media screen and (max-width: 768px) {
-    .header-content {
-        padding: 10px 15px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background: rgba(26, 29, 36, 0.98);
-        backdrop-filter: blur(10px);
-        padding: 0;
-        display: none;
-        border-bottom: 1px solid rgba(124, 138, 255, 0.1);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 15px 20px;
-        border-radius: 0;
-        background: transparent;
-    }
-
-    .nav-links a:hover {
-        background: rgba(124, 138, 255, 0.1);
-        transform: none;
-    }
-
-    main {
-        padding: 80px 15px 30px;
-    }
-
-    .announcement {
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-
-    .announcement h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-        padding: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        gap: 10px;
-        padding: 10px;
-    }
-}
-
-/* 滚动条美化 */
+/* 
+ * 滚动条美化
+ * 自定义浏览器滚动条样式
+ */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -357,7 +276,10 @@ footer p {
     background: #5d6dff;
 }
 
-/* 提示窗样式优化 */
+/* 
+ * 提示窗样式优化
+ * 全屏模态对话框的样式和动画
+ */
 .notice {
     position: fixed;
     top: 0;
@@ -499,63 +421,6 @@ footer p {
     box-shadow: 0 4px 15px rgba(255, 71, 71, 0.2);
 }
 
-/* 修复网格布局 */
-@media screen and (min-width: 1400px) {
-    .grid-container {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-@media screen and (max-width: 1399px) and (min-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media screen and (max-width: 1023px) and (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media screen and (max-width: 767px) and (min-width: 480px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .card {
-        padding: 20px;
-    }
-
-    .card-icon {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-@media screen and (max-width: 479px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    .card-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 15px;
-    }
-
-    .card-title {
-        font-size: 14px;
-    }
-}
-
 /* 隐藏表格 */
 table {
     display: none !important;
@@ -635,48 +500,7 @@ table {
     border: 1px solid rgba(124, 138, 255, 0.1);
 }
 
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
-    .tools-section {
-        padding: 20px;
-        border-radius: 20px;
-        margin-bottom: 30px;
-    }
 
-    .tools-header {
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-    }
-
-    .tools-header h2 {
-        font-size: 24px;
-    }
-
-    .grid-container {
-        gap: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .tools-section {
-        padding: 15px;
-        border-radius: 16px;
-        margin-bottom: 20px;
-    }
-
-    .tools-header {
-        margin-bottom: 15px;
-        padding-bottom: 12px;
-    }
-
-    .tools-header h2 {
-        font-size: 22px;
-    }
-
-    .grid-container {
-        gap: 10px;
-    }
-}
 
 /* 移动端菜单按钮样式 */
 .toggle-button {
@@ -710,101 +534,7 @@ table {
     background: #5d6dff;
 }
 
-/* 移动端导航样式优化 */
-@media screen and (max-width: 768px) {
-    nav {
-        position: static;
-    }
 
-    .toggle-button {
-        display: block;
-        position: relative;
-        z-index: 1001;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: rgba(26, 29, 36, 0.98);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(124, 138, 255, 0.1);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-
-        /* 修改显示方式 */
-        display: flex;
-        flex-direction: row;
-        /* 改为水平排列 */
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        gap: 15px;
-
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .nav-links.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .nav-links li {
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        transition-delay: 0.1s;
-        width: auto;
-        /* 改自适应宽度 */
-    }
-
-    .nav-links.active li {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .nav-links a {
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 8px;
-        background: rgba(124, 138, 255, 0.05);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        color: #fff;
-        font-weight: 500;
-        font-size: 15px;
-        white-space: nowrap;
-        /* 防止文字换行 */
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-
-    .nav-links.active a {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .nav-links a:hover {
-        background: rgba(124, 138, 255, 0.1);
-        transform: translateY(-2px);
-    }
-
-    /* 超小屏幕适配 */
-    @media screen and (max-width: 480px) {
-        .nav-links {
-            padding: 12px;
-            gap: 10px;
-        }
-
-        .nav-links a {
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-    }
-}
 
 /* 机场卡片特殊样式 */
 .card.proxy-card {
@@ -850,16 +580,6 @@ table {
     gap: 15px;
 }
 
-@media screen and (max-width: 768px) {
-    .nav-links {
-        gap: 8px;
-    }
-
-    .nav-links a {
-        font-size: 15px;
-        padding: 10px 15px;
-    }
-}
 
 /* 平台图标容器 */
 .platform-icons {
@@ -895,25 +615,7 @@ table {
 }
 
 /* 修复导航栏显示问题 */
-@media screen and (min-width: 769px) {
-    .toggle-button {
-        display: none;
-    }
 
-    .nav-links {
-        display: flex !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-}
 
 /* 隐藏表格中的原始图片 */
 table img {
@@ -1047,49 +749,9 @@ table img {
     transform: rotate(90deg) scale(0.95);
 }
 
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
-    .download-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
 
-    .download-content {
-        padding: 25px;
-    }
 
-    .download-item {
-        padding: 20px;
-    }
 
-    .download-header h3 {
-        font-size: 24px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .download-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .download-content {
-        padding: 20px;
-    }
-
-    .download-item {
-        padding: 15px;
-    }
-
-    .download-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .download-name {
-        font-size: 14px;
-    }
-}
 
 /* 添加滚动行为样式 */
 html {
@@ -1126,22 +788,9 @@ main {
     filter: grayscale(1);
 }
 
-/* 调整响应式布局 */
-@media screen and (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-        padding: 15px;
-    }
-}
 
-@media screen and (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        gap: 10px;
-        padding: 10px;
-    }
-}
+
+
 
 /* 平台图标容器样式优化 */
 .platform-icons {
@@ -1451,49 +1100,7 @@ main {
     transform: rotate(90deg) scale(0.95);
 }
 
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
-    .airport-header {
-        padding: 25px 20px;
-    }
 
-    .airport-body {
-        padding: 20px;
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .feature-item {
-        padding: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .airport-header {
-        padding: 20px 15px;
-    }
-
-    .airport-body {
-        padding: 15px;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .airport-actions {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .action-button {
-        width: 100%;
-        justify-content: center;
-    }
-}
 
 /* 可点击卡片样式 */
 .card.clickable {
@@ -1535,26 +1142,7 @@ main {
     transform: translateY(-1px);
 }
 
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
-    .card.clickable::after {
-        top: 8px;
-        right: 8px;
-        width: 20px;
-        height: 20px;
-        background-size: 14px;
-    }
-}
 
-@media screen and (max-width: 480px) {
-    .card.clickable::after {
-        top: 6px;
-        right: 6px;
-        width: 18px;
-        height: 18px;
-        background-size: 12px;
-    }
-}
 
 .button:nth-child(2) {
     color: #fff;
