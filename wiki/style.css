@@ -1,9 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 20px;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     font-size: 16px;
-    /* 设置基础字体大小 */
+    min-height: 100vh;
+    transition: all 0.3s ease;
 }
 
 h1 {
@@ -27,10 +28,16 @@ ul {
 
 li {
     background: #fff;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 8px 0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
 #tabs {
@@ -61,19 +68,17 @@ li {
 
 .container {
     max-width: 800px;
-    /* 最大宽度 */
     width: 90%;
-    /* 宽度自适应 */
-    margin: auto;
-    /* 居中对齐 */
-    padding: 20px;
-    /* 内边距 */
+    margin: 30px auto;
+    padding: 25px;
     background: #fff;
-    /* 背景颜色 */
-    border-radius: 10px;
-    /* 圆角效果 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* 阴影效果 */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .container p {
@@ -122,24 +127,25 @@ img {
 
 .button {
     display: inline-block;
-    /* 使链接表现为块级元素 */
-    padding: 10px 20px;
-    /* 内边距 */
-    background-color: #007BFF;
-    /* 背景颜色 */
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
     color: white;
-    /* 字体颜色 */
     text-decoration: none;
-    /* 去掉下划线 */
-    border-radius: 5px;
-    /* 圆角效果 */
-    transition: background-color 0.3s;
-    /* 背景颜色过渡效果 */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .button:hover {
-    background-color: #0056b3;
-    /* 鼠标悬停时的背景颜色 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #0069d9 0%, #004a9c 100%);
+}
+
+.button:active {
+    transform: translateY(0);
 }
 
 .modal {
