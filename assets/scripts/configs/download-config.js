@@ -16,12 +16,12 @@ const downloadLinks = {
     },
     // clashmeta
     'clashmeta': {
-        android: 'https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.5/cmfa-2.11.4-meta-universal-release.apk',
+        android: 'https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.8/cmfa-2.11.8-meta-x86-release.apk',
         github: 'https://github.com/MetaCubeX/ClashMetaForAndroid'
     },
     // surfboard
     'surfboard': {
-        android: 'https://github.com/getsurfboard/surfboard/releases/download/2.24.9/mobile-universal-release.apk',
+        android: 'https://github.com/getsurfboard/surfboard/releases/download/mobile-2.24.10/mobile-universal-release.apk',
         github: 'https://github.com/getsurfboard/surfboard'
     },
     // v2rayn
