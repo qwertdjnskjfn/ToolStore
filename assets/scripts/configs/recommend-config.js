@@ -24,6 +24,7 @@ export const recommendConfig = {
     // 机场类推荐
     proxy: [
         '顶级机场',
-        '早安云'
+        '早安云',
+        '魔法喵MAGICAT'
     ]
 };
