@@ -1048,13 +1048,14 @@ main {
 }
 
 .visit-button {
-    background: linear-gradient(145deg, #7c8aff, #5d6dff);
+    background: rgba(124, 138, 255, 0.5);
     color: #fff;
 }
 
 .visit-button:hover {
+    background: #5d6dff;
+    color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(124, 138, 255, 0.3);
 }
 
 .cancel-button {
@@ -1063,7 +1064,7 @@ main {
 }
 
 .cancel-button:hover {
-    background: rgba(124, 138, 255, 0.15);
+    background: #ff4747;
     transform: translateY(-2px);
 }
 
