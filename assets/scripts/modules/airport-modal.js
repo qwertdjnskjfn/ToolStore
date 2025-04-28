@@ -128,4 +128,4 @@ function parsePriceText(text) {
 }
 
 // 出函数
-export { initAirportCards }; 
+export { initAirportCards };

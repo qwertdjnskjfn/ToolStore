@@ -141,6 +141,19 @@ import { RecommendManager } from './modules/recommend.js';
 
 // 统一的DOMContentLoaded事件处理
 document.addEventListener('DOMContentLoaded', function () {
+    // 立即滚动到顶部
+    window.scrollTo(0, 0);
+    
+    // 添加setTimeout确保滚动在所有布局计算完成后执行
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 0);
+    
+    // 确保页面刷新后也回到顶部
+    window.addEventListener('beforeunload', () => {
+        window.scrollTo(0, 0);
+    });
+    
     // 导航栏相关
     const toggleButton = document.getElementById('toggleButton');
     const navLinks = document.getElementById('navLinks');
@@ -219,10 +232,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const links = document.querySelectorAll('a');
             links.forEach(link => {
                 if (disable) {
-                    link.style.pointerEvents = 'none';
                     link.style.opacity = '0.5';
                 } else {
-                    link.style.pointerEvents = '';
                     link.style.opacity = '';
                 }
             });
@@ -231,32 +242,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 if (disable) {
-                    card.style.pointerEvents = 'none';
                     card.style.opacity = '0.5';
                 } else {
-                    card.style.pointerEvents = '';
                     card.style.opacity = '';
                 }
             });
 
             // 禁用 logo 点击
             if (logo) {
-                logo.style.pointerEvents = disable ? 'none' : '';
+                logo.style.opacity = disable ? '0.5' : '';
             }
-        }
-
-        // 检查是否需要重置（每天凌晨重置）
-        function checkAndResetDaily() {
-            const lastDate = localStorage.getItem('lastAgreedDate');
-            const today = new Date().toDateString();
-
-            if (lastDate !== today) {
-                localStorage.removeItem('hasAgreedToTerms');
-                localStorage.removeItem('cancelCount');
-                localStorage.setItem('lastAgreedDate', today);
-                return false;
-            }
-            return localStorage.getItem('hasAgreedToTerms') === 'true';
         }
 
         // 更新警告消息
@@ -267,23 +262,28 @@ document.addEventListener('DOMContentLoaded', function () {
             warningMessage.offsetHeight; // 触发重排
             warningMessage.style.animation = 'slideDown 0.3s ease-out';
         }
+        
 
-        // 检查是否已同意
-        const hasAgreed = checkAndResetDaily();
-        if (hasAgreed) {
-            dailyNotice.style.display = 'none';
-            mask.style.display = 'none';
-            disableAllNavigation(false);
-            return;
+        // 禁用页面滚动和交互
+        function disablePageInteraction(disable = true) {
+            document.body.style.overflow = disable ? 'hidden' : '';
+            const elements = document.querySelectorAll('a, input, select, textarea, .card');
+            elements.forEach(el => {
+                el.style.pointerEvents = disable ? 'none' : '';
+            });
         }
+
+        // 总是显示公告
+        dailyNotice.style.display = 'flex';
+        mask.style.display = 'block';
+        disableAllNavigation(true);
+        disablePageInteraction(true);
 
         // 初始化显示
         dailyNotice.style.display = 'flex';
         mask.style.display = 'block';
         disableAllNavigation(true);
-
-        // 取消次数计数
-        let cancelCount = parseInt(localStorage.getItem('cancelCount') || '0');
+        disablePageInteraction(true);
 
         // 同意按钮点击事件
         document.querySelector('.acknowledge').addEventListener('click', () => {
@@ -291,51 +291,39 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem('lastAgreedDate', new Date().toDateString());
             dailyNotice.style.display = 'none';
             mask.style.display = 'none';
+            document.querySelector('header').style.opacity = '1';
             disableAllNavigation(false);
+            disablePageInteraction(false);
         });
 
         // 取消按钮点击事件
-        document.querySelector('.cancel').addEventListener('click', () => {
-            cancelCount++;
-            localStorage.setItem('cancelCount', cancelCount.toString());
+        const cancelButton = document.querySelector('.cancel');
+        if (cancelButton) {
+            cancelButton.addEventListener('click', () => {
+                let cancelCount = parseInt(localStorage.getItem('cancelCount') || '0');
+                cancelCount++;
+                localStorage.setItem('cancelCount', cancelCount.toString());
 
-            const remainingTries = MAX_CANCEL_COUNT - cancelCount;
+                const remainingTries = MAX_CANCEL_COUNT - cancelCount;
 
-            if (cancelCount >= MAX_CANCEL_COUNT) {
-                dailyNotice.style.display = 'none';
-                canceledMessage.style.display = 'flex';
-                mask.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                disableAllNavigation(true);
-                return;
-            }
+                if (cancelCount >= MAX_CANCEL_COUNT) {
+                    dailyNotice.style.display = 'none';
+                    canceledMessage.style.display = 'flex';
+                    mask.style.display = 'block';
+                    disableAllNavigation(true);
+                    disablePageInteraction(true);
+                    return;
+                }
 
-            // 立即更新并显示警告消息
-            updateWarningMessage(remainingTries);
-            setTimeout(() => {
-                warningMessage.style.display = 'none';
-            }, 2000);
-        });
-
-        // 每天凌晨重置
-        function resetAtMidnight() {
-            const now = new Date();
-            const night = new Date(
-                now.getFullYear(),
-                now.getMonth(),
-                now.getDate() + 1,
-                0, 0, 0
-            );
-            const msToMidnight = night.getTime() - now.getTime();
-
-            setTimeout(() => {
-                localStorage.removeItem('hasAgreedToTerms');
-                localStorage.removeItem('cancelCount');
-                location.reload(); // 重新加载页面以重置状态
-            }, msToMidnight);
+                // 立即更新并显示警告消息
+                updateWarningMessage(remainingTries);
+                setTimeout(() => {
+                    warningMessage.style.display = 'none';
+                }, 2000);
+            });
         }
 
-        resetAtMidnight();
+        
     }
 
     // 在 DOMContentLoaded 事件中调用

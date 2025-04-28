@@ -58,6 +58,11 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.mask ~ header {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
 .header-content {
     max-width: 1400px;
     margin: 0 auto;
@@ -260,7 +265,7 @@ footer p {
  * 自定义浏览器滚动条样式
  */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -268,12 +273,12 @@ footer p {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #7c8aff;
+    background: rgba(120, 120, 140, .44);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #5d6dff;
+    background: #7c8aff;
 }
 
 /* 
@@ -366,14 +371,13 @@ footer p {
 }
 
 .buttons button.acknowledge {
-    background: linear-gradient(135deg, #7c8aff, #7c8aff);
+    background: rgba(124, 138, 255, 0.5);
     color: #fff;
-    box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
 }
 
 .buttons button.acknowledge:hover {
+    background: #5d6dff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(177, 156, 217, 0.4);
 }
 
 .buttons button.cancel {
@@ -432,6 +436,10 @@ table {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    backdrop-filter: blur(8px);
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     z-index: 2000;
