@@ -614,3 +614,54 @@ select.email-suffix-select::-ms-value {
         transform: scale(1);
     }
 }
+
+/* 添加对高对比度模式的支持 */
+@media (forced-colors: active) {
+    /* 反馈模态框在高对比度模式下的调整 */
+    .feedback-modal {
+        border: 2px solid CanvasText;
+    }
+    
+    /* 输入框和按钮在高对比度模式下的调整 */
+    .email-input-container,
+    .form-group input,
+    .form-group textarea,
+    .feedback-actions button {
+        border: 1px solid CanvasText;
+    }
+    
+    /* 确保图标在高对比度模式下可见 */
+    .email-suffix-wrapper::after,
+    .feedback-success-icon::after {
+        forced-color-adjust: none;
+    }
+    
+    /* 确保下拉菜单在高对比度模式下有足够对比度 */
+    .email-suffix-select option {
+        background: Canvas;
+        color: CanvasText;
+    }
+    
+    /* 确保成功消息在高对比度模式下可见 */
+    .feedback-success-message {
+        border: 2px solid CanvasText;
+        background: Canvas;
+    }
+    
+    /* 确保按钮在高对比度模式下可识别 */
+    .submit-feedback, 
+    .cancel-feedback,
+    .feedback-success-button {
+        border: 1px solid ButtonText;
+        background: ButtonFace;
+        color: ButtonText;
+    }
+    
+    /* 确保标签和文本有足够对比度 */
+    .form-group label,
+    .feedback-header h3,
+    .feedback-success-title,
+    .feedback-success-text {
+        color: CanvasText;
+    }
+}
