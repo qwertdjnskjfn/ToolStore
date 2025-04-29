@@ -3,7 +3,7 @@ import { platformIcons, githubIcon, getPlatformName } from './platform-icons.js'
 import { downloadLinks } from '../configs/download-config.js';
 
 // 创建下载模态框
-export function createDownloadModal(toolName, downloadUrl) {
+export function createDownloadModal(toolName) {
     const existingModal = document.querySelector('.download-modal');
     if (existingModal) {
         existingModal.remove();

@@ -1,14 +1,11 @@
 import { NavScroll } from './modules/nav-scroll.js';
 import { copyEmail } from './modules/email-handler.js';
-import { platformIcons, githubIcon, getPlatformName } from './modules/platform-icons.js';
-import { createCards, getSupportedPlatforms } from './modules/card-creator.js';
-import { createDownloadModal } from './modules/download-modal.js';
+import { createCards } from './modules/card-creator.js';
 import { initNoticeHandler } from './modules/notice-handler.js';
 import { initNavigation, initDisplayToggle } from './modules/nav-handler.js';
 import { initAirportCards } from './modules/airport-modal.js';
 import { initSoftwareCards } from './modules/software-cards.js';
 import { RecommendManager } from './modules/recommend.js';
-import { downloadLinks } from './configs/download-config.js';
 
 // 使复制函数在全局可用
 window.copyEmail = copyEmail;
