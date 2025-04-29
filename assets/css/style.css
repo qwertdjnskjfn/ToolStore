@@ -508,8 +508,6 @@ table {
     border: 1px solid rgba(124, 138, 255, 0.1);
 }
 
-
-
 /* 移动端菜单按钮样式 */
 .toggle-button {
     display: none;
@@ -541,8 +539,6 @@ table {
 .toggle-button:hover .bar {
     background: #5d6dff;
 }
-
-
 
 /* 机场卡片特殊样式 */
 .card.proxy-card {
@@ -587,7 +583,6 @@ table {
     display: flex;
     gap: 15px;
 }
-
 
 /* 平台图标容器 */
 .platform-icons {
