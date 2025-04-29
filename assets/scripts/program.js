@@ -1,5 +1,5 @@
 import { NavScroll } from './modules/nav-scroll.js';
-import { copyEmail } from './modules/email-handler.js';
+
 import { createCards } from './modules/card-creator.js';
 import { initNoticeHandler } from './modules/notice-handler.js';
 import { initNavigation, initDisplayToggle } from './modules/nav-handler.js';
@@ -8,7 +8,7 @@ import { initSoftwareCards } from './modules/software-cards.js';
 import { RecommendManager } from './modules/recommend.js';
 
 // 使复制函数在全局可用
-window.copyEmail = copyEmail;
+
 console.log('Hello World!');
 
 // 主程序入口点 - 使用模块化方式初始化所有功能
@@ -64,11 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('应用初始化完成');
 });
 
-// 提示窗口处理函数已移至notice-handler.js模块
-disableAllNavigation(false);
-disablePageInteraction(false);
-
-
 // 取消按钮点击事件
 const cancelButton = document.querySelector('.cancel');
 if (cancelButton) {
@@ -95,48 +90,6 @@ if (cancelButton) {
         }, 2000);
     });
 }
-
-
-
-
-// 在 DOMContentLoaded 事件中调用
-initNoticeHandler();
-
-// 修改导航链接点击事件
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = link.getAttribute('href');
-        const targetElement = document.querySelector("target");
-
-        // 关闭移动端菜单
-        toggleButton.classList.remove('active');
-        navLinks.classList.remove('active');
-
-        if (targetElement) {
-            // 获取header的高度
-            const headerHeight = document.querySelector('header').offsetHeight;
-            // 计算目标位置，考虑header高度
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-            // 执行平滑滚动
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// 创建卡片后初始化机场卡片点击事件
-createCards();
-initAirportCards();
-initSoftwareCards();
-
-// 初始化推荐管理器
-const recommendManager = new RecommendManager();
-recommendManager.init();
-
 
 // 所有功能函数已移至独立模块文件
 

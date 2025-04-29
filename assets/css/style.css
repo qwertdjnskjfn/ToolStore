@@ -19,6 +19,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 
 html {
@@ -1098,6 +1099,7 @@ main {
     background: rgba(124, 138, 255, 0.25);
     transform: rotate(90deg) scale(1.1);
     border-color: rgba(124, 138, 255, 0.3);
+    color: #ff4747;
 }
 
 .close-modal:active {

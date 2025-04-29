@@ -62,7 +62,7 @@ export function initNavigation() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('href');
-            const targetElement = document.querySelector(target);
+            const targetElement = target && target.startsWith('#') ? document.querySelector(target) : null;
 
             // 关闭移动端菜单
             toggleButton.classList.remove('active');
