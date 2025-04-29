@@ -66,20 +66,18 @@ class FeedbackModal {
         const subjectInput = this.modal.querySelector('#feedback-subject');
         const messageInput = this.modal.querySelector('#feedback-message');
         
-        // 创建一个隐藏的输入框存储完整邮箱
+        // 创建一个隐藏的输入框存储完整邮箱（不再使用display:none）
         const hiddenEmailInput = document.createElement('input');
-        hiddenEmailInput.type = 'email';
+        hiddenEmailInput.type = 'hidden'; // 改为hidden类型而非email
         hiddenEmailInput.id = 'full-email-hidden';
         hiddenEmailInput.name = 'email';
-        hiddenEmailInput.required = true;
-        hiddenEmailInput.style.display = 'none';
         
         // 将隐藏输入框添加到表单
         emailForm.appendChild(hiddenEmailInput);
         
-        // 移除原始邮箱输入框的email类型和required属性
+        // 监听表单提交，确保原始邮箱输入框也有required属性，但类型改为text
         emailInput.type = 'text';
-        emailInput.removeAttribute('required');
+        emailInput.setAttribute('required', 'required');
         
         // 初始化显示默认后缀
         suffixWrapper.setAttribute('data-suffix', suffixSelect.options[suffixSelect.selectedIndex].text);
@@ -166,12 +164,14 @@ class FeedbackModal {
     handleSubmit(e) {
         e.preventDefault();
 
-        // 获取完整邮箱地址
-        const fullEmail = document.getElementById('full-email-hidden').value;
+        // 获取表单数据
+        const emailInput = document.getElementById('feedback-email');
+        const hiddenEmail = document.getElementById('full-email-hidden');
+        const fullEmail = hiddenEmail.value; // 从隐藏字段获取完整邮箱
         const subject = document.getElementById('feedback-subject').value;
         const message = document.getElementById('feedback-message').value;
 
-        // 模拟发送邮件
+        // 打印日志
         console.log(`邮件已发送到: toolstore@awafuns.cn\n发件人: ${fullEmail}\n标题: ${subject}\n内容: ${message}`);
 
         // 隐藏表单，显示成功提示
@@ -229,11 +229,8 @@ class FeedbackModal {
         
         // 邮箱特殊处理
         if (field.id === 'feedback-email') {
-            const hiddenEmail = document.getElementById('full-email-hidden');
-            // 验证隐藏的完整邮箱
-            const isValid = hiddenEmail.value.length > 0 && 
-                            hiddenEmail.value.includes('@') && 
-                            field.value.trim().length > 0;
+            // 检查邮箱前缀是否有效（不需要包含@）
+            const isValid = field.value.trim().length > 0;
             
             if (!isValid) {
                 formGroup.classList.add('has-error');
