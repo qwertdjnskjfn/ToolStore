@@ -1,67 +1,57 @@
 /* 响应式样式 */
 /* 
- * 平板及以上设备(≥768px)
+ * 平板及以上设备(≥956px)
  * 适用于iPad、小型笔记本电脑等中等屏幕设备
  * 主要调整导航链接的悬停效果，增强交互视觉反馈
  */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 956px) {
     .nav-links a:hover {
         color: #7c8aff;
         background: rgba(124, 138, 255, 0.15);
         transform: translateY(-1px);
     }
-}
-
-/* 
- * 小屏幕设备(≤767px)
- * 适用于大多数智能手机的横向模式
- * 调整卡片内边距和最小高度，优化内容显示空间
- * 缩小图标尺寸以适应较小屏幕
- */
-@media screen and (max-width: 767px) {
-    .card {
-        padding: 20px;
-        min-height: 160px;
+    
+    .toggle-button {
+        display: none;
     }
 
-    .card-icon {
-        width: 80px;
-        height: 80px;
+    .nav-links {
+        display: flex !important;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* 
- * 超小屏幕设备(≤479px)
- * 适用于小型智能手机的纵向模式
- * 进一步压缩卡片内边距和高度，最大化利用有限空间
- * 调整图标大小和标题字体，确保在小屏幕上清晰可读
- */
-@media screen and (max-width: 479px) {
-    .card {
-        padding: 15px;
-        min-height: 140px;
+/* 大屏幕设备(≥1024px) */
+@media screen and (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
     }
+}
 
-    .card-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 10px;
+/* 超大屏幕设备(≥1400px) */
+@media screen and (min-width: 1400px) {
+    .grid-container {
+        grid-template-columns: repeat(5, 1fr);
     }
-
-    .card-title {
-        font-size: 14px;
+    
+    main {
+        max-width: 1400px;
+        margin: 0 auto;
     }
 }
 
 /* 
- * 平板及以下设备(≤768px)
+ * 平板及以下设备(≤956px)
  * 全面响应式布局调整，包括:
  * - 头部内容压缩
  * - 主标题缩小
  * - 导航菜单改为垂直下拉式
  * - 主要内容区域重新布局
  */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 956px) {
     .header-content {
         padding: 10px 15px;
     }
@@ -69,42 +59,76 @@
     h1 {
         font-size: 22px;
     }
+    
+    /* 导航相关布局 */
+    nav {
+        position: static;
+    }
 
+    .toggle-button {
+        display: block;
+        position: relative;
+        z-index: 1001;
+    }
+    
     .nav-links {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 60px;
         left: 0;
         width: 100%;
-        flex-direction: column;
         background: rgba(26, 29, 36, 0.98);
         backdrop-filter: blur(10px);
-        padding: 0;
-        display: none;
         border-bottom: 1px solid rgba(124, 138, 255, 0.1);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        padding: 15px;
+        gap: 15px;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        pointer-events: none;
     }
 
     .nav-links.active {
         display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .nav-links a {
-        display: block;
-        padding: 15px 20px;
-        border-radius: 0;
-        background: transparent;
-        color: inherit;
+        opacity: 0;
+        transform: translateY(-5px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0.1s;
+        width: 100%;
+        background: rgba(124, 138, 255, 0.05);
+        border-radius: 8px;
+        text-align: center;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+    
+    .nav-links.active a {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .nav-links a:hover {
         color: #7c8aff;
         background: rgba(124, 138, 255, 0.15);
+        width: 100%;
+        transform: translateY(-2px);
     }
-
+    
+    /* 内容区域布局 */
     main {
         padding: 80px 15px 30px;
     }
@@ -120,39 +144,78 @@
     }
 
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 15px;
         padding: 15px;
     }
-}
+    
+    /* 工具区域布局 */
+    .tools-section {
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
 
-@media screen and (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        gap: 10px;
-        padding: 10px;
+    .tools-header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+
+    .tools-header h2 {
+        font-size: 24px;
+    }
+    
+    /* 下载区域布局 */
+    .download-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .download-content {
+        padding: 25px;
+    }
+
+    .download-item {
+        padding: 20px;
+    }
+
+    .download-header h3 {
+        font-size: 24px;
+    }
+    
+    /* 机场卡片布局 */
+    .airport-header {
+        padding: 25px 20px;
+    }
+
+    .airport-body {
+        padding: 20px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .feature-item {
+        padding: 15px;
+    }
+    
+    /* 可点击卡片样式 */
+    .card.clickable::after {
+        top: 8px;
+        right: 8px;
+        width: 20px;
+        height: 20px;
+        background-size: 14px;
     }
 }
 
-@media screen and (min-width: 1400px) {
-    .grid-container {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-@media screen and (max-width: 1399px) and (min-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media screen and (max-width: 1023px) and (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media screen and (max-width: 767px) and (min-width: 480px) {
+/* 
+ * 中等屏幕设备(≤767px)
+ * 适用于大多数智能手机的横向模式和小型平板
+ */
+@media screen and (max-width: 767px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -160,112 +223,79 @@
 
     .card {
         padding: 20px;
+        min-height: 160px;
     }
 
     .card-icon {
         width: 80px;
         height: 80px;
+        margin-bottom: 15px;
     }
 }
 
-@media screen and (max-width: 479px) {
+/* 
+ * 小屏幕设备(≤480px)
+ * 适用于大多数智能手机的纵向模式
+ */
+@media screen and (max-width: 480px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 10px;
     }
+    
+    /* 导航链接 */
+    .nav-links {
+        padding: 12px;
+        gap: 10px;
+    }
 
+    .nav-links a {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    /* 卡片相关布局 */
     .card {
         padding: 15px;
+        min-height: 140px;
+    }
+    
+    .card.clickable::after {
+        top: 6px;
+        right: 6px;
+        width: 18px;
+        height: 18px;
+        background-size: 12px;
     }
 
     .card-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 15px;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
     }
 
     .card-title {
         font-size: 14px;
     }
-}
-
-/* 
- * 小型移动设备(≤430px)
- * 针对iPhone等小屏幕设备优化
- * 确保在这种宽度下能显示两列卡片
- */
-@media screen and (max-width: 430px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 8px;
-        padding: 8px;
-    }
-
-    .card {
+    
+    /* 工具区域布局 */
+    .tools-section {
         padding: 15px;
+        border-radius: 16px;
+        margin-bottom: 20px;
     }
 
-    .card-icon {
-        width: 50px;
-        height: 50px;
+    .tools-header {
         margin-bottom: 15px;
+        padding-bottom: 12px;
     }
 
-    .card-title {
-        font-size: 14px;
+    .tools-header h2 {
+        font-size: 22px;
     }
-}
-
-@media (max-width: 430px) {
-    .sponsors-container {
-        gap: 20px;
-        padding: 0 10px 40px 10px;
-    }
-
-    .primary-sponsors-container,
-    .secondary-sponsors-container {
-        gap: 15px;
-        padding: 0px !important;
-    }
-
-    .sponsor-card {
-        width: 10px;
-    }
-
-    .sponsor-card.primary {
-        transform: scale(1);
-    }
-
-    .sponsor-avatar {
-        width: 60px !important;
-        height: 60px !important;
-    }
-}
-
-@media screen and (max-width: 390px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        padding: 8px;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    .card-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 15px;
-    }
-
-    .card-title {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
+    
+    /* 下载区域布局 */
     .download-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -287,29 +317,8 @@
     .download-name {
         font-size: 14px;
     }
-}
-
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
-    .airport-header {
-        padding: 25px 20px;
-    }
-
-    .airport-body {
-        padding: 20px;
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .feature-item {
-        padding: 15px;
-    }
-}
-
-@media screen and (max-width: 480px) {
+    
+    /* 机场卡片布局 */
     .airport-header {
         padding: 20px 15px;
     }
@@ -333,203 +342,71 @@
     }
 }
 
-/* 调整响应式布局 */
-@media screen and (max-width: 768px) {
+/* 
+ * 超小屏幕设备(≤430px)
+ * 针对iPhone等小屏幕设备优化
+ */
+@media screen and (max-width: 430px) {
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-        padding: 15px;
-    }
-}
-
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
-    .download-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .download-content {
-        padding: 25px;
-    }
-
-    .download-item {
-        padding: 20px;
-    }
-
-    .download-header h3 {
-        font-size: 24px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px;
+        padding: 8px;
     }
 
-    .nav-links a {
-        font-size: 15px;
-        padding: 10px 15px;
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
     }
-}
-
-/* 响应式调整 */
-@media screen and (max-width: 768px) {
-    .card.clickable::after {
-        top: 8px;
-        right: 8px;
-        width: 20px;
-        height: 20px;
-        background-size: 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .card.clickable::after {
-        top: 6px;
-        right: 6px;
-        width: 18px;
-        height: 18px;
-        background-size: 12px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .tools-section {
-        padding: 20px;
-        border-radius: 20px;
-        margin-bottom: 30px;
+    
+    .sponsors-container {
+        gap: 20px;
+        padding: 0 10px 40px 10px;
     }
 
-    .tools-header {
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-    }
-
-    .tools-header h2 {
-        font-size: 24px;
-    }
-
-    .grid-container {
+    .primary-sponsors-container,
+    .secondary-sponsors-container {
         gap: 15px;
+        padding: 0px !important;
+    }
+
+    .sponsor-card {
+        width: 110px;
+    }
+
+    .sponsor-card.primary {
+        transform: scale(1);
+    }
+
+    .sponsor-avatar {
+        width: 60px !important;
+        height: 60px !important;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .tools-section {
-        padding: 15px;
-        border-radius: 16px;
-        margin-bottom: 20px;
-    }
-
-    .tools-header {
-        margin-bottom: 15px;
-        padding-bottom: 12px;
-    }
-
-    .tools-header h2 {
-        font-size: 22px;
-    }
-
+/* 
+ * 微型屏幕设备(≤390px)
+ * 针对小型智能手机优化
+ */
+@media screen and (max-width: 390px) {
     .grid-container {
-        gap: 10px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    nav {
-        position: static;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 6px;
     }
 
-    .toggle-button {
-        display: block;
-        position: relative;
-        z-index: 1001;
+    .card {
+        padding: 12px;
+        min-height: 130px;
     }
 
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: rgba(26, 29, 36, 0.98);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(124, 138, 255, 0.1);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: stretch;
-        padding: 15px;
-        gap: 15px;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        opacity: 0;
-        pointer-events: none;
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
     }
 
-    .nav-links.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .nav-links a {
-        opacity: 0;
-        transform: translateY(-5px);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        transition-delay: 0.1s;
-        width: 100%;
-        background: rgba(124, 138, 255, 0.05);
-        border-radius: 8px;
-        text-align: center;
-        display: inline-block;
-        padding: 10px 20px;
-        color: #fff;
-        font-weight: 500;
-        font-size: 15px;
-        white-space: nowrap;
-    }
-
-    .nav-links.active a {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .nav-links a:hover {
-        width: 100%;
-        transform: translateY(-2px);
-    }
-
-    @media screen and (max-width: 480px) {
-        .nav-links {
-            padding: 12px;
-            gap: 10px;
-        }
-
-        .nav-links a {
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-    }
-}
-
-@media screen and (min-width: 769px) {
-    .toggle-button {
-        display: none;
-    }
-
-    .nav-links {
-        display: flex !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .nav-links.active {
-        display: flex;
+    .card-title {
+        font-size: 13px;
     }
 }
