@@ -38,6 +38,15 @@ class FeedbackSender {
     }
     
     try {
+      // 验证邮箱格式
+      if (!this.isValidEmail(userEmail)) {
+        return {
+          success: false,
+          error: 'invalid_email',
+          message: '请输入有效的邮箱地址'
+        };
+      }
+      
       // 准备发送数据 - 按照模板中定义的变量名设置
       const emailData = {
         app_key: this.apiKey,
@@ -57,6 +66,16 @@ class FeedbackSender {
       // 发送邮件
       const result = await this.sendEmail(emailData);
       
+      // 转换错误消息为用户友好的提示
+      if (!result.success && result.message) {
+        // 处理常见的API错误
+        if (result.message.includes('reply_to') || result.message.includes('邮箱')) {
+          result.message = '邮箱格式填写不正确，请检查后重试';
+        } else if (result.message.includes('template')) {
+          result.message = '系统错误，请稍后重试';
+        }
+      }
+      
       return {
         success: result.code === 200 || (result.message && result.message.includes("成功")),
         data: result,
@@ -64,12 +83,35 @@ class FeedbackSender {
       };
     } catch (error) {
       console.error('反馈发送失败:', error);
+      
+      // 提供友好的错误消息
+      let errorMessage = '反馈发送失败，请稍后重试';
+      
+      // 处理特定错误类型
+      if (error.message && (
+          error.message.includes('reply_to') || 
+          error.message.includes('邮箱') || 
+          error.message.includes('email'))) {
+        errorMessage = '邮箱格式填写不正确，请检查后重试';
+      }
+      
       return {
         success: false,
         error: error.message,
-        message: '反馈发送失败'
+        message: errorMessage
       };
     }
+  }
+  
+  /**
+   * 验证邮箱格式
+   * @param {string} email - 需要验证的邮箱
+   * @returns {boolean} 是否有效
+   */
+  isValidEmail(email) {
+    // 简单的邮箱格式验证
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
   
   /**

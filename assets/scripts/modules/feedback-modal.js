@@ -18,11 +18,50 @@ class FeedbackModal {
               <input type="email" id="feedback-email" required placeholder="请输入邮箱">
               <div class="email-suffix-wrapper">
                 <select class="email-suffix-select">
-                  <option value="@gmail.com">@gmail.com</option>
-                  <option value="@qq.com">@qq.com</option>
-                  <option value="@163.com">@163.com</option>
-                  <option value="@126.com">@126.com</option>
-                  <option value="@outlook.com">@outlook.com</option>
+                    <!-- 国际通用邮箱后缀 -->
+                    <option value="@gmail.com" selected>@gmail.com</option>
+                    <option value="@outlook.com">@outlook.com</option>
+                    <option value="@hotmail.com">@hotmail.com</option>
+
+                    <!-- 中国常用邮箱后缀 -->
+                    <option value="@qq.com">@qq.com</option>
+                    <option value="@163.com">@163.com</option>
+                    <option value="@126.com">@126.com</option>
+                    <option value="@139.com">@139.com</option>
+
+                    <!-- 国际通用邮箱后缀 -->
+                    <option value="@yahoo.com">@yahoo.com</option>
+                    <option value="@icloud.com">@icloud.com</option>
+
+                    <!-- 美国常用邮箱后缀 -->
+                    <option value="@aol.com">@aol.com</option>
+                    <option value="@netzero.net">@netzero.net</option>
+                    <option value="@comcast.net">@comcast.net</option>
+                    <option value="@verizon.net">@verizon.net</option>
+
+                    <!-- 其他国家和地区 -->
+                    <option value="@t-online.de">@t-online.de</option> <!-- 德国 -->
+                    <option value="@btinternet.com">@btinternet.com</option> <!-- 英国 -->
+                    <option value="@yahoo.co.jp">@yahoo.co.jp</option> <!-- 日本 -->
+                    <option value="@candel.co.jp">@candel.co.jp</option> <!-- 日本 -->
+                    <option value="@rediffmail.com">@rediffmail.com</option> <!-- 印度 -->
+                    <option value="@vsnl.com">@vsnl.com</option> <!-- 印度 -->
+                    <option value="@yandex.ru">@yandex.ru</option> <!-- 俄罗斯 -->
+                    <option value="@mail.ru">@mail.ru</option> <!-- 俄罗斯 -->
+                    <option value="@wannado.fr">@wannado.fr</option> <!-- 法国 -->
+                    <option value="@excite.com">@excite.com</option> <!-- 法国 -->
+                    <option value="@bigpond.com">@bigpond.com</option> <!-- 澳大利亚 -->
+                    <option value="@westnet.com.au">@westnet.com.au</option> <!-- 澳大利亚 -->
+                    <option value="@ig.com.br">@ig.com.br</option> <!-- 巴西 -->
+                    <option value="@uol.com.br">@uol.com.br</option> <!-- 巴西 -->
+                    <option value="@amet.com.ar">@amet.com.ar</option> <!-- 阿根廷 -->
+                    <option value="@infovia.com.ar">@infovia.com.ar</option> <!-- 阿根廷 -->
+                    <option value="@naver.com">@naver.com</option> <!-- 韩国 -->
+                    <option value="@daum.net">@daum.net</option> <!-- 韩国 -->
+                    <option value="@emirates.net.ae">@emirates.net.ae</option> <!-- 阿联酋 -->
+                    <option value="@zahav.net.il">@zahav.net.il</option> <!-- 以色列 -->
+                    <option value="@pacific.net.sg">@pacific.net.sg</option> <!-- 新加坡 -->
+                    <option value="@hn.vnn.vn">@hn.vnn.vn</option> <!-- 越南 -->
                 </select>
               </div>
             </div>
@@ -50,7 +89,7 @@ class FeedbackModal {
     `;
 
         document.body.appendChild(this.modal);
-        
+
         // 初始状态下隐藏模态框
         this.modal.style.display = 'none';
         // 确保不自动显示
@@ -62,10 +101,10 @@ class FeedbackModal {
     setupEventListeners() {
         const closeBtn = this.modal.querySelector('.close-feedback');
         const cancelBtn = this.modal.querySelector('.cancel-feedback');
-        
+
         closeBtn.addEventListener('click', () => this.close());
         cancelBtn.addEventListener('click', () => this.close());
-        
+
         // 邮箱输入处理
         const emailInput = this.modal.querySelector('#feedback-email');
         const suffixSelect = this.modal.querySelector('.email-suffix-select');
@@ -74,78 +113,78 @@ class FeedbackModal {
         const subjectInput = this.modal.querySelector('#feedback-subject');
         const messageInput = this.modal.querySelector('#feedback-message');
         const submitBtn = this.modal.querySelector('.submit-feedback');
-        
+
         // 创建一个隐藏的输入框存储完整邮箱
         const hiddenEmailInput = document.createElement('input');
         hiddenEmailInput.type = 'hidden';
         hiddenEmailInput.id = 'full-email-hidden';
         hiddenEmailInput.name = 'email';
-        
+
         // 将隐藏输入框添加到表单
         emailForm.appendChild(hiddenEmailInput);
-        
+
         // 监听表单提交，确保原始邮箱输入框也有required属性，但类型改为text
         emailInput.type = 'text';
         emailInput.setAttribute('required', 'required');
-        
+
         // 初始化显示默认后缀
         suffixWrapper.setAttribute('data-suffix', suffixSelect.options[suffixSelect.selectedIndex].text);
         this.updateFullEmail(emailInput, suffixSelect, hiddenEmailInput);
-        
+
         // 实时验证
         emailInput.addEventListener('input', () => {
             this.updateFullEmail(emailInput, suffixSelect, hiddenEmailInput);
             this.validateField(emailInput, '请输入有效的邮箱地址');
         });
-        
+
         emailInput.addEventListener('blur', () => {
             this.validateField(emailInput, '请输入有效的邮箱地址');
         });
-        
+
         subjectInput.addEventListener('input', () => {
             this.validateField(subjectInput, '请输入标题内容');
         });
-        
+
         subjectInput.addEventListener('blur', () => {
             this.validateField(subjectInput, '请输入标题内容');
         });
-        
+
         messageInput.addEventListener('input', () => {
             this.validateField(messageInput, '请输入反馈内容');
         });
-        
+
         messageInput.addEventListener('blur', () => {
             this.validateField(messageInput, '请输入反馈内容');
         });
-        
+
         // 监听后缀选择变化
         suffixSelect.addEventListener('change', () => {
             // 更新显示的后缀文本
             const selectedOption = suffixSelect.options[suffixSelect.selectedIndex];
             suffixWrapper.setAttribute('data-suffix', selectedOption.text);
-            
+
             // 从邮箱输入框中移除所有后缀部分
             if (emailInput.value.includes('@')) {
                 emailInput.value = emailInput.value.split('@')[0];
             }
-            
+
             this.updateFullEmail(emailInput, suffixSelect, hiddenEmailInput);
             this.validateField(emailInput, '请输入有效的邮箱地址');
         });
-        
+
         // 表单提交验证
         emailForm.addEventListener('submit', (e) => {
             // 阻止默认提交行为
             e.preventDefault();
-            
+
             // 显示加载状态
             this.setLoading(true);
-            
+
             // 验证所有字段
             const isEmailValid = this.validateField(emailInput, '请输入有效的邮箱地址');
             const isSubjectValid = this.validateField(subjectInput, '请输入标题内容');
             const isMessageValid = this.validateField(messageInput, '请输入反馈内容');
-            
+
             // 如果所有字段都有效，提交表单
             if (isEmailValid && isSubjectValid && isMessageValid) {
                 this.handleSubmit(e);
@@ -154,27 +193,30 @@ class FeedbackModal {
             }
         });
     }
-    
+
     // 更新完整邮箱的方法
     updateFullEmail(emailInput, suffixSelect, hiddenInput) {
         // 从原始输入框获取前缀
         let prefix = emailInput.value;
-        
+
         // 移除可能存在的后缀部分
         if (prefix.includes('@')) {
             prefix = prefix.split('@')[0];
         }
-        
+
         // 获取选中的后缀
         const selectedOption = suffixSelect.options[suffixSelect.selectedIndex];
-        
+
         // 组合完整邮箱地址
         const fullEmail = prefix + selectedOption.value;
-        
+
         // 更新隐藏输入框
         hiddenInput.value = fullEmail;
+
+        // 实时验证邮箱格式
+        this.validateField(emailInput, '请输入有效的邮箱地址');
     }
-    
+
     // 设置加载状态
     setLoading(isLoading) {
         const submitBtn = this.modal.querySelector('.submit-feedback');
@@ -188,7 +230,7 @@ class FeedbackModal {
             submitBtn.classList.remove('loading');
         }
     }
-    
+
     async handleSubmit(e) {
         e.preventDefault();
 
@@ -206,29 +248,56 @@ class FeedbackModal {
                 subject: subject,
                 content: message
             });
-            
+
             // 打印日志
             console.log(`邮件发送结果:`, result);
-            
+
+            // 发送后立即关闭反馈弹窗，防止重复发送
+            this.close();
+
             // 根据结果显示成功或失败提示
             if (result.success) {
-                this.showSuccessMessage();
                 // 清除表单数据
                 document.getElementById('feedback-email').value = '';
                 document.getElementById('feedback-subject').value = '';
                 document.getElementById('feedback-message').value = '';
+
+                // 显示成功消息
+                this.showSuccessMessage();
             } else {
-                this.showErrorMessage(result.message || '发送失败，请稍后重试');
+                // 显示用户友好的错误提示
+                let errorMessage = result.message || '发送失败，请稍后重试';
+
+                // 针对邮箱错误提供更友好的提示
+                if (errorMessage.includes('reply_to') ||
+                    errorMessage.includes('邮箱') ||
+                    errorMessage.toLowerCase().includes('email')) {
+                    errorMessage = '邮箱格式填写不正确，请检查后重试';
+                }
+
+                this.showErrorMessage(errorMessage);
             }
         } catch (error) {
             console.error('邮件发送失败:', error);
-            this.showErrorMessage('发送失败，请稍后重试');
+            // 发送失败也关闭反馈弹窗
+            this.close();
+
+            // 处理错误提示
+            let errorMessage = '发送失败，请稍后重试';
+            if (error.message && (
+                error.message.includes('reply_to') ||
+                error.message.includes('邮箱') ||
+                error.message.toLowerCase().includes('email'))) {
+                errorMessage = '邮箱格式填写不正确，请检查后重试';
+            }
+
+            this.showErrorMessage(errorMessage);
         } finally {
             // 无论如何，都要移除加载状态
             this.setLoading(false);
         }
     }
-    
+
     // 显示错误消息
     showErrorMessage(message) {
         const errorMessage = document.createElement('div');
@@ -239,17 +308,17 @@ class FeedbackModal {
             <p class="feedback-error-text">${message}</p>
             <button class="feedback-error-button">确定</button>
         `;
-        
+
         // 添加到页面
         document.body.appendChild(errorMessage);
-        
+
         // 处理确定按钮点击事件
         const confirmButton = errorMessage.querySelector('.feedback-error-button');
         confirmButton.addEventListener('click', () => {
             // 移除错误提示
             document.body.removeChild(errorMessage);
         });
-        
+
         // 自动关闭（5秒后）
         setTimeout(() => {
             if (document.body.contains(errorMessage)) {
@@ -269,26 +338,25 @@ class FeedbackModal {
             <p class="feedback-success-text">感谢您的反馈，我们将尽快处理您的意见！</p>
             <button class="feedback-success-button">确定</button>
         `;
-        
+
         // 添加到页面
         document.body.appendChild(successMessage);
-        
+
         // 处理确定按钮点击事件
         const confirmButton = successMessage.querySelector('.feedback-success-button');
         confirmButton.addEventListener('click', () => {
             // 移除成功提示
             document.body.removeChild(successMessage);
-            // 关闭反馈表单
-            this.close();
+            // 不需要再次关闭反馈弹窗，因为在handleSubmit方法中已经关闭了
         });
-        
-        // 自动关闭（3秒后）
+
+        // 自动关闭（5秒后，与失败提示时间一致）
         setTimeout(() => {
             if (document.body.contains(successMessage)) {
                 document.body.removeChild(successMessage);
-                this.close();
+                // 不需要再次关闭反馈弹窗，因为在handleSubmit方法中已经关闭了
             }
-        }, 3000);
+        }, 5000);
     }
 
     open() {
@@ -306,23 +374,37 @@ class FeedbackModal {
         // 获取字段所在的表单组
         const formGroup = field.closest('.form-group');
         const errorElement = formGroup.querySelector('.form-error-message');
-        
+
         // 邮箱特殊处理
         if (field.id === 'feedback-email') {
-            // 检查邮箱前缀是否有效（不需要包含@）
-            const isValid = field.value.trim().length > 0;
-            
-            if (!isValid) {
+            // 获取完整邮箱（包含后缀）
+            const hiddenEmail = document.getElementById('full-email-hidden');
+            const fullEmail = hiddenEmail ? hiddenEmail.value : field.value;
+
+            // 检查邮箱是否为空
+            if (!field.value.trim().length) {
                 formGroup.classList.add('has-error');
                 formGroup.classList.remove('has-success');
-                errorElement.textContent = errorMessage;
+                errorElement.textContent = '请输入邮箱地址';
                 return false;
-            } else {
-                formGroup.classList.remove('has-error');
-                formGroup.classList.add('has-success');
-                return true;
             }
-        } 
+
+            // 检查完整邮箱格式
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isValidFormat = emailRegex.test(fullEmail);
+
+            if (!isValidFormat) {
+                formGroup.classList.add('has-error');
+                formGroup.classList.remove('has-success');
+                errorElement.textContent = '邮箱格式不正确，请检查';
+                return false;
+            }
+
+            // 邮箱格式正确
+            formGroup.classList.remove('has-error');
+            formGroup.classList.add('has-success');
+            return true;
+        }
         // 常规字段验证
         else {
             if (!field.value.trim()) {
