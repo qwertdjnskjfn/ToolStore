@@ -15,8 +15,7 @@ class FeedbackSender {
     this.apiEndpoint = 'https://www.aoksend.com/index/api/send_email';  // AokSend API端点
     this.defaultConfig = {
       fromEmail: 'noreply@awafuns.cn',
-      fromName: 'ToolStore反馈系统',
-      subjectPrefix: '【用户反馈】'
+      fromName: 'ToolStore反馈系统'
     };
     // 使用正确的模板ID
     this.templateId = 'E_118221062853';  // 使用实际的模板ID
@@ -38,11 +37,8 @@ class FeedbackSender {
       throw new Error('反馈缺少必需字段: userEmail, subject, content');
     }
     
-    // 格式化主题
-    const formattedSubject = `${this.defaultConfig.subjectPrefix}${subject}`;
-    
     try {
-      // 准备发送数据
+      // 准备发送数据 - 按照模板中定义的变量名设置
       const emailData = {
         app_key: this.apiKey,
         template_id: this.templateId,
@@ -50,10 +46,11 @@ class FeedbackSender {
         reply_to: userEmail,
         alias: this.defaultConfig.fromName,
         data: {
-          subject: formattedSubject,
-          content: content,
-          user_email: userEmail,
-          time: new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
+          // 根据模板变量名进行匹配
+          contactemail: userEmail,    // 用户邮箱变量
+          subject: subject,           // 反馈标题变量
+          content: content,           // 反馈内容变量
+          time: new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) // 提交时间变量
         }
       };
 
