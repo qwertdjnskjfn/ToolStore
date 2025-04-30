@@ -355,6 +355,9 @@ class FeedbackModal {
 
     // 显示错误消息
     showErrorMessage(message) {
+        // 创建遮罩层
+        this.createBackdrop();
+        
         const errorMessage = document.createElement('div');
         errorMessage.className = 'feedback-error-message';
         errorMessage.innerHTML = `
@@ -372,18 +375,25 @@ class FeedbackModal {
         confirmButton.addEventListener('click', () => {
             // 移除错误提示
             document.body.removeChild(errorMessage);
+            // 移除遮罩层
+            this.removeBackdrop();
         });
 
         // 自动关闭（5秒后）
         setTimeout(() => {
             if (document.body.contains(errorMessage)) {
                 document.body.removeChild(errorMessage);
+                // 移除遮罩层
+                this.removeBackdrop();
             }
         }, 5000);
     }
 
     // 显示成功提示消息
     showSuccessMessage() {
+        // 创建遮罩层
+        this.createBackdrop();
+        
         // 创建成功提示元素
         const successMessage = document.createElement('div');
         successMessage.className = 'feedback-success-message';
@@ -402,6 +412,8 @@ class FeedbackModal {
         confirmButton.addEventListener('click', () => {
             // 移除成功提示
             document.body.removeChild(successMessage);
+            // 移除遮罩层
+            this.removeBackdrop();
             // 不需要再次关闭反馈弹窗，因为在handleSubmit方法中已经关闭了
         });
 
@@ -409,9 +421,54 @@ class FeedbackModal {
         setTimeout(() => {
             if (document.body.contains(successMessage)) {
                 document.body.removeChild(successMessage);
+                // 移除遮罩层
+                this.removeBackdrop();
                 // 不需要再次关闭反馈弹窗，因为在handleSubmit方法中已经关闭了
             }
         }, 5000);
+    }
+    
+    // 创建背景遮罩层
+    createBackdrop() {
+        // 检查是否已存在遮罩层
+        let backdrop = document.querySelector('.modal-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop';
+            document.body.appendChild(backdrop);
+        }
+        
+        // 显示遮罩层
+        backdrop.style.display = 'block';
+        
+        // 禁用页面滚动
+        document.body.style.overflow = 'hidden';
+        
+        // 强制回流后添加显示类
+        setTimeout(() => {
+            backdrop.classList.add('show');
+        }, 10);
+        
+        return backdrop;
+    }
+    
+    // 移除背景遮罩层
+    removeBackdrop() {
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            // 移除显示类，触发淡出效果
+            backdrop.classList.remove('show');
+            
+            // 恢复页面滚动
+            document.body.style.overflow = '';
+            
+            // 完全移除元素
+            setTimeout(() => {
+                if (document.body.contains(backdrop)) {
+                    document.body.removeChild(backdrop);
+                }
+            }, 300);
+        }
     }
 
     open() {
