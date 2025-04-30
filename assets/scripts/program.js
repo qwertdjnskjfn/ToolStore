@@ -19,7 +19,7 @@ import { initMainContent } from './modules/main-content.js';
 document.addEventListener('DOMContentLoaded', function () {
     // 防止重复初始化
     if (window.appInitialized) {
-        console.log('应用已初始化，跳过重复初始化');
+        // console.log('应用已初始化，跳过重复初始化');
         return;
     }
 
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 标记应用已初始化
     window.appInitialized = true;
-    console.log('应用初始化完成');
+    // console.log('应用初始化完成');
 });
 
 // 取消按钮点击事件

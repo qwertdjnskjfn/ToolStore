@@ -250,7 +250,7 @@ class FeedbackModal {
             });
             
             // 打印日志
-            console.log(`邮件发送结果:`, result);
+            // console.log(`邮件发送结果:`, result);
             
             // 根据结果显示成功或失败提示
             if (result.success) {

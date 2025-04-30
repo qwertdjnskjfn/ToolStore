@@ -213,7 +213,7 @@ class FeedbackSender {
    */
   async sendEmail(emailData) {
     try {
-      console.log('正在发送邮件，API数据:', emailData);
+      // console.log('正在发送邮件，API数据:', emailData);
       
       // 检测是否为开发环境
       const isDevEnvironment = window.location.hostname === '127.0.0.1' || 
@@ -277,7 +277,7 @@ class FeedbackSender {
                 window[callbackName](response);
               } catch (e) {
                 // 如果响应不是JSON，可能是JSONP回调已经处理了
-                console.log('XHR响应不是JSON格式，可能已被JSONP处理', xhr.responseText);
+                // console.log('XHR响应不是JSON格式，可能已被JSONP处理', xhr.responseText);
               }
             } else {
               // 如果是开发环境，模拟成功
@@ -294,7 +294,7 @@ class FeedbackSender {
           
           xhr.onerror = function() {
             // 在XHR失败时（可能是CORS问题），尝试JSONP方式
-            console.log('XHR请求失败，尝试JSONP方式');
+            // console.log('XHR请求失败，尝试JSONP方式');
             
             // 创建脚本标签进行JSONP请求
             const script = document.createElement('script');
@@ -355,7 +355,7 @@ class FeedbackSender {
           window.location.hostname === 'localhost' ||
           window.location.hostname.includes('192.168.') ||
           window.location.protocol === 'file:') {
-        console.log('开发环境: 模拟成功响应');
+        // console.log('开发环境: 模拟成功响应');
         return {
           code: 200,
           message: "邮件发送已模拟成功"
