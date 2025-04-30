@@ -1,3 +1,6 @@
+// 导入反馈发送器
+import feedbackSender from './feedback-sender.js';
+
 class FeedbackModal {
     constructor() {
         this.modal = document.createElement('div');
@@ -5,7 +8,7 @@ class FeedbackModal {
         this.modal.innerHTML = `
       <div class="feedback-content">
         <div class="feedback-header">
-          <h3>邮箱反馈（暂时无法使用）</h3>
+          <h3>邮箱反馈</h3>
           <button class="close-feedback">&times;</button>
         </div>
         <form id="feedback-form">
@@ -47,6 +50,9 @@ class FeedbackModal {
     `;
 
         document.body.appendChild(this.modal);
+        
+        // 初始状态下隐藏模态框
+        this.modal.style.display = 'none';
 
         this.setupEventListeners();
     }
@@ -65,10 +71,11 @@ class FeedbackModal {
         const emailForm = this.modal.querySelector('#feedback-form');
         const subjectInput = this.modal.querySelector('#feedback-subject');
         const messageInput = this.modal.querySelector('#feedback-message');
+        const submitBtn = this.modal.querySelector('.submit-feedback');
         
-        // 创建一个隐藏的输入框存储完整邮箱（不再使用display:none）
+        // 创建一个隐藏的输入框存储完整邮箱
         const hiddenEmailInput = document.createElement('input');
-        hiddenEmailInput.type = 'hidden'; // 改为hidden类型而非email
+        hiddenEmailInput.type = 'hidden';
         hiddenEmailInput.id = 'full-email-hidden';
         hiddenEmailInput.name = 'email';
         
@@ -129,6 +136,9 @@ class FeedbackModal {
             // 阻止默认提交行为
             e.preventDefault();
             
+            // 显示加载状态
+            this.setLoading(true);
+            
             // 验证所有字段
             const isEmailValid = this.validateField(emailInput, '请输入有效的邮箱地址');
             const isSubjectValid = this.validateField(subjectInput, '请输入标题内容');
@@ -137,6 +147,8 @@ class FeedbackModal {
             // 如果所有字段都有效，提交表单
             if (isEmailValid && isSubjectValid && isMessageValid) {
                 this.handleSubmit(e);
+            } else {
+                this.setLoading(false);
             }
         });
     }
@@ -161,7 +173,21 @@ class FeedbackModal {
         hiddenInput.value = fullEmail;
     }
     
-    handleSubmit(e) {
+    // 设置加载状态
+    setLoading(isLoading) {
+        const submitBtn = this.modal.querySelector('.submit-feedback');
+        if (isLoading) {
+            submitBtn.textContent = '发送中...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+        } else {
+            submitBtn.textContent = '发送';
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
+        }
+    }
+    
+    async handleSubmit(e) {
         e.preventDefault();
 
         // 获取表单数据
@@ -171,13 +197,65 @@ class FeedbackModal {
         const subject = document.getElementById('feedback-subject').value;
         const message = document.getElementById('feedback-message').value;
 
-        // 打印日志
-        console.log(`邮件已发送到: toolstore@awafuns.cn\n发件人: ${fullEmail}\n标题: ${subject}\n内容: ${message}`);
-
-        // 隐藏表单，显示成功提示
-        this.showSuccessMessage();
+        try {
+            // 使用反馈发送器发送邮件
+            const result = await feedbackSender.sendFeedback({
+                userEmail: fullEmail,
+                subject: subject,
+                content: message
+            });
+            
+            // 打印日志
+            console.log(`邮件发送结果:`, result);
+            
+            // 根据结果显示成功或失败提示
+            if (result.success) {
+                this.showSuccessMessage();
+                // 清除表单数据
+                document.getElementById('feedback-email').value = '';
+                document.getElementById('feedback-subject').value = '';
+                document.getElementById('feedback-message').value = '';
+            } else {
+                this.showErrorMessage(result.message || '发送失败，请稍后重试');
+            }
+        } catch (error) {
+            console.error('邮件发送失败:', error);
+            this.showErrorMessage('发送失败，请稍后重试');
+        } finally {
+            // 无论如何，都要移除加载状态
+            this.setLoading(false);
+        }
     }
     
+    // 显示错误消息
+    showErrorMessage(message) {
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'feedback-error-message';
+        errorMessage.innerHTML = `
+            <div class="feedback-error-icon"></div>
+            <h3 class="feedback-error-title">发送失败</h3>
+            <p class="feedback-error-text">${message}</p>
+            <button class="feedback-error-button">确定</button>
+        `;
+        
+        // 添加到页面
+        document.body.appendChild(errorMessage);
+        
+        // 处理确定按钮点击事件
+        const confirmButton = errorMessage.querySelector('.feedback-error-button');
+        confirmButton.addEventListener('click', () => {
+            // 移除错误提示
+            document.body.removeChild(errorMessage);
+        });
+        
+        // 自动关闭（5秒后）
+        setTimeout(() => {
+            if (document.body.contains(errorMessage)) {
+                document.body.removeChild(errorMessage);
+            }
+        }, 5000);
+    }
+
     // 显示成功提示消息
     showSuccessMessage() {
         // 创建成功提示元素
@@ -259,9 +337,6 @@ class FeedbackModal {
     }
 }
 
-// 导出模块
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = FeedbackModal;
-} else {
-    window.FeedbackModal = FeedbackModal;
-}
+// 创建并导出反馈表单的单例实例
+const feedbackModal = new FeedbackModal();
+export default feedbackModal;

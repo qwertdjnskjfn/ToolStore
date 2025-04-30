@@ -1,41 +1,41 @@
 .feedback-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2100;
 }
 
 .feedback-content {
-  background: linear-gradient(145deg, #1e222b, #252a35);
-  border-radius: 16px;
-  padding: 30px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(124, 138, 255, 0.1);
-  animation: slideIn 0.3s ease-out;
+    background: linear-gradient(145deg, #1e222b, #252a35);
+    border-radius: 16px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(124, 138, 255, 0.1);
+    animation: slideIn 0.3s ease-out;
 }
 
 .feedback-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(124, 138, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(124, 138, 255, 0.1);
 }
 
 .feedback-header h3 {
-  color: #7c8aff;
-  font-size: 22px;
-  margin: 0;
+    color: #7c8aff;
+    font-size: 22px;
+    margin: 0;
 }
 
 /* 邮箱输入区域样式优化 */
@@ -117,7 +117,8 @@
     transition: all 0.3s ease;
     resize: none;
     user-select: none;
-    -webkit-tap-highlight-color: transparent; /* 移除移动设备上的点击高亮 */
+    -webkit-tap-highlight-color: transparent;
+    /* 移除移动设备上的点击高亮 */
 }
 
 /* 兼容所有浏览器的焦点样式重置 */
@@ -218,37 +219,37 @@
     .email-input-container {
         flex-direction: column;
     }
-    
+
     #feedback-email {
         width: 100%;
         min-width: 100%;
         text-align: center;
         border-bottom: 2px solid rgba(124, 138, 255, 0.2);
     }
-    
+
     .email-suffix-wrapper {
         width: 100%;
         border-left: none;
     }
-    
+
     .email-suffix-select {
         text-align: center;
         padding: 12px 35px;
     }
-    
+
     .email-suffix-select option {
         text-align: left;
         padding-left: 20px;
         display: block;
         justify-content: flex-start;
     }
-    
+
     .email-suffix-wrapper::before {
         width: 100%;
         text-align: center;
         left: 0;
     }
-    
+
     .email-suffix-wrapper::after {
         right: 20px;
     }
@@ -261,15 +262,32 @@
 }
 
 @keyframes shake {
-    10%, 90% { transform: translateX(-1px); }
-    20%, 80% { transform: translateX(2px); }
-    30%, 50%, 70% { transform: translateX(-3px); }
-    40%, 60% { transform: translateX(3px); }
+
+    10%,
+    90% {
+        transform: translateX(-1px);
+    }
+
+    20%,
+    80% {
+        transform: translateX(2px);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translateX(-3px);
+    }
+
+    40%,
+    60% {
+        transform: translateX(3px);
+    }
 }
 
 /* 成功状态样式 */
 .email-input-container.success {
-    border-color: rgba(82, 196, 26,);
+    border-color: rgba(82, 196, 26, );
 }
 
 .email-input-container.success::after {
@@ -312,59 +330,59 @@
 
 .form-group input,
 .form-group textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 2px solid rgba(124, 138, 255, 0.2);
-  background: rgba(124, 138, 255, 0.05);
-  color: #fff;
-  font-size: 16px;
-  transition: var(--transition);
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid rgba(124, 138, 255, 0.2);
+    background: rgba(124, 138, 255, 0.05);
+    color: #fff;
+    font-size: 16px;
+    transition: var(--transition);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: none;
-  border-color: rgba(124, 138, 255, 0.4);
-  box-shadow: 0 0 0 2px rgba(124, 138, 255, 0.1);
+    outline: none;
+    border-color: rgba(124, 138, 255, 0.4);
+    box-shadow: 0 0 0 2px rgba(124, 138, 255, 0.1);
 }
 
 .feedback-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
 }
 
 .cancel-feedback,
 .submit-feedback {
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: var(--transition);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
 .cancel-feedback {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .cancel-feedback:hover {
-  background: #ff4747;
-  transform: translateY(-2px);
+    background: #ff4747;
+    transform: translateY(-2px);
 }
 
 .submit-feedback {
-  background: rgba(124, 138, 255, 0.5);
-  color: #fff;
+    background: rgba(124, 138, 255, 0.5);
+    color: #fff;
 }
 
 .submit-feedback:hover {
-  background: #5d6dff;
-  transform: translateY(-2px);
+    background: #5d6dff;
+    transform: translateY(-2px);
 }
 
 .form-group textarea#feedback-message {
@@ -509,8 +527,15 @@ select.email-suffix-select::-ms-value {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 添加美观的提交成功提示样式 */
@@ -586,6 +611,7 @@ select.email-suffix-select::-ms-value {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.8);
     }
+
     100% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
@@ -596,9 +622,11 @@ select.email-suffix-select::-ms-value {
     0% {
         box-shadow: 0 0 0 0 rgba(82, 196, 26, 0.4);
     }
+
     70% {
         box-shadow: 0 0 0 15px rgba(82, 196, 26, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(82, 196, 26, 0);
     }
@@ -609,6 +637,7 @@ select.email-suffix-select::-ms-value {
         opacity: 0;
         transform: scale(0.5);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -617,11 +646,12 @@ select.email-suffix-select::-ms-value {
 
 /* 添加对高对比度模式的支持 */
 @media (forced-colors: active) {
+
     /* 反馈模态框在高对比度模式下的调整 */
     .feedback-modal {
         border: 2px solid CanvasText;
     }
-    
+
     /* 输入框和按钮在高对比度模式下的调整 */
     .email-input-container,
     .form-group input,
@@ -629,34 +659,34 @@ select.email-suffix-select::-ms-value {
     .feedback-actions button {
         border: 1px solid CanvasText;
     }
-    
+
     /* 确保图标在高对比度模式下可见 */
     .email-suffix-wrapper::after,
     .feedback-success-icon::after {
         forced-color-adjust: none;
     }
-    
+
     /* 确保下拉菜单在高对比度模式下有足够对比度 */
     .email-suffix-select option {
         background: Canvas;
         color: CanvasText;
     }
-    
+
     /* 确保成功消息在高对比度模式下可见 */
     .feedback-success-message {
         border: 2px solid CanvasText;
         background: Canvas;
     }
-    
+
     /* 确保按钮在高对比度模式下可识别 */
-    .submit-feedback, 
+    .submit-feedback,
     .cancel-feedback,
     .feedback-success-button {
         border: 1px solid ButtonText;
         background: ButtonFace;
         color: ButtonText;
     }
-    
+
     /* 确保标签和文本有足够对比度 */
     .form-group label,
     .feedback-header h3,
@@ -664,4 +694,112 @@ select.email-suffix-select::-ms-value {
     .feedback-success-text {
         color: CanvasText;
     }
+}
+
+/* 为提交按钮添加加载状态样式 */
+.submit-feedback.loading {
+    cursor: not-allowed;
+    opacity: 0.7;
+    position: relative;
+}
+
+.submit-feedback.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    right: 10px;
+    margin-top: -8px;
+    border: 2px solid transparent;
+    border-top-color: white;
+    border-radius: 50%;
+    animation: loading-spinner 0.8s linear infinite;
+}
+
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 错误提示消息 */
+.feedback-error-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(145deg, #1e222b, #252a35);
+    border-radius: 16px;
+    padding: 25px 30px;
+    min-width: 300px;
+    max-width: 90%;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 71, 71, 0.2);
+    text-align: center;
+    animation: fadeInScale 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 2200;
+}
+
+.feedback-error-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(255, 71, 71, 0.1);
+    border: 2px solid rgba(255, 71, 71, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.feedback-error-icon::before,
+.feedback-error-icon::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: #ff4747;
+    border-radius: 2px;
+}
+
+.feedback-error-icon::before {
+    transform: rotate(45deg);
+}
+
+.feedback-error-icon::after {
+    transform: rotate(-45deg);
+}
+
+.feedback-error-title {
+    color: #ff4747;
+    font-size: 22px;
+    margin: 0 0 10px;
+}
+
+.feedback-error-text {
+    color: #a8b3cf;
+    margin: 0 0 20px;
+    line-height: 1.5;
+}
+
+.feedback-error-button {
+    padding: 10px 25px;
+    background: rgba(255, 71, 71, 0.3);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.feedback-error-button:hover {
+    background: rgba(255, 71, 71, 0.6);
+    transform: translateY(-2px);
 }

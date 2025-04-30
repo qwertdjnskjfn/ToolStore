@@ -81,7 +81,7 @@
                     <li><a href="#tools">工具客户端</a></li>
                     <li><a href="#software">软件推荐</a></li>
                     <li><a href="#proxy">机场推荐</a></li>
-                    <li><a href="javascript:void(0)" onclick="new FeedbackModal().open()">邮箱反馈</a></li>
+                    <li><a href="javascript:void(0)" id="open-feedback-modal">邮箱反馈</a></li>
                 </ul>
             </nav>
         </div>
@@ -463,6 +463,21 @@
             </p>
         </div>
     </footer>
+
+    <script type="module">
+        // 导入反馈表单模块
+        import feedbackModal from './assets/scripts/modules/feedback-modal.js';
+        
+        // 绑定打开反馈表单的点击事件
+        document.addEventListener('DOMContentLoaded', () => {
+            const openFeedbackBtn = document.getElementById('open-feedback-modal');
+            if (openFeedbackBtn) {
+                openFeedbackBtn.addEventListener('click', () => {
+                    feedbackModal.open();
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
