@@ -248,54 +248,109 @@ class FeedbackModal {
                 subject: subject,
                 content: message
             });
-
+            
             // 打印日志
             console.log(`邮件发送结果:`, result);
-
-            // 发送后立即关闭反馈弹窗，防止重复发送
-            this.close();
-
+            
             // 根据结果显示成功或失败提示
             if (result.success) {
+                // 发送成功，关闭反馈弹窗，防止重复发送
+                this.close();
+                
                 // 清除表单数据
                 document.getElementById('feedback-email').value = '';
                 document.getElementById('feedback-subject').value = '';
                 document.getElementById('feedback-message').value = '';
-
+                
                 // 显示成功消息
                 this.showSuccessMessage();
             } else {
-                // 显示用户友好的错误提示
-                let errorMessage = result.message || '发送失败，请稍后重试';
-
-                // 针对邮箱错误提供更友好的提示
-                if (errorMessage.includes('reply_to') ||
-                    errorMessage.includes('邮箱') ||
-                    errorMessage.toLowerCase().includes('email')) {
-                    errorMessage = '邮箱格式填写不正确，请检查后重试';
+                // 检查是否为频率限制错误
+                if (result.error === 'rate_limit_exceeded') {
+                    // 显示频率限制错误，但不关闭窗口以便用户了解情况
+                    this.showRateLimitError(result.message);
+                } else {
+                    // 其他错误，关闭反馈弹窗
+                    this.close();
+                    
+                    // 显示用户友好的错误提示
+                    let errorMessage = result.message || '发送失败，请稍后重试';
+                    
+                    // 针对邮箱错误提供更友好的提示
+                    if (errorMessage.includes('reply_to') || 
+                        errorMessage.includes('邮箱') || 
+                        errorMessage.toLowerCase().includes('email')) {
+                        errorMessage = '邮箱格式填写不正确，请检查后重试';
+                    }
+                    
+                    this.showErrorMessage(errorMessage);
                 }
-
-                this.showErrorMessage(errorMessage);
             }
         } catch (error) {
             console.error('邮件发送失败:', error);
             // 发送失败也关闭反馈弹窗
             this.close();
-
+            
             // 处理错误提示
             let errorMessage = '发送失败，请稍后重试';
             if (error.message && (
-                error.message.includes('reply_to') ||
-                error.message.includes('邮箱') ||
+                error.message.includes('reply_to') || 
+                error.message.includes('邮箱') || 
                 error.message.toLowerCase().includes('email'))) {
                 errorMessage = '邮箱格式填写不正确，请检查后重试';
             }
-
+            
             this.showErrorMessage(errorMessage);
         } finally {
             // 无论如何，都要移除加载状态
             this.setLoading(false);
         }
+    }
+    
+    // 显示频率限制错误，在表单内显示
+    showRateLimitError(message) {
+        // 创建警告元素
+        const warningElement = document.createElement('div');
+        warningElement.className = 'rate-limit-warning';
+        warningElement.innerHTML = `
+            <div class="warning-icon">⚠️</div>
+            <p>${message}</p>
+        `;
+        
+        // 添加样式
+        warningElement.style.backgroundColor = 'rgba(255, 193, 7, 0.1)';
+        warningElement.style.border = '1px solid #ffc107';
+        warningElement.style.borderRadius = '8px';
+        warningElement.style.padding = '10px 15px';
+        warningElement.style.marginBottom = '15px';
+        warningElement.style.color = '#e6a700';
+        warningElement.style.display = 'flex';
+        warningElement.style.alignItems = 'center';
+        
+        // 给图标添加样式
+        const warningIcon = warningElement.querySelector('.warning-icon');
+        warningIcon.style.marginRight = '10px';
+        warningIcon.style.fontSize = '20px';
+        
+        // 获取表单内容区域
+        const formContent = this.modal.querySelector('.feedback-content');
+        const form = this.modal.querySelector('#feedback-form');
+        
+        // 移除可能存在的旧警告
+        const oldWarning = formContent.querySelector('.rate-limit-warning');
+        if (oldWarning) {
+            formContent.removeChild(oldWarning);
+        }
+        
+        // 插入到表单前面
+        formContent.insertBefore(warningElement, form);
+        
+        // 5秒后自动移除
+        setTimeout(() => {
+            if (formContent.contains(warningElement)) {
+                formContent.removeChild(warningElement);
+            }
+        }, 5000);
     }
 
     // 显示错误消息

@@ -19,6 +19,84 @@ class FeedbackSender {
     };
     // 使用正确的模板ID
     this.templateId = 'E_118221062853';  // 使用实际的模板ID
+    
+    // 初始化限流配置
+    this.rateLimit = {
+      maxRequestsPerHour: 30, // 每小时最大请求数
+      requestCountKey: 'feedback_request_count', // 本地存储键名
+      requestTimestampKey: 'feedback_request_timestamps', // 时间戳记录键名
+    };
+  }
+
+  /**
+   * 检查发送频率是否超出限制
+   * @returns {Object} 检查结果，包含是否允许发送和剩余等待时间
+   */
+  checkRateLimit() {
+    try {
+      // 从localStorage中获取请求次数和时间戳记录
+      const countStr = localStorage.getItem(this.rateLimit.requestCountKey) || '0';
+      const count = parseInt(countStr, 10);
+      const timestampsStr = localStorage.getItem(this.rateLimit.requestTimestampKey) || '[]';
+      let timestamps = JSON.parse(timestampsStr);
+      
+      // 当前时间
+      const now = Date.now();
+      // 一小时前的时间戳
+      const oneHourAgo = now - (60 * 60 * 1000);
+      
+      // 过滤出一小时内的请求时间戳
+      timestamps = timestamps.filter(timestamp => timestamp > oneHourAgo);
+      
+      // 检查一小时内的请求次数是否超过限制
+      if (timestamps.length >= this.rateLimit.maxRequestsPerHour) {
+        // 计算需要等待的时间（到最早那个请求满一小时）
+        const oldestTimestamp = Math.min(...timestamps);
+        const waitTime = oldestTimestamp + (60 * 60 * 1000) - now;
+        const waitMinutes = Math.ceil(waitTime / (60 * 1000));
+        
+        return {
+          allowed: false,
+          waitTime: waitTime,
+          message: `发送频率超出限制，请等待约${waitMinutes}分钟后再试`
+        };
+      }
+      
+      return { allowed: true };
+    } catch (error) {
+      console.error('检查发送频率时出错：', error);
+      // 出错时默认允许发送，避免阻止用户正常使用
+      return { allowed: true };
+    }
+  }
+  
+  /**
+   * 记录发送请求
+   */
+  recordRequest() {
+    try {
+      // 当前时间戳
+      const now = Date.now();
+      
+      // 从localStorage获取时间戳记录
+      const timestampsStr = localStorage.getItem(this.rateLimit.requestTimestampKey) || '[]';
+      let timestamps = JSON.parse(timestampsStr);
+      
+      // 一小时前的时间戳
+      const oneHourAgo = now - (60 * 60 * 1000);
+      
+      // 过滤出一小时内的请求
+      timestamps = timestamps.filter(timestamp => timestamp > oneHourAgo);
+      
+      // 添加当前请求的时间戳
+      timestamps.push(now);
+      
+      // 保存回localStorage
+      localStorage.setItem(this.rateLimit.requestTimestampKey, JSON.stringify(timestamps));
+      localStorage.setItem(this.rateLimit.requestCountKey, timestamps.length.toString());
+    } catch (error) {
+      console.error('记录发送请求时出错：', error);
+    }
   }
 
   /**
@@ -35,6 +113,16 @@ class FeedbackSender {
     // 验证必需字段
     if (!userEmail || !subject || !content) {
       throw new Error('反馈缺少必需字段: userEmail, subject, content');
+    }
+    
+    // 检查发送频率限制
+    const rateCheckResult = this.checkRateLimit();
+    if (!rateCheckResult.allowed) {
+      return {
+        success: false,
+        error: 'rate_limit_exceeded',
+        message: rateCheckResult.message
+      };
     }
     
     try {
@@ -63,6 +151,9 @@ class FeedbackSender {
         }
       };
 
+      // 记录此次发送请求
+      this.recordRequest();
+      
       // 发送邮件
       const result = await this.sendEmail(emailData);
       
