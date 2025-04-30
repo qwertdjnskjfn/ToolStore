@@ -60,25 +60,35 @@ export function initNavigation() {
     // 修改导航链接点击事件
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             const target = link.getAttribute('href');
-            const targetElement = target && target.startsWith('#') ? document.querySelector(target) : null;
-
+            
             // 关闭移动端菜单
             toggleButton.classList.remove('active');
             navLinks.classList.remove('active');
+            
+            // 检查是否为外部链接或特殊链接
+            if (target.startsWith('http') || target.startsWith('https') || target.startsWith('javascript:')) {
+                // 对于外部链接，保持默认行为
+                return true;
+            }
+            
+            // 处理内部锚点链接
+            if (target && target.startsWith('#')) {
+                e.preventDefault(); // 只对内部锚点阻止默认行为
+                const targetElement = document.querySelector(target);
+                
+                if (targetElement) {
+                    // 获取header的高度
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    // 计算目标位置，考虑header高度
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
-            if (targetElement) {
-                // 获取header的高度
-                const headerHeight = document.querySelector('header').offsetHeight;
-                // 计算目标位置，考虑header高度
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-                // 执行平滑滚动
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                    // 执行平滑滚动
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
