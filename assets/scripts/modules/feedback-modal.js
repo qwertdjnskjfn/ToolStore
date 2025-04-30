@@ -53,6 +53,8 @@ class FeedbackModal {
         
         // 初始状态下隐藏模态框
         this.modal.style.display = 'none';
+        // 确保不自动显示
+        this.close();
 
         this.setupEventListeners();
     }

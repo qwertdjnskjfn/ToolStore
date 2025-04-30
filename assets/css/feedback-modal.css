@@ -544,13 +544,13 @@ select.email-suffix-select::-ms-value {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #1e222b, #252a35);
+    background: #1c1e2a; /* 深色背景更符合网站主题 */
     border-radius: 16px;
     padding: 25px 30px;
     min-width: 300px;
     max-width: 90%;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(124, 138, 255, 0.2);
+    border: 2px solid #52c41a;
     text-align: center;
     animation: fadeInScale 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2200;
@@ -562,37 +562,43 @@ select.email-suffix-select::-ms-value {
     margin: 0 auto 20px;
     border-radius: 50%;
     background: rgba(82, 196, 26, 0.1);
-    border: 2px solid rgba(82, 196, 26, 0.3);
+    border: 2px solid #52c41a;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     animation: successPulse 2s infinite;
 }
 
 .feedback-success-icon::after {
-    content: '✓';
-    color: #52c41a;
-    font-size: 40px;
-    animation: checkmark 0.4s ease-in-out 0.2s both;
+    content: '';
+    width: 30px;
+    height: 15px;
+    border-left: 4px solid #52c41a;
+    border-bottom: 4px solid #52c41a;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    animation: checkmark 0.4s ease-in-out 0.2s forwards;
+    opacity: 0;
 }
 
 .feedback-success-title {
+    color: #52c41a;
     font-size: 22px;
-    color: #7c8aff;
-    margin-bottom: 10px;
-    font-weight: 500;
+    margin: 0 0 10px;
 }
 
 .feedback-success-text {
-    font-size: 16px;
-    color: #a8b3cf;
-    margin-bottom: 20px;
+    color: #f0f0f0; /* 更亮的文字颜色提高可读性 */
+    margin: 0 0 20px;
     line-height: 1.5;
 }
 
 .feedback-success-button {
     padding: 10px 25px;
-    background: rgba(124, 138, 255, 0.3);
+    background: #52c41a;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -602,7 +608,7 @@ select.email-suffix-select::-ms-value {
 }
 
 .feedback-success-button:hover {
-    background: rgba(124, 138, 255, 0.6);
+    background: #6bdb32;
     transform: translateY(-2px);
 }
 
@@ -733,13 +739,13 @@ select.email-suffix-select::-ms-value {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #1e222b, #252a35);
+    background: #1c1e2a; /* 深色背景更符合网站主题 */
     border-radius: 16px;
     padding: 25px 30px;
     min-width: 300px;
     max-width: 90%;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 71, 71, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ff4747;
     text-align: center;
     animation: fadeInScale 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2200;
@@ -751,7 +757,7 @@ select.email-suffix-select::-ms-value {
     margin: 0 auto 20px;
     border-radius: 50%;
     background: rgba(255, 71, 71, 0.1);
-    border: 2px solid rgba(255, 71, 71, 0.3);
+    border: 2px solid #ff4747;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -783,14 +789,14 @@ select.email-suffix-select::-ms-value {
 }
 
 .feedback-error-text {
-    color: #a8b3cf;
+    color: #f0f0f0; /* 更亮的文字颜色提高可读性 */
     margin: 0 0 20px;
     line-height: 1.5;
 }
 
 .feedback-error-button {
     padding: 10px 25px;
-    background: rgba(255, 71, 71, 0.3);
+    background: #ff4747;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -800,6 +806,6 @@ select.email-suffix-select::-ms-value {
 }
 
 .feedback-error-button:hover {
-    background: rgba(255, 71, 71, 0.6);
+    background: #ff6b6b;
     transform: translateY(-2px);
 }

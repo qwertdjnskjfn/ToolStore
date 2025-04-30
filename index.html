@@ -476,6 +476,11 @@
                     feedbackModal.open();
                 });
             }
+            
+            // 确保初始状态下模态框是关闭的
+            if (feedbackModal && feedbackModal.modal) {
+                feedbackModal.close();
+            }
         });
     </script>
 </body>
