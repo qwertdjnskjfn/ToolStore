@@ -16,6 +16,32 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 滚动监听，高亮当前阅读的部分
     initScrollSpy();
+    
+    // 移动端菜单处理
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileFeedbackModal = document.getElementById('mobile-feedback-modal');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // 点击页面其他区域关闭菜单
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+    
+    // 移动端邮箱反馈功能
+    if (mobileFeedbackModal) {
+        mobileFeedbackModal.addEventListener('click', function() {
+            window.location.href = 'mailto:support@toolstore.com?subject=ToolStore%20反馈';
+            mobileMenu.classList.remove('active');
+        });
+    }
 });
 
 /**
@@ -26,10 +52,17 @@ function initSidebar() {
     const sidebarToggle = document.querySelector('.sidebar-toggle');
     const sidebar = document.querySelector('.sidebar');
     
-    if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', function() {
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', function(e) {
+            e.preventDefault(); // 防止事件冒泡
+            e.stopPropagation(); // 阻止事件传播
             sidebar.classList.toggle('active');
             this.classList.toggle('active');
+            
+            // 添加动画效果
+            if (sidebar.classList.contains('active')) {
+                sidebar.style.transition = 'left 0.3s ease';
+            }
         });
     }
     
@@ -39,9 +72,9 @@ function initSidebar() {
             sidebar && 
             sidebar.classList.contains('active') && 
             !sidebar.contains(e.target) && 
-            !sidebarToggle.contains(e.target)) {
+            sidebarToggle && !sidebarToggle.contains(e.target)) {
             sidebar.classList.remove('active');
-            sidebarToggle.classList.remove('active');
+            if (sidebarToggle) sidebarToggle.classList.remove('active');
         }
     });
     
@@ -49,10 +82,25 @@ function initSidebar() {
     const categoryTitles = document.querySelectorAll('.category-title');
     
     categoryTitles.forEach(title => {
-        title.addEventListener('click', function() {
+        title.addEventListener('click', function(e) {
+            // 阻止事件冒泡，避免点击分类标题时触发其他事件
+            e.stopPropagation();
+            
             this.classList.toggle('collapsed');
             const navItems = this.nextElementSibling;
-            navItems.classList.toggle('collapsed');
+            if (navItems) {
+                navItems.classList.toggle('collapsed');
+                
+                // 给分类标题添加点击反馈效果
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                this.appendChild(ripple);
+                
+                // 延迟移除效果
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
         });
     });
     
@@ -60,17 +108,35 @@ function initSidebar() {
     const currentPath = window.location.pathname;
     const navItems = document.querySelectorAll('.nav-item a');
     
+    // 保存当前活跃的导航项
+    let activeNavItem = null;
+    
     navItems.forEach(item => {
-        if (item.getAttribute('href') === currentPath || 
-            currentPath.endsWith(item.getAttribute('href'))) {
-            item.parentElement.classList.add('active');
+        const itemHref = item.getAttribute('href');
+        
+        // 精确匹配当前路径或者当前路径以链接地址结尾
+        if (itemHref === currentPath || 
+            currentPath.endsWith(itemHref)) {
+            
+            // 保存当前项为活跃项
+            activeNavItem = item.parentElement;
+            
+            // 添加活跃类
+            activeNavItem.classList.add('active');
             
             // 确保包含当前项的分类是展开的
-            const parentCategory = item.closest('.nav-items');
+            const parentCategory = activeNavItem.closest('.nav-items');
             if (parentCategory && parentCategory.previousElementSibling) {
                 parentCategory.classList.remove('collapsed');
                 parentCategory.previousElementSibling.classList.remove('collapsed');
             }
+            
+            // 滚动到当前活跃项，确保它在视野中
+            setTimeout(() => {
+                if (sidebar && activeNavItem) {
+                    sidebar.scrollTop = activeNavItem.offsetTop - 100;
+                }
+            }, 300);
         }
     });
 }
@@ -86,6 +152,18 @@ function initTableOfContents() {
     
     // 获取所有标题
     const headings = mainContent.querySelectorAll('h2, h3');
+    
+    // 如果没有标题，隐藏目录
+    if (headings.length === 0) {
+        const tocElement = document.querySelector('.table-of-contents');
+        if (tocElement) {
+            tocElement.style.display = 'none';
+        }
+        return;
+    }
+    
+    // 清空现有目录
+    tocContainer.innerHTML = '';
     
     // 为每个标题添加ID
     headings.forEach((heading, index) => {
@@ -115,27 +193,32 @@ function initScrollSpy() {
     
     if (headings.length === 0 || tocItems.length === 0) return;
     
-    window.addEventListener('scroll', function() {
-        let currentHeading = '';
-        
-        // 找出当前可见的标题
-        headings.forEach(heading => {
-            const rect = heading.getBoundingClientRect();
-            if (rect.top <= 100) {
-                currentHeading = heading.id;
+    // 使用 IntersectionObserver 监听标题进入视口
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.id;
+                
+                // 高亮对应的目录项
+                tocItems.forEach(item => {
+                    const href = item.getAttribute('href').substring(1);
+                    
+                    if (href === currentId) {
+                        item.parentElement.classList.add('active');
+                    } else {
+                        item.parentElement.classList.remove('active');
+                    }
+                });
             }
         });
-        
-        // 高亮对应的目录项
-        tocItems.forEach(item => {
-            const href = item.getAttribute('href').substring(1);
-            
-            if (href === currentHeading) {
-                item.parentElement.classList.add('active');
-            } else {
-                item.parentElement.classList.remove('active');
-            }
-        });
+    }, { 
+        rootMargin: '-80px 0px -80% 0px', // 顶部偏移，确保标题到达顶部才触发
+        threshold: 0 
+    });
+    
+    // 观察所有标题
+    headings.forEach(heading => {
+        observer.observe(heading);
     });
     
     // 点击目录项滚动到对应位置
@@ -151,6 +234,9 @@ function initScrollSpy() {
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
+                
+                // 更新URL，方便分享特定章节
+                history.pushState(null, null, `#${targetId}`);
             }
         });
     });
@@ -177,14 +263,25 @@ function initImagePreview() {
                 modalImg.src = this.src;
                 captionText.innerHTML = this.alt || '';
                 document.body.style.overflow = 'hidden';
+                
+                // 添加淡入动画
+                modalImg.style.opacity = '0';
+                setTimeout(() => {
+                    modalImg.style.opacity = '1';
+                }, 50);
             });
         }
     });
     
     // 关闭模态框
     function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
+        // 添加淡出动画
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            modal.style.opacity = '1';
+            document.body.style.overflow = '';
+        }, 300);
     }
     
     // 点击关闭按钮
@@ -213,6 +310,9 @@ function initImagePreview() {
  * 返回顶部按钮
  */
 function initBackToTop() {
+    // 如果已存在按钮，则不重复创建
+    if (document.querySelector('.back-to-top')) return;
+    
     const backToTopBtn = document.createElement('div');
     backToTopBtn.className = 'back-to-top';
     backToTopBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M8 4.5l6 6H2z"/></svg>';
@@ -234,4 +334,4 @@ function initBackToTop() {
             behavior: 'smooth'
         });
     });
-} 
+}

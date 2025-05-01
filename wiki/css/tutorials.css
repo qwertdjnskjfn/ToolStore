@@ -9,7 +9,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    background-color: var(--light-bg);
     font-family: 'Segoe UI', Arial, sans-serif;
     color: var(--text-color);
     line-height: 1.6;

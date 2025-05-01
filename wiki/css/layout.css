@@ -3,6 +3,12 @@
  * 管理页面整体布局、网格和框架样式
  */
 
+/* 变量调整 */
+:root {
+    /* 其他变量保持不变 */
+    --toc-width: 250px; /* 从200px增加到250px */
+}
+
 /* 基础样式 */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -11,16 +17,25 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: var(--light-bg);
+    background-color: var(--body-bg); 
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    min-height: 100vh;
+}
+
+/* 确保暗色模式下body背景色正确切换 */
+[data-theme="dark"] body {
+    background-color: var(--body-bg);
 }
 
 /* 页面容器 */
 .page-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--toc-width);
     position: relative;
-    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height) - 60px); /* 根据84px的header高度调整 */
     padding-top: var(--header-height);
+    margin-bottom: 0;
+    gap: 0; /* 移除网格间隙 */
 }
 
 /* 左侧边栏 */
@@ -34,6 +49,7 @@ body {
     overflow-y: auto;
     z-index: 10;
     top: var(--header-height);
+    left: 0; /* 确保在正确位置 */
     transition: left var(--transition-speed) ease, background-color var(--transition-speed) ease;
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) transparent;
@@ -41,7 +57,7 @@ body {
 
 /* 自定义滚动条 */
 .sidebar::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
 }
 
 .sidebar::-webkit-scrollbar-track {
@@ -49,37 +65,44 @@ body {
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: rgba(124, 138, 255, 0.3);
+    background-color: rgba(124, 138, 255, 0.2);
     border-radius: 10px;
 }
 
 /* 主内容区 */
 .main-content {
-    flex: 1;
+    grid-column: 2;
     padding: 30px;
-    margin-left: var(--sidebar-width);
-    max-width: calc(100% - var(--sidebar-width) - var(--toc-width));
-    transition: margin-left var(--transition-speed) ease, max-width var(--transition-speed) ease;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    min-height: 100%; /* 确保内容区至少填满容器高度 */
+    box-sizing: border-box;
+    margin-bottom: 0; /* 去除底部边距 */
+    max-width: 100%; /* 确保不超过可用空间 */
 }
 
 /* 右侧目录 */
 .table-of-contents {
+    grid-column: 3;
     width: var(--toc-width);
     position: fixed;
     right: 0;
+    z-index: 1000;
     top: var(--header-height);
     height: calc(100vh - var(--header-height));
     overflow-y: auto;
-    padding: 30px 15px;
+    padding: 30px 20px;
     background-color: var(--sidebar-bg);
     border-left: 1px solid var(--border-color);
     transition: background-color var(--transition-speed) ease;
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) transparent;
+    box-sizing: border-box;
 }
 
 .table-of-contents::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
 }
 
 .table-of-contents::-webkit-scrollbar-track {
@@ -87,7 +110,7 @@ body {
 }
 
 .table-of-contents::-webkit-scrollbar-thumb {
-    background-color: rgba(124, 138, 255, 0.3);
+    background-color: rgba(124, 138, 255, 0.2);
     border-radius: 10px;
 }
 
@@ -100,7 +123,7 @@ footer {
     width: 100%;
     position: relative;
     clear: both;
-    margin-top: 40px;
+    margin-top: 0; 
     transition: background-color var(--transition-speed) ease;
 }
 
@@ -112,7 +135,7 @@ footer .footer-content {
 
 footer p {
     margin: 0;
-    color: var(--text-color);
+    color: var(--muted-text); /* 改为更柔和的颜色 */
     font-size: 0.9rem;
 }
 
@@ -144,26 +167,37 @@ footer p {
 
 .back-to-top:hover {
     background-color: var(--primary-hover);
+    transform: translateY(-3px);
 }
 
 /* 响应式布局样式 */
-@media (max-width: 1200px) {
-    .main-content {
-        max-width: calc(100% - var(--sidebar-width));
-        margin-left: var(--sidebar-width);
+@media (max-width: 956px) {
+    .page-container {
+        grid-template-columns: var(--sidebar-width) 1fr;
     }
     
     .table-of-contents {
         display: none;
     }
+    
+    .main-content {
+        grid-column: 2;
+        padding-left: 15px; /* 减少左侧内边距 */
+        margin-left: 0; /* 移除左侧边距 */
+        width: auto; /* 使用自动宽度填充可用空间 */
+    }
 }
 
 @media (max-width: 768px) {
+    .page-container {
+        grid-template-columns: 1fr;
+    }
+    
     .sidebar {
         left: calc(-1 * var(--sidebar-width));
         width: var(--sidebar-width);
         z-index: 100;
-        box-shadow: var(--box-shadow);
+        box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1); /* 移动端展开时添加阴影 */
     }
     
     .sidebar.active {
@@ -171,9 +205,10 @@ footer p {
     }
     
     .main-content {
+        grid-column: 1;
+        padding: 20px 15px; /* 统一内边距 */
+        width: 100%;
         margin-left: 0;
-        padding: 20px;
-        max-width: 100%;
     }
     
     .back-to-top {
@@ -186,11 +221,11 @@ footer p {
 
 @media (max-width: 576px) {
     .main-content {
-        padding: 15px;
+        padding: 15px 12px; /* 进一步减少内边距 */
     }
     
     .content-section {
-        padding: 15px;
+        padding: 15px 12px;
     }
     
     .back-to-top {
@@ -199,4 +234,29 @@ footer p {
         width: 32px;
         height: 32px;
     }
-} 
+}
+
+/* 添加链接的过渡效果 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* 主题过渡效果 */
+.theme-transition {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* 确保在暗色模式下链接颜色更亮 */
+[data-theme="dark"] a {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--primary-hover);
+}

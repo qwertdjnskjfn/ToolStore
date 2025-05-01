@@ -8,7 +8,19 @@
     <meta name="keywords" content="代理工具,网络工具,教程,Clash Verge,ClashMeta,Shadowrocket,上网工具">
     <meta name="author" content="ToolStore">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1a1d24">
     <title>教程 | ToolStore</title>
+    <!-- 立即应用暗色主题，防止闪烁 -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            // 默认使用暗色主题
+            document.documentElement.setAttribute('data-theme', savedTheme || 'dark');
+            if (!savedTheme) {
+                localStorage.setItem('theme', 'dark');
+            }
+        })();
+    </script>
     <!-- 公共样式 -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/media-queries.css">
@@ -33,7 +45,7 @@
                         <path d="M2 12L12 17L22 12" stroke="#7c8aff" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    ToolStore <span>文档</span>
+                    ToolStore 文档
                 </a>
             </h1>
 
@@ -55,6 +67,24 @@
             </nav>
         </div>
     </header>
+
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="https://asfn.awafuns.cn/" target="_blank">免费节点</a></li>
+            <li><a href="javascript:void(0)" id="mobile-feedback-modal">邮箱反馈</a></li>
+        </ul>
+    </div>
 
     <button class="sidebar-toggle">
         <span></span>
@@ -138,7 +168,7 @@
                     <!-- 热门教程卡片 1 -->
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="doc/images/ClashVerge/icon.png" alt="Clash Verge" class="no-preview">
+                            <img src="images/tools/ClashVerge.png" alt="Clash Verge" class="no-preview">
                         </div>
                         <div class="tool-info">
                             <h3>Clash Verge <span class="difficulty difficulty-beginner">初级</span></h3>
@@ -156,7 +186,7 @@
                     <!-- 热门教程卡片 2 -->
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="doc/images/ClashMeta/icon.png" alt="ClashMeta" class="no-preview">
+                            <img src="images/tools/ClashMeta.png" alt="ClashMeta" class="no-preview">
                         </div>
                         <div class="tool-info">
                             <h3>ClashMeta <span class="difficulty difficulty-intermediate">中级</span></h3>
@@ -172,7 +202,7 @@
                     <!-- 热门教程卡片 3 -->
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="doc/images/Shadowrocket/icon.png" alt="Shadowrocket" class="no-preview">
+                            <img src="images/tools/Shadowrocket.png" alt="Shadowrocket" class="no-preview">
                         </div>
                         <div class="tool-info">
                             <h3>Shadowrocket <span class="difficulty difficulty-beginner">初级</span></h3>
@@ -184,42 +214,6 @@
                             </div>
                             <a href="doc/shadowrocket.html" class="btn-view">查看教程</a>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <h2 id="categories">教程分类</h2>
-
-                <div class="category-cards">
-                    <!-- 安卓教程 -->
-                    <div class="category-card">
-                        <h3>安卓工具教程</h3>
-                        <p>覆盖多种安卓平台代理工具，满足不同用户需求：</p>
-                        <ul>
-                            <li><a href="doc/clashmeta.html">ClashMeta</a> - 多协议支持，高度可定制化</li>
-                            <li><a href="doc/hiddify.html">Hiddify</a> - 开源且安全的现代代理工具</li>
-                            <li><a href="doc/surfboard.html">Surfboard</a> - 轻量级工具，支持Surge配置</li>
-                        </ul>
-                    </div>
-
-                    <!-- iOS教程 -->
-                    <div class="category-card">
-                        <h3>iOS工具教程</h3>
-                        <p>针对苹果设备的专业代理工具配置指南：</p>
-                        <ul>
-                            <li><a href="doc/shadowrocket.html">Shadowrocket</a> - 小火箭，iOS平台上的瑞士军刀</li>
-                        </ul>
-                    </div>
-
-                    <!-- PC教程 -->
-                    <div class="category-card">
-                        <h3>PC工具教程</h3>
-                        <p>跨平台桌面代理工具的详细配置和使用指南：</p>
-                        <ul>
-                            <li><a href="doc/clash_verge.html">Clash Verge</a> - 基于Rust的现代GUI客户端</li>
-                            <li><a href="doc/mihomo_party.html">Mihomo Party</a> - 全新内核的下一代代理工具</li>
-                        </ul>
                     </div>
                 </div>
             </section>
@@ -268,7 +262,6 @@
             <ul class="toc-list">
                 <li class="toc-item"><a href="#guide">快速入门</a></li>
                 <li class="toc-item"><a href="#popular">热门推荐</a></li>
-                <li class="toc-item"><a href="#categories">教程分类</a></li>
                 <li class="toc-item"><a href="#getting-started">新手指引</a></li>
                 <li class="toc-item"><a href="#resources">相关资源</a></li>
             </ul>
@@ -277,7 +270,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>© 2023-2024 ToolStore. 保留所有权利。</p>
+            <p> 2023-2025 ToolStore. 保留所有权利。</p>
         </div>
     </footer>
 

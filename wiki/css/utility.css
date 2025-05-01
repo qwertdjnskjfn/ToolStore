@@ -339,4 +339,25 @@ pre code {
 
 [data-theme="dark"] .loading-indicator {
     background-color: rgba(31, 34, 42, 0.9);
+}
+
+/* 添加超链接样式 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* 暗色模式下的链接样式 */
+[data-theme="dark"] a {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--primary-hover);
 } 
