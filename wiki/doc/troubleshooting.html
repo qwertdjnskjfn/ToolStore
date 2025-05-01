@@ -130,7 +130,7 @@
             <section class="content-section">
                 <h2 id="introduction">简介</h2>
                 <p>使用代理工具时可能会遇到各种问题，本指南将帮助您解决最常见的故障和困扰。</p>
-                
+
                 <div class="note">
                     <p><strong>提示：</strong> 如果您是新手，建议先阅读<a href="usage-guide.html">使用指南</a>，了解基本概念后再查看这里的问题解决方法。</p>
                 </div>
@@ -159,11 +159,11 @@
                         <li>尝试更换协议类型</li>
                     </ul>
                     <div class="code-block">
-# 测试网络连接
-ping 8.8.8.8
+                        # 测试网络连接
+                        ping 8.8.8.8
 
-# 查看是否能解析域名
-nslookup google.com</div>
+                        # 查看是否能解析域名
+                        nslookup google.com</div>
                 </div>
 
                 <div class="faq-item">
@@ -231,8 +231,8 @@ nslookup google.com</div>
                         <h3>编辑规则示例</h3>
                         <p>在Clash配置中添加：</p>
                         <div class="code-block">rules:
-  - DOMAIN-SUFFIX,problematic-site.com,Proxy
-  - DOMAIN-KEYWORD,problematic,Proxy</div>
+                            - DOMAIN-SUFFIX,problematic-site.com,Proxy
+                            - DOMAIN-KEYWORD,problematic,Proxy</div>
                     </div>
                 </div>
 
@@ -304,13 +304,13 @@ nslookup google.com</div>
                     <ol>
                         <li>检查配置文件是否损坏：
                             <div class="code-block">
-# Windows配置文件位置
-%USERPROFILE%\.config\clash\
+                                # Windows配置文件位置
+                                %USERPROFILE%\.config\clash\
 
-# macOS配置文件位置
-~/.config/clash/
+                                # macOS配置文件位置
+                                ~/.config/clash/
 
-# 可以尝试删除或重命名config.yaml，让客户端重新生成</div>
+                                # 可以尝试删除或重命名config.yaml，让客户端重新生成</div>
                         </li>
                         <li>检查是否有其他代理软件正在运行并占用端口</li>
                         <li>以管理员/root权限运行客户端</li>
@@ -346,33 +346,33 @@ nslookup google.com</div>
                 <div class="tip-card">
                     <h3>优化Clash配置</h3>
                     <div class="code-block"># Clash配置优化建议
-mixed-port: 7890
-allow-lan: true
-mode: rule
-log-level: info
-external-controller: 127.0.0.1:9090
+                        mixed-port: 7890
+                        allow-lan: true
+                        mode: rule
+                        log-level: info
+                        external-controller: 127.0.0.1:9090
 
-# 优化DNS
-dns:
-  enable: true
-  listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  fallback:
-    - 1.1.1.1
-    - 8.8.8.8
+                        # 优化DNS
+                        dns:
+                        enable: true
+                        listen: 0.0.0.0:53
+                        enhanced-mode: fake-ip
+                        nameserver:
+                        - 223.5.5.5
+                        - 119.29.29.29
+                        fallback:
+                        - 1.1.1.1
+                        - 8.8.8.8
 
-# 减少规则数量，使用更通用的规则
-rules:
-  - DOMAIN-SUFFIX,google.com,Proxy
-  - DOMAIN-SUFFIX,facebook.com,Proxy
-  - DOMAIN-SUFFIX,twitter.com,Proxy
-  - DOMAIN-SUFFIX,youtube.com,Proxy
-  - DOMAIN-SUFFIX,netflix.com,Proxy
-  - GEOIP,CN,DIRECT
-  - MATCH,Proxy</div>
+                        # 减少规则数量，使用更通用的规则
+                        rules:
+                        - DOMAIN-SUFFIX,google.com,Proxy
+                        - DOMAIN-SUFFIX,facebook.com,Proxy
+                        - DOMAIN-SUFFIX,twitter.com,Proxy
+                        - DOMAIN-SUFFIX,youtube.com,Proxy
+                        - DOMAIN-SUFFIX,netflix.com,Proxy
+                        - GEOIP,CN,DIRECT
+                        - MATCH,Proxy</div>
                 </div>
             </section>
 
@@ -466,4 +466,4 @@ rules:
     <script src="../js/theme.js"></script>
 </body>
 
-</html> 
+</html>
