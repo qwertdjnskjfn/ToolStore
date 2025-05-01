@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ToolStore常见问题解决指南，帮助您解决使用网络代理工具时可能遇到的各种问题。">
+    <meta name="keywords" content="代理工具,故障排除,问题解决,网络代理">
+    <meta name="author" content="ToolStore">
+    <title>常见问题解决 | ToolStore</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/media-queries.css">
+    <!-- 文档站专用样式 -->
+    <link rel="stylesheet" href="../css/doc-style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L2 7L12 12L22 7L12 2Z' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 17L12 22L22 17' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 12L12 17L22 12' stroke='%237c8aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>
+                <a href="../../index.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#7c8aff" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 17L12 22L22 17" stroke="#7c8aff" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 12L12 17L22 12" stroke="#7c8aff" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    ToolStore <span>文档</span>
+                </a>
+            </h1>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../wiki.html">返回教程目录</a></li>
+                    <li><a href="../../index.html#tools">工具下载</a></li>
+                    <li><a href="../../index.html#proxy">机场推荐</a></li>
+                    <li><a href="https://asfn.awafuns.cn/" target="_blank">免费节点</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主题切换开关 -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
+            <input type="checkbox" id="themeToggle">
+            <div class="slider round">
+                <span class="theme-icon light">☀️</span>
+                <span class="theme-icon dark">🌙</span>
+            </div>
+        </label>
+    </div>
+
+    <button class="sidebar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="page-container">
+        <!-- 左侧导航栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>工具教程导航</h3>
+            </div>
+
+            <!-- 食用教程分类 -->
+            <div class="nav-category">
+                <div class="category-title">
+                    <span class="toggle-icon">▼</span>通用教程
+                </div>
+                <ul class="nav-items">
+                    <li class="nav-item"><a href="usage-guide.html">使用指南</a></li>
+                    <li class="nav-item active"><a href="troubleshooting.html">常见问题解决</a></li>
+                </ul>
+            </div>
+
+            <!-- 安卓分类 -->
+            <div class="nav-category">
+                <div class="category-title">
+                    <span class="toggle-icon">▼</span>安卓工具
+                </div>
+                <ul class="nav-items">
+                    <li class="nav-item"><a href="clashmeta.html">ClashMeta</a></li>
+                    <li class="nav-item"><a href="hiddify.html">Hiddify</a></li>
+                    <li class="nav-item"><a href="surfboard.html">Surfboard</a></li>
+                </ul>
+            </div>
+
+            <!-- iOS分类 -->
+            <div class="nav-category">
+                <div class="category-title">
+                    <span class="toggle-icon">▼</span>iOS工具
+                </div>
+                <ul class="nav-items">
+                    <li class="nav-item"><a href="shadowrocket.html">Shadowrocket</a></li>
+                </ul>
+            </div>
+
+            <!-- PC分类 -->
+            <div class="nav-category">
+                <div class="category-title">
+                    <span class="toggle-icon">▼</span>PC工具
+                </div>
+                <ul class="nav-items">
+                    <li class="nav-item"><a href="clash_verge.html">Clash Verge</a></li>
+                    <li class="nav-item"><a href="mihomo_party.html">Mihomo Party</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- 主要内容区 -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>网络代理工具常见问题解决指南 <span class="difficulty difficulty-intermediate">中级</span></h1>
+                <div class="tool-tags">
+                    <span class="tag">故障排除</span>
+                    <span class="tag">问题解决</span>
+                    <span class="tag">网络代理</span>
+                </div>
+                <p class="version-info">最后更新: 2024-05-10</p>
+            </div>
+
+            <!-- 简介 -->
+            <section class="content-section">
+                <h2 id="introduction">简介</h2>
+                <p>使用代理工具时可能会遇到各种问题，本指南将帮助您解决最常见的故障和困扰。</p>
+                
+                <div class="note">
+                    <p><strong>提示：</strong> 如果您是新手，建议先阅读<a href="usage-guide.html">使用指南</a>，了解基本概念后再查看这里的问题解决方法。</p>
+                </div>
+            </section>
+
+            <!-- 连接问题 -->
+            <section class="content-section">
+                <h2 id="connection-issues">连接问题</h2>
+
+                <div class="faq-item">
+                    <h3>无法连接到服务器</h3>
+                    <p><strong>症状：</strong>客户端显示连接失败、超时或无法连接到服务器。</p>
+                    <p><strong>可能的原因：</strong></p>
+                    <ul>
+                        <li>节点服务器不可用或已下线</li>
+                        <li>您的网络连接不稳定</li>
+                        <li>代理服务器IP被封锁</li>
+                        <li>客户端配置错误</li>
+                    </ul>
+                    <p><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>尝试切换到其他节点</li>
+                        <li>检查您的网络连接是否正常</li>
+                        <li>确认订阅是否过期</li>
+                        <li>重新导入订阅链接</li>
+                        <li>尝试更换协议类型</li>
+                    </ul>
+                    <div class="code-block">
+# 测试网络连接
+ping 8.8.8.8
+
+# 查看是否能解析域名
+nslookup google.com</div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>连接速度极慢</h3>
+                    <p><strong>症状：</strong>能够连接，但网页加载缓慢、视频缓冲或下载速度极低。</p>
+                    <p><strong>可能的原因：</strong></p>
+                    <ul>
+                        <li>节点距离过远或线路拥堵</li>
+                        <li>节点负载过高</li>
+                        <li>ISP对代理流量进行QoS限速</li>
+                        <li>您的本地网络带宽不足</li>
+                    </ul>
+                    <p><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>选择地理位置更近的节点</li>
+                        <li>避开高峰期使用</li>
+                        <li>尝试切换协议（某些协议可能会被特别限速）</li>
+                        <li>使用多倍发包功能（如果客户端支持）</li>
+                        <li>检查本地网络带宽是否有其他占用</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>连接不稳定，频繁断线</h3>
+                    <p><strong>症状：</strong>连接时断时续，需要频繁手动重连。</p>
+                    <p><strong>可能的原因：</strong></p>
+                    <ul>
+                        <li>节点服务不稳定</li>
+                        <li>网络波动</li>
+                        <li>客户端设置问题</li>
+                        <li>防火墙或杀毒软件干扰</li>
+                    </ul>
+                    <p><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>更换更稳定的节点</li>
+                        <li>在客户端设置中增加超时时间</li>
+                        <li>检查是否有防火墙或杀毒软件拦截</li>
+                        <li>尝试有"断线重连"功能的客户端</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 特定网站访问问题 -->
+            <section class="content-section">
+                <h2 id="website-issues">特定网站访问问题</h2>
+
+                <div class="faq-item">
+                    <h3>特定网站无法访问</h3>
+                    <p><strong>症状：</strong>大多数网站正常，但某些特定网站无法访问。</p>
+                    <p><strong>可能的原因：</strong></p>
+                    <ul>
+                        <li>该网站封锁了代理IP</li>
+                        <li>规则配置不当</li>
+                        <li>该网站需要特定地区的IP</li>
+                        <li>DNS污染问题</li>
+                    </ul>
+                    <p><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>尝试更换节点，特别是选择不同地区的节点</li>
+                        <li>切换到全局模式</li>
+                        <li>编辑规则，强制该网站走代理</li>
+                        <li>使用远程DNS解析</li>
+                    </ul>
+                    <div class="tip-card">
+                        <h3>编辑规则示例</h3>
+                        <p>在Clash配置中添加：</p>
+                        <div class="code-block">rules:
+  - DOMAIN-SUFFIX,problematic-site.com,Proxy
+  - DOMAIN-KEYWORD,problematic,Proxy</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Netflix、Disney+等流媒体服务显示地区限制</h3>
+                    <p><strong>症状：</strong>收到"此内容在您所在的地区不可用"等错误。</p>
+                    <p><strong>可能的原因：</strong></p>
+                    <ul>
+                        <li>当前节点IP被流媒体服务检测为代理</li>
+                        <li>节点所在地区不支持该流媒体服务</li>
+                        <li>流媒体服务更新了检测机制</li>
+                    </ul>
+                    <p><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>使用专门的解锁节点（机场通常会标注哪些节点支持流媒体）</li>
+                        <li>选择目标流媒体支持的地区节点（如美国、日本、韩国等）</li>
+                        <li>联系机场客服，询问最新的解锁节点</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 客户端特定问题 -->
+            <section class="content-section">
+                <h2 id="client-issues">客户端特定问题</h2>
+
+                <div class="faq-item">
+                    <h3>系统代理设置不生效</h3>
+                    <p><strong>症状：</strong>客户端已启动但浏览器仍然无法访问被封锁的网站。</p>
+                    <p><strong>解决方法：</strong></p>
+                    <ol>
+                        <li>检查客户端设置，确保"设置为系统代理"选项已启用</li>
+                        <li>重启客户端</li>
+                        <li>手动设置系统代理：
+                            <ul>
+                                <li>Windows: 设置 > 网络和Internet > 代理</li>
+                                <li>macOS: 系统偏好设置 > 网络 > 高级 > 代理</li>
+                                <li>Linux: 系统设置 > 网络 > 网络代理</li>
+                            </ul>
+                        </li>
+                        <li>检查防火墙设置，确保客户端有网络访问权限</li>
+                        <li>重启浏览器</li>
+                    </ol>
+                </div>
+
+                <div class="faq-item">
+                    <h3>订阅更新失败</h3>
+                    <p><strong>症状：</strong>点击更新订阅后显示错误或无法获取最新节点。</p>
+                    <p><strong>可能的原因：</strong></p>
+                    <ul>
+                        <li>订阅链接已过期或错误</li>
+                        <li>账户已到期</li>
+                        <li>网络连接问题</li>
+                        <li>服务商暂时维护</li>
+                    </ul>
+                    <p><strong>解决方法：</strong></p>
+                    <ul>
+                        <li>检查账户状态，确认是否需要续费</li>
+                        <li>重新从服务商网站复制订阅链接</li>
+                        <li>暂时关闭代理后再更新订阅</li>
+                        <li>检查本地网络连接是否正常</li>
+                        <li>联系服务商客服</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Clash 系列客户端无法启动或崩溃</h3>
+                    <p><strong>症状：</strong>启动后立即关闭或显示错误消息。</p>
+                    <p><strong>解决方法：</strong></p>
+                    <ol>
+                        <li>检查配置文件是否损坏：
+                            <div class="code-block">
+# Windows配置文件位置
+%USERPROFILE%\.config\clash\
+
+# macOS配置文件位置
+~/.config/clash/
+
+# 可以尝试删除或重命名config.yaml，让客户端重新生成</div>
+                        </li>
+                        <li>检查是否有其他代理软件正在运行并占用端口</li>
+                        <li>以管理员/root权限运行客户端</li>
+                        <li>尝试重新安装最新版本</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 性能优化 -->
+            <section class="content-section">
+                <h2 id="performance">性能优化</h2>
+
+                <div class="tip-card">
+                    <h3>减少延迟的技巧</h3>
+                    <ul>
+                        <li>选择地理位置近的节点</li>
+                        <li>使用IPLC/专线节点（如果可用）</li>
+                        <li>避开网络高峰期</li>
+                        <li>使用延迟测试功能定期测试并选择最佳节点</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>提高稳定性的技巧</h3>
+                    <ul>
+                        <li>使用更可靠的协议如Trojan或VLESS</li>
+                        <li>启用自动重连功能</li>
+                        <li>避免在配置中使用过多的规则</li>
+                        <li>定期清理客户端缓存</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>优化Clash配置</h3>
+                    <div class="code-block"># Clash配置优化建议
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+
+# 优化DNS
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - 1.1.1.1
+    - 8.8.8.8
+
+# 减少规则数量，使用更通用的规则
+rules:
+  - DOMAIN-SUFFIX,google.com,Proxy
+  - DOMAIN-SUFFIX,facebook.com,Proxy
+  - DOMAIN-SUFFIX,twitter.com,Proxy
+  - DOMAIN-SUFFIX,youtube.com,Proxy
+  - DOMAIN-SUFFIX,netflix.com,Proxy
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy</div>
+                </div>
+            </section>
+
+            <!-- 高级故障排除 -->
+            <section class="content-section">
+                <h2 id="advanced-troubleshooting">高级故障排除</h2>
+
+                <div class="faq-item">
+                    <h3>使用Wireshark分析连接问题</h3>
+                    <p>如果您有一定的网络知识，可以使用Wireshark抓包工具来分析连接问题：</p>
+                    <ol>
+                        <li>下载并安装<a href="https://www.wireshark.org/" target="_blank">Wireshark</a></li>
+                        <li>在尝试连接前开始抓包</li>
+                        <li>设置过滤器，如<code>tcp.port == 443</code>或<code>host 你的代理服务器IP</code></li>
+                        <li>分析TCP握手过程，查看可能的连接阻断点</li>
+                    </ol>
+                </div>
+
+                <div class="faq-item">
+                    <h3>诊断TLS指纹问题</h3>
+                    <p>某些网站可能会检测TLS指纹来识别代理连接。可以使用以下方法诊断：</p>
+                    <ul>
+                        <li>访问<a href="https://www.whatsmyua.info/" target="_blank">whatsmyua.info</a>检查您的TLS指纹是否异常</li>
+                        <li>尝试使用uTLS功能（如果客户端支持）</li>
+                        <li>使用伪装性更好的协议如Trojan</li>
+                    </ul>
+                </div>
+
+                <div class="faq-item">
+                    <h3>解决DNS泄漏问题</h3>
+                    <p>DNS泄漏可能导致您的真实IP被暴露。解决方法：</p>
+                    <ul>
+                        <li>确保客户端启用"DNS over DoH/DoT"</li>
+                        <li>使用远程DNS解析</li>
+                        <li>添加DNS过滤规则</li>
+                        <li>访问<a href="https://www.dnsleaktest.com/" target="_blank">dnsleaktest.com</a>测试是否存在DNS泄漏</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 联系支持 -->
+            <section class="content-section">
+                <h2 id="support">联系支持</h2>
+                <p>如果您尝试了上述所有方法仍然无法解决问题，建议联系以下支持渠道：</p>
+                <ul>
+                    <li>服务提供商（机场）的客服支持</li>
+                    <li>代理客户端的官方支持渠道（如GitHub issues）</li>
+                    <li>互联网相关技术论坛</li>
+                </ul>
+                <div class="note">
+                    <p><strong>提示：</strong> 联系支持时，请提供详细的问题描述、错误日志和您尝试过的解决方法，以便更快获得帮助。</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- 右侧目录导航 -->
+        <aside class="table-of-contents">
+            <h4 class="toc-header">目录</h4>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#introduction">简介</a></li>
+                <li class="toc-item"><a href="#connection-issues">连接问题</a></li>
+                <li class="toc-item"><a href="#website-issues">特定网站访问问题</a></li>
+                <li class="toc-item"><a href="#client-issues">客户端特定问题</a></li>
+                <li class="toc-item"><a href="#performance">性能优化</a></li>
+                <li class="toc-item"><a href="#advanced-troubleshooting">高级故障排除</a></li>
+                <li class="toc-item"><a href="#support">联系支持</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2023-2024 ToolStore. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <!-- 放大预览模态框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <!-- 引入公共JS -->
+    <script src="../../assets/scripts/config.js"></script>
+    <!-- 文档站专用JS -->
+    <script src="../js/doc-scripts.js"></script>
+    <!-- 单页应用功能 -->
+    <script src="../js/spa.js"></script>
+    <!-- 主题切换功能 -->
+    <script src="../js/theme.js"></script>
+</body>
+
+</html> 
