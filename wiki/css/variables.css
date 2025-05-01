@@ -25,6 +25,8 @@
     --header-bg-start: #f9fafc;      /* 顶部渐变开始 */
     --header-bg-end: #f5f7fa;        /* 顶部渐变结束 */
     --footer-bg: #f5f7fa;            /* 底部背景 */
+    --code-bg: #f0f0f0;              /* 代码背景 */
+    --code-text: #333333;            /* 代码文本 */
     
     /* 边框和阴影 */
     --border-color: #e9ecef;         /* 边框颜色 */
@@ -73,6 +75,8 @@
     --header-bg-start: #0f1115;      /* 顶部渐变开始 - 与侧边栏背景一致 */
     --header-bg-end: #1a1d24;        /* 顶部渐变结束 - 与页面背景一致 */
     --footer-bg: #0f1115;            /* 底部背景 */
+    --code-bg: #141921;              /* 代码背景 */
+    --code-text: #e1e1e1;            /* 代码文本 */
     
     /* 边框和阴影 */
     --border-color: #2c3039;         /* 边框颜色 */

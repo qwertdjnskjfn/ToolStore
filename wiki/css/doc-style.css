@@ -10,6 +10,7 @@
 @import 'components.css';  /* UI组件和卡片样式 */
 @import 'utility.css';     /* 实用工具和功能样式 */
 @import 'tutorial-content.css'; /* 教程内容特定样式 */
+@import 'custom-templates.css'; /* 模板页面自定义样式 */
 
 /* body样式设置 */
 body {
