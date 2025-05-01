@@ -22,8 +22,8 @@
     --card-bg: #ffffff;              /* 卡片背景 */
     --header-bg: rgba(255, 255, 255, 0.97); /* 头部背景 - 半透明白色 */
     --header-text: #333333;          /* 头部文本颜色 */
-    --header-bg-start: #6a75e0;      /* 顶部渐变开始 */
-    --header-bg-end: #7c8aff;        /* 顶部渐变结束 */
+    --header-bg-start: #f9fafc;      /* 顶部渐变开始 */
+    --header-bg-end: #f5f7fa;        /* 顶部渐变结束 */
     --footer-bg: #f5f7fa;            /* 底部背景 */
     
     /* 边框和阴影 */

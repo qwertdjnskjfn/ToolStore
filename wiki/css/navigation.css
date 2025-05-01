@@ -80,6 +80,7 @@ header nav {
 
 .nav-links a {
     text-decoration: none !important;
+    color: var(--header-text) !important;
 }
 
 /* 暗色模式下的导航栏链接样式 */
@@ -95,6 +96,8 @@ header nav {
     display: flex;
     align-items: center;
     margin-left: 5px;
+    background-color: var(--header-text);
+    border-radius: 12px;
     /* 与导航链接保持间距 */
 }
 
