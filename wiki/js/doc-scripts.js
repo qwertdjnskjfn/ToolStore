@@ -111,8 +111,20 @@ function initSidebar() {
     // 保存当前活跃的导航项
     let activeNavItem = null;
     
+    // 修复链接路径问题
+    // 检查当前页面是在doc子目录还是在wiki根目录
+    const isInDocDirectory = currentPath.includes('/doc/');
+    
     navItems.forEach(item => {
         const itemHref = item.getAttribute('href');
+        
+        // 修正链接路径
+        if (isInDocDirectory && !itemHref.startsWith('http') && !itemHref.startsWith('../') && !itemHref.startsWith('/')) {
+            // 如果在doc子目录中，而链接是相对于wiki目录的，则需要调整
+            if (!itemHref.startsWith('./') && !itemHref.startsWith('../')) {
+                item.setAttribute('href', '../' + itemHref);
+            }
+        }
         
         // 精确匹配当前路径或者当前路径以链接地址结尾
         if (itemHref === currentPath || 
