@@ -30,7 +30,7 @@ code {
 /* 修改工具卡片布局，使其更好地适应更宽的内容区 */
 .tool-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
 }
 

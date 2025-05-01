@@ -111,7 +111,7 @@
         <!-- 主要内容区 -->
         <main class="main-content">
             <div class="content-header">
-                <h1>网络代理工具使用指南 <span class="difficulty difficulty-beginner">初级</span></h1>
+                <h1>网络代理工具使用指南 <span class="difficulty difficulty-beginner">简单</span></h1>
                 <div class="tool-tags">
                     <span class="tag">基础知识</span>
                     <span class="tag">入门指南</span>
@@ -124,14 +124,14 @@
             <section class="content-section">
                 <h2 id="concepts">基本概念</h2>
                 <p>在开始使用各种网络代理工具前，了解一些基本概念将帮助您更好地理解它们的工作原理。</p>
-                
+
                 <h3>什么是代理？</h3>
                 <p>代理（Proxy）是一种中间服务器，它作为客户端和目标服务器之间的中转站。当您通过代理上网时，您的请求首先发送到代理服务器，然后由代理服务器转发到目标网站，目标网站的响应也通过同样的路径返回。</p>
-                
+
                 <div class="note">
                     <p><strong>注意：</strong> 代理服务器可以帮助您绕过网络限制、保护隐私并加速访问某些网站，但不同类型的代理提供不同级别的安全性和匿名性。</p>
                 </div>
-                
+
                 <h3>常见代理协议</h3>
                 <p>市面上常见的代理协议包括：</p>
                 <ul>
@@ -142,7 +142,7 @@
                     <li><strong>Trojan</strong>：伪装成HTTPS流量的协议，更难被检测</li>
                     <li><strong>Wireguard</strong>：现代的、高性能的VPN协议</li>
                 </ul>
-                
+
                 <div class="tip-card">
                     <h3>小贴士</h3>
                     <p>不同工具支持的协议可能有所不同。大多数现代代理客户端（如Clash系列）支持多种协议，可以根据需要灵活切换。</p>
@@ -152,7 +152,7 @@
             <!-- 代理节点与订阅 -->
             <section class="content-section">
                 <h2 id="nodes">代理节点与订阅</h2>
-                
+
                 <h3>什么是代理节点？</h3>
                 <p>代理节点是指提供代理服务的服务器。一个节点通常包含以下信息：</p>
                 <ul>
@@ -162,16 +162,16 @@
                     <li>密码/认证信息</li>
                     <li>协议类型及特定参数</li>
                 </ul>
-                
+
                 <h3>订阅链接</h3>
                 <p>订阅链接是一种便捷的方式，允许您一次性导入和更新多个代理节点。大多数代理服务提供商（机场）会提供订阅链接，您只需在客户端中添加这个链接，即可自动导入所有节点并获取后续更新。</p>
-                
+
                 <div class="code-block">https://example.com/api/v1/client/subscribe?token=abcdefg123456</div>
-                
+
                 <div class="note">
                     <p><strong>安全提示：</strong> 订阅链接通常包含您的账户信息，请勿随意分享给他人。</p>
                 </div>
-                
+
                 <h3>如何选择节点？</h3>
                 <p>选择节点时可以考虑以下因素：</p>
                 <ul>
@@ -186,22 +186,22 @@
             <section class="content-section">
                 <h2 id="modes">代理模式</h2>
                 <p>大多数代理客户端提供多种代理模式，以满足不同的使用场景：</p>
-                
+
                 <div class="step">
                     <h3>全局模式</h3>
                     <p>全局模式下，所有网络流量都会通过代理服务器。这种模式简单直接，但可能会导致一些本来可以直连的国内网站也走代理，造成不必要的资源消耗。</p>
                 </div>
-                
+
                 <div class="step">
                     <h3>规则模式</h3>
                     <p>规则模式（也称为PAC模式或分流模式）基于预设规则决定哪些流量走代理，哪些直连。大多数客户端提供内置规则组，您也可以自定义规则。</p>
                 </div>
-                
+
                 <div class="step">
                     <h3>手动模式</h3>
                     <p>手动模式允许您自行选择哪些应用程序或网站使用代理，通常需要在应用程序内部设置代理服务器地址和端口。</p>
                 </div>
-                
+
                 <div class="tip-card">
                     <h3>推荐配置</h3>
                     <p>对于大多数用户，推荐使用规则模式，因为它能提供良好的平衡——只有需要代理的流量才会经过代理服务器，从而节省带宽并提高整体体验。</p>
@@ -212,25 +212,25 @@
             <section class="content-section">
                 <h2 id="clients">如何选择客户端</h2>
                 <p>选择合适的代理客户端对于良好的上网体验至关重要。以下是根据不同平台的推荐：</p>
-                
+
                 <h3>安卓平台</h3>
                 <ul>
                     <li><strong>ClashMeta</strong>：功能全面，支持多种协议，界面友好</li>
                     <li><strong>Hiddify</strong>：开源轻量级选择，低占用高性能</li>
                     <li><strong>Surfboard</strong>：支持Surge配置，稳定可靠</li>
                 </ul>
-                
+
                 <h3>iOS平台</h3>
                 <ul>
                     <li><strong>Shadowrocket</strong>：iOS上最广泛使用的代理工具，配置简单，功能强大</li>
                 </ul>
-                
+
                 <h3>PC平台</h3>
                 <ul>
                     <li><strong>Clash Verge</strong>：基于Rust开发，界面美观，性能出色</li>
                     <li><strong>Mihomo Party</strong>：新一代代理工具，改进的核心架构</li>
                 </ul>
-                
+
                 <div class="note">
                     <p><strong>提示：</strong> 我们的教程中心提供了所有这些工具的详细配置指南，可以在左侧导航栏中选择对应工具查看。</p>
                 </div>
@@ -240,34 +240,35 @@
             <section class="content-section">
                 <h2 id="workflow">基本使用流程</h2>
                 <p>无论使用哪种代理工具，基本的使用流程都类似：</p>
-                
+
                 <div class="step">
                     <h3>步骤 1: 下载并安装代理客户端</h3>
                     <p>从可靠的来源（如官方网站、GitHub或App Store）下载适合您设备的代理客户端。</p>
                 </div>
-                
+
                 <div class="step">
                     <h3>步骤 2: 导入节点或订阅</h3>
                     <p>可以通过多种方式导入节点：
-                        <ul>
-                            <li>添加订阅链接（最推荐的方式）</li>
-                            <li>扫描二维码</li>
-                            <li>从剪贴板导入</li>
-                            <li>手动输入节点信息</li>
-                        </ul>
+                    <ul>
+                        <li>添加订阅链接（最推荐的方式）</li>
+                        <li>扫描二维码</li>
+                        <li>从剪贴板导入</li>
+                        <li>手动输入节点信息</li>
+                    </ul>
                     </p>
                 </div>
-                
+
                 <div class="step">
                     <h3>步骤 3: 选择代理模式和节点</h3>
                     <p>选择合适的代理模式（如规则模式）和节点。可以通过测速功能选择延迟较低的节点。</p>
                 </div>
-                
+
                 <div class="step">
                     <h3>步骤 4: 连接并测试</h3>
-                    <p>启动代理连接，然后访问一些网站测试连接是否正常工作。可以使用 <a href="https://www.google.com" target="_blank">Google</a> 或 <a href="https://www.youtube.com" target="_blank">YouTube</a> 进行测试。</p>
+                    <p>启动代理连接，然后访问一些网站测试连接是否正常工作。可以使用 <a href="https://www.google.com" target="_blank">Google</a> 或 <a
+                            href="https://www.youtube.com" target="_blank">YouTube</a> 进行测试。</p>
                 </div>
-                
+
                 <div class="tip-card">
                     <h3>小贴士</h3>
                     <p>订阅链接通常需要定期更新。大多数客户端都提供自动更新功能，建议开启此功能以确保您的节点列表保持最新状态。</p>
@@ -278,19 +279,19 @@
             <section class="content-section">
                 <h2 id="security">安全与隐私注意事项</h2>
                 <p>使用代理工具时，以下安全和隐私注意事项值得关注：</p>
-                
+
                 <h3>选择可信的代理服务提供商</h3>
                 <p>代理服务器可以看到您的网络流量，因此选择可信的服务提供商非常重要。研究提供商的声誉、隐私政策和安全实践。</p>
-                
+
                 <h3>使用加密协议</h3>
                 <p>尽量选择提供端到端加密的协议，如Shadowsocks、VMess或Trojan，避免使用未加密的HTTP代理。</p>
-                
+
                 <h3>定期更新客户端</h3>
                 <p>保持代理客户端软件的最新版本，以获取安全补丁和功能改进。过时的软件可能存在安全漏洞。</p>
-                
+
                 <h3>避免敏感活动</h3>
                 <p>即使使用代理，也应避免在网上进行高度敏感的活动，如银行交易等。对于这类活动，考虑使用更安全的专用方案。</p>
-                
+
                 <div class="note">
                     <p><strong>重要提示：</strong> 代理工具提供一定程度的匿名性，但不能保证绝对的隐私和安全。使用代理时仍应保持警惕，遵守相关法律法规。</p>
                 </div>
@@ -299,27 +300,27 @@
             <!-- 常见问题 -->
             <section class="content-section">
                 <h2 id="faq">常见问题</h2>
-                
+
                 <div class="faq-item">
                     <h3>为什么我的连接速度很慢？</h3>
                     <p>连接速度受多种因素影响，包括：节点距离、节点负载、网络拥塞、ISP限制等。尝试选择不同的节点或协议，尤其是地理位置靠近您所在地或目标网站的节点。</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>为什么有些网站仍然无法访问？</h3>
                     <p>可能的原因包括：代理配置问题、网站本身封锁了代理访问、规则配置不当等。尝试切换到全局模式测试，或更新规则库。</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>如何选择最佳的代理节点？</h3>
                     <p>首先使用客户端的测速功能获取各节点延迟。其次，考虑您的具体需求，如看视频可能需要更高的带宽，而浏览网页则更注重延迟。最后，通过实际使用体验进行调整。</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>移动设备上使用代理会增加电池消耗吗？</h3>
                     <p>是的，代理会略微增加电池消耗，因为它需要额外的加密/解密处理。如果电池寿命是主要考虑因素，可以在不需要时关闭代理，或使用按需连接的功能。</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>如何排查连接问题？</h3>
                     <p>参考我们的<a href="troubleshooting.html">常见问题解决</a>指南，其中包含了详细的故障排除步骤和解决方案。</p>
@@ -365,4 +366,4 @@
     <script src="../js/theme.js"></script>
 </body>
 
-</html> 
+</html>
