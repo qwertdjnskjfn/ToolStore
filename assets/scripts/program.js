@@ -59,17 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const recommendManager = new RecommendManager();
     recommendManager.init();
     
-    // 确保免费节点链接可以正常工作
-    const freeNodeLink = document.getElementById('free-node-link');
-    if (freeNodeLink) {
-        freeNodeLink.addEventListener('click', function(e) {
-            // 阻止任何可能干扰的事件
-            e.stopPropagation();
-            // 直接在新窗口打开链接
-            window.open(this.href, '_blank');
-        });
-    }
-
     // 标记应用已初始化
     window.appInitialized = true;
     // console.log('应用初始化完成');
