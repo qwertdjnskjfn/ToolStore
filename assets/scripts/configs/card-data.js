@@ -85,7 +85,7 @@ export const toolsData = [
     },
     {
         name: "V2Box",
-        image: "assets/images/tools/v2box.png",
+        image: "assets/images/tools/V2Box.png",
         link: "https://play.google.com/store/apps/details?id=dev.hexasoftware.v2box"
     }
 ];
