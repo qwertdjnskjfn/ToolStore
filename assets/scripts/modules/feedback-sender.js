@@ -22,7 +22,7 @@ class FeedbackSender {
     
     // 初始化限流配置
     this.rateLimit = {
-      maxRequestsPerHour: 600, // 每小时最大请求数
+      maxRequestsPerHour: 6, // 每小时最大请求数
       requestCountKey: 'feedback_request_count', // 本地存储键名
       requestTimestampKey: 'feedback_request_timestamps', // 时间戳记录键名
     };
