@@ -1,11 +1,9 @@
 import { NavScroll } from './modules/nav-scroll.js';
 
-import { createCards } from './modules/card-creator.js';
 import { initNoticeHandler } from './modules/notice-handler.js';
 import { initNavigation, initDisplayToggle } from './modules/nav-handler.js';
 import { initAirportCards } from './modules/airport-modal.js';
 import { initSoftwareCards } from './modules/software-cards.js';
-import { RecommendManager } from './modules/recommend.js';
 import { initCardRenderer } from './modules/card-renderer.js';
 
 // 使复制函数在全局可用
@@ -52,15 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
     initMainContent();
     
     // 初始化卡片渲染器 - 动态生成卡片内容（新方式）
+    // 所有卡片渲染、推荐系统初始化都在这里完成
     initCardRenderer();
 
     // 初始化机场卡片和软件卡片点击事件
     initAirportCards();
     initSoftwareCards();
-
-    // 初始化推荐管理器
-    const recommendManager = new RecommendManager();
-    recommendManager.init();
     
     // 标记应用已初始化
     window.appInitialized = true;

@@ -2,6 +2,7 @@
 import { fetchAllCardData } from './api.js';
 import { downloadLinks, getToolVersion } from '../configs/download-config.js';
 import { createDownloadModal } from './download-modal.js';
+import { RecommendManager } from './recommend.js';
 
 // 预先加载平台图标模块
 let platformIconsModule = null;
@@ -306,5 +307,21 @@ function showErrorMessage(message) {
 
 // 初始化函数 - 由程序主入口调用
 export function initCardRenderer() {
-    renderAllCardSections();
+    renderAllCardSections().then(() => {
+        // 所有卡片渲染完成后初始化推荐系统
+        // 使用较短的延时确保所有DOM元素都已完全加载
+        setTimeout(() => {
+            initRecommendSystem();
+        }, 100);
+    });
+}
+
+// 初始化推荐管理器
+function initRecommendSystem() {
+    try {
+        const recommendManager = new RecommendManager();
+        recommendManager.init();
+    } catch (error) {
+        console.error('初始化推荐系统时出错:', error);
+    }
 } 
