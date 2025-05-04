@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/price-card.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/sponsor.css">
+    <link rel="stylesheet" href="assets/css/back-to-top.css">
 </head>
 
 <body>
@@ -465,6 +466,13 @@
         </div>
     </footer>
 
+    <!-- 返回顶部按钮 -->
+    <div id="back-to-top" class="back-to-top">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
+        </svg>
+    </div>
+
     <script type="module">
         // 导入反馈表单模块
         import feedbackModal from './assets/scripts/modules/feedback-modal.js';
@@ -484,6 +492,9 @@
             }
         });
     </script>
+    
+    <!-- 返回顶部按钮脚本 -->
+    <script type="module" src="assets/scripts/modules/back-to-top.js"></script>
 </body>
 
 </html>

@@ -57,11 +57,16 @@ function createAirportModal(airportName) {
     modal.innerHTML = content;
     document.body.appendChild(modal);
 
+    // 禁用背景滚动
+    document.body.style.overflow = 'hidden';
+
     setTimeout(() => modal.classList.add('active'), 10);
 
     // 事件处理
     const closeModal = () => {
         modal.classList.remove('active');
+        // 恢复背景滚动
+        document.body.style.overflow = '';
         setTimeout(() => modal.remove(), 300);
     };
 

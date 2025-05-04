@@ -1,6 +1,6 @@
 // 下载模态框模块
 import { platformIcons, githubIcon, getPlatformName } from './platform-icons.js';
-import { downloadLinks } from '../configs/download-config.js';
+import { downloadLinks, getToolVersion } from '../configs/download-config.js';
 
 // 创建下载模态框
 export function createDownloadModal(toolName) {
@@ -13,14 +13,18 @@ export function createDownloadModal(toolName) {
     modal.className = 'download-modal';
 
     // 获取工具的下载链接
-    const links = downloadLinks[toolName.toLowerCase()];
+    const normalizedName = toolName.toLowerCase().trim();
+    const links = downloadLinks[normalizedName];
     if (!links) return;
+    
+    // 获取工具版本
+    const version = getToolVersion(toolName);
 
     const content = `
         <div class="download-content">
             <button class="close-modal">×</button>
             <div class="download-header">
-                <h3>${toolName}</h3>
+                <h3>${toolName} ${version && version !== 'undefined' ? `<span class="tool-version">${version}</span>` : ''}</h3>
                 <p>选择下载平台</p>
                 <p>链接若需要维护，自行前往Github下载</p>
             </div>
@@ -42,11 +46,16 @@ export function createDownloadModal(toolName) {
     modal.innerHTML = content;
     document.body.appendChild(modal);
 
+    // 禁用背景滚动
+    document.body.style.overflow = 'hidden';
+
     setTimeout(() => modal.classList.add('active'), 10);
 
     // 关闭按钮事件
     modal.querySelector('.close-modal').addEventListener('click', () => {
         modal.classList.remove('active');
+        // 恢复背景滚动
+        document.body.style.overflow = '';
         setTimeout(() => modal.remove(), 300);
     });
 
@@ -54,6 +63,8 @@ export function createDownloadModal(toolName) {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.remove('active');
+            // 恢复背景滚动
+            document.body.style.overflow = '';
             setTimeout(() => modal.remove(), 300);
         }
     });

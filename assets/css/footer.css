@@ -90,3 +90,16 @@ footer {
         padding: 2px 4px;
     }
 }
+
+/* 版本信息样式 */
+.version-info {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#app-version {
+    color: #7c8aff;
+    font-weight: 500;
+}

@@ -1,14 +1,15 @@
 // 卡片创建模块
 import { platformIcons, getPlatformName } from './platform-icons.js';
-import { downloadLinks } from '../configs/download-config.js';
+import { downloadLinks, getToolVersion } from '../configs/download-config.js';
 import { createDownloadModal } from './download-modal.js';
 
 // 获取支持平台的函数
 export function getSupportedPlatforms(toolName) {
-    const links = downloadLinks[toolName];
+    const normalizedName = toolName.toLowerCase().trim();
+    const links = downloadLinks[normalizedName];
     if (!links) return [];
-    // 过滤掉 github，因为它是通用的
-    return Object.keys(links).filter(platform => platform !== 'github');
+    // 过滤掉 github 和 version，因为它们是通用的或非平台
+    return Object.keys(links).filter(platform => platform !== 'github' && platform !== 'version');
 }
 
 // 创建卡片函数
@@ -31,6 +32,9 @@ export function createCards() {
             // 获取基础数据
             const name = row.querySelector('.tool-name')?.textContent.trim() || '';
             const link = row.querySelector('a[href^="http"]')?.href || '#';
+            
+            // 获取工具版本号
+            const version = getToolVersion(name);
 
             // 创建图标元素
             const iconElement = document.createElement('div');
@@ -53,18 +57,32 @@ export function createCards() {
             // 创建卡片内容
             card.appendChild(iconElement);
 
+            // 创建标题和版本号容器
+            const titleContainer = document.createElement('div');
+            titleContainer.className = 'title-container';
+            
             const titleDiv = document.createElement('div');
             titleDiv.className = 'card-title';
             titleDiv.textContent = name;
-            card.appendChild(titleDiv);
+            titleContainer.appendChild(titleDiv);
+            
+            // 添加版本号显示
+            if (version && version !== 'undefined') {
+                const versionDiv = document.createElement('div');
+                versionDiv.className = 'tool-version';
+                versionDiv.textContent = version;
+                titleContainer.appendChild(versionDiv);
+            }
+            
+            card.appendChild(titleContainer);
 
             // 如果是工具客户端区域，添加平台图标
             if (isToolsSection) {
                 const platformIconsDiv = document.createElement('div');
                 platformIconsDiv.className = 'platform-icons';
 
-                // 获取支持的平台
-                const supportedPlatforms = getSupportedPlatforms(name.toLowerCase());
+                // 获取支持的平台（使用小写名称）
+                const supportedPlatforms = getSupportedPlatforms(name);
 
                 // 只显示支持的平台图标
                 supportedPlatforms.forEach(platform => {

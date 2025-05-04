@@ -473,12 +473,16 @@ class FeedbackModal {
 
     open() {
         this.modal.style.display = 'flex';
-        this.modal.style.justifyContent = 'center';
-        this.modal.style.alignItems = 'center';
+        this.createBackdrop();
+        // 禁用背景滚动
+        document.body.style.overflow = 'hidden';
     }
 
     close() {
         this.modal.style.display = 'none';
+        this.removeBackdrop();
+        // 恢复背景滚动
+        document.body.style.overflow = '';
     }
 
     // 字段验证方法
