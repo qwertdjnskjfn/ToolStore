@@ -19,7 +19,7 @@ class FeedbackModal {
               <div class="email-suffix-wrapper">
                 <select class="email-suffix-select">
                     <!-- 国际通用邮箱后缀 -->
-                    <option value="@gmail.com" selected>@gmail.com</option>
+                    <option value="@gmail.com">@gmail.com</option>
                     <option value="@outlook.com">@outlook.com</option>
                     <option value="@hotmail.com">@hotmail.com</option>
 
@@ -127,8 +127,11 @@ class FeedbackModal {
         emailInput.type = 'text';
         emailInput.setAttribute('required', 'required');
 
-        // 初始化显示默认后缀
-        suffixWrapper.setAttribute('data-suffix', suffixSelect.options[suffixSelect.selectedIndex].text);
+        // 初始化时确保第一个选项被选中
+        suffixSelect.selectedIndex = 0;
+        const defaultSuffix = suffixSelect.options[0].value;
+        suffixSelect.value = defaultSuffix;
+        suffixWrapper.setAttribute('data-suffix', defaultSuffix);
         this.updateFullEmail(emailInput, suffixSelect, hiddenEmailInput);
 
         // 实时验证
@@ -159,9 +162,11 @@ class FeedbackModal {
 
         // 监听后缀选择变化
         suffixSelect.addEventListener('change', () => {
+            // 确保选中值正确
+            const selectedValue = suffixSelect.value;
+            
             // 更新显示的后缀文本
-            const selectedOption = suffixSelect.options[suffixSelect.selectedIndex];
-            suffixWrapper.setAttribute('data-suffix', selectedOption.text);
+            suffixWrapper.setAttribute('data-suffix', selectedValue);
 
             // 从邮箱输入框中移除所有后缀部分
             if (emailInput.value.includes('@')) {
@@ -204,11 +209,11 @@ class FeedbackModal {
             prefix = prefix.split('@')[0];
         }
 
-        // 获取选中的后缀
-        const selectedOption = suffixSelect.options[suffixSelect.selectedIndex];
+        // 确保获取选中的后缀值
+        const suffix = suffixSelect.value;
 
         // 组合完整邮箱地址
-        const fullEmail = prefix + selectedOption.value;
+        const fullEmail = prefix + suffix;
 
         // 更新隐藏输入框
         hiddenInput.value = fullEmail;
