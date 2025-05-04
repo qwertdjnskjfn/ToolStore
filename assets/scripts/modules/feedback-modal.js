@@ -96,14 +96,26 @@ class FeedbackModal {
         this.close();
 
         this.setupEventListeners();
+        
+        // 添加全局错误处理，确保页面滚动功能可以恢复
+        this.setupGlobalErrorHandling();
     }
 
     setupEventListeners() {
         const closeBtn = this.modal.querySelector('.close-feedback');
         const cancelBtn = this.modal.querySelector('.cancel-feedback');
 
-        closeBtn.addEventListener('click', () => this.close());
-        cancelBtn.addEventListener('click', () => this.close());
+        closeBtn.addEventListener('click', () => {
+            // 关闭前重置表单
+            this.resetForm();
+            this.close();
+        });
+        
+        cancelBtn.addEventListener('click', () => {
+            // 取消前重置表单
+            this.resetForm();
+            this.close();
+        });
 
         // 邮箱输入处理
         const emailInput = this.modal.querySelector('#feedback-email');
@@ -236,6 +248,51 @@ class FeedbackModal {
         }
     }
 
+    // 添加表单重置方法
+    resetForm() {
+        // 重置邮箱输入框
+        const emailInput = this.modal.querySelector('#feedback-email');
+        if (emailInput) emailInput.value = '';
+        
+        // 重置标题输入框
+        const subjectInput = this.modal.querySelector('#feedback-subject');
+        if (subjectInput) subjectInput.value = '';
+        
+        // 重置内容输入框
+        const messageInput = this.modal.querySelector('#feedback-message');
+        if (messageInput) messageInput.value = '';
+        
+        // 重置后缀选择框为默认值
+        const suffixSelect = this.modal.querySelector('.email-suffix-select');
+        const suffixWrapper = this.modal.querySelector('.email-suffix-wrapper');
+        if (suffixSelect) {
+            suffixSelect.selectedIndex = 0;
+            const defaultSuffix = suffixSelect.options[0].value;
+            suffixSelect.value = defaultSuffix;
+            if (suffixWrapper) {
+                suffixWrapper.setAttribute('data-suffix', defaultSuffix);
+            }
+        }
+        
+        // 重置隐藏的邮箱字段
+        const hiddenEmail = document.getElementById('full-email-hidden');
+        if (hiddenEmail) hiddenEmail.value = '';
+        
+        // 重置所有字段的验证状态
+        const formGroups = this.modal.querySelectorAll('.form-group');
+        formGroups.forEach(group => {
+            group.classList.remove('has-error', 'has-success');
+        });
+        
+        // 重置提交按钮状态
+        const submitBtn = this.modal.querySelector('.submit-feedback');
+        if (submitBtn) {
+            submitBtn.textContent = '发送';
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
+        }
+    }
+
     async handleSubmit(e) {
         e.preventDefault();
 
@@ -259,13 +316,11 @@ class FeedbackModal {
             
             // 根据结果显示成功或失败提示
             if (result.success) {
+                // 重置表单
+                this.resetForm();
+                
                 // 发送成功，关闭反馈弹窗，防止重复发送
                 this.close();
-                
-                // 清除表单数据
-                document.getElementById('feedback-email').value = '';
-                document.getElementById('feedback-subject').value = '';
-                document.getElementById('feedback-message').value = '';
                 
                 // 显示成功消息
                 this.showSuccessMessage();
@@ -275,6 +330,9 @@ class FeedbackModal {
                     // 显示频率限制错误，但不关闭窗口以便用户了解情况
                     this.showRateLimitError(result.message);
                 } else {
+                    // 重置表单
+                    this.resetForm();
+                    
                     // 其他错误，关闭反馈弹窗
                     this.close();
                     
@@ -293,6 +351,10 @@ class FeedbackModal {
             }
         } catch (error) {
             console.error('邮件发送失败:', error);
+            
+            // 重置表单
+            this.resetForm();
+            
             // 发送失败也关闭反馈弹窗
             this.close();
             
@@ -360,9 +422,7 @@ class FeedbackModal {
 
     // 显示错误消息
     showErrorMessage(message) {
-        // 创建遮罩层
-        this.createBackdrop();
-        
+        // 先创建错误提示，再创建遮罩层，确保顺序正确
         const errorMessage = document.createElement('div');
         errorMessage.className = 'feedback-error-message';
         errorMessage.innerHTML = `
@@ -372,34 +432,74 @@ class FeedbackModal {
             <button class="feedback-error-button">确定</button>
         `;
 
-        // 添加到页面
-        document.body.appendChild(errorMessage);
+        // 创建遮罩层
+        const backdrop = this.createBackdrop();
+        
+        // 确保页面不能滚动
+        document.body.classList.add('modal-open');
+        document.body.classList.remove('modal-closed');
+        
+        // 确保遮罩层完全显示后再显示消息
+        setTimeout(() => {
+            // 添加到页面
+            document.body.appendChild(errorMessage);
+            
+            // 触发动画
+            setTimeout(() => {
+                errorMessage.classList.add('active');
+            }, 10);
+        }, 100);
 
         // 处理确定按钮点击事件
         const confirmButton = errorMessage.querySelector('.feedback-error-button');
         confirmButton.addEventListener('click', () => {
-            // 移除错误提示
-            document.body.removeChild(errorMessage);
-            // 移除遮罩层
-            this.removeBackdrop();
+            // 添加移除动画
+            errorMessage.classList.remove('active');
+            errorMessage.classList.add('exit');
+            
+            // 移除遮罩层和提示
+            setTimeout(() => {
+                if (document.body.contains(errorMessage)) {
+                    document.body.removeChild(errorMessage);
+                }
+                this.removeBackdrop();
+                
+                // 确保页面可以滚动
+                document.body.classList.remove('modal-open');
+                document.body.classList.add('modal-closed');
+            }, 300);
         });
 
         // 自动关闭（5秒后）
-        setTimeout(() => {
+        const autoCloseTimeout = setTimeout(() => {
             if (document.body.contains(errorMessage)) {
-                document.body.removeChild(errorMessage);
-                // 移除遮罩层
-                this.removeBackdrop();
+                // 添加移除动画
+                errorMessage.classList.remove('active');
+                errorMessage.classList.add('exit');
+                
+                // 延迟后移除元素
+                setTimeout(() => {
+                    if (document.body.contains(errorMessage)) {
+                        document.body.removeChild(errorMessage);
+                    }
+                    this.removeBackdrop();
+                    
+                    // 确保页面可以滚动
+                    document.body.classList.remove('modal-open');
+                    document.body.classList.add('modal-closed');
+                }, 300);
             }
         }, 5000);
+        
+        // 点击确定按钮时清除自动关闭的计时器
+        confirmButton.addEventListener('click', () => {
+            clearTimeout(autoCloseTimeout);
+        });
     }
 
     // 显示成功提示消息
     showSuccessMessage() {
-        // 创建遮罩层
-        this.createBackdrop();
-        
-        // 创建成功提示元素
+        // 先创建成功提示，再创建遮罩层，确保顺序正确
         const successMessage = document.createElement('div');
         successMessage.className = 'feedback-success-message';
         successMessage.innerHTML = `
@@ -408,29 +508,70 @@ class FeedbackModal {
             <p class="feedback-success-text">感谢您的反馈，我们将尽快处理您的意见！</p>
             <button class="feedback-success-button">确定</button>
         `;
-
-        // 添加到页面
-        document.body.appendChild(successMessage);
+        
+        // 创建遮罩层
+        const backdrop = this.createBackdrop();
+        
+        // 确保页面不能滚动
+        document.body.classList.add('modal-open');
+        document.body.classList.remove('modal-closed');
+        
+        // 确保遮罩层完全显示后再显示消息
+        setTimeout(() => {
+            // 添加到页面
+            document.body.appendChild(successMessage);
+            
+            // 触发动画
+            setTimeout(() => {
+                successMessage.classList.add('active');
+            }, 10);
+        }, 100);
 
         // 处理确定按钮点击事件
         const confirmButton = successMessage.querySelector('.feedback-success-button');
         confirmButton.addEventListener('click', () => {
-            // 移除成功提示
-            document.body.removeChild(successMessage);
-            // 移除遮罩层
-            this.removeBackdrop();
-            // 不需要再次关闭反馈弹窗，因为在handleSubmit方法中已经关闭了
+            // 添加移除动画
+            successMessage.classList.remove('active');
+            successMessage.classList.add('exit');
+            
+            // 延迟后移除元素
+            setTimeout(() => {
+                if (document.body.contains(successMessage)) {
+                    document.body.removeChild(successMessage);
+                }
+                this.removeBackdrop();
+                
+                // 确保页面可以滚动
+                document.body.classList.remove('modal-open');
+                document.body.classList.add('modal-closed');
+            }, 300);
         });
 
-        // 自动关闭（5秒后，与失败提示时间一致）
-        setTimeout(() => {
+        // 自动关闭（5秒后）
+        const autoCloseTimeout = setTimeout(() => {
             if (document.body.contains(successMessage)) {
-                document.body.removeChild(successMessage);
-                // 移除遮罩层
-                this.removeBackdrop();
-                // 不需要再次关闭反馈弹窗，因为在handleSubmit方法中已经关闭了
+                // 添加移除动画
+                successMessage.classList.remove('active');
+                successMessage.classList.add('exit');
+                
+                // 延迟后移除元素
+                setTimeout(() => {
+                    if (document.body.contains(successMessage)) {
+                        document.body.removeChild(successMessage);
+                    }
+                    this.removeBackdrop();
+                    
+                    // 确保页面可以滚动
+                    document.body.classList.remove('modal-open');
+                    document.body.classList.add('modal-closed');
+                }, 300);
             }
         }, 5000);
+        
+        // 点击确定按钮时清除自动关闭的计时器
+        confirmButton.addEventListener('click', () => {
+            clearTimeout(autoCloseTimeout);
+        });
     }
     
     // 创建背景遮罩层
@@ -447,7 +588,8 @@ class FeedbackModal {
         backdrop.style.display = 'block';
         
         // 禁用页面滚动
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('modal-open');
+        document.body.classList.remove('modal-closed');
         
         // 强制回流后添加显示类
         setTimeout(() => {
@@ -465,13 +607,18 @@ class FeedbackModal {
             backdrop.classList.remove('show');
             
             // 恢复页面滚动
-            document.body.style.overflow = '';
+            document.body.classList.remove('modal-open');
+            document.body.classList.add('modal-closed');
             
             // 完全移除元素
             setTimeout(() => {
                 if (document.body.contains(backdrop)) {
                     document.body.removeChild(backdrop);
                 }
+                
+                // 再次确保页面可以滚动
+                document.body.classList.remove('modal-open');
+                document.body.classList.add('modal-closed');
             }, 300);
         }
     }
@@ -480,14 +627,27 @@ class FeedbackModal {
         this.modal.style.display = 'flex';
         this.createBackdrop();
         // 禁用背景滚动
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('modal-open');
+        document.body.classList.remove('modal-closed');
     }
 
     close() {
+        // 先重置表单再关闭
+        this.resetForm();
+        
+        // 关闭模态框
         this.modal.style.display = 'none';
         this.removeBackdrop();
+        
         // 恢复背景滚动
-        document.body.style.overflow = '';
+        document.body.classList.remove('modal-open');
+        document.body.classList.add('modal-closed');
+        
+        // 确保页面可以滚动
+        setTimeout(() => {
+            document.body.classList.remove('modal-open');
+            document.body.classList.add('modal-closed');
+        }, 10);
     }
 
     // 字段验证方法
@@ -539,6 +699,65 @@ class FeedbackModal {
                 return true;
             }
         }
+    }
+
+    // 添加全局错误处理
+    setupGlobalErrorHandling() {
+        // 为ESC键添加事件监听，按ESC键关闭所有模态框并恢复滚动
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                // ESC键重置表单并强制恢复滚动
+                this.resetForm();
+                this.forceRestoreScroll();
+            }
+        });
+        
+        // 如果用户点击了页面其他区域也恢复滚动
+        document.addEventListener('click', (e) => {
+            const isModalOpen = document.querySelector('.modal-backdrop') !== null;
+            if (isModalOpen) {
+                const clickedOnBackdrop = e.target.classList.contains('modal-backdrop');
+                if (clickedOnBackdrop) {
+                    // 点击背景也重置表单
+                    this.resetForm();
+                    this.forceRestoreScroll();
+                }
+            }
+        });
+        
+        // 为页面添加加载和卸载事件，确保滚动功能能够恢复
+        window.addEventListener('load', () => this.forceRestoreScroll());
+        window.addEventListener('beforeunload', () => this.forceRestoreScroll());
+    }
+    
+    // 强制恢复页面滚动功能
+    forceRestoreScroll() {
+        // 移除所有可能存在的模态框和遮罩
+        const successMessage = document.querySelector('.feedback-success-message');
+        if (successMessage && document.body.contains(successMessage)) {
+            document.body.removeChild(successMessage);
+        }
+        
+        const errorMessage = document.querySelector('.feedback-error-message');
+        if (errorMessage && document.body.contains(errorMessage)) {
+            document.body.removeChild(errorMessage);
+        }
+        
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop && document.body.contains(backdrop)) {
+            document.body.removeChild(backdrop);
+        }
+        
+        // 强制恢复滚动
+        document.body.classList.remove('modal-open');
+        document.body.classList.add('modal-closed');
+        document.body.style.overflow = '';
+        
+        // 确保模态框关闭
+        this.modal.style.display = 'none';
+        
+        // 重置表单
+        this.resetForm();
     }
 }
 

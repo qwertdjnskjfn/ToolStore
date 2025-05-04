@@ -403,6 +403,21 @@
     transform: translateY(-2px);
 }
 
+.form-group #feedback-subject {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid rgba(124, 138, 255, 0.2);
+    background: rgba(124, 138, 255, 0.05);
+}
+
+.form-group #feedback-subject:focus {
+    outline: none;
+    border-color: rgba(124, 138, 255, 0.4);
+    box-shadow: 0 0 0 4px rgba(124, 138, 255, 0.1);
+    background: rgba(124, 138, 255, 0.08);
+}
+
 .form-group textarea#feedback-message {
     width: 100%;
     height: 120px;
@@ -494,6 +509,8 @@ select.email-suffix-select::-ms-value {
     }
 }
 
+
+
 /* 恢复邮箱输入容器的悬停和焦点样式 */
 .email-input-container:hover {
     border-color: rgba(124, 138, 255, 0.4);
@@ -581,7 +598,7 @@ select.email-suffix-select::-ms-value {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.9);
     background: #1c1e2a;
     border-radius: 16px;
     padding: 25px 30px;
@@ -590,8 +607,22 @@ select.email-suffix-select::-ms-value {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     border: 2px solid #52c41a;
     text-align: center;
-    animation: fadeInScale 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2201;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: blur(2px);
+}
+
+.feedback-success-message.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+}
+
+.feedback-success-message.exit {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    filter: blur(2px);
 }
 
 .feedback-success-icon {
@@ -626,41 +657,34 @@ select.email-suffix-select::-ms-value {
     color: #52c41a;
     font-size: 22px;
     margin: 0 0 10px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .feedback-success-text {
     color: #f0f0f0; /* 更亮的文字颜色提高可读性 */
     margin: 0 0 20px;
     line-height: 1.5;
+    font-size: 16px;
 }
 
 .feedback-success-button {
-    padding: 10px 25px;
+    padding: 12px 28px;
     background: #52c41a;
     color: #fff;
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(82, 196, 26, 0.3);
 }
 
 .feedback-success-button:hover {
     background: #6bdb32;
     transform: translateY(-2px);
-}
-
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -60%) scale(0.9);
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-        filter: blur(0);
-    }
+    box-shadow: 0 6px 16px rgba(82, 196, 26, 0.4);
 }
 
 @keyframes successPulse {
@@ -777,7 +801,7 @@ select.email-suffix-select::-ms-value {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.9);
     background: #1c1e2a;
     border-radius: 16px;
     padding: 25px 30px;
@@ -786,8 +810,22 @@ select.email-suffix-select::-ms-value {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
     border: 2px solid #ff4747;
     text-align: center;
-    animation: fadeInScale 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2201;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: blur(2px);
+}
+
+.feedback-error-message.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+}
+
+.feedback-error-message.exit {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    filter: blur(2px);
 }
 
 .feedback-error-icon {
@@ -801,84 +839,142 @@ select.email-suffix-select::-ms-value {
     align-items: center;
     justify-content: center;
     position: relative;
+    animation: errorPulse 2s infinite;
 }
 
 .feedback-error-icon::before,
 .feedback-error-icon::after {
     content: '';
     position: absolute;
-    width: 30px;
+    width: 32px;
     height: 4px;
     background-color: #ff4747;
     border-radius: 2px;
+    animation: errorMark 0.4s ease-in-out 0.2s forwards;
+    opacity: 0;
+    transform-origin: center;
 }
 
 .feedback-error-icon::before {
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(0);
 }
 
 .feedback-error-icon::after {
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) scale(0);
 }
 
 .feedback-error-title {
     color: #ff4747;
     font-size: 22px;
     margin: 0 0 10px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .feedback-error-text {
     color: #f0f0f0; /* 更亮的文字颜色提高可读性 */
     margin: 0 0 20px;
     line-height: 1.5;
+    font-size: 16px;
 }
 
 .feedback-error-button {
-    padding: 10px 25px;
+    padding: 12px 28px;
     background: #ff4747;
     color: #fff;
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 71, 71, 0.3);
 }
 
 .feedback-error-button:hover {
     background: #ff6b6b;
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 71, 71, 0.4);
 }
 
-/* 添加遮罩层样式 */
+/* 添加错误X动画 */
+@keyframes errorMark {
+    0% {
+        opacity: 0;
+        transform: rotate(var(--rotation)) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(var(--rotation)) scale(1);
+    }
+}
+
+.feedback-error-icon::before {
+    --rotation: 45deg;
+}
+
+.feedback-error-icon::after {
+    --rotation: -45deg;
+}
+
+@keyframes errorPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 71, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 71, 71, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 71, 0);
+    }
+}
+
+/* 修改遮罩层样式 */
 .modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
     z-index: 2000;
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+    pointer-events: auto; /* 确保遮罩层可以接收点击事件 */
 }
 
 .modal-backdrop.show {
     opacity: 1;
+    display: block;
+}
+
+/* 强制确保在出现问题时也能正确显示和交互 */
+body.modal-open {
+    overflow: hidden !important;
+}
+
+body.modal-closed {
+    overflow: auto !important;
+    overflow-x: hidden !important;
 }
 
 /* 确保按钮点击时有明显的视觉反馈 */
 .feedback-success-button:active,
 .feedback-error-button:active {
     transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 为按钮添加悬停效果 */
+/* 为按钮添加水波纹效果 */
 .feedback-success-button, 
 .feedback-error-button {
     position: relative;
     overflow: hidden;
+    transform: translate3d(0, 0, 0);
 }
 
 .feedback-success-button::after, 
@@ -889,7 +985,7 @@ select.email-suffix-select::-ms-value {
     left: 50%;
     width: 5px;
     height: 5px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     opacity: 0;
     border-radius: 100%;
     transform: scale(1, 1) translate(-50%);
@@ -904,14 +1000,47 @@ select.email-suffix-select::-ms-value {
 @keyframes ripple {
     0% {
         transform: scale(0, 0);
-        opacity: 0.5;
+        opacity: 0.7;
     }
     20% {
         transform: scale(25, 25);
-        opacity: 0.3;
+        opacity: 0.5;
     }
     100% {
         opacity: 0;
         transform: scale(40, 40);
+    }
+}
+
+/* 确保移动设备上的显示正确 */
+@media screen and (max-width: 480px) {
+    .feedback-success-message,
+    .feedback-error-message {
+        width: 85%;
+        padding: 20px;
+    }
+    
+    .feedback-success-icon,
+    .feedback-error-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    
+    .feedback-success-title,
+    .feedback-error-title {
+        font-size: 20px;
+    }
+    
+    .feedback-success-text,
+    .feedback-error-text {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .feedback-success-button,
+    .feedback-error-button {
+        padding: 10px 20px;
+        font-size: 14px;
     }
 }
