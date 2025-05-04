@@ -59,9 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const recommendManager = new RecommendManager();
     recommendManager.init();
     
-    // 添加版本显示
-    createVersionElement();
-    
     // 标记应用已初始化
     window.appInitialized = true;
     // console.log('应用初始化完成');
