@@ -6,6 +6,7 @@ import { initNavigation, initDisplayToggle } from './modules/nav-handler.js';
 import { initAirportCards } from './modules/airport-modal.js';
 import { initSoftwareCards } from './modules/software-cards.js';
 import { RecommendManager } from './modules/recommend.js';
+import { initCardRenderer } from './modules/card-renderer.js';
 
 // 使复制函数在全局可用
 
@@ -49,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 初始化主内容区域（模块化处理）
     initMainContent();
+    
+    // 初始化卡片渲染器 - 动态生成卡片内容（新方式）
+    initCardRenderer();
 
-    // 创建卡片后初始化机场卡片点击事件
-    createCards();
+    // 初始化机场卡片和软件卡片点击事件
     initAirportCards();
     initSoftwareCards();
 

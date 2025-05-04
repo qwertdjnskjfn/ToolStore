@@ -1,5 +1,5 @@
 // 导入机场配置
-import { airportDetails } from '../configs/config.js';
+import { airportDetails } from '../configs/airport-config.js';
 
 // 创建机场详情弹窗
 function createAirportModal(airportName) {
@@ -132,5 +132,5 @@ function parsePriceText(text) {
     return [text, '', ''];
 }
 
-// 出函数
-export { initAirportCards };
+// 导出函数
+export { initAirportCards, createAirportModal };

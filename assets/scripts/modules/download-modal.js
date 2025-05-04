@@ -26,7 +26,7 @@ export function createDownloadModal(toolName) {
             <div class="download-header">
                 <h3>${toolName} ${version && version !== 'undefined' ? `<span class="tool-version">${version}</span>` : ''}</h3>
                 <p>选择下载平台</p>
-                <p>链接若需要维护，自行前往Github下载</p>
+                <p>若下载失效 可使用免费节点 前往Github下载</p>
             </div>
             <div class="download-grid">
                 ${['windows', 'mac', 'linux', 'android', 'ios', 'github'].map(platform => `
