@@ -261,20 +261,71 @@ function initImagePreview() {
     // 获取模态框元素
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
+    const modalContainer = modal ? modal.querySelector('.modal-container') : null;
     const captionText = document.getElementById('caption');
     const closeBtn = document.getElementById('closeModal');
     
     if (!modal || !modalImg) return;
     
+    // 添加缩放控制
+    let zoomControls = document.querySelector('.zoom-controls');
+    if (!zoomControls) {
+        zoomControls = document.createElement('div');
+        zoomControls.className = 'zoom-controls';
+        zoomControls.innerHTML = `
+            <button id="zoomIn" title="放大"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="white" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
+            <button id="zoomOut" title="缩小"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="white" d="M19 13H5v-2h14v2z"/></svg></button>
+            <button id="zoomReset" title="原始大小"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="white" d="M3 5v14h18V5H3zm16 12H5V7h14v10z"/></svg></button>
+        `;
+        if (modalContainer) {
+            modalContainer.appendChild(zoomControls);
+        } else {
+            modal.appendChild(zoomControls);
+        }
+    }
+    
+    // 创建图片容器，用于拖动
+    let imageContainer = document.querySelector('.image-drag-container');
+    if (!imageContainer && modalContainer) {
+        imageContainer = document.createElement('div');
+        imageContainer.className = 'image-drag-container';
+        // 确保图片在容器内
+        if (modalImg.parentNode !== imageContainer && modalImg.parentNode === modalContainer) {
+            imageContainer.appendChild(modalImg);
+            modalContainer.insertBefore(imageContainer, modalContainer.firstChild);
+        }
+    }
+    
+    // 当前缩放级别
+    let currentZoom = 1;
+    // 图片拖动相关变量
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+    
     // 为所有内容区域的图片添加点击事件
     document.querySelectorAll('.content-section img').forEach(img => {
         if (!img.classList.contains('no-preview')) {
             img.style.cursor = 'pointer';
-            img.addEventListener('click', function() {
+            img.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
                 modal.style.display = 'block';
                 modalImg.src = this.src;
-                captionText.innerHTML = this.alt || '';
+                if (captionText) captionText.innerHTML = this.alt || '';
                 document.body.style.overflow = 'hidden';
+                
+                // 确保预览不在最顶层
+                modal.style.zIndex = '99999';
+                
+                // 重置缩放级别和位置
+                currentZoom = 1;
+                translateX = 0;
+                translateY = 0;
+                updateImageTransform();
+                
+                // 设置可拖动样式
+                modalImg.style.cursor = 'grab';
                 
                 // 添加淡入动画
                 modalImg.style.opacity = '0';
@@ -285,6 +336,107 @@ function initImagePreview() {
         }
     });
     
+    // 更新图片变换的辅助函数
+    function updateImageTransform() {
+        modalImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    }
+    
+    // 缩放功能
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const zoomResetBtn = document.getElementById('zoomReset');
+    
+    if (zoomInBtn) {
+        // 使用onclick而不是addEventListener，避免多次绑定
+        zoomInBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            currentZoom += 0.2;
+            if (currentZoom > 3) currentZoom = 3; // 限制最大缩放倍数
+            updateImageTransform();
+        };
+    }
+    
+    if (zoomOutBtn) {
+        zoomOutBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            currentZoom -= 0.2;
+            if (currentZoom < 0.5) currentZoom = 0.5; // 限制最小缩放倍数
+            updateImageTransform();
+        };
+    }
+    
+    if (zoomResetBtn) {
+        zoomResetBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            currentZoom = 1;
+            translateX = 0;
+            translateY = 0;
+            updateImageTransform();
+        };
+    }
+    
+    // 鼠标滚轮控制缩放
+    modalImg.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+            // 向上滚动，放大
+            currentZoom += 0.1;
+            if (currentZoom > 3) currentZoom = 3;
+        } else {
+            // 向下滚动，缩小
+            currentZoom -= 0.1;
+            if (currentZoom < 0.5) currentZoom = 0.5;
+        }
+        updateImageTransform();
+    });
+    
+    // 图片拖动功能 - 不需要放大也能拖动
+    modalImg.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        modalImg.style.cursor = 'grabbing';
+        e.preventDefault();
+    });
+    
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateImageTransform();
+    });
+    
+    document.addEventListener('mouseup', function() {
+        if (isDragging) {
+            isDragging = false;
+            modalImg.style.cursor = 'grab';
+        }
+    });
+    
+    // 触摸设备支持
+    modalImg.addEventListener('touchstart', function(e) {
+        isDragging = true;
+        startX = e.touches[0].clientX - translateX;
+        startY = e.touches[0].clientY - translateY;
+        e.preventDefault();
+    });
+    
+    document.addEventListener('touchmove', function(e) {
+        if (!isDragging) return;
+        
+        translateX = e.touches[0].clientX - startX;
+        translateY = e.touches[0].clientY - startY;
+        updateImageTransform();
+    });
+    
+    document.addEventListener('touchend', function() {
+        isDragging = false;
+    });
+    
     // 关闭模态框
     function closeModal() {
         // 添加淡出动画
@@ -293,20 +445,35 @@ function initImagePreview() {
             modal.style.display = 'none';
             modal.style.opacity = '1';
             document.body.style.overflow = '';
+            // 重置缩放和位置
+            currentZoom = 1;
+            translateX = 0;
+            translateY = 0;
+            updateImageTransform();
+            isDragging = false;
         }, 300);
     }
     
     // 点击关闭按钮
     if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', function() {
+            closeModal();
+        });
     }
     
-    // 点击模态框背景
-    if (modal) {
-        modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                closeModal();
-            }
+    // 关键：点击模态框背景关闭预览（直接绑定在modal上）
+    modal.addEventListener('click', function(e) {
+        // 仅当点击的是模态框自身，而不是其中的内容时关闭
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // 添加导致模态框不关闭的元素
+    if (modalContainer) {
+        modalContainer.addEventListener('click', function(e) {
+            // 阻止事件冒泡
+            e.stopPropagation();
         });
     }
     
