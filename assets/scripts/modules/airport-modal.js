@@ -11,11 +11,14 @@ function createAirportModal(airportName) {
         existingModal.remove();
     }
 
+    // 创建背景遮罩
+    createBackdrop();
+
     const modal = document.createElement('div');
     modal.className = 'airport-modal';
 
     const content = `
-        <div class="airport-content">
+        <div class="airport-content modal-content-enter">
             <button class="close-modal" aria-label="关闭">×</button>
             <div class="airport-header">
                 <h3>${airportName}</h3>
@@ -58,16 +61,39 @@ function createAirportModal(airportName) {
     document.body.appendChild(modal);
 
     // 禁用背景滚动
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
+    document.body.classList.remove('modal-closed');
 
     setTimeout(() => modal.classList.add('active'), 10);
 
     // 事件处理
     const closeModal = () => {
-        modal.classList.remove('active');
-        // 恢复背景滚动
-        document.body.style.overflow = '';
-        setTimeout(() => modal.remove(), 300);
+        const contentElement = modal.querySelector('.airport-content');
+        
+        // 添加退场动画
+        if (contentElement) {
+            contentElement.classList.remove('modal-content-enter');
+            contentElement.classList.add('modal-content-exit');
+        }
+        
+        // 延迟移除模态框
+        setTimeout(() => {
+            modal.classList.remove('active');
+            
+            // 再次延迟，等待淡出动画完成
+            setTimeout(() => {
+                if (document.body.contains(modal)) {
+                    modal.remove();
+                }
+                
+                // 移除背景遮罩
+                removeBackdrop();
+                
+                // 恢复背景滚动
+                document.body.classList.remove('modal-open');
+                document.body.classList.add('modal-closed');
+            }, 0);
+        }, 0);
     };
 
     // 关闭按钮事件
@@ -85,6 +111,51 @@ function createAirportModal(airportName) {
 
     // 取消按钮事件
     modal.querySelector('.cancel-button').addEventListener('click', closeModal);
+}
+
+// 创建背景遮罩层
+function createBackdrop() {
+    // 检查是否已存在遮罩层
+    let backdrop = document.querySelector('.modal-backdrop');
+    if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'modal-backdrop';
+        document.body.appendChild(backdrop);
+    }
+    
+    // 显示遮罩层
+    backdrop.style.display = 'block';
+    
+    // 禁用页面滚动
+    document.body.classList.add('modal-open');
+    document.body.classList.remove('modal-closed');
+    
+    // 强制回流后添加显示类
+    setTimeout(() => {
+        backdrop.classList.add('show');
+    }, 10);
+    
+    return backdrop;
+}
+
+// 移除背景遮罩层
+function removeBackdrop() {
+    const backdrop = document.querySelector('.modal-backdrop');
+    if (backdrop) {
+        // 移除显示类，触发淡出效果
+        backdrop.classList.remove('show');
+        
+        // 完全移除元素
+        setTimeout(() => {
+            if (document.body.contains(backdrop)) {
+                document.body.removeChild(backdrop);
+            }
+            
+            // 确保页面可以滚动
+            document.body.classList.remove('modal-open');
+            document.body.classList.add('modal-closed');
+        }, 300);
+    }
 }
 
 // 添加机场卡片点击事件处理

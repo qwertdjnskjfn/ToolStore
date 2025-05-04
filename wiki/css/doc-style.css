@@ -292,7 +292,6 @@ footer p {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.9);
-    transition: opacity 0.3s;
 }
 
 .modal-content {
@@ -302,7 +301,6 @@ footer p {
     max-height: 85vh;
     border-radius: 4px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.5s;
 }
 
 #caption {
@@ -316,17 +314,6 @@ footer p {
     height: 50px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 .close {
     position: absolute;
     top: 15px;
@@ -336,6 +323,7 @@ footer p {
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
+    z-index: 1200;
 }
 
 .close:hover,

@@ -9,19 +9,25 @@ export function createDownloadModal(toolName) {
         existingModal.remove();
     }
 
+    // 创建背景遮罩
+    createBackdrop();
+
     const modal = document.createElement('div');
     modal.className = 'download-modal';
 
     // 获取工具的下载链接
     const normalizedName = toolName.toLowerCase().trim();
     const links = downloadLinks[normalizedName];
-    if (!links) return;
+    if (!links) {
+        removeBackdrop();
+        return;
+    }
     
     // 获取工具版本
     const version = getToolVersion(toolName);
 
     const content = `
-        <div class="download-content">
+        <div class="download-content modal-content-enter">
             <button class="close-modal">×</button>
             <div class="download-header">
                 <h3>${toolName} ${version && version !== 'undefined' ? `<span class="tool-version">${version}</span>` : ''}</h3>
@@ -47,37 +53,106 @@ export function createDownloadModal(toolName) {
     document.body.appendChild(modal);
 
     // 禁用背景滚动
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
+    document.body.classList.remove('modal-closed');
 
     setTimeout(() => modal.classList.add('active'), 10);
 
     // 关闭按钮事件
     modal.querySelector('.close-modal').addEventListener('click', () => {
-        modal.classList.remove('active');
-        // 恢复背景滚动
-        document.body.style.overflow = '';
-        setTimeout(() => modal.remove(), 300);
+        closeDownloadModal(modal);
     });
 
     // 点击外部关闭
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
-            modal.classList.remove('active');
-            // 恢复背景滚动
-            document.body.style.overflow = '';
-            setTimeout(() => modal.remove(), 300);
+            closeDownloadModal(modal);
         }
     });
 
-    // 修改下载项点击事件
-    modal.querySelectorAll('.download-item').forEach(item => {
-        if (!item.classList.contains('disabled')) {
-            item.addEventListener('click', () => {
-                const url = item.dataset.url;
-                if (url) {
-                    window.open(url, '_blank');
-                }
-            });
-        }
+    // 点击下载项
+    const downloadItems = modal.querySelectorAll('.download-item:not(.disabled)');
+    downloadItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const url = this.getAttribute('data-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
     });
+}
+
+// 关闭下载模态框
+function closeDownloadModal(modal) {
+    const contentElement = modal.querySelector('.download-content');
+    
+    // 添加退场动画
+    if (contentElement) {
+        contentElement.classList.remove('modal-content-enter');
+        contentElement.classList.add('modal-content-exit');
+    }
+    
+    // 延迟移除模态框
+    setTimeout(() => {
+        modal.classList.remove('active');
+        
+        // 再次延迟，等待淡出动画完成
+        setTimeout(() => {
+            if (document.body.contains(modal)) {
+                modal.remove();
+            }
+            
+            // 移除背景遮罩
+            removeBackdrop();
+            
+            // 恢复背景滚动
+            document.body.classList.remove('modal-open');
+            document.body.classList.add('modal-closed');
+        }, 0);
+    }, 0);
+}
+
+// 创建背景遮罩层
+function createBackdrop() {
+    // 检查是否已存在遮罩层
+    let backdrop = document.querySelector('.modal-backdrop');
+    if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'modal-backdrop';
+        document.body.appendChild(backdrop);
+    }
+    
+    // 显示遮罩层
+    backdrop.style.display = 'block';
+    
+    // 禁用页面滚动
+    document.body.classList.add('modal-open');
+    document.body.classList.remove('modal-closed');
+    
+    // 强制回流后添加显示类
+    setTimeout(() => {
+        backdrop.classList.add('show');
+    }, 10);
+    
+    return backdrop;
+}
+
+// 移除背景遮罩层
+function removeBackdrop() {
+    const backdrop = document.querySelector('.modal-backdrop');
+    if (backdrop) {
+        // 移除显示类，触发淡出效果
+        backdrop.classList.remove('show');
+        
+        // 完全移除元素
+        setTimeout(() => {
+            if (document.body.contains(backdrop)) {
+                document.body.removeChild(backdrop);
+            }
+            
+            // 确保页面可以滚动
+            document.body.classList.remove('modal-open');
+            document.body.classList.add('modal-closed');
+        }, 300);
+    }
 }
