@@ -9,6 +9,18 @@ export function initNoticeHandler() {
     const navLinks = document.getElementById('navLinks');
     const logo = document.querySelector('h1 a');
     const MAX_CANCEL_COUNT = 5;
+    
+    // 保存滚动位置
+    let scrollPosition = 0;
+    
+    // 阻止滚动函数
+    function preventScroll(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        window.scrollTo(0, scrollPosition);
+    }
 
     // 禁用所有导航和链接
     function disableAllNavigation(disable = true) {
@@ -47,23 +59,68 @@ export function initNoticeHandler() {
         warningMessage.style.animation = 'slideDown 0.3s ease-out';
     }
     
-
     // 禁用页面滚动和交互
     function disablePageInteraction(disable = true) {
-        document.body.style.overflow = disable ? 'hidden' : '';
-        const elements = document.querySelectorAll('a, input, select, textarea, .card');
-        elements.forEach(el => {
-            el.style.pointerEvents = disable ? 'none' : '';
-        });
+        if (disable) {
+            // 保存当前滚动位置
+            scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // 设置body样式
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = '100%';
+            document.body.classList.add('modal-open');
+            document.body.classList.remove('modal-closed');
+            
+            // 监听滚动事件
+            window.addEventListener('scroll', preventScroll, { passive: false });
+            window.addEventListener('touchmove', preventScroll, { passive: false });
+            window.addEventListener('mousewheel', preventScroll, { passive: false });
+            window.addEventListener('DOMMouseScroll', preventScroll, { passive: false });
+            
+            // 获取所有交互元素
+            const allElements = document.querySelectorAll('a, input, select, textarea, .card, button');
+            
+            // 遍历处理每个元素
+            allElements.forEach(el => {
+                // 检查元素是否在公告弹窗内
+                const isInNotice = el.closest('#dailyNotice') !== null;
+                const isInCanceledMsg = el.closest('#canceledMessage') !== null;
+                const isInWarningMsg = el.closest('#warningMessage') !== null;
+                
+                // 只禁用不在弹窗内的元素
+                if (!isInNotice && !isInCanceledMsg && !isInWarningMsg) {
+                    el.style.pointerEvents = 'none';
+                }
+            });
+        } else {
+            // 恢复滚动和交互
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.classList.remove('modal-open');
+            document.body.classList.add('modal-closed');
+            
+            // 恢复滚动位置
+            window.scrollTo(0, scrollPosition);
+            
+            // 移除事件监听
+            window.removeEventListener('scroll', preventScroll);
+            window.removeEventListener('touchmove', preventScroll);
+            window.removeEventListener('mousewheel', preventScroll);
+            window.removeEventListener('DOMMouseScroll', preventScroll);
+            
+            // 恢复所有元素的交互能力
+            const allElements = document.querySelectorAll('a, input, select, textarea, .card, button');
+            allElements.forEach(el => {
+                el.style.pointerEvents = '';
+            });
+        }
     }
 
     // 总是显示公告
-    dailyNotice.style.display = 'flex';
-    mask.style.display = 'block';
-    disableAllNavigation(true);
-    disablePageInteraction(true);
-
-    // 初始化显示
     dailyNotice.style.display = 'flex';
     mask.style.display = 'block';
     disableAllNavigation(true);
