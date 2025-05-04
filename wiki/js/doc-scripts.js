@@ -53,55 +53,69 @@ function initSidebar() {
     const sidebar = document.querySelector('.sidebar');
     
     if (sidebarToggle && sidebar) {
-        sidebarToggle.addEventListener('click', function(e) {
-            e.preventDefault(); // 防止事件冒泡
-            e.stopPropagation(); // 阻止事件传播
-            sidebar.classList.toggle('active');
-            this.classList.toggle('active');
-            
-            // 添加动画效果
-            if (sidebar.classList.contains('active')) {
-                sidebar.style.transition = 'left 0.3s ease';
-            }
-        });
+        // 检查是否已经绑定过事件，避免重复绑定
+        if (!sidebarToggle.hasAttribute('data-initialized')) {
+            sidebarToggle.addEventListener('click', function(e) {
+                e.preventDefault(); // 防止事件冒泡
+                e.stopPropagation(); // 阻止事件传播
+                sidebar.classList.toggle('active');
+                this.classList.toggle('active');
+                
+                // 添加动画效果
+                if (sidebar.classList.contains('active')) {
+                    sidebar.style.transition = 'left 0.3s ease';
+                }
+            });
+            // 标记为已初始化
+            sidebarToggle.setAttribute('data-initialized', 'true');
+        }
     }
     
     // 点击空白处关闭侧边栏（仅限移动设备）
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768 && 
-            sidebar && 
-            sidebar.classList.contains('active') && 
-            !sidebar.contains(e.target) && 
-            sidebarToggle && !sidebarToggle.contains(e.target)) {
-            sidebar.classList.remove('active');
-            if (sidebarToggle) sidebarToggle.classList.remove('active');
-        }
-    });
+    if (!document.body.hasAttribute('data-sidebar-click-initialized')) {
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && 
+                sidebar && 
+                sidebar.classList.contains('active') && 
+                !sidebar.contains(e.target) && 
+                sidebarToggle && !sidebarToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                if (sidebarToggle) sidebarToggle.classList.remove('active');
+            }
+        });
+        // 标记为已初始化
+        document.body.setAttribute('data-sidebar-click-initialized', 'true');
+    }
     
     // 分类折叠功能
     const categoryTitles = document.querySelectorAll('.category-title');
     
     categoryTitles.forEach(title => {
-        title.addEventListener('click', function(e) {
-            // 阻止事件冒泡，避免点击分类标题时触发其他事件
-            e.stopPropagation();
-            
-            this.classList.toggle('collapsed');
-            const navItems = this.nextElementSibling;
-            if (navItems) {
-                navItems.classList.toggle('collapsed');
+        // 检查是否已经绑定过事件，避免重复绑定
+        if (!title.hasAttribute('data-initialized')) {
+            title.addEventListener('click', function(e) {
+                // 阻止事件冒泡，避免点击分类标题时触发其他事件
+                e.stopPropagation();
                 
-                // 给分类标题添加点击反馈效果
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple-effect');
-                this.appendChild(ripple);
-                
-                // 延迟移除效果
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            }
-        });
+                this.classList.toggle('collapsed');
+                const navItems = this.nextElementSibling;
+                if (navItems) {
+                    navItems.classList.toggle('collapsed');
+                    
+                    // 给分类标题添加点击反馈效果
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple-effect');
+                    this.appendChild(ripple);
+                    
+                    // 延迟移除效果
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                }
+            });
+            // 标记为已初始化
+            title.setAttribute('data-initialized', 'true');
+        }
     });
     
     // 标记当前页面对应的导航项为活跃状态
@@ -111,24 +125,37 @@ function initSidebar() {
     // 保存当前活跃的导航项
     let activeNavItem = null;
     
-    // 修复链接路径问题
-    // 检查当前页面是在doc子目录还是在wiki根目录
-    const isInDocDirectory = currentPath.includes('/doc/');
+    // 获取当前路径，包括SPA模式下的路径
+    const currentUrl = window.location.href;
+    const spaPath = currentUrl.split('#')[0]; // 移除哈希部分，获取基本路径
     
     navItems.forEach(item => {
         const itemHref = item.getAttribute('href');
         
-        // 修正链接路径
-        if (isInDocDirectory && !itemHref.startsWith('http') && !itemHref.startsWith('../') && !itemHref.startsWith('/')) {
-            // 如果在doc子目录中，而链接是相对于wiki目录的，则需要调整
-            if (!itemHref.startsWith('./') && !itemHref.startsWith('../')) {
-                item.setAttribute('href', '../' + itemHref);
-            }
+        // 为每个链接添加SPA处理
+        if (!item.hasAttribute('data-spa-initialized')) {
+            item.addEventListener('click', function(e) {
+                // 如果不是外部链接，使用SPA加载
+                if (!itemHref.startsWith('http') && typeof loadContent === 'function') {
+                    e.preventDefault();
+                    // 加载内容
+                    loadContent(itemHref, true);
+                    // 更新URL，不刷新页面
+                    history.pushState({ path: itemHref }, '', itemHref);
+                }
+            });
+            item.setAttribute('data-spa-initialized', 'true');
         }
         
         // 精确匹配当前路径或者当前路径以链接地址结尾
         if (itemHref === currentPath || 
-            currentPath.endsWith(itemHref)) {
+            currentPath.endsWith(itemHref) ||
+            spaPath.endsWith(itemHref)) {
+            
+            // 移除所有活跃状态
+            navItems.forEach(link => {
+                link.parentElement.classList.remove('active');
+            });
             
             // 保存当前项为活跃项
             activeNavItem = item.parentElement;
@@ -301,6 +328,26 @@ function initImagePreview() {
     // 图片拖动相关变量
     let isDragging = false;
     let startX, startY, translateX = 0, translateY = 0;
+    
+    // 清除旧的事件监听器（避免重复绑定）
+    const contentSectionImages = document.querySelectorAll('.content-section img');
+    contentSectionImages.forEach(img => {
+        const newImg = img.cloneNode(true);
+        if (img.parentNode) {
+            img.parentNode.replaceChild(newImg, img);
+        }
+    });
+    
+    // 修复图片路径，确保本地图片能够正确加载
+    const currentPath = window.location.pathname;
+    const basePath = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+    document.querySelectorAll('.content-section img').forEach(img => {
+        const src = img.getAttribute('src');
+        // 如果是相对路径且以images/开头，尝试修复
+        if (src && src.includes('images/') && !src.startsWith('http') && !src.startsWith('/') && !src.startsWith('./') && !src.startsWith('../')) {
+            img.src = basePath + src;
+        }
+    });
     
     // 为所有内容区域的图片添加点击事件
     document.querySelectorAll('.content-section img').forEach(img => {

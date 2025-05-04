@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 监听浏览器前进后退事件
     window.addEventListener('popstate', function(event) {
         if (event.state && event.state.path) {
+            // 滚动到顶部
+            window.scrollTo({
+                top: 0,
+                behavior: 'auto'
+            });
             loadContent(event.state.path, false);
         }
     });
@@ -22,26 +27,50 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initSPA() {
     // 获取所有导航链接
-    const navLinks = document.querySelectorAll('.nav-item a');
+    const navLinks = document.querySelectorAll('.nav-item a, .nav-links a');
     
     // 为每个链接添加点击事件
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const path = this.getAttribute('href');
+        const href = link.getAttribute('href');
+        
+        // 跳过外部链接、锚点链接或已初始化的链接
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !link.hasAttribute('data-spa-initialized')) {
+            link.addEventListener('click', function(e) {
+                // 如果链接是指向当前域名下的HTML页面
+                if (href.endsWith('.html') || href.indexOf('.html#') > -1) {
+                    e.preventDefault();
+                    
+                    // 如果是当前活动链接，不做任何操作
+                    if (this.parentElement.classList.contains('active')) {
+                        return;
+                    }
+                    
+                    // 加载内容
+                    loadContent(href, true);
+                    
+                    // 更新URL，不刷新页面
+                    history.pushState({ path: href }, '', href);
+                    
+                    // 如果在移动设备上，点击后关闭侧边栏
+                    if (window.innerWidth <= 768) {
+                        const sidebar = document.querySelector('.sidebar');
+                        const sidebarToggle = document.querySelector('.sidebar-toggle');
+                        if (sidebar) sidebar.classList.remove('active');
+                        if (sidebarToggle) sidebarToggle.classList.remove('active');
+                    }
+                }
+            });
             
-            // 如果是当前活动链接，不做任何操作
-            if (this.parentElement.classList.contains('active')) {
-                return;
-            }
-            
-            // 加载内容
-            loadContent(path, true);
-            
-            // 更新URL，不刷新页面
-            history.pushState({ path: path }, '', path);
-        });
+            // 标记为已初始化
+            link.setAttribute('data-spa-initialized', 'true');
+        }
     });
+    
+    // 修复页面中的所有相对路径（初始加载时）
+    setTimeout(() => {
+        const currentPath = window.location.pathname;
+        fixImagePaths(currentPath);
+    }, 500);
 }
 
 /**
@@ -69,9 +98,16 @@ function loadContent(path, updateActive) {
             // 提取主要内容
             const mainContent = doc.querySelector('.main-content');
             const tocContent = doc.querySelector('.table-of-contents');
+            const sidebar = doc.querySelector('.sidebar');
             
             if (mainContent) {
                 try {
+                    // 先滚动到顶部，确保页面从顶部开始浏览
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'auto'
+                    });
+                    
                     // 更新主内容区
                     document.querySelector('.main-content').innerHTML = mainContent.innerHTML;
                     
@@ -80,6 +116,14 @@ function loadContent(path, updateActive) {
                         const currentToc = document.querySelector('.table-of-contents');
                         if (currentToc) {
                             currentToc.innerHTML = tocContent.innerHTML;
+                        }
+                    }
+                    
+                    // 更新左侧侧边栏
+                    if (sidebar) {
+                        const currentSidebar = document.querySelector('.sidebar');
+                        if (currentSidebar) {
+                            currentSidebar.innerHTML = sidebar.innerHTML;
                         }
                     }
                     
@@ -96,6 +140,10 @@ function loadContent(path, updateActive) {
                     
                     // 重新初始化交互功能
                     setTimeout(() => {
+                        // 先修复图片路径
+                        fixImagePaths(path);
+                        // 然后初始化各种功能
+                        initSidebar(); // 重新初始化侧边栏
                         initImagePreview();
                         initScrollSpy();
                         initCodeHighlight();
@@ -126,15 +174,22 @@ function loadContent(path, updateActive) {
  * 更新活动导航项
  */
 function updateActiveNavItem(path) {
+    console.log("更新活动导航项：", path);
+    
     // 移除所有导航项的活动状态
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
     });
     
     // 设置当前路径对应的导航项为活动状态
+    let foundActiveItem = false;
     document.querySelectorAll('.nav-item a').forEach(link => {
-        if (link.getAttribute('href') === path) {
+        const href = link.getAttribute('href');
+        
+        // 精确匹配或路径结尾匹配
+        if (href === path || path.endsWith(href)) {
             link.parentElement.classList.add('active');
+            foundActiveItem = true;
             
             // 确保包含当前项的分类是展开的
             const parentCategory = link.closest('.nav-items');
@@ -142,8 +197,36 @@ function updateActiveNavItem(path) {
                 parentCategory.classList.remove('collapsed');
                 parentCategory.previousElementSibling.classList.remove('collapsed');
             }
+            
+            // 滚动侧边栏，确保当前项可见
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar) {
+                setTimeout(() => {
+                    sidebar.scrollTop = link.parentElement.offsetTop - 100;
+                }, 100);
+            }
         }
     });
+    
+    // 如果没有找到精确匹配，尝试基于文件名匹配
+    if (!foundActiveItem) {
+        const pathFilename = path.split('/').pop();
+        document.querySelectorAll('.nav-item a').forEach(link => {
+            const href = link.getAttribute('href');
+            const hrefFilename = href.split('/').pop();
+            
+            if (pathFilename === hrefFilename) {
+                link.parentElement.classList.add('active');
+                
+                // 确保包含当前项的分类是展开的
+                const parentCategory = link.closest('.nav-items');
+                if (parentCategory && parentCategory.previousElementSibling) {
+                    parentCategory.classList.remove('collapsed');
+                    parentCategory.previousElementSibling.classList.remove('collapsed');
+                }
+            }
+        });
+    }
 }
 
 /**
@@ -493,4 +576,77 @@ function checkCurrentPath() {
             }
         }
     }
+}
+
+/**
+ * 修复图片路径问题
+ * @param {string} currentPath - 当前页面路径
+ */
+function fixImagePaths(currentPath) {
+    // 获取当前路径的目录部分
+    const basePath = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+    console.log("基础路径:", basePath);
+    
+    // 修复所有图片路径
+    document.querySelectorAll('.main-content img').forEach(img => {
+        const originalSrc = img.getAttribute('src');
+        console.log("原始图片路径:", originalSrc);
+        
+        // 如果是相对路径且不是以/或http开头
+        if (originalSrc && !originalSrc.startsWith('/') && !originalSrc.startsWith('http')) {
+            // 处理不同类型的相对路径
+            let newSrc = originalSrc;
+            
+            // 如果是以images/开头但不是完整路径
+            if (originalSrc.includes('images/') && !originalSrc.startsWith('./') && !originalSrc.startsWith('../')) {
+                // 连接basePath和src
+                newSrc = basePath + originalSrc;
+                console.log("修正后的图片路径1:", newSrc);
+                img.src = newSrc;
+            } 
+            // 如果是其他相对路径，尝试解析
+            else if (!originalSrc.startsWith(basePath) && !originalSrc.startsWith('./') && !originalSrc.startsWith('../')) {
+                newSrc = basePath + originalSrc;
+                console.log("修正后的图片路径2:", newSrc);
+                img.src = newSrc;
+            }
+            
+            // 尝试加载图片，并在加载失败时尝试其他路径
+            img.onerror = function() {
+                console.log("图片加载失败:", this.src);
+                
+                // 尝试其他可能的路径
+                if (this.src.includes('/doc/')) {
+                    // 如果路径中有/doc/，尝试从doc目录加载
+                    const docPath = this.src.substring(this.src.indexOf('/doc/'));
+                    this.src = docPath;
+                    console.log("尝试新路径1:", this.src);
+                } else if (originalSrc.startsWith('images/')) {
+                    // 尝试从当前文档的上一级images目录加载
+                    this.src = basePath + '../' + originalSrc;
+                    console.log("尝试新路径2:", this.src);
+                }
+                
+                // 如果仍然失败，使用占位图像
+                this.onerror = function() {
+                    console.log("备选路径也加载失败");
+                    this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" fill="%23f0f0f0"/%3E%3Ctext x="50" y="50" font-family="Arial" font-size="12" text-anchor="middle" alignment-baseline="middle" fill="%23999"%3E图片加载失败%3C/text%3E%3C/svg%3E';
+                    this.style.border = '1px solid #ddd';
+                    this.style.padding = '10px';
+                    this.onerror = null; // 防止无限循环
+                };
+            };
+        }
+    });
+    
+    // 修复所有链接中的图片路径
+    document.querySelectorAll('.main-content a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.includes('images/') && !href.startsWith('http') && !href.startsWith('/')) {
+            if (!href.startsWith(basePath) && !href.startsWith('./') && !href.startsWith('../')) {
+                link.href = basePath + href;
+                console.log("修正后的链接路径:", link.href);
+            }
+        }
+    });
 } 

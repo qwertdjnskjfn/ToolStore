@@ -37,7 +37,7 @@
 
             <nav>
                 <ul class="nav-links">
-                    <li><a href="../../index.html">主页</a></li>
+                    <li><a href="../wiki.html">主页</a></li>
                     <li><a href="https://asfn.awafuns.cn/" target="_blank">免费节点</a></li>
                     <li><a href="javascript:void(0)" id="open-feedback-modal">邮箱反馈</a></li>
                 </ul>
@@ -69,9 +69,10 @@
                     <span class="toggle-icon">▼</span>通用教程
                 </div>
                 <ul class="nav-items">
-                    <li class="nav-item"><a href="../doc/usage-guide.html">使用指南</a></li>
-                    <li class="nav-item"><a href="../doc/troubleshooting.html">常见问题解决</a></li>
-                    <li class="nav-item"><a href="../doc/feedback-email.html">邮件反馈指南</a></li>
+                    <li class="nav-item"><a href="usage-guide.html">使用指南</a></li>
+                    <li class="nav-item"><a href="troubleshooting.html">常见问题解决</a></li>
+                    <li class="nav-item"><a href="feedback-email.html">邮件反馈指南</a></li>
+                    <li class="nav-item"><a href="../templates/templates.html">文档示例</a></li>
                 </ul>
             </div>
 
@@ -81,9 +82,9 @@
                     <span class="toggle-icon">▼</span>安卓工具
                 </div>
                 <ul class="nav-items">
-                    <li class="nav-item"><a href="../doc/clashmeta.html">ClashMeta</a></li>
-                    <li class="nav-item"><a href="../doc/hiddify.html">Hiddify</a></li>
-                    <li class="nav-item"><a href="../doc/surfboard.html">Surfboard</a></li>
+                    <li class="nav-item"><a href="clashmeta.html">ClashMeta</a></li>
+                    <li class="nav-item"><a href="hiddify.html">Hiddify</a></li>
+                    <li class="nav-item"><a href="surfboard.html">Surfboard</a></li>
                 </ul>
             </div>
 
@@ -93,7 +94,7 @@
                     <span class="toggle-icon">▼</span>iOS工具
                 </div>
                 <ul class="nav-items">
-                    <li class="nav-item"><a href="../doc/shadowrocket.html">Shadowrocket</a></li>
+                    <li class="nav-item"><a href="shadowrocket.html">Shadowrocket</a></li>
                 </ul>
             </div>
 
@@ -103,8 +104,8 @@
                     <span class="toggle-icon">▼</span>PC工具
                 </div>
                 <ul class="nav-items">
-                    <li class="nav-item"><a href="../doc/clash_verge.html">Clash Verge</a></li>
-                    <li class="nav-item"><a href="../doc/mihomo_party.html">Mihomo Party</a></li>
+                    <li class="nav-item"><a href="clash_verge.html">Clash Verge</a></li>
+                    <li class="nav-item"><a href="mihomo_party.html">Mihomo Party</a></li>
                 </ul>
             </div>
         </aside>
@@ -129,24 +130,80 @@
                 <h3>什么是代理？</h3>
                 <p>代理（Proxy）是一种中间服务器，它作为客户端和目标服务器之间的中转站。当您通过代理上网时，您的请求首先发送到代理服务器，然后由代理服务器转发到目标网站，目标网站的响应也通过同样的路径返回。</p>
 
+                <div class="image-text-container">
+                    <div class="image-part">
+                        <img src="images/proxy-concept.png" alt="代理工作原理示意图">
+                    </div>
+                    <div class="text-part">
+                        <h4>代理工作流程</h4>
+                        <p>1. 用户发送请求到代理服务器</p>
+                        <p>2. 代理服务器转发请求到目标网站</p>
+                        <p>3. 目标网站回应代理服务器</p>
+                        <p>4. 代理服务器将响应传回用户</p>
+                    </div>
+                </div>
+
                 <div class="note">
                     <p><strong>注意：</strong> 代理服务器可以帮助您绕过网络限制、保护隐私并加速访问某些网站，但不同类型的代理提供不同级别的安全性和匿名性。</p>
                 </div>
 
                 <h3>常见代理协议</h3>
                 <p>市面上常见的代理协议包括：</p>
-                <ul>
-                    <li><strong>HTTP/HTTPS</strong>：最基础的代理协议，适用于网页浏览，但通常不加密（HTTPS提供加密）</li>
-                    <li><strong>SOCKS5</strong>：通用性更强的协议，支持各种类型的网络连接，包括TCP和UDP</li>
-                    <li><strong>Shadowsocks(R)</strong>：专为绕过网络限制设计，提供加密和混淆功能</li>
-                    <li><strong>VMess/VLESS</strong>：V2Ray核心使用的协议，提供更强的安全性和灵活性</li>
-                    <li><strong>Trojan</strong>：伪装成HTTPS流量的协议，更难被检测</li>
-                    <li><strong>Wireguard</strong>：现代的、高性能的VPN协议</li>
-                </ul>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>协议名称</th>
+                                <th>特点</th>
+                                <th>适用场景</th>
+                                <th>安全性</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HTTP/HTTPS</td>
+                                <td>最基础的代理协议</td>
+                                <td>网页浏览</td>
+                                <td>低/中</td>
+                            </tr>
+                            <tr>
+                                <td>SOCKS5</td>
+                                <td>通用性强，支持TCP和UDP</td>
+                                <td>各类网络应用</td>
+                                <td>中</td>
+                            </tr>
+                            <tr>
+                                <td>Shadowsocks(R)</td>
+                                <td>提供加密和混淆</td>
+                                <td>日常上网、视频流</td>
+                                <td>中高</td>
+                            </tr>
+                            <tr>
+                                <td>VMess/VLESS</td>
+                                <td>V2Ray核心使用的协议</td>
+                                <td>高要求环境下使用</td>
+                                <td>高</td>
+                            </tr>
+                            <tr>
+                                <td>Trojan</td>
+                                <td>伪装成HTTPS流量</td>
+                                <td>严格网络环境</td>
+                                <td>高</td>
+                            </tr>
+                            <tr>
+                                <td>Wireguard</td>
+                                <td>现代高性能VPN协议</td>
+                                <td>全局加密通信</td>
+                                <td>非常高</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="tip-card">
                     <h3>小贴士</h3>
-                    <p>不同工具支持的协议可能有所不同。大多数现代代理客户端（如Clash系列）支持多种协议，可以根据需要灵活切换。</p>
+                    <p>不同工具支持的协议可能有所不同。大多数现代代理客户端（如Clash系列）支持多种协议，可以根据需要灵活切换。选择协议时，应根据您的网络环境和使用需求来权衡速度与安全性。</p>
                 </div>
             </section>
 
@@ -164,23 +221,60 @@
                     <li>协议类型及特定参数</li>
                 </ul>
 
+                <div class="example-box">
+                    <h4>Shadowsocks节点格式示例:</h4>
+                    <div class="code-block">ss://YWVzLTI1Ni1nY206cGFzc3dvcmQ=@server-domain.com:443</div>
+
+                    <h4>Clash配置中的节点示例:</h4>
+                    <div class="code-block">
+                        proxies:
+                        - name: "香港节点"
+                        type: vmess
+                        server: hk.example.com
+                        port: 443
+                        uuid: a3d4e939-11sc-4594-94eb-c795af001aee
+                        alterId: 0
+                        cipher: auto
+                        tls: true</div>
+                </div>
+
                 <h3>订阅链接</h3>
                 <p>订阅链接是一种便捷的方式，允许您一次性导入和更新多个代理节点。大多数代理服务提供商（机场）会提供订阅链接，您只需在客户端中添加这个链接，即可自动导入所有节点并获取后续更新。</p>
 
-                <div class="code-block">https://example.com/api/v1/client/subscribe?token=abcdefg123456</div>
+                <div class="step">
+                    <h4>订阅使用流程</h4>
+                    <ol>
+                        <li>从服务提供商获取订阅链接</li>
+                        <li>在客户端中找到"添加订阅"选项</li>
+                        <li>粘贴订阅链接并保存</li>
+                        <li>点击"更新订阅"获取最新节点</li>
+                    </ol>
+                </div>
 
-                <div class="note">
-                    <p><strong>安全提示：</strong> 订阅链接通常包含您的账户信息，请勿随意分享给他人。</p>
+                <div class="warning-box">
+                    <h4>⚠️ 安全警告</h4>
+                    <p>订阅链接通常包含您的账户信息，请勿随意分享给他人，也不要使用来源不明的订阅链接，这可能导致个人信息泄露。</p>
                 </div>
 
                 <h3>如何选择节点？</h3>
                 <p>选择节点时可以考虑以下因素：</p>
-                <ul>
-                    <li><strong>延迟</strong>：通常显示为ms（毫秒），数值越低表示响应越快</li>
-                    <li><strong>位置</strong>：选择与您目标网站所在地区接近的节点可能会有更好的速度</li>
-                    <li><strong>负载</strong>：有些客户端会显示节点的负载情况，负载过高的节点可能速度较慢</li>
-                    <li><strong>协议</strong>：不同场景可能需要不同协议，如游戏可能更适合使用UDP支持的协议</li>
-                </ul>
+
+                <div class="two-column">
+                    <div class="column">
+                        <h4>延迟(Ping值)</h4>
+                        <p>通常显示为ms（毫秒），数值越低表示响应越快。对于浏览网页，100ms以内体验较好；看视频，200ms以内通常可接受；游戏则最好在50ms以内。</p>
+
+                        <h4>位置(地区)</h4>
+                        <p>选择与您目标网站所在地区接近的节点可能会有更好的速度。例如访问美国网站选择美国节点，访问日本网站选择日本节点。</p>
+                    </div>
+                    <div class="column">
+                        <h4>负载(Load)</h4>
+                        <p>节点的负载情况反映使用人数，负载过高的节点可能速度较慢。建议选择负载在70%以下的节点获得较好体验。</p>
+
+                        <h4>协议</h4>
+                        <p>不同场景可能需要不同协议，如游戏可能更适合使用UDP支持的协议如SOCKS5或Wireguard；看视频则建议使用有混淆功能的VMess或Trojan。</p>
+                    </div>
+                </div>
             </section>
 
             <!-- 代理模式 -->
@@ -188,113 +282,178 @@
                 <h2 id="modes">代理模式</h2>
                 <p>大多数代理客户端提供多种代理模式，以满足不同的使用场景：</p>
 
+                <div class="image-gallery">
+                    <figure class="image-container">
+                        <img src="images/proxy-modes.png" alt="代理模式对比" class="tutorial-image">
+                        <figcaption>不同代理模式的流量路径示意图</figcaption>
+                    </figure>
+                </div>
+
                 <div class="step">
-                    <h3>全局模式</h3>
+                    <h3>全局模式 (Global)</h3>
                     <p>全局模式下，所有网络流量都会通过代理服务器。这种模式简单直接，但可能会导致一些本来可以直连的国内网站也走代理，造成不必要的资源消耗。</p>
+                    <p><strong>适用情况：</strong> 临时使用或在国外访问国内网站</p>
                 </div>
 
                 <div class="step">
-                    <h3>规则模式</h3>
+                    <h3>规则模式 (Rule)</h3>
                     <p>规则模式（也称为PAC模式或分流模式）基于预设规则决定哪些流量走代理，哪些直连。大多数客户端提供内置规则组，您也可以自定义规则。</p>
+                    <p><strong>适用情况：</strong> 日常使用的推荐模式，既能访问外网，又不影响国内网站访问速度</p>
                 </div>
 
                 <div class="step">
-                    <h3>手动模式</h3>
-                    <p>手动模式允许您自行选择哪些应用程序或网站使用代理，通常需要在应用程序内部设置代理服务器地址和端口。</p>
+                    <h3>直连模式 (Direct)</h3>
+                    <p>所有流量都不经过代理，直接连接目标服务器。相当于关闭代理功能。</p>
+                    <p><strong>适用情况：</strong> 只访问国内网站时</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ 推荐设置</h4>
+                    <p>对于大多数用户，建议使用<strong>规则模式</strong>，并选择一个维护良好的规则集（如ACL4SSR）。这样可以实现国内网站直连，国外网站走代理的最佳体验。</p>
+                </div>
+            </section>
+
+            <!-- 常见客户端对比 -->
+            <section class="content-section">
+                <h2 id="clients">常见客户端对比</h2>
+                <p>市面上有众多代理客户端，以下是几种主流客户端的对比，帮助您选择最适合自己的工具：</p>
+
+                <div class="comparison-table">
+                    <div class="comparison-header">
+                        <div class="comparison-cell header-cell"></div>
+                        <div class="comparison-cell header-cell">Clash Verge</div>
+                        <div class="comparison-cell header-cell">ClashMeta</div>
+                        <div class="comparison-cell header-cell">Shadowrocket</div>
+                        <div class="comparison-cell header-cell">Surfboard</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-cell">平台支持</div>
+                        <div class="comparison-cell">Windows, macOS, Linux</div>
+                        <div class="comparison-cell">Android</div>
+                        <div class="comparison-cell">iOS</div>
+                        <div class="comparison-cell">Android</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-cell">协议支持</div>
+                        <div class="comparison-cell">SS, SSR, VMess, Trojan, VLESS等</div>
+                        <div class="comparison-cell">SS, SSR, VMess, Trojan, VLESS等</div>
+                        <div class="comparison-cell">SS, SSR, VMess, Trojan, VLESS等</div>
+                        <div class="comparison-cell">SS, Vmess, Trojan</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-cell">规则支持</div>
+                        <div class="comparison-cell">强大</div>
+                        <div class="comparison-cell">强大</div>
+                        <div class="comparison-cell">中等</div>
+                        <div class="comparison-cell">中等</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-cell">UI友好度</div>
+                        <div class="comparison-cell">高</div>
+                        <div class="comparison-cell">高</div>
+                        <div class="comparison-cell">中</div>
+                        <div class="comparison-cell">中</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-cell">价格</div>
+                        <div class="comparison-cell">免费</div>
+                        <div class="comparison-cell">免费</div>
+                        <div class="comparison-cell">¥30左右</div>
+                        <div class="comparison-cell">免费</div>
+                    </div>
                 </div>
 
                 <div class="tip-card">
-                    <h3>推荐配置</h3>
-                    <p>对于大多数用户，推荐使用规则模式，因为它能提供良好的平衡——只有需要代理的流量才会经过代理服务器，从而节省带宽并提高整体体验。</p>
-                </div>
-            </section>
-
-            <!-- 客户端选择 -->
-            <section class="content-section">
-                <h2 id="clients">如何选择客户端</h2>
-                <p>选择合适的代理客户端对于良好的上网体验至关重要。以下是根据不同平台的推荐：</p>
-
-                <h3>安卓平台</h3>
-                <ul>
-                    <li><strong>ClashMeta</strong>：功能全面，支持多种协议，界面友好</li>
-                    <li><strong>Hiddify</strong>：开源轻量级选择，低占用高性能</li>
-                    <li><strong>Surfboard</strong>：支持Surge配置，稳定可靠</li>
-                </ul>
-
-                <h3>iOS平台</h3>
-                <ul>
-                    <li><strong>Shadowrocket</strong>：iOS上最广泛使用的代理工具，配置简单，功能强大</li>
-                </ul>
-
-                <h3>PC平台</h3>
-                <ul>
-                    <li><strong>Clash Verge</strong>：基于Rust开发，界面美观，性能出色</li>
-                    <li><strong>Mihomo Party</strong>：新一代代理工具，改进的核心架构</li>
-                </ul>
-
-                <div class="note">
-                    <p><strong>提示：</strong> 我们的教程中心提供了所有这些工具的详细配置指南，可以在左侧导航栏中选择对应工具查看。</p>
-                </div>
-            </section>
-
-            <!-- 基本使用流程 -->
-            <section class="content-section">
-                <h2 id="workflow">基本使用流程</h2>
-                <p>无论使用哪种代理工具，基本的使用流程都类似：</p>
-
-                <div class="step">
-                    <h3>步骤 1: 下载并安装代理客户端</h3>
-                    <p>从可靠的来源（如官方网站、GitHub或App Store）下载适合您设备的代理客户端。</p>
-                </div>
-
-                <div class="step">
-                    <h3>步骤 2: 导入节点或订阅</h3>
-                    <p>可以通过多种方式导入节点：
+                    <h3>如何选择客户端？</h3>
+                    <p>根据您的设备和需求选择合适的客户端：</p>
                     <ul>
-                        <li>添加订阅链接（最推荐的方式）</li>
-                        <li>扫描二维码</li>
-                        <li>从剪贴板导入</li>
-                        <li>手动输入节点信息</li>
+                        <li><strong>Windows/Mac/Linux用户：</strong> 推荐 Clash Verge，界面美观，功能强大</li>
+                        <li><strong>Android用户：</strong> 推荐 ClashMeta，支持的协议全面，兼容性好</li>
+                        <li><strong>iOS用户：</strong> 推荐 Shadowrocket，虽然需要付费，但是功能最全</li>
+                        <li><strong>轻度用户：</strong> Surfboard和V2rayNG等轻量级客户端也是不错的选择</li>
                     </ul>
-                    </p>
-                </div>
-
-                <div class="step">
-                    <h3>步骤 3: 选择代理模式和节点</h3>
-                    <p>选择合适的代理模式（如规则模式）和节点。可以通过测速功能选择延迟较低的节点。</p>
-                </div>
-
-                <div class="step">
-                    <h3>步骤 4: 连接并测试</h3>
-                    <p>启动代理连接，然后访问一些网站测试连接是否正常工作。可以使用 <a href="https://www.google.com" target="_blank">Google</a> 或 <a
-                            href="https://www.youtube.com" target="_blank">YouTube</a> 进行测试。</p>
-                </div>
-
-                <div class="tip-card">
-                    <h3>小贴士</h3>
-                    <p>订阅链接通常需要定期更新。大多数客户端都提供自动更新功能，建议开启此功能以确保您的节点列表保持最新状态。</p>
                 </div>
             </section>
 
-            <!-- 安全与隐私 -->
+            <!-- 使用小技巧 -->
             <section class="content-section">
-                <h2 id="security">安全与隐私注意事项</h2>
-                <p>使用代理工具时，以下安全和隐私注意事项值得关注：</p>
+                <h2 id="tips">使用小技巧</h2>
 
-                <h3>选择可信的代理服务提供商</h3>
-                <p>代理服务器可以看到您的网络流量，因此选择可信的服务提供商非常重要。研究提供商的声誉、隐私政策和安全实践。</p>
+                <div class="faq-section">
+                    <h3>基本操作</h3>
+                    <div class="faq-container">
+                        <details class="faq-item">
+                            <summary>如何判断代理是否正常工作？</summary>
+                            <div class="faq-answer">
+                                <p>有几种方法可以检查代理是否工作正常：</p>
+                                <ol>
+                                    <li>访问 <a href="https://www.google.com" target="_blank">Google</a> 或其他通常无法直接访问的网站
+                                    </li>
+                                    <li>使用 <a href="https://www.ipinfo.io" target="_blank">IPinfo</a> 等网站查看您当前的IP地址和位置
+                                    </li>
+                                    <li>查看客户端的连接状态指示器</li>
+                                </ol>
+                            </div>
+                        </details>
 
-                <h3>使用加密协议</h3>
-                <p>尽量选择提供端到端加密的协议，如Shadowsocks、VMess或Trojan，避免使用未加密的HTTP代理。</p>
+                        <details class="faq-item">
+                            <summary>如何更新订阅？</summary>
+                            <div class="faq-answer">
+                                <p>在大多数客户端中，更新订阅的步骤如下：</p>
+                                <ol>
+                                    <li>打开客户端的配置或设置界面</li>
+                                    <li>找到"订阅"或"配置文件"选项</li>
+                                    <li>点击"更新"或"刷新"按钮</li>
+                                    <li>等待更新完成，查看是否有新节点</li>
+                                </ol>
+                                <p>建议定期（如每周）更新订阅，以获取最新的节点信息和配置。</p>
+                            </div>
+                        </details>
+                    </div>
 
-                <h3>定期更新客户端</h3>
-                <p>保持代理客户端软件的最新版本，以获取安全补丁和功能改进。过时的软件可能存在安全漏洞。</p>
+                    <h3>进阶技巧</h3>
+                    <div class="faq-container">
+                        <details class="faq-item">
+                            <summary>如何测试节点速度？</summary>
+                            <div class="faq-answer">
+                                <p>许多客户端内置了测速功能，但您也可以：</p>
+                                <ol>
+                                    <li>使用 <a href="https://www.speedtest.net" target="_blank">Speedtest</a> 测试下载和上传速度
+                                    </li>
+                                    <li>使用 <a href="https://fast.com" target="_blank">Fast.com</a>（Netflix提供）测试流媒体速度
+                                    </li>
+                                    <li>尝试实际使用场景，如播放YouTube 4K视频观察是否流畅</li>
+                                </ol>
+                            </div>
+                        </details>
 
-                <h3>避免敏感活动</h3>
-                <p>即使使用代理，也应避免在网上进行高度敏感的活动，如银行交易等。对于这类活动，考虑使用更安全的专用方案。</p>
+                        <details class="faq-item">
+                            <summary>自定义规则有什么用？</summary>
+                            <div class="faq-answer">
+                                <p>自定义规则可以精确控制哪些网站或应用使用代理，哪些直连。例如：</p>
+                                <ul>
+                                    <li>为特定应用强制使用直连（如网银、支付应用）</li>
+                                    <li>为需要特定地区IP的服务选择对应节点（如访问日本区游戏）</li>
+                                    <li>解决某些特殊网站无法访问的问题</li>
+                                </ul>
+                                <p>Clash的规则示例：</p>
+                                <div class="code-block">- DOMAIN-SUFFIX,example.com,DIRECT
+                                    - DOMAIN-KEYWORD,google,Proxy
+                                    - IP-CIDR,192.168.0.0/16,DIRECT</div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
 
-                <div class="note">
-                    <p><strong>重要提示：</strong> 代理工具提供一定程度的匿名性，但不能保证绝对的隐私和安全。使用代理时仍应保持警惕，遵守相关法律法规。</p>
+                <div class="warning-box">
+                    <h4>⚠️ 安全注意事项</h4>
+                    <p>使用代理工具时，请注意以下安全事项：</p>
+                    <ul>
+                        <li>不要在公共场所的不信任网络下登录重要账号</li>
+                        <li>使用代理并不能完全匿名，仍需注意网络行为</li>
+                        <li>定期检查代理软件更新，修复安全漏洞</li>
+                        <li>警惕免费节点和不明来源的配置文件，可能包含恶意代码</li>
+                    </ul>
                 </div>
             </section>
 
@@ -302,29 +461,67 @@
             <section class="content-section">
                 <h2 id="faq">常见问题</h2>
 
-                <div class="faq-item">
-                    <h3>为什么我的连接速度很慢？</h3>
-                    <p>连接速度受多种因素影响，包括：节点距离、节点负载、网络拥塞、ISP限制等。尝试选择不同的节点或协议，尤其是地理位置靠近您所在地或目标网站的节点。</p>
+                <div class="faq-container">
+                    <details class="faq-item">
+                        <summary>什么是节点延迟？为什么它很重要？</summary>
+                        <div class="faq-answer">
+                            <p>节点延迟（通常以毫秒ms计）是指数据包从您的设备到代理服务器所需的时间。延迟越低，响应速度越快，网页加载和交互更流畅。</p>
+                            <p>不同应用对延迟的要求不同：</p>
+                            <ul>
+                                <li>网页浏览：200ms以内体验良好</li>
+                                <li>视频流媒体：300ms以内通常不会影响观看</li>
+                                <li>在线游戏：需要100ms以内，竞技游戏最好50ms以下</li>
+                                <li>视频会议：150ms以内可保证流畅对话</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>为什么有时候代理会突然变慢或无法连接？</summary>
+                        <div class="faq-answer">
+                            <p>代理连接变慢或失效可能有多种原因：</p>
+                            <ol>
+                                <li><strong>高峰期拥堵</strong>：晚间和周末等高峰时段，用户集中使用导致带宽拥挤</li>
+                                <li><strong>线路问题</strong>：国际网络线路不稳定，可能影响连接质量</li>
+                                <li><strong>封锁升级</strong>：防火墙策略更新可能导致某些协议或IP被封</li>
+                                <li><strong>节点下线</strong>：服务提供商可能进行维护或调整</li>
+                            </ol>
+                            <p>遇到这种情况时，建议切换节点或协议，必要时更新订阅获取最新节点。</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>移动数据和Wi-Fi下使用代理有什么区别？</summary>
+                        <div class="faq-answer">
+                            <p>移动数据和Wi-Fi环境下使用代理的主要区别：</p>
+                            <ul>
+                                <li><strong>网络环境</strong>：移动数据通常由运营商管控更严格，可能对代理有额外限制</li>
+                                <li><strong>IP地址</strong>：移动数据通常使用NAT共享IP，可能影响某些协议的稳定性</li>
+                                <li><strong>数据流量</strong>：移动数据通常有流量限制，代理会消耗较多流量</li>
+                                <li><strong>配置要求</strong>：某些移动网络可能需要特殊设置，如APN配置</li>
+                            </ul>
+                            <p>建议在Wi-Fi和移动数据下分别测试代理性能，选择最适合的节点和协议。</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>如何防止代理泄露隐私？</summary>
+                        <div class="faq-answer">
+                            <p>使用代理时保护隐私的方法：</p>
+                            <ul>
+                                <li>使用支持加密的协议（如VMess、Trojan或Wireguard）</li>
+                                <li>开启DNS over HTTPS（DoH）或DNS over TLS（DoT）防止DNS泄露</li>
+                                <li>检查代理客户端的"防泄露"功能，确保已启用</li>
+                                <li>使用可信赖的服务提供商，避免使用免费或来历不明的节点</li>
+                                <li>定期检查并更新客户端软件，修复安全漏洞</li>
+                            </ul>
+                        </div>
+                    </details>
                 </div>
 
-                <div class="faq-item">
-                    <h3>为什么有些网站仍然无法访问？</h3>
-                    <p>可能的原因包括：代理配置问题、网站本身封锁了代理访问、规则配置不当等。尝试切换到全局模式测试，或更新规则库。</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>如何选择最佳的代理节点？</h3>
-                    <p>首先使用客户端的测速功能获取各节点延迟。其次，考虑您的具体需求，如看视频可能需要更高的带宽，而浏览网页则更注重延迟。最后，通过实际使用体验进行调整。</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>移动设备上使用代理会增加电池消耗吗？</h3>
-                    <p>是的，代理会略微增加电池消耗，因为它需要额外的加密/解密处理。如果电池寿命是主要考虑因素，可以在不需要时关闭代理，或使用按需连接的功能。</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>如何排查连接问题？</h3>
-                    <p>参考我们的<a href="troubleshooting.html">常见问题解决</a>指南，其中包含了详细的故障排除步骤和解决方案。</p>
+                <div class="tip-card">
+                    <h3>还有其他问题？</h3>
+                    <p>如果您遇到本指南未涵盖的问题，请查看我们的<a href="troubleshooting.html">常见问题解决</a>页面，或通过邮箱联系我们获取支持。</p>
                 </div>
             </section>
         </main>
@@ -337,8 +534,7 @@
                 <li class="toc-item"><a href="#nodes">代理节点与订阅</a></li>
                 <li class="toc-item"><a href="#modes">代理模式</a></li>
                 <li class="toc-item"><a href="#clients">如何选择客户端</a></li>
-                <li class="toc-item"><a href="#workflow">基本使用流程</a></li>
-                <li class="toc-item"><a href="#security">安全与隐私注意事项</a></li>
+                <li class="toc-item"><a href="#tips">使用小技巧</a></li>
                 <li class="toc-item"><a href="#faq">常见问题</a></li>
             </ul>
         </aside>

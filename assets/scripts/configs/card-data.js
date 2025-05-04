@@ -82,6 +82,11 @@ export const toolsData = [
         name: "OneClick",
         image: "assets/images/tools/OneClick.png",
         link: "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
+    },
+    {
+        name: "V2Box",
+        image: "assets/images/tools/v2box.png",
+        link: "https://play.google.com/store/apps/details?id=dev.hexasoftware.v2box"
     }
 ];
 

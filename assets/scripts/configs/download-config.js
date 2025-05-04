@@ -35,7 +35,7 @@ const downloadLinks = {
     'v2rayn': {
         version: 'v7.10.5',
         windows: 'https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-windows-64.zip',
-        mac:'https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-macos-64.dmg',
+        mac: 'https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-macos-64.dmg',
         linux: 'https://github.com/2dust/v2rayN/releases/download/7.10.5/v2rayN-linux-64.zip',
         github: 'https://github.com/2dust/v2rayN'
     },
@@ -95,49 +95,66 @@ const downloadLinks = {
     },
     // Shadowrocket
     'shadowrocket': {
-        version: 'v2.2.65',
+        version: 'N/A',
         ios: 'https://apps.apple.com/us/app/shadowrocket/id932747118'
     },
     // QuantumultX
     'quantumultx': {
-        version: 'v1.5.0',
+        version: 'N/A',
         mac: 'https://apps.apple.com/us/app/quantumult-x/id1443988620',
         ios: 'https://apps.apple.com/us/app/quantumult-x/id1443988620'
     },
     // Surge5
     'surge5': {
-        version: 'v5.14.5',
+        version: 'N/A',
         mac: 'https://apps.apple.com/us/app/surge-5/id1442620678',
         ios: 'https://apps.apple.com/us/app/surge-5/id1442620678'
     },
     // OneClick
     'oneclick': {
-        version: 'v2.5.0',
+        version: 'N/A',
         ios: 'https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197'
+    },
+    // V2Box
+    'v2box': {
+        version: 'N/A',
+        android: 'https://play.google.com/store/apps/details?id=dev.hexasoftware.v2box',
+        ios: 'https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690'
     }
 };
+
+
+
+
+/* 
+ * ------------------------------
+ * 
+ *  以下内容是 2025-05-05 新增的
+ * 
+ * ------------------------------
+ */
 
 // 获取工具版本号
 export function getToolVersion(toolName) {
     if (!toolName) return '';
-    
+
     // 标准化名称：转小写并移除多余空格
     const normalizedName = toolName.toLowerCase().trim();
-    
+
     // 直接检查是否存在匹配
     if (downloadLinks[normalizedName] && downloadLinks[normalizedName].version) {
         return downloadLinks[normalizedName].version;
     }
-    
+
     // 如果找不到完全匹配，尝试部分匹配
     for (const key in downloadLinks) {
         // 检查工具名称是否包含在配置键中，或配置键是否包含在工具名称中
-        if ((normalizedName.includes(key) || key.includes(normalizedName)) && 
+        if ((normalizedName.includes(key) || key.includes(normalizedName)) &&
             downloadLinks[key].version) {
             return downloadLinks[key].version;
         }
     }
-    
+
     // 如果找不到任何匹配，返回空字符串
     return '';
 }
