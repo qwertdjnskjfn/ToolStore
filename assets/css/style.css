@@ -740,10 +740,6 @@ table img {
     transform: rotate(90deg) scale(0.95);
 }
 
-
-
-
-
 /* 添加滚动行为样式 */
 html {
     scroll-behavior: smooth;
@@ -758,8 +754,6 @@ html {
     scroll-snap-margin-top: 100px;
     /* Safari 支持 */
 }
-
-
 
 /* 确保内容不会被header遮挡 */
 main {
@@ -778,10 +772,6 @@ main {
     pointer-events: none;
     filter: grayscale(1);
 }
-
-
-
-
 
 /* 平台图标容器样式优化 */
 .platform-icons {
