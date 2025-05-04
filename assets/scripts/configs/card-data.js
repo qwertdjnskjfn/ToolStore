@@ -218,21 +218,21 @@ export const allCardData = {
     tools: {
         id: "tools",
         title: "网络工具",
-        description: "点击查看支持的平台下载 或前往 Github 查看",
+        description: "实用工具软件集合，支持多平台使用",
         data: toolsData,
         linkText: "下载"
     },
     software: {
         id: "software",
         title: "精选推荐",
-        description: "精选优质精选推荐 | 拥有谷歌邮箱走天下 | 发送注册邮箱和密码",
+        description: "精选优质软件推荐，邮箱激活即可使用",
         data: softwareData,
         linkText: "官网链接"
     },
     proxy: {
         id: "proxy",
         title: "机场推荐",
-        description: "精选稳定机场服务 | 无法访问邮箱联系 | 发送注册邮箱和密码",
+        description: "稳定高速的网络代理服务，一键连接全球",
         data: airportData,
         linkText: "官网链接"
     }
