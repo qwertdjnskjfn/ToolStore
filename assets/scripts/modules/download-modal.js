@@ -26,6 +26,7 @@ export function createDownloadModal(toolName) {
     // 获取工具版本
     const version = getToolVersion(toolName);
 
+    const platforms = ['windows', 'mac', 'linux', 'android', 'ios', 'github'];
     const content = `
         <div class="download-content modal-content-enter">
             <button class="close-modal">×</button>
@@ -35,10 +36,11 @@ export function createDownloadModal(toolName) {
                 <p>若下载失效 可使用免费节点 前往Github下载</p>
             </div>
             <div class="download-grid">
-                ${['windows', 'mac', 'linux', 'android', 'ios', 'github'].map(platform => `
+                ${platforms.map((platform, index) => `
                     <div class="download-item ${!links[platform] ? 'disabled' : ''}" 
                          data-platform="${platform}"
-                         data-url="${links[platform] || ''}">
+                         data-url="${links[platform] || ''}"
+                         style="--item-index: ${index}">
                         <div class="download-icon">
                             ${platform === 'github' ? githubIcon : platformIcons[platform]}
                         </div>
@@ -76,7 +78,12 @@ export function createDownloadModal(toolName) {
         item.addEventListener('click', function() {
             const url = this.getAttribute('data-url');
             if (url) {
-                window.open(url, '_blank');
+                // 添加点击动画
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                    window.open(url, '_blank');
+                }, 100);
             }
         });
     });
@@ -92,7 +99,7 @@ function closeDownloadModal(modal) {
         contentElement.classList.add('modal-content-exit');
     }
     
-    // 延迟移除模态框
+    // 延迟移除模态框，等待动画完成
     setTimeout(() => {
         modal.classList.remove('active');
         
@@ -147,7 +154,10 @@ function removeBackdrop() {
         // 完全移除元素
         setTimeout(() => {
             if (document.body.contains(backdrop)) {
-                document.body.removeChild(backdrop);
+                backdrop.style.display = 'none';
+                if (document.body.contains(backdrop)) {
+                    document.body.removeChild(backdrop);
+                }
             }
             
             // 确保页面可以滚动

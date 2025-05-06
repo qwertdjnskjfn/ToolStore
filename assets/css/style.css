@@ -38,7 +38,7 @@ html {
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #0f1318 0%, #1a1d24 100%);
+    background: linear-gradient(135deg, #171A21 0%, #171A21 100%);
     background-attachment: fixed; /* 固定背景，防止滚动时出现问题 */
     color: #fff;
     line-height: 1.6;
@@ -661,7 +661,7 @@ table img {
     align-items: center;
     z-index: 2000;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
     padding: 20px;
 }
 
@@ -679,6 +679,66 @@ table img {
     border: 1px solid rgba(124, 138, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     position: relative;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* 添加内容进入动画 */
+.modal-content-enter {
+    animation: modalContentEnter 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* 添加内容退出动画 */
+.modal-content-exit {
+    animation: modalContentExit 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes modalContentEnter {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes modalContentExit {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+}
+
+/* 模态框背景样式 */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: none;
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+}
+
+/* 应用下载项动画 */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 10px;
 }
 
 .download-header {
@@ -694,27 +754,31 @@ table img {
     margin-bottom: 10px;
 }
 
-.download-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 10px;
-}
-
 .download-item {
     background: linear-gradient(145deg, #1e222b, #252a35);
     border-radius: 16px;
     padding: 25px;
     text-align: center;
     border: 1px solid rgba(124, 138, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: itemFadeIn 0.5s forwards;
+    animation-delay: calc(var(--item-index, 0) * 0.1s);
 }
 
 .download-item:hover {
     transform: translateY(-5px);
     border-color: rgba(124, 138, 255, 0.3);
     background: linear-gradient(145deg, #252a35, #2a2f3d);
+}
+
+@keyframes itemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .download-icon {
@@ -1123,6 +1187,7 @@ main {
 .card.clickable {
     cursor: pointer;
     position: relative;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .card.clickable::after {
@@ -1149,17 +1214,64 @@ main {
 
 /* 优化卡片悬停效果 */
 .card.clickable:hover {
-    transform: translateY(-3px);
+    transform: translateY(-8px);
     border-color: rgba(124, 138, 255, 0.3);
     box-shadow: 0 8px 25px rgba(124, 138, 255, 0.15);
 }
 
 /* 点击效果 */
 .card.clickable:active {
-    transform: translateY(-1px);
+    transform: translateY(-4px) scale(0.98);
 }
 
+/* 添加工具卡片点击波纹效果 */
+@keyframes cardRipple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(124, 138, 255, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(124, 138, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 138, 255, 0);
+    }
+}
 
+.card.tool-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
+                box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
+                border-color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card.tool-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(124, 138, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(124, 138, 255, 0.15);
+}
+
+.card.tool-card:active {
+    transform: translateY(-2px) scale(0.98);
+    animation: cardRipple 0.6s;
+}
+
+/* 点击波纹动画 */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(124, 138, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
 
 .button:nth-child(2) {
     color: #fff;

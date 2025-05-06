@@ -119,6 +119,9 @@ function createCard(item, sectionData) {
     if (sectionData.id === 'proxy') {
         cardClass += ' proxy-card';
     }
+    if (sectionData.id === 'tools') {
+        cardClass += ' tool-card';
+    }
     
     const card = document.createElement('div');
     card.className = cardClass;

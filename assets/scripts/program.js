@@ -5,6 +5,7 @@ import { initNavigation, initDisplayToggle } from './modules/nav-handler.js';
 import { initAirportCards } from './modules/airport-modal.js';
 import { initSoftwareCards } from './modules/software-cards.js';
 import { initCardRenderer } from './modules/card-renderer.js';
+import { initRippleEffect } from './modules/ripple-effect.js';
 
 // 使复制函数在全局可用
 
@@ -56,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // 初始化机场卡片和软件卡片点击事件
     initAirportCards();
     initSoftwareCards();
+    
+    // 初始化波纹效果
+    initRippleEffect();
     
     // 标记应用已初始化
     window.appInitialized = true;
