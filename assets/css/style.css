@@ -464,9 +464,14 @@ footer p {
     box-shadow: 0 4px 15px rgba(255, 71, 71, 0.2);
 }
 
-/* 隐藏表格 */
-table {
+/* 隐藏主页表格，但不影响wiki下的表格 */
+body:not(.wiki-page) table {
     display: none !important;
+}
+
+/* 确保wiki页面下的表格可见 */
+.wiki-page table, .wiki table, body[class*="wiki"] table {
+    display: table !important;
 }
 
 /* 遮罩层样式 */

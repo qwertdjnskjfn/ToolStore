@@ -18,6 +18,8 @@
 /* 教程内容特定样式 */
 @import 'custom-templates.css';
 /* 模板页面自定义样式 */
+@import 'tables.css';
+/* 表格样式 */
 
 /* body样式设置 */
 body {
