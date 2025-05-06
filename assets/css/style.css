@@ -39,7 +39,8 @@ html {
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, #171A21 0%, #171A21 100%);
-    background-attachment: fixed; /* 固定背景，防止滚动时出现问题 */
+    background-attachment: fixed;
+    /* 固定背景，防止滚动时出现问题 */
     color: #fff;
     line-height: 1.6;
     min-height: 100vh;
@@ -60,7 +61,7 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.mask ~ header {
+.mask~header {
     opacity: 0.5;
     transition: opacity 0.3s ease;
 }
@@ -143,7 +144,8 @@ main {
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
-    background: transparent; /* 确保背景是透明的 */
+    background: transparent;
+    /* 确保背景是透明的 */
 }
 
 .announcement {
@@ -263,14 +265,14 @@ footer p {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 15px;
     }
-    
+
     .canceled-message {
         width: 80%;
         max-width: 300px;
         padding: 15px 20px;
         font-size: 14px;
     }
-    
+
     .canceled-message button {
         padding: 6px 12px;
         font-size: 14px;
@@ -697,6 +699,7 @@ table img {
         opacity: 0;
         transform: scale(0.9) translateY(30px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -708,6 +711,7 @@ table img {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
+
     100% {
         opacity: 0;
         transform: scale(0.9) translateY(30px);
@@ -1229,9 +1233,11 @@ main {
     0% {
         box-shadow: 0 0 0 0 rgba(124, 138, 255, 0.3);
     }
+
     70% {
         box-shadow: 0 0 0 15px rgba(124, 138, 255, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(124, 138, 255, 0);
     }
@@ -1240,9 +1246,9 @@ main {
 .card.tool-card {
     position: relative;
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
-                box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
-                border-color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+        box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+        border-color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .card.tool-card:hover {
@@ -1356,8 +1362,13 @@ main {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-container p {
