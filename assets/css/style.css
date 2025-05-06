@@ -39,6 +39,7 @@ html {
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, #0f1318 0%, #1a1d24 100%);
+    background-attachment: fixed; /* 固定背景，防止滚动时出现问题 */
     color: #fff;
     line-height: 1.6;
     min-height: 100vh;
@@ -142,6 +143,7 @@ main {
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
+    background: transparent; /* 确保背景是透明的 */
 }
 
 .announcement {
@@ -260,6 +262,18 @@ footer p {
     .grid-container {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 15px;
+    }
+    
+    .canceled-message {
+        width: 80%;
+        max-width: 300px;
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+    
+    .canceled-message button {
+        padding: 6px 12px;
+        font-size: 14px;
     }
 }
 
@@ -405,10 +419,30 @@ footer p {
     padding: 20px 30px;
     border-radius: 12px;
     font-size: 16px;
+    line-height: 30px;
     display: none;
     text-align: center;
     z-index: 2200;
     box-shadow: 0 4px 20px rgba(255, 71, 71, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.canceled-message button {
+    padding: 8px 15px;
+    background: white;
+    color: #ff4747;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.canceled-message button:hover {
+    background: #f8f8f8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* 警告消息样式 */

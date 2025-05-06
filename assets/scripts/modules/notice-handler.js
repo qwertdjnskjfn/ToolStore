@@ -153,6 +153,18 @@ export function initNoticeHandler() {
                 mask.style.display = 'block';
                 disableAllNavigation(true);
                 disablePageInteraction(true);
+                
+                // 添加重试按钮的点击事件
+                const retryButton = document.getElementById('retryButton');
+                if (retryButton) {
+                    retryButton.addEventListener('click', () => {
+                        // 重置取消计数器
+                        localStorage.setItem('cancelCount', '0');
+                        // 刷新页面
+                        window.location.reload();
+                    });
+                }
+                
                 return;
             }
 
@@ -161,6 +173,17 @@ export function initNoticeHandler() {
             setTimeout(() => {
                 warningMessage.style.display = 'none';
             }, 2000);
+        });
+    }
+    
+    // 检查是否已存在重试按钮并添加事件监听
+    const retryButton = document.getElementById('retryButton');
+    if (retryButton) {
+        retryButton.addEventListener('click', () => {
+            // 重置取消计数器
+            localStorage.setItem('cancelCount', '0');
+            // 刷新页面
+            window.location.reload();
         });
     }
 }
