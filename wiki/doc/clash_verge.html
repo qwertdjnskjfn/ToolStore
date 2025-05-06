@@ -107,7 +107,6 @@
                     <li class="nav-item"><a href="troubleshooting.html">常见问题解决</a></li>
                     <li class="nav-item"><a href="feedback-email.html">邮件反馈指南</a></li>
                     <li class="nav-item"><a href="../templates/templates.html">文档示例</a></li>
-                    <li class="nav-item"><a href="模板.html">模板页面</a></li>
                 </ul>
             </div>
 
@@ -162,22 +161,19 @@
             <section class="content-section">
                 <h2 id="intro">Clash Verge 简介</h2>
                 <div class="note">
-                    <p><strong>提示：</strong>Clash Verge 只是翻墙软件，你需要购买机场订阅才能使用。如果你还没有订阅链接，可以参考<a href="#proxy"
+                    <p><strong>提示：</strong>Clash Verge 只是翻墙软件，你需要购买机场订阅才能使用。如果你还没有订阅链接，可以参考<a href="../../index.html#proxy"
                             target="_blank" rel="noopener">机场推荐</a></p>
                 </div>
                 <h3 id="step1">1、获取订阅地址</h3>
                 <p>首先需要注册一个机场，然后注册机场后进入主页，如下图操作，其他机场界面可能不一致，但基本大同小异，<strong>仪表盘-&gt;一键订阅-&gt;复制订阅地址</strong>即可。
                 </p>
                 <img src="images/mihomoparty/clash_verge.png" style="max-width: 100%; height: auto;">
-                <h3><strong style="display: block; overflow: hidden; height: 1px; width: 2px;"></strong></h3>
                 <h3 id="step2">2、导入订阅链接</h3>
                 <p>按下图1，2，3顺序操作，粘贴购买的订阅链接 URL在2中，然后点击 导入即可。</p>
                 <img src="images/mihomoparty/clash_verge1.png" style="max-width: 100%; height: auto;">
-                <h3><strong style="display: block; overflow: hidden; height: 1px; width: 2px;"></strong></h3>
                 <p>此处有一个小坑，可能导致订阅失败，如果您不是第一次用clash-verge这个软件，这个软件中存在着已经过期失效了的订阅，导入的时候可能在用不通的节点下载，这是会报网络错误，那就按下图1，2把网络模式改为直连模式来导入订阅，导入成功后再切换成规则模式用于上网。
                 </p>
                 <img src="images/mihomoparty/clash_verge2.png" style="max-width: 100%; height: auto;">
-                <h3><strong style="display: block; overflow: hidden; height: 1px; width: 2px;"></strong></h3>
                 <h3 id="step3">3、选择节点</h3>
                 <p>成功导入订阅后需要手动选择用哪个代理节点来上网，想用哪个点哪个就可以。</p>
                 <p><em><mark>序号2这个小图标是用来测试全部节点的延迟，clash显示的节点延迟有时候并不准确，看着数字很大，手动点一下数字就可以重新测延迟，或者点2这个图标是重新测全部节点的延迟</mark></em>
@@ -185,11 +181,9 @@
                 <p><em><mark>序号3这个地方是选择上网模式的，规则(符合规则国外网址的走代理，国内网址直连不消耗流量)，全局(就是所有网址都走代理，一般不选择这个)，直连（顾名思义，不走代理，等同于关闭了梯子）</mark></em>
                 </p>
                 <img src="images/mihomoparty/clash_verge3.png" style="max-width: 100%; height: auto;">
-                <h3><strong style="display: block; overflow: hidden; height: 1px; width: 2px;"></strong></h3>
                 <h3 id="step4">4、开启系统代理</h3>
                 <p>这一步必不可少，有些用户就是因为这一步没操作结果就是上不了外网，这一步的做用在于让clash-verge这个软件真正接管电脑系统的网络流量。</p>
                 <img src="images/mihomoparty/clash_verge4.png" style="max-width: 100%; height: auto;">
-                <h3><strong style="display: block; overflow: hidden; height: 1px; width: 2px;"></strong></h3>
                 <p>OK了，就这么4步，使用还是很简单的，其他那些高级功能，大部分用户是用不到的，有兴趣自己点点，google搜索一下研究研究即可。</p>
 
             </section>
@@ -206,32 +200,33 @@
                 <li class="toc-item"><a href="#step4">4、开启系统代理</a></li>
             </ul>
         </aside>
+    </div>
 
-        <footer>
-            <div class="footer-content">
-                <p>© 2023-2025 ToolStore. 保留所有权利。</p>
-            </div>
-        </footer>
-
-        <!-- 放大预览模态框 -->
-        <div id="imageModal" class="modal">
-            <span class="close" id="closeModal">&times;</span>
-            <img class="modal-content" id="modalImage">
-            <div id="caption"></div>
+    <footer>
+        <div class="footer-content">
+            <p>© 2023-2025 ToolStore. 保留所有权利。</p>
         </div>
+    </footer>
 
-        <!-- 回到顶部按钮 -->
-        <button id="backToTop" class="back-to-top-btn" title="回到顶部"></button>
+    <!-- 放大预览模态框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
 
-        <!-- 引入公共JS -->
-        <script src="../../assets/scripts/config.js"></script>
-        <!-- 文档站专用JS -->
-        <script src="../js/doc-scripts.js"></script>
-        <!-- 单页应用功能 -->
-        <script src="../js/spa.js"></script>
-        <!-- 主题切换功能 -->
-        <script src="../js/theme.js"></script>
-        <!-- 回到顶部按钮功能 -->
-        <script src="../js/top.js"></script>
-    </body>
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="back-to-top-btn" title="回到顶部"></button>
+
+    <!-- 引入公共JS -->
+    <script src="../../assets/scripts/config.js"></script>
+    <!-- 文档站专用JS -->
+    <script src="../js/doc-scripts.js"></script>
+    <!-- 单页应用功能 -->
+    <script src="../js/spa.js"></script>
+    <!-- 主题切换功能 -->
+    <script src="../js/theme.js"></script>
+    <!-- 回到顶部按钮功能 -->
+    <script src="../js/top.js"></script>
+</body>
 </html>
