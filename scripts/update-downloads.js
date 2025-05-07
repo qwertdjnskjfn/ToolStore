@@ -2,9 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const https = require('https');
-
-// 导入手动配置
-const { manualConfig } = require('./manual-config');
+const manualConfig = require('./manual-config');
 
 // 配置项
 const CONFIG = {
@@ -158,57 +156,58 @@ function sortObjectByOrder(obj, order) {
     return sortedObj;
 }
 
-// 更新download-config.js
+// 更新下载配置
 async function updateDownloadConfig() {
-    console.log('开始更新下载配置...');
-    const repos = await getRepositories();
-    console.log(`找到 ${repos.length} 个仓库需要更新`);
-    
-    const downloadLinks = {};
-
-    // 首先添加手动配置的下载链接
-    for (const [name, config] of Object.entries(manualConfig.downloadLinks)) {
-        downloadLinks[name] = sortObjectByOrder(config, CONFIG.platformOrder);
-        console.log(`已添加手动配置的下载链接: ${name}`);
-    }
-
-    // 然后添加iOS应用商店链接
-    for (const [appName, appStoreLink] of Object.entries(CONFIG.iosAppStoreLinks)) {
-        if (!downloadLinks[appName]) {  // 如果还没有手动配置
-            const links = {
-                version: 'N/A',
-                ios: appStoreLink
-            };
-            downloadLinks[appName] = sortObjectByOrder(links, CONFIG.platformOrder);
-            console.log(`已添加iOS应用商店链接: ${appName}`);
-        }
-    }
-
-    // 最后处理GitHub仓库
-    for (const repo of repos) {
-        // 检查是否已手动配置
-        if (manualConfig.repositories[repo.name]) {
-            console.log(`跳过 ${repo.name}，使用手动配置`);
-            continue;
-        }
-
-        console.log(`正在处理 ${repo.owner}/${repo.repo}...`);
-        const release = await getLatestRelease(repo.owner, repo.repo);
-        if (!release) continue;
-
-        const platformLinks = matchPlatformAssets(release.assets);
-        const links = {
-            version: release.tag_name,
-            ...platformLinks,
-            github: `https://github.com/${repo.owner}/${repo.repo}`
-        };
-        downloadLinks[repo.name] = sortObjectByOrder(links, CONFIG.platformOrder);
+    try {
+        console.log('开始更新下载配置...');
+        const repos = await getRepositories();
+        console.log(`找到 ${repos.length} 个仓库需要更新`);
         
-        console.log(`已更新 ${repo.name} 的下载链接，版本: ${release.tag_name}`);
-    }
+        const downloadLinks = {};
 
-    // 生成新的配置文件内容
-    const configContent = `// 下载链接配置  全是小写
+        // 首先添加手动配置的下载链接
+        for (const [name, config] of Object.entries(manualConfig.downloadLinks)) {
+            downloadLinks[name] = sortObjectByOrder(config, CONFIG.platformOrder);
+            console.log(`已添加手动配置的下载链接: ${name}`);
+        }
+
+        // 然后添加iOS应用商店链接
+        for (const [appName, appStoreLink] of Object.entries(CONFIG.iosAppStoreLinks)) {
+            if (!downloadLinks[appName]) {  // 如果还没有手动配置
+                const links = {
+                    version: 'N/A',
+                    ios: appStoreLink
+                };
+                downloadLinks[appName] = sortObjectByOrder(links, CONFIG.platformOrder);
+                console.log(`已添加iOS应用商店链接: ${appName}`);
+            }
+        }
+
+        // 最后处理GitHub仓库
+        for (const repo of repos) {
+            // 检查是否已手动配置
+            if (manualConfig.repositories[repo.name]) {
+                console.log(`跳过 ${repo.name}，使用手动配置`);
+                continue;
+            }
+
+            console.log(`正在处理 ${repo.owner}/${repo.repo}...`);
+            const release = await getLatestRelease(repo.owner, repo.repo);
+            if (!release) continue;
+
+            const platformLinks = matchPlatformAssets(release.assets);
+            const links = {
+                version: release.tag_name,
+                ...platformLinks,
+                github: `https://github.com/${repo.owner}/${repo.repo}`
+            };
+            downloadLinks[repo.name] = sortObjectByOrder(links, CONFIG.platformOrder);
+            
+            console.log(`已更新 ${repo.name} 的下载链接，版本: ${release.tag_name}`);
+        }
+
+        // 生成新的配置文件内容
+        const configContent = `// 下载链接配置  全是小写
 // 最后更新时间: ${new Date().toLocaleString()}
 
 const downloadLinks = ${JSON.stringify(downloadLinks, null, 4)};
@@ -241,14 +240,14 @@ export function getToolVersion(toolName) {
 // 导出配置
 export { downloadLinks };`;
 
-    // 写入配置文件
-    const configPath = path.join(__dirname, '../public/assets/scripts/configs/download-config.js');
-    fs.writeFileSync(configPath, configContent);
-    console.log('下载配置已更新！');
+        // 写入配置文件
+        const configPath = path.join(__dirname, '../public/assets/scripts/configs/download-config.js');
+        fs.writeFileSync(configPath, configContent);
+        console.log('下载配置已更新！');
+    } catch (error) {
+        console.error('更新下载配置失败:', error);
+    }
 }
 
 // 执行更新
-updateDownloadConfig().catch(error => {
-    console.error('更新过程中发生错误:', error);
-    process.exit(1);
-}); 
+updateDownloadConfig(); 

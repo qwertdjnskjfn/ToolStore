@@ -1,17 +1,11 @@
 // 手动配置的仓库和下载链接
-export const manualConfig = {
+const manualConfig = {
     // 手动配置的仓库信息
     repositories: {
         // 示例格式：
-        // 'shadowrocket': {
-        //     owner: 'shadowrocket',
-        //     repo: 'shadowrocket',
-        //     name: 'shadowrocket',
-        //     version: 'N/A',
-        //     links: {
-        //         ios: 'https://apps.apple.com/us/app/shadowrocket/id932747118',
-        //         github: 'https://github.com/shadowrocket'
-        //     }
+        // "app-name": {
+        //   owner: "owner-name",
+        //   repo: "repo-name"
         // }
         "v2box": {
             "owner": "v2box",
@@ -29,10 +23,12 @@ export const manualConfig = {
     // 手动配置的下载链接
     downloadLinks: {
         // 示例格式：
-        // 'shadowrocket': {
-        //     version: 'N/A',
-        //     ios: 'https://apps.apple.com/us/app/shadowrocket/id932747118',
-        //     github: 'https://github.com/shadowrocket'
+        // "app-name": {
+        //   windows: "https://example.com/windows-download",
+        //   macos: "https://example.com/macos-download",
+        //   linux: "https://example.com/linux-download",
+        //   ios: "https://example.com/ios-download",
+        //   android: "https://example.com/android-download"
         // }
         "v2box": {
             "version": "N/A",
@@ -40,4 +36,6 @@ export const manualConfig = {
             "ios": "https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690"
         }
     }
-}; 
+};
+
+module.exports = manualConfig; 
