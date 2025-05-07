@@ -4,6 +4,26 @@ const axios = require('axios');
 const https = require('https');
 const manualConfig = require('./manual-config');
 
+// 格式化版本号，确保以 v 开头
+function formatVersion(version) {
+    if (!version) return 'N/A';
+    
+    // 移除可能存在的 v 前缀
+    version = version.replace(/^v/i, '');
+    
+    // 移除常见的前缀词（如 mobile-、release- 等）
+    version = version.replace(/^(mobile-|release-|v-|version-)/i, '');
+    
+    // 提取版本号部分（匹配 x.y.z 格式）
+    const versionMatch = version.match(/\d+\.\d+(\.\d+)?/);
+    if (versionMatch) {
+        version = versionMatch[0];
+    }
+    
+    // 添加 v 前缀
+    return `v${version}`;
+}
+
 // 配置项
 const CONFIG = {
     // 需要排除的仓库（比如一些特殊的应用商店链接）
@@ -197,7 +217,7 @@ async function updateDownloadConfig() {
 
             const platformLinks = matchPlatformAssets(release.assets);
             const links = {
-                version: release.tag_name,
+                version: formatVersion(release.tag_name),
                 ...platformLinks,
                 github: `https://github.com/${repo.owner}/${repo.repo}`
             };
