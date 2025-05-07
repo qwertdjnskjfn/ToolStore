@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Update and Deploy
 
 on:
   # 在推送到main分支时触发
@@ -11,7 +11,7 @@ on:
     - cron: '0 2 * * *'
 
 jobs:
-  build-and-deploy:
+  update-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,9 +29,21 @@ jobs:
       - name: Update Downloads
         run: npm run update-downloads
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Commit and Push Changes
+        run: |
+          git add .
+          git commit -m "Update download links and versions [skip ci]" || echo "No changes to commit"
+          git push origin main
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v3
         with:
           folder: public
           branch: gh-pages
-          clean: true 
+          clean: false  # 设置为false，不清除目标分支的文件
+          preserve: true  # 保留目标分支的文件 
