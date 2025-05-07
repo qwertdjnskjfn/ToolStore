@@ -1,0 +1,53 @@
+name: 自动更新下载链接
+
+on:
+  # 每天凌晨2点运行
+  schedule:
+    - cron: '0 2 * * *'
+  # 允许手动触发
+  workflow_dispatch:
+
+# 设置工作流权限
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-downloads:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 注意：本地linter可能会显示错误，但这些是GitHub官方actions，在GitHub Actions环境中是可用的
+      - name: 检出代码
+        uses: actions/checkout@v3.5.3  # 使用最新的稳定版本
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 设置Node.js环境
+        uses: actions/setup-node@v3.8.1  # 使用最新的稳定版本
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 运行更新脚本
+        run: npm run update-downloads
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 检查是否有更改
+        id: git-check
+        run: |
+          git add public/assets/scripts/configs/download-config.js
+          git diff --staged --quiet || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: 提交更改
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "自动更新下载链接 [skip ci]"
+          git push 
