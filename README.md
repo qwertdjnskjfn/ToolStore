@@ -43,7 +43,7 @@ assets/
 {
     name: "工具名称",
     image: "assets/images/tools/工具图标.png",
-    link: "https://工具官网或下载链接"
+    link: "https://github.com/用户名/仓库名/releases"
 }
 ```
 
@@ -149,3 +149,111 @@ export const recommendConfig = {
 
 > [!IMPORTANT]
 > 本项目仅供学习参考
+
+# ToolStore
+
+一个自动更新下载链接的工具仓库。
+
+## 功能特点
+
+- 自动从 GitHub 获取最新发布版本
+- 支持多平台下载链接（Windows、macOS、Linux、Android、iOS）
+- 自动更新版本号
+- 支持手动配置下载链接
+
+## 配置说明
+
+### 自动更新配置
+
+1. 在 `card-data.js` 中添加工具信息：
+```javascript
+{
+    name: "工具名称",
+    image: "assets/images/tools/工具图标.png",
+    link: "https://github.com/用户名/仓库名/releases"
+}
+```
+
+2. 在 `update-downloads.js` 中的 `CONFIG` 对象中配置：
+```javascript
+const CONFIG = {
+    // 需要排除的仓库（比如一些特殊的应用商店链接）
+    excludeRepos: [
+        'shadowrocket',
+        'quantumultx',
+        'surge5',
+        'oneclick',
+        'v2box'
+    ],
+    // 仓库名称映射（将GitHub仓库名映射到我们想要的名称）
+    repoNameMapping: {
+        'clash-verge-rev': 'clash verge',
+        'mihomo-party': 'mihomo party',
+        // ... 其他映射
+    },
+    // iOS应用商店链接配置
+    iosAppStoreLinks: {
+        'shadowrocket': 'https://apps.apple.com/us/app/shadowrocket/id932747118',
+        // ... 其他iOS应用链接
+    }
+};
+```
+
+### 手动配置
+
+1. 在 `manual-config.js` 中添加手动配置：
+```javascript
+export const manualConfig = {
+    // 手动配置的仓库信息
+    repositories: {
+        'shadowrocket': {
+            owner: 'shadowrocket',
+            repo: 'shadowrocket',
+            name: 'shadowrocket',
+            version: 'N/A',
+            links: {
+                ios: 'https://apps.apple.com/us/app/shadowrocket/id932747118'
+            }
+        }
+    },
+
+    // 手动配置的下载链接
+    downloadLinks: {
+        'shadowrocket': {
+            version: 'N/A',
+            ios: 'https://apps.apple.com/us/app/shadowrocket/id932747118'
+        }
+    }
+};
+```
+
+## 更新说明
+
+1. 安装依赖：
+```bash
+npm install
+```
+
+2. 运行更新脚本：
+```bash
+npm run update-downloads
+```
+
+更新脚本会：
+- 自动获取 GitHub 仓库的最新发布版本
+- 更新下载链接和版本号
+- 生成 `download-config.js` 配置文件
+
+## 注意事项
+
+1. 手动配置的优先级高于自动更新
+2. iOS 应用的版本号显示为 'N/A'
+3. GitHub 仓库的版本号会自动从 release 标签获取
+4. 确保仓库名称映射正确，否则可能导致版本号无法显示
+
+## 文件说明
+
+- `scripts/update-downloads.js`: 自动更新脚本
+- `scripts/manual-config.js`: 手动配置文件
+- `public/assets/scripts/configs/card-data.js`: 工具信息配置
+- `public/assets/scripts/configs/download-config.js`: 生成的下载链接配置
