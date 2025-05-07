@@ -57,12 +57,44 @@ npm run update-downloads
 ## 📂 项目结构
 
 ```
-assets/
- ├── css/          # 样式文件
- ├── images/       # 图片资源
- └── scripts/
-     ├── configs/  # 配置文件
-     └── modules/  # 功能模块
+ToolStore/
+├── public/                    # 静态资源目录
+│   ├── assets/               # 资源文件
+│   │   ├── css/             # 样式文件
+│   │   │   ├── style.css    # 主样式
+│   │   │   └── ...
+│   │   ├── images/          # 图片资源
+│   │   │   ├── tools/       # 工具图标
+│   │   │   ├── software/    # 软件图标
+│   │   │   └── airports/    # 机场图标
+│   │   └── scripts/         # 脚本文件
+│   │       ├── configs/     # 配置文件
+│   │       │   ├── card-data.js        # 卡片数据
+│   │       │   ├── download-config.js  # 下载配置
+│   │       │   ├── airport-config.js   # 机场配置
+│   │       │   └── recommend-config.js # 推荐配置
+│   │       └── modules/     # 功能模块
+│   │           ├── api.js              # API模拟
+│   │           ├── card-renderer.js    # 卡片渲染
+│   │           ├── download-modal.js   # 下载弹窗
+│   │           ├── airport-modal.js    # 机场详情
+│   │           ├── recommend.js        # 推荐系统
+│   │           ├── feedback-modal.js   # 反馈表单
+│   │           └── back-to-top.js      # 返回顶部
+│   ├── index.html           # 主页面
+│   └── CNAME               # 自定义域名配置
+│
+├── scripts/                 # 脚本目录
+│   ├── update-downloads.js  # 更新下载链接脚本
+│   └── manual-config.js    # 手动配置文件
+│
+├── .github/                # GitHub配置
+│   └── workflows/          # 工作流配置
+│       └── deploy.yml      # 部署配置
+│
+├── package.json            # 项目配置
+├── package-lock.json       # 依赖锁定
+└── README.md              # 项目说明
 ```
 
 ## 📝 配置说明
@@ -138,7 +170,6 @@ on:
    - GitHub 仓库：自动获取最新 release 版本
    - 手动配置：可自定义版本号
    - iOS 应用：显示 "N/A"
-
 
 > [!IMPORTANT]
 > 本项目仅供学习参考
