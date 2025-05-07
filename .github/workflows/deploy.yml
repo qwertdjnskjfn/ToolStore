@@ -1,9 +1,9 @@
 name: Update and Deploy
 
 on:
-  # 在推送到main分支时触发
+  # 在推送到master分支时触发
   push:
-    branches: [ main ]
+    branches: [ master ]
   # 手动触发
   workflow_dispatch:
   # 每天凌晨2点自动更新
@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.5.3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3.8.1
         with:
           node-version: '18'
           cache: 'npm'
@@ -41,9 +41,10 @@ jobs:
           git push origin main
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: public
-          branch: gh-pages
-          clean: false  # 设置为false，不清除目标分支的文件
-          preserve: true  # 保留目标分支的文件 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          commit_message: "Update site content"
+          force_orphan: false 
