@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 6/16/2025, 3:24:23 AM
+// 最后更新时间: 6/17/2025, 3:14:59 AM
 
 const downloadLinks = {
     "v2box": {
@@ -41,10 +41,10 @@ const downloadLinks = {
         "github": "https://github.com/hiddify/hiddify-app"
     },
     "clash verge": {
-        "version": "v2.2.3",
-        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.3/Clash.Verge_2.2.3_x64_fixed_webview2-setup.exe",
-        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.3/Clash.Verge_2.2.3_x64.dmg",
-        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.2.3/Clash.Verge_x64.app.tar.gz",
+        "version": "v2.3.0",
+        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.3.0/Clash.Verge_2.3.0_x64_fixed_webview2-setup.exe",
+        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.3.0/Clash.Verge_2.3.0_x64.dmg",
+        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.3.0/Clash.Verge_x64.app.tar.gz",
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
@@ -95,8 +95,8 @@ const downloadLinks = {
         "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
     },
     "v2rayu": {
-        "version": "v4.2.5",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.5/V2rayU-64.dmg",
+        "version": "v4.2.6",
+        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.6/V2rayU-64.dmg",
         "github": "https://github.com/yanue/V2rayU"
     }
 };
