@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/3/2025, 3:53:26 AM
+// 最后更新时间: 8/4/2025, 3:52:29 AM
 
 const downloadLinks = {
     "v2box": {
@@ -78,7 +78,7 @@ const downloadLinks = {
     },
     "gui.for.singbox": {
         "version": "v1.9.8",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.8-Alpha/GUI.for.SingBox-windows-amd64.zip",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.9.8/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
