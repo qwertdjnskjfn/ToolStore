@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/10/2025, 3:46:27 AM
+// 最后更新时间: 8/11/2025, 3:39:46 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,21 +24,16 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.0",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.0/sing-box-1.12.0-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.12.0/SFM-1.12.0-universal.dmg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.0/sing-box_1.12.0_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.0/SFA-1.12.0-universal.apk",
+        "version": "v1.12.1",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.1/sing-box-1.12.1-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.12.1/SFM-1.12.1-universal.dmg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.1/sing-box_1.12.1_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.1/SFA-1.12.1-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
-        "version": "v2.0.5",
-        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Windows-Setup-x64.Msix",
-        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-MacOS-Installer.pkg",
-        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-rpm-x64.rpm",
-        "android": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Android-universal.apk",
-        "ios": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-iOS.ipa",
-        "github": "https://github.com/hiddify/hiddify-app"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532"
     },
     "clash verge": {
         "version": "v2.3.2",
@@ -60,15 +55,15 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.25.2",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.25.2/mobile-universal-release.apk",
+        "version": "v2.25.3",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.25.3/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.13.6",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.13.6/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.13.6/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.13.6/v2rayN-linux-64.AppImage",
+        "version": "v7.13.7",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.13.7/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.13.7/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.13.7/v2rayN-linux-64.AppImage",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
@@ -88,16 +83,6 @@ const downloadLinks = {
         "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.87/FlClash-0.8.87-linux-amd64.rpm.sha256",
         "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.87/FlClash-0.8.87-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
-    },
-    "nekobox": {
-        "version": "v1.3.9",
-        "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.3.9/NekoBox-1.3.9-arm64-v8a.apk",
-        "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
-    },
-    "v2rayu": {
-        "version": "v4.2.6",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.6/V2rayU-64.dmg",
-        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
