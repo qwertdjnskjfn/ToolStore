@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/12/2025, 3:20:22 AM
+// 最后更新时间: 8/13/2025, 3:16:44 AM
 
 const downloadLinks = {
     "v2box": {
@@ -48,10 +48,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v1.8.3",
-        "windows": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.3/mihomo-party-windows-1.8.3-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.3/mihomo-party-macos-1.8.3-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.3/mihomo-party-linux-1.8.3-amd64.deb.sha256",
+        "version": "v1.8.4",
+        "windows": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.4/mihomo-party-windows-1.8.4-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.4/mihomo-party-macos-1.8.4-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.4/mihomo-party-linux-1.8.4-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -65,10 +65,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.13.7",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.13.7/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.13.7/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.13.7/v2rayN-linux-64.AppImage",
+        "version": "v7.13.8",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.13.8/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.13.8/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.13.8/v2rayN-linux-64.AppImage",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
