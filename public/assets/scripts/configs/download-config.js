@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/29/2025, 3:06:07 AM
+// 最后更新时间: 8/30/2025, 2:52:48 AM
 
 const downloadLinks = {
     "v2box": {
@@ -49,9 +49,9 @@ const downloadLinks = {
     },
     "mihomo party": {
         "version": "v1.8.5",
-        "windows": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.5/mihomo-party-windows-1.8.5-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.5/mihomo-party-macos-1.8.5-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.8.5/mihomo-party-linux-1.8.5-amd64.deb.sha256",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.5/mihomo-party-windows-1.8.5-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.5/mihomo-party-macos-1.8.5-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.5/mihomo-party-linux-1.8.5-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
