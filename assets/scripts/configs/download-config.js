@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/30/2025, 3:00:03 AM
+// 最后更新时间: 8/31/2025, 3:10:11 AM
 
 const downloadLinks = {
     "v2box": {
@@ -41,10 +41,10 @@ const downloadLinks = {
         "github": "https://github.com/hiddify/hiddify-app"
     },
     "clash verge": {
-        "version": "v2.4.0",
-        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.0/Clash.Verge_2.4.0_x64_fixed_webview2-setup.exe",
-        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.0/Clash.Verge_2.4.0_x64.dmg",
-        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.0/Clash.Verge_x64.app.tar.gz",
+        "version": "v2.4.1",
+        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.1/Clash.Verge_2.4.1_x64_fixed_webview2-setup.exe",
+        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.1/Clash.Verge_2.4.1_x64.dmg",
+        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.1/Clash.Verge_x64.app.tar.gz",
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
