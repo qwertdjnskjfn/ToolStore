@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/4/2025, 2:59:07 AM
+// 最后更新时间: 9/5/2025, 3:02:04 AM
 
 const downloadLinks = {
     "v2box": {
@@ -65,10 +65,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.13.8",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.13.8/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.13.8/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.13.8/v2rayN-linux-64.AppImage",
+        "version": "v7.14.6",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.14.6/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.14.6/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.14.6/v2rayN-linux-rhel-x64.rpm",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
