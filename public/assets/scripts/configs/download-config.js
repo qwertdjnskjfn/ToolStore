@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/10/2025, 2:59:02 AM
+// 最后更新时间: 9/11/2025, 2:57:04 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,11 +24,11 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.4",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.4/sing-box-1.12.4-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.12.4/SFM-1.12.4-universal.dmg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.4/sing-box_1.12.4_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.4/SFA-1.12.4-universal.apk",
+        "version": "v1.12.5",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.5/sing-box-1.12.5-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.12.5/SFM-1.12.5-universal.dmg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.5/sing-box_1.12.5_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.5/SFA-1.12.5-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -65,10 +65,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.14.6",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.14.6/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.14.6/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.14.6/v2rayN-linux-rhel-x64.rpm",
+        "version": "v7.14.9",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.14.9/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.14.9/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.14.9/v2rayN-linux-rhel-x64.rpm",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
