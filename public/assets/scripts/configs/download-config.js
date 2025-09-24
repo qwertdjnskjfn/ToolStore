@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/23/2025, 3:01:43 AM
+// 最后更新时间: 9/24/2025, 2:56:09 AM
 
 const downloadLinks = {
     "v2box": {
@@ -82,11 +82,11 @@ const downloadLinks = {
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
-        "version": "v0.8.87",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.87/FlClash-0.8.87-windows-amd64.zip.sha256",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.87/FlClash-0.8.87-macos-amd64.dmg.sha256",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.87/FlClash-0.8.87-linux-amd64.rpm.sha256",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.87/FlClash-0.8.87-android-arm64-v8a.apk",
+        "version": "v0.8.88",
+        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.88/FlClash-0.8.88-windows-amd64.zip.sha256",
+        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.88/FlClash-0.8.88-macos-amd64.dmg.sha256",
+        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.88/FlClash-0.8.88-linux-amd64.rpm.sha256",
+        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.88/FlClash-0.8.88-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
     },
     "nekobox": {
