@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/25/2025, 2:58:43 AM
+// 最后更新时间: 9/25/2025, 3:05:26 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,6 +47,13 @@ const downloadLinks = {
         "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.2/Clash.Verge_x64.app.tar.gz",
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
+    "mihomo party": {
+        "version": "v1.8.7",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.7/mihomo-party-windows-1.8.7-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.7/mihomo-party-macos-1.8.7-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.7/mihomo-party-linux-1.8.7-amd64.deb.sha256",
+        "github": "https://github.com/mihomo-party-org/mihomo-party"
+    },
     "clashmeta": {
         "version": "v2.11.17",
         "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.17/cmfa-2.11.17-meta-universal-release.apk",
@@ -86,6 +93,11 @@ const downloadLinks = {
         "version": "v1.4.0",
         "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.0/NekoBox-1.4.0-arm64-v8a.apk",
         "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
+    },
+    "v2rayu": {
+        "version": "v4.2.6",
+        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.6/V2rayU-64.dmg",
+        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
