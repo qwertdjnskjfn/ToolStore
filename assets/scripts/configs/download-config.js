@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/24/2025, 3:02:44 AM
+// 最后更新时间: 9/25/2025, 3:05:26 AM
 
 const downloadLinks = {
     "v2box": {
@@ -55,8 +55,8 @@ const downloadLinks = {
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
-        "version": "v2.11.16",
-        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.16/cmfa-2.11.16-meta-universal-release.apk",
+        "version": "v2.11.17",
+        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.17/cmfa-2.11.17-meta-universal-release.apk",
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
@@ -77,8 +77,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
-        "version": "v1.10.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.10.0/GUI.for.SingBox-windows-amd64.zip",
+        "version": "v1.11.0",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.11.0/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
