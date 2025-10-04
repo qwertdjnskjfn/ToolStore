@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 10/3/2025, 3:00:14 AM
+// 最后更新时间: 10/4/2025, 2:54:36 AM
 
 const downloadLinks = {
     "v2box": {
@@ -88,16 +88,6 @@ const downloadLinks = {
         "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.89/FlClash-0.8.89-linux-amd64.rpm.sha256",
         "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.89/FlClash-0.8.89-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
-    },
-    "nekobox": {
-        "version": "v1.4.0",
-        "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.0/NekoBox-1.4.0-arm64-v8a.apk",
-        "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
-    },
-    "v2rayu": {
-        "version": "v4.2.6",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.6/V2rayU-64.dmg",
-        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
