@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 10/25/2025, 3:06:56 AM
+// 最后更新时间: 10/26/2025, 3:13:44 AM
 
 const downloadLinks = {
     "v2box": {
@@ -65,10 +65,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.15.4",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.15.4/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.15.4/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.15.4/v2rayN-linux-rhel-x64.rpm",
+        "version": "v7.15.6",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.15.6/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.15.6/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.15.6/v2rayN-linux-rhel-x64.rpm",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
@@ -77,8 +77,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
-        "version": "v1.13.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.13.0/GUI.for.SingBox-windows-amd64.zip",
+        "version": "v1.14.0",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.14.0/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
