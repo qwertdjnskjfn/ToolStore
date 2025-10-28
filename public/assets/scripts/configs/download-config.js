@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 10/27/2025, 3:23:25 AM
+// 最后更新时间: 10/28/2025, 3:04:08 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,11 +24,11 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.11",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.11/sing-box-1.12.11-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.12.11/SFM-1.12.11-universal.dmg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.11/sing-box_1.12.11_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.11/SFA-1.12.11-universal.apk",
+        "version": "v1.12.12",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.12/sing-box-1.12.12-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.12.12/SFM-1.12.12-universal.dmg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.12/sing-box_1.12.12_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.12/SFA-1.12.12-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -93,11 +93,6 @@ const downloadLinks = {
         "version": "v1.4.0",
         "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.0/NekoBox-1.4.0-arm64-v8a.apk",
         "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
-    },
-    "v2rayu": {
-        "version": "v4.2.6",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.6/V2rayU-64.dmg",
-        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
