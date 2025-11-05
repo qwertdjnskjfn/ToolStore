@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 11/4/2025, 3:14:33 AM
+// 最后更新时间: 11/5/2025, 3:15:51 AM
 
 const downloadLinks = {
     "v2box": {
@@ -32,13 +32,8 @@ const downloadLinks = {
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
-        "version": "v2.0.5",
-        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Windows-Setup-x64.Msix",
-        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-MacOS-Installer.pkg",
-        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-rpm-x64.rpm",
-        "android": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Android-universal.apk",
-        "ios": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-iOS.ipa",
-        "github": "https://github.com/hiddify/hiddify-app"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532"
     },
     "clash verge": {
         "version": "v2.4.2",
@@ -65,10 +60,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.15.6",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.15.6/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.15.6/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.15.6/v2rayN-linux-rhel-x64.rpm",
+        "version": "v7.15.7",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.15.7/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.15.7/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.15.7/v2rayN-linux-64.deb",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
@@ -88,16 +83,6 @@ const downloadLinks = {
         "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.90/FlClash-0.8.90-linux-amd64.rpm.sha256",
         "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.90/FlClash-0.8.90-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
-    },
-    "nekobox": {
-        "version": "v1.4.1",
-        "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.1/NekoBox-1.4.1-arm64-v8a.apk",
-        "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
-    },
-    "v2rayu": {
-        "version": "v4.2.8",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.8/V2rayU-64.dmg",
-        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
