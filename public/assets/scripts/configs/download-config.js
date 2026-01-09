@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 1/8/2026, 3:43:16 AM
+// 最后更新时间: 1/9/2026, 3:26:33 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,20 +24,12 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.15",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.15/sing-box-1.12.15-windows-amd64.zip",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.15/sing-box_1.12.15_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.15/SFA-1.12.15-universal.apk",
-        "github": "https://github.com/SagerNet/sing-box"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/sing-box-vt/id6673731168"
     },
     "hiddify": {
-        "version": "v2.0.5",
-        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Windows-Setup-x64.Msix",
-        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-MacOS-Installer.pkg",
-        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-rpm-x64.rpm",
-        "android": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Android-universal.apk",
-        "ios": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-iOS.ipa",
-        "github": "https://github.com/hiddify/hiddify-app"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532"
     },
     "clash verge": {
         "version": "v2.4.4",
@@ -57,46 +49,6 @@ const downloadLinks = {
         "version": "v2.11.21",
         "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.21/cmfa-2.11.21-meta-universal-release.apk",
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
-    },
-    "surfboard": {
-        "version": "v2.25.3",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.25.3/mobile-universal-release.apk",
-        "github": "https://github.com/getsurfboard/surfboard"
-    },
-    "v2rayn": {
-        "version": "v7.16.9",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.16.9/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.16.9/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.16.9/v2rayN-linux-64.deb",
-        "github": "https://github.com/2dust/v2rayN"
-    },
-    "v2rayng": {
-        "version": "v1.10.32",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/1.10.32/v2rayNG_1.10.32_universal.apk",
-        "github": "https://github.com/2dust/v2rayNG"
-    },
-    "gui.for.singbox": {
-        "version": "v1.17.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.17.0/GUI.for.SingBox-windows-amd64.zip",
-        "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
-    },
-    "flclash": {
-        "version": "v0.8.91",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-windows-amd64.zip.sha256",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-macos-amd64.dmg.sha256",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-linux-amd64.rpm.sha256",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-android-arm64-v8a.apk",
-        "github": "https://github.com/chen08209/FlClash"
-    },
-    "nekobox": {
-        "version": "v1.4.1",
-        "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.1/NekoBox-1.4.1-arm64-v8a.apk",
-        "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
-    },
-    "v2rayu": {
-        "version": "v4.2.8",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.8/V2rayU-64.dmg",
-        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
