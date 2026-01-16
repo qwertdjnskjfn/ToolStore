@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 1/15/2026, 3:45:20 AM
+// 最后更新时间: 1/16/2026, 3:26:16 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v1.8.9",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.9/mihomo-party-windows-1.8.9-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.9/mihomo-party-macos-1.8.9-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.8.9/mihomo-party-linux-1.8.9-amd64.deb.sha256",
+        "version": "v1.9.1",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.1/mihomo-party-windows-1.9.1-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.1/mihomo-party-macos-1.9.1-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.1/mihomo-party-linux-1.9.1-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -64,10 +64,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.16.9",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.16.9/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.16.9/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.16.9/v2rayN-linux-64.deb",
+        "version": "v7.17.0",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.17.0/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.17.0/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.17.0/v2rayN-linux-64.deb",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
