@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 1/16/2026, 3:43:34 AM
+// 最后更新时间: 1/17/2026, 3:19:20 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,10 +24,10 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.16",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.16/sing-box-1.12.16-windows-amd64.zip",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.16/sing-box_1.12.16_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.16/SFA-1.12.16-universal.apk",
+        "version": "v1.12.17",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.17/sing-box-1.12.17-windows-amd64.zip",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.17/sing-box_1.12.17_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.17/SFA-1.12.17-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -54,8 +54,8 @@ const downloadLinks = {
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
-        "version": "v2.11.21",
-        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.21/cmfa-2.11.21-meta-universal-release.apk",
+        "version": "v2.11.22",
+        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.22/cmfa-2.11.22-meta-universal-release.apk",
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
@@ -76,8 +76,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
-        "version": "v1.18.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.18.0/GUI.for.SingBox-windows-amd64.zip",
+        "version": "v1.19.0",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.19.0/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
