@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 1/27/2026, 3:51:36 AM
+// 最后更新时间: 1/28/2026, 3:41:23 AM
 
 const downloadLinks = {
     "v2box": {
@@ -59,15 +59,15 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.25.4",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.25.4/mobile-universal-release.apk",
+        "version": "v2.25.5",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.25.5/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.17.0",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.17.0/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.17.0/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.17.0/v2rayN-linux-64.deb",
+        "version": "v7.17.1",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.17.1/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.17.1/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.17.1/v2rayN-linux-64.deb",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
