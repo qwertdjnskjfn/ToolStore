@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 2/1/2026, 4:33:17 AM
+// 最后更新时间: 2/2/2026, 4:20:49 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,10 +24,10 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.18",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.18/sing-box-1.12.18-windows-amd64.zip",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.18/sing-box_1.12.18_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.18/SFA-1.12.18-universal.apk",
+        "version": "v1.12.19",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.19/sing-box-1.12.19-windows-amd64.zip",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.19/sing-box_1.12.19_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.19/SFA-1.12.19-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -64,10 +64,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.17.1",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.17.1/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.17.1/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.17.1/v2rayN-linux-64.deb",
+        "version": "v7.17.3",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.17.3/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.17.3/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.17.3/v2rayN-linux-64.deb",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
@@ -81,11 +81,11 @@ const downloadLinks = {
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
-        "version": "v0.8.91",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-windows-amd64.zip.sha256",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-macos-amd64.dmg.sha256",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-linux-amd64.rpm.sha256",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.91/FlClash-0.8.91-android-arm64-v8a.apk",
+        "version": "v0.8.92",
+        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-windows-amd64.zip.sha256",
+        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-macos-amd64.dmg.sha256",
+        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-linux-amd64.rpm.sha256",
+        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
     },
     "nekobox": {
