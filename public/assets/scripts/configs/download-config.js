@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 2/9/2026, 4:31:42 AM
+// 最后更新时间: 2/10/2026, 4:28:09 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,10 +24,10 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.20",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.20/sing-box-1.12.20-windows-amd64.zip",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.20/sing-box_1.12.20_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.20/SFA-1.12.20-universal.apk",
+        "version": "v1.12.21",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.21/sing-box-1.12.21-windows-amd64.zip",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.21/sing-box_1.12.21_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.21/SFA-1.12.21-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -59,8 +59,8 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.26.0",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.26.0/mobile-universal-release.apk",
+        "version": "v2.26.1",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.26.1/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
