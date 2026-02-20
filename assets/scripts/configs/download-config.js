@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 2/19/2026, 4:24:39 AM
+// 最后更新时间: 2/20/2026, 4:20:21 AM
 
 const downloadLinks = {
     "v2box": {
@@ -31,19 +31,18 @@ const downloadLinks = {
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
-        "version": "v2.0.5",
-        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Windows-Setup-x64.Msix",
-        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-MacOS-Installer.pkg",
-        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-rpm-x64.rpm",
-        "android": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Android-universal.apk",
-        "ios": "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-iOS.ipa",
+        "version": "v4.0.4",
+        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v4.0.4/Hiddify-Windows-Setup-x64.exe",
+        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v4.0.4/Hiddify-MacOS-Installer.pkg",
+        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v4.0.4/Hiddify-Linux-x64-AppImage.tar.gz",
+        "android": "https://github.com/hiddify/hiddify-app/releases/download/v4.0.4/Hiddify-Android-universal.apk",
         "github": "https://github.com/hiddify/hiddify-app"
     },
     "clash verge": {
-        "version": "v2.4.5",
-        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.5/Clash.Verge_2.4.5_x64_fixed_webview2-setup.exe",
-        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.5/Clash.Verge_2.4.5_x64.dmg",
-        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.5/Clash.Verge_x64.app.tar.gz",
+        "version": "v2.4.6",
+        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_2.4.6_x64_fixed_webview2-setup.exe",
+        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_2.4.6_x64.dmg",
+        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_x64.app.tar.gz",
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
