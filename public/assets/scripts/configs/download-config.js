@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 2/27/2026, 4:18:15 AM
+// 最后更新时间: 3/1/2026, 4:19:36 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,10 +24,11 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.12.22",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.12.22/sing-box-1.12.22-windows-amd64.zip",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.12.22/sing-box_1.12.22_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.12.22/SFA-1.12.22-universal.apk",
+        "version": "v1.13.0",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.0/sing-box-1.13.0-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.0/SFM-1.13.0-Universal.pkg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.0/sing-box_1.13.0_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.0/SFA-1.13.0-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -76,7 +77,7 @@ const downloadLinks = {
     },
     "gui.for.singbox": {
         "version": "v1.20.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.20.0-dev.3/GUI.for.SingBox-windows-amd64.zip",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.20.0/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
