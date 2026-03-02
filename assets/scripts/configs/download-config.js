@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 3/1/2026, 4:26:37 AM
+// 最后更新时间: 3/2/2026, 4:19:29 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v1.9.1",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.1/mihomo-party-windows-1.9.1-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.1/mihomo-party-macos-1.9.1-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.1/mihomo-party-linux-1.9.1-amd64.deb.sha256",
+        "version": "v1.9.2",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.2/mihomo-party-windows-1.9.2-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.2/mihomo-party-macos-1.9.2-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.2/mihomo-party-linux-1.9.2-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
