@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 3/20/2026, 4:19:40 AM
+// 最后更新时间: 3/21/2026, 4:09:01 AM
 
 const downloadLinks = {
     "v2box": {
@@ -71,8 +71,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.0.13",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.0.13/v2rayNG_2.0.13_universal.apk",
+        "version": "v2.0.15",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.0.15/v2rayNG_2.0.15_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
