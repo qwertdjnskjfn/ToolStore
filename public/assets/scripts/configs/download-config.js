@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 3/21/2026, 4:09:01 AM
+// 最后更新时间: 3/22/2026, 4:16:28 AM
 
 const downloadLinks = {
     "v2box": {
@@ -40,10 +40,10 @@ const downloadLinks = {
         "github": "https://github.com/hiddify/hiddify-app"
     },
     "clash verge": {
-        "version": "v2.4.6",
-        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_2.4.6_x64_fixed_webview2-setup.exe",
-        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_2.4.6_x64.dmg",
-        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.6/Clash.Verge_x64.app.tar.gz",
+        "version": "v2.4.7",
+        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.7/Clash.Verge_2.4.7_x64_fixed_webview2-setup.exe",
+        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.7/Clash.Verge_2.4.7_x64.dmg",
+        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.4.7/Clash.Verge_x64.app.tar.gz",
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
@@ -64,10 +64,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.18.0",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.18.0/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.18.0/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.18.0/v2rayN-linux-64.deb",
+        "version": "v7.19.5",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.19.5/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.19.5/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.19.5/v2rayN-linux-64.deb",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
