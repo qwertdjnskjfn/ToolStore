@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 3/29/2026, 4:41:33 AM
+// 最后更新时间: 3/30/2026, 4:49:40 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v1.9.3",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.3/mihomo-party-windows-1.9.3-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.3/mihomo-party-macos-1.9.3-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.3/mihomo-party-linux-1.9.3-amd64.deb.sha256",
+        "version": "v1.9.4",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.4/mihomo-party-windows-1.9.4-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.4/mihomo-party-macos-1.9.4-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.4/mihomo-party-linux-1.9.4-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -59,8 +59,8 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.29.0",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.29.0/mobile-universal-release.apk",
+        "version": "v2.29.1",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.29.1/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
@@ -76,8 +76,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
-        "version": "v1.21.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.21.0/GUI.for.SingBox-windows-amd64.zip",
+        "version": "v1.22.0",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.22.0/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
