@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 4/11/2026, 4:26:27 AM
+// 最后更新时间: 4/12/2026, 4:51:03 AM
 
 const downloadLinks = {
     "v2box": {
@@ -64,15 +64,15 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.19.5",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.19.5/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.19.5/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.19.5/v2rayN-linux-64.deb",
+        "version": "v7.20.2",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.20.2/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.20.2/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.20.2/v2rayN-linux-64.deb",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.0.15",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.0.15/v2rayNG_2.0.15_universal.apk",
+        "version": "v2.0.18",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.0.18/v2rayNG_2.0.18_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
