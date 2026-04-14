@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 4/13/2026, 5:19:08 AM
+// 最后更新时间: 4/14/2026, 4:42:18 AM
 
 const downloadLinks = {
     "v2box": {
@@ -59,8 +59,8 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.29.3",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.29.3/mobile-universal-release.apk",
+        "version": "v2.29.4",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.29.4/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
@@ -76,8 +76,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
-        "version": "v1.23.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.23.0/GUI.for.SingBox-windows-amd64.zip",
+        "version": "v1.23.1",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.23.1/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
