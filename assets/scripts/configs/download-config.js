@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 4/22/2026, 4:50:34 AM
+// 最后更新时间: 4/23/2026, 4:54:29 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,11 +24,11 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.13.9",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.9/sing-box-1.13.9-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.9/SFM-1.13.9-Universal.pkg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.9/sing-box_1.13.9_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.9/SFA-1.13.9-universal.apk",
+        "version": "v1.13.11",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.11/sing-box-1.13.11-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.11/SFM-1.13.11-Universal.pkg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.11/sing-box_1.13.11_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.11/SFA-1.13.11-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -59,8 +59,8 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.29.5",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.29.5/mobile-universal-release.apk",
+        "version": "v2.29.6",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.29.6/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
