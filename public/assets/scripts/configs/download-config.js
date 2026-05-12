@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 5/11/2026, 6:04:16 AM
+// 最后更新时间: 5/12/2026, 5:34:43 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v1.9.4",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.4/mihomo-party-windows-1.9.4-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.4/mihomo-party-macos-1.9.4-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.4/mihomo-party-linux-1.9.4-amd64.deb.sha256",
+        "version": "v1.9.5",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.5/mihomo-party-windows-1.9.5-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.5/mihomo-party-macos-1.9.5-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.5/mihomo-party-linux-1.9.5-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -64,15 +64,15 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.20.4",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.20.4/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.20.4/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.20.4/v2rayN-linux-64.deb",
+        "version": "v7.21.3",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.21.3/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.21.3/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.21.3/v2rayN-linux-rhel-riscv64.rpm",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.0.18",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.0.18/v2rayNG_2.0.18_universal.apk",
+        "version": "v2.1.7",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.1.7/v2rayNG_2.1.7_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
