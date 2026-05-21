@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 5/20/2026, 6:14:32 AM
+// 最后更新时间: 5/21/2026, 6:05:49 AM
 
 const downloadLinks = {
     "v2box": {
@@ -40,10 +40,10 @@ const downloadLinks = {
         "github": "https://github.com/hiddify/hiddify-app"
     },
     "clash verge": {
-        "version": "v2.5.0",
-        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.0/Clash.Verge_2.5.0_x64_fixed_webview2-setup.exe",
-        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.0/Clash.Verge_2.5.0_x64.dmg",
-        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.0/Clash.Verge_x64.app.tar.gz",
+        "version": "v2.5.1",
+        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.1/Clash.Verge_2.5.1_x64_fixed_webview2-setup.exe",
+        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.1/Clash.Verge_2.5.1_x64.dmg",
+        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.1/Clash.Verge_x64.app.tar.gz",
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
@@ -71,8 +71,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.1.7",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.1.7/v2rayNG_2.1.7_universal.apk",
+        "version": "v2.1.8",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.1.8/v2rayNG_2.1.8_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
