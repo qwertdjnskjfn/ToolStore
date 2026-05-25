@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 5/24/2026, 6:07:29 AM
+// 最后更新时间: 5/25/2026, 6:22:56 AM
 
 const downloadLinks = {
     "v2box": {
@@ -59,8 +59,8 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.30.0",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.30.0/mobile-universal-release.apk",
+        "version": "v1.1.0",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/tv-1.1.0/tv-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
@@ -92,6 +92,11 @@ const downloadLinks = {
         "version": "v1.4.2",
         "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.2/NekoBox-1.4.2-arm64-v8a.apk",
         "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
+    },
+    "v2rayu": {
+        "version": "v4.2.8",
+        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.8/V2rayU-64.dmg",
+        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
