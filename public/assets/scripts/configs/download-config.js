@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 6/4/2026, 6:49:04 AM
+// 最后更新时间: 6/5/2026, 6:17:50 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,20 +24,12 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.13.12",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.12/sing-box-1.13.12-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.12/SFM-1.13.12-Universal.pkg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.12/sing-box_1.13.12_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.12/SFA-1.13.12-universal.apk",
-        "github": "https://github.com/SagerNet/sing-box"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/sing-box-vt/id6673731168"
     },
     "hiddify": {
-        "version": "v4.1.1",
-        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Windows-x64.msix",
-        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-MacOS-Installer.pkg",
-        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Linux-x64-AppImage.tar.gz",
-        "android": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Android-universal.apk",
-        "github": "https://github.com/hiddify/hiddify-app"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532"
     },
     "clash verge": {
         "version": "v2.5.1",
@@ -74,29 +66,6 @@ const downloadLinks = {
         "version": "v2.2.3",
         "android": "https://github.com/2dust/v2rayNG/releases/download/2.2.3/v2rayNG_2.2.3_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
-    },
-    "gui.for.singbox": {
-        "version": "v1.24.1",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.24.1/GUI.for.SingBox-windows-amd64.zip",
-        "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
-    },
-    "flclash": {
-        "version": "v0.8.93",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.93/FlClash-0.8.93-windows-amd64.zip",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.93/FlClash-0.8.93-macos-amd64.dmg",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.93/FlClash-0.8.93-linux-amd64.rpm",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.93/FlClash-0.8.93-android-arm64-v8a.apk",
-        "github": "https://github.com/chen08209/FlClash"
-    },
-    "nekobox": {
-        "version": "v1.4.2",
-        "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.2/NekoBox-1.4.2-arm64-v8a.apk",
-        "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
-    },
-    "v2rayu": {
-        "version": "v4.2.8",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.8/V2rayU-64.dmg",
-        "github": "https://github.com/yanue/V2rayU"
     }
 };
 
