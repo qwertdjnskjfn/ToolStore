@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 6/21/2026, 6:57:11 AM
+// 最后更新时间: 6/22/2026, 7:32:14 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v1.9.5",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.5/mihomo-party-windows-1.9.5-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.5/mihomo-party-macos-1.9.5-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.5/mihomo-party-linux-1.9.5-amd64.deb.sha256",
+        "version": "v1.9.6",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.6/mihomo-party-windows-1.9.6-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.6/mihomo-party-macos-1.9.6-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.6/mihomo-party-linux-1.9.6-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -71,13 +71,13 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.2.4",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.2.4/v2rayNG_2.2.4_universal.apk",
+        "version": "v2.2.5",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.2.5/v2rayNG_2.2.5_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
-        "version": "v1.25.2",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.25.2/GUI.for.SingBox-windows-amd64.zip",
+        "version": "v1.25.3",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.25.3/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
@@ -94,8 +94,9 @@ const downloadLinks = {
         "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
     },
     "v2rayu": {
-        "version": "v4.2.8",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v4.2.8/V2rayU-64.dmg",
+        "version": "v5.1.0",
+        "windows": "https://github.com/yanue/V2rayU/releases/download/v5.1.0/V2rayU-dSYM.zip",
+        "mac": "https://github.com/yanue/V2rayU/releases/download/v5.1.0/V2rayU-64.dmg",
         "github": "https://github.com/yanue/V2rayU"
     }
 };
