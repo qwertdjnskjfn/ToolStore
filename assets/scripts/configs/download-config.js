@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 7/6/2026, 6:43:03 AM
+// 最后更新时间: 7/7/2026, 6:14:54 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v1.9.6",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.6/mihomo-party-windows-1.9.6-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.6/mihomo-party-macos-1.9.6-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v1.9.6/mihomo-party-linux-1.9.6-amd64.deb.sha256",
+        "version": "v2.0.0",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/mihomo-party-windows-2.0.0-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/mihomo-party-macos-2.0.0-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/mihomo-party-linux-2.0.0-amd64.deb.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -71,8 +71,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.2.5",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.2.5/v2rayNG_2.2.5_universal.apk",
+        "version": "v2.2.6",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.2.6/v2rayNG_2.2.6-fdroid_arm64-v8a.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
