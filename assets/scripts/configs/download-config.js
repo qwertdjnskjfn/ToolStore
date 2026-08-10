@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/9/2026, 3:47:33 AM
+// 最后更新时间: 8/10/2026, 4:01:24 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,11 +24,11 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.13.16",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.16/sing-box-1.13.16-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.16/SFM-1.13.16-Universal.pkg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.16/sing-box_1.13.16_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.16/SFA-1.13.16-universal.apk",
+        "version": "v1.13.18",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/sing-box-1.13.18-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/SFM-1.13.18-Universal.pkg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/sing-box_1.13.18_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/SFA-1.13.18-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
