@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/14/2026, 4:13:29 AM
+// 最后更新时间: 8/15/2026, 2:56:47 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v2.0.1",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.1/mihomo-party-windows-2.0.1-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.1/mihomo-party-macos-2.0.1-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.1/mihomo-party-linux-2.0.1-x64.pkg.tar.zst.sha256",
+        "version": "v2.0.2",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.2/mihomo-party-windows-2.0.2-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.2/mihomo-party-macos-2.0.2-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.2/mihomo-party-linux-2.0.2-x64.pkg.tar.zst.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -81,11 +81,11 @@ const downloadLinks = {
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
-        "version": "v0.8.94",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-windows-amd64.zip",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-macos-amd64.dmg",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-linux-amd64.rpm",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.94/FlClash-0.8.94-android-arm64-v8a.apk",
+        "version": "v0.8.95",
+        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-windows-amd64.zip",
+        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-macos-amd64.dmg",
+        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-linux-amd64.rpm",
+        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
     },
     "nekobox": {
