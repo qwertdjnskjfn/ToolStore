@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 8/17/2026, 3:05:39 AM
+// 最后更新时间: 8/18/2026, 3:01:06 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,11 +24,11 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.13.18",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/sing-box-1.13.18-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/SFM-1.13.18-Universal.pkg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/sing-box_1.13.18_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.18/SFA-1.13.18-universal.apk",
+        "version": "v1.13.19",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.13.19/sing-box-1.13.19-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.13.19/SFM-1.13.19-Universal.pkg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.13.19/sing-box_1.13.19_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.13.19/SFA-1.13.19-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -81,11 +81,11 @@ const downloadLinks = {
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
-        "version": "v0.8.95",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-windows-amd64.zip",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-macos-amd64.dmg",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-linux-amd64.rpm",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.95/FlClash-0.8.95-android-arm64-v8a.apk",
+        "version": "v0.8.96",
+        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-windows-amd64.zip",
+        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-macos-amd64.dmg",
+        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-linux-amd64.rpm",
+        "android": "https://github.com/chen08209/FlClash/releases/download/v0.8.96/FlClash-0.8.96-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
     },
     "nekobox": {
