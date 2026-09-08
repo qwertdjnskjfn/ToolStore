@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/7/2026, 7:13:33 AM
+// 最后更新时间: 9/8/2026, 7:09:14 AM
 
 const downloadLinks = {
     "v2box": {
@@ -76,8 +76,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
-        "version": "v1.26.1",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.26.1/GUI.for.SingBox-windows-amd64.zip",
+        "version": "v1.27.0",
+        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.27.0/GUI.for.SingBox-windows-amd64.zip",
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
