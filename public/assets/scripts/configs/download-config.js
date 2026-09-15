@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/14/2026, 7:47:46 AM
+// 最后更新时间: 9/15/2026, 7:06:08 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,11 +24,11 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.14.0",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.14.0/sing-box-1.14.0-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.14.0/SFM-1.14.0-Universal.pkg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.14.0/sing-box_1.14.0_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.14.0/SFA-1.14.0-universal.apk",
+        "version": "v1.14.1",
+        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.14.1/sing-box-1.14.1-windows-amd64.zip",
+        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.14.1/SFM-1.14.1-Universal.pkg",
+        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.14.1/sing-box_1.14.1_linux_amd64.deb",
+        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.14.1/SFA-1.14.1-universal.apk",
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
@@ -54,8 +54,8 @@ const downloadLinks = {
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
-        "version": "v2.11.33",
-        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.33/cmfa-2.11.33-meta-universal-release.apk",
+        "version": "v2.11.34",
+        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.34/cmfa-2.11.34-meta-universal-release.apk",
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
