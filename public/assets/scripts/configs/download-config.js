@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/20/2026, 7:39:10 AM
+// 最后更新时间: 9/21/2026, 7:33:28 AM
 
 const downloadLinks = {
     "v2box": {
@@ -47,10 +47,10 @@ const downloadLinks = {
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
-        "version": "v2.0.2",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.2/mihomo-party-windows-2.0.2-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.2/mihomo-party-macos-2.0.2-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.2/mihomo-party-linux-2.0.2-x64.pkg.tar.zst.sha256",
+        "version": "v2.0.3",
+        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.3/mihomo-party-windows-2.0.3-x64-setup.exe.sha256",
+        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.3/mihomo-party-macos-2.0.3-x64.pkg.sha256",
+        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.3/mihomo-party-linux-2.0.3-x64.pkg.tar.zst.sha256",
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
@@ -59,8 +59,8 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.34.4",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.34.4/mobile-universal-release.apk",
+        "version": "v2.35.1",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.35.1/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
