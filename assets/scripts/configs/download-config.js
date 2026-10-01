@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 9/30/2026, 8:16:34 AM
+// 最后更新时间: 10/1/2026, 8:39:52 AM
 
 const downloadLinks = {
     "v2box": {
@@ -54,8 +54,8 @@ const downloadLinks = {
         "github": "https://github.com/mihomo-party-org/mihomo-party"
     },
     "clashmeta": {
-        "version": "v2.11.34",
-        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.34/cmfa-2.11.34-meta-universal-release.apk",
+        "version": "v2.11.35",
+        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.35/cmfa-2.11.35-meta-universal-release.apk",
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
@@ -64,10 +64,10 @@ const downloadLinks = {
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
-        "version": "v7.24.9",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.24.9/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.24.9/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.24.9/v2rayN-linux-64.deb",
+        "version": "v7.25.4",
+        "windows": "https://github.com/2dust/v2rayN/releases/download/7.25.4/v2rayN-linux-64.zip",
+        "mac": "https://github.com/2dust/v2rayN/releases/download/7.25.4/v2rayN-macos-64.dmg",
+        "linux": "https://github.com/2dust/v2rayN/releases/download/7.25.4/v2rayN-linux-64.deb",
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
