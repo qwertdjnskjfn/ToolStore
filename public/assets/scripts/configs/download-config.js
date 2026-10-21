@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 10/21/2026, 6:56:34 AM
+// 最后更新时间: 10/21/2026, 7:23:34 AM
 
 const downloadLinks = {
     "v2box": {
@@ -24,80 +24,12 @@ const downloadLinks = {
         "ios": "https://apps.apple.com/us/app/oneclick-safe-easy-fast/id1545555197"
     },
     "singbox": {
-        "version": "v1.14.3",
-        "windows": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/sing-box-1.14.3-windows-amd64.zip",
-        "mac": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/SFM-1.14.3-Universal.pkg",
-        "linux": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/sing-box_1.14.3_linux_amd64.deb",
-        "android": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/SFA-1.14.3-universal.apk",
-        "github": "https://github.com/SagerNet/sing-box"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/sing-box-vt/id6673731168"
     },
     "hiddify": {
-        "version": "v4.1.1",
-        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Windows-x64.msix",
-        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-MacOS-Installer.pkg",
-        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Linux-x64-AppImage.tar.gz",
-        "android": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Android-universal.apk",
-        "github": "https://github.com/hiddify/hiddify-app"
-    },
-    "clash verge": {
-        "version": "v2.5.8",
-        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_x64_fixed_webview2-setup.exe",
-        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_x64.dmg",
-        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.8/Clash.Verge_2.5.8_x64.app.tar.gz",
-        "github": "https://github.com/clash-verge-rev/clash-verge-rev"
-    },
-    "mihomo party": {
-        "version": "v2.0.4",
-        "windows": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/mihomo-party-windows-2.0.4-x64-setup.exe.sha256",
-        "mac": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/mihomo-party-macos-2.0.4-x64.pkg.sha256",
-        "linux": "https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.4/mihomo-party-linux-2.0.4-x64.pkg.tar.zst.sha256",
-        "github": "https://github.com/mihomo-party-org/mihomo-party"
-    },
-    "clashmeta": {
-        "version": "v2.11.35",
-        "android": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/v2.11.35/cmfa-2.11.35-meta-universal-release.apk",
-        "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
-    },
-    "surfboard": {
-        "version": "v2.35.2",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.35.2/mobile-universal-release.apk",
-        "github": "https://github.com/getsurfboard/surfboard"
-    },
-    "v2rayn": {
-        "version": "v7.25.6",
-        "windows": "https://github.com/2dust/v2rayN/releases/download/7.25.6/v2rayN-linux-64.zip",
-        "mac": "https://github.com/2dust/v2rayN/releases/download/7.25.6/v2rayN-macos-64.dmg",
-        "linux": "https://github.com/2dust/v2rayN/releases/download/7.25.6/v2rayN-linux-64.deb",
-        "github": "https://github.com/2dust/v2rayN"
-    },
-    "v2rayng": {
-        "version": "v2.3.11",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.3.11/v2rayNG_2.3.11_universal.apk",
-        "github": "https://github.com/2dust/v2rayNG"
-    },
-    "gui.for.singbox": {
-        "version": "v1.27.0",
-        "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/v1.27.0/GUI.for.SingBox-windows-amd64.zip",
-        "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
-    },
-    "flclash": {
-        "version": "v0.9.1",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.9.1/FlClash-0.9.1-windows-amd64.zip",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.9.1/FlClash-0.9.1-macos-amd64.dmg",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.9.1/FlClash-0.9.1-linux-amd64.rpm",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.9.1/FlClash-0.9.1-android-arm64-v8a.apk",
-        "github": "https://github.com/chen08209/FlClash"
-    },
-    "nekobox": {
-        "version": "v1.4.2",
-        "android": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.2/NekoBox-1.4.2-arm64-v8a.apk",
-        "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
-    },
-    "v2rayu": {
-        "version": "v5.2.0",
-        "windows": "https://github.com/yanue/V2rayU/releases/download/v5.2.0/V2rayU-dSYM.zip",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v5.2.0/V2rayU-64.dmg",
-        "github": "https://github.com/yanue/V2rayU"
+        "version": "N/A",
+        "ios": "https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532"
     }
 };
 
