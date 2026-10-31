@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 10/30/2026, 8:25:44 AM
+// 最后更新时间: 10/31/2026, 8:15:27 AM
 
 const downloadLinks = {
     "v2box": {
@@ -71,8 +71,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.3.11",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.3.11/v2rayNG_2.3.11_universal.apk",
+        "version": "v2.3.14",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.3.14/v2rayNG_2.3.14_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
@@ -94,9 +94,9 @@ const downloadLinks = {
         "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
     },
     "v2rayu": {
-        "version": "v5.3.2",
-        "windows": "https://github.com/yanue/V2rayU/releases/download/v5.3.2/V2rayU-dSYM.zip",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v5.3.2/V2rayU-64.dmg",
+        "version": "v5.4.0",
+        "windows": "https://github.com/yanue/V2rayU/releases/download/v5.4.0/V2rayU-dSYM.zip",
+        "mac": "https://github.com/yanue/V2rayU/releases/download/v5.4.0/V2rayU-64.dmg",
         "github": "https://github.com/yanue/V2rayU"
     }
 };
