@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 11/3/2026, 9:18:47 AM
+// 最后更新时间: 11/4/2026, 8:53:29 AM
 
 const downloadLinks = {
     "v2box": {
@@ -40,10 +40,10 @@ const downloadLinks = {
         "github": "https://github.com/hiddify/hiddify-app"
     },
     "clash verge": {
-        "version": "v2.5.9",
-        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.9/Clash.Verge_2.5.9_x64_fixed_webview2-setup.exe",
-        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.9/Clash.Verge_2.5.9_x64.dmg",
-        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.9/Clash.Verge_2.5.9_x64.app.tar.gz",
+        "version": "v2.5.10",
+        "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.10/Clash.Verge_2.5.10_x64_fixed_webview2-setup.exe",
+        "mac": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.10/Clash.Verge_2.5.10_x64.dmg",
+        "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.10/Clash.Verge_2.5.10_x64.app.tar.gz",
         "github": "https://github.com/clash-verge-rev/clash-verge-rev"
     },
     "mihomo party": {
@@ -81,11 +81,11 @@ const downloadLinks = {
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
-        "version": "v0.9.2",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-windows-amd64.zip",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-macos-amd64.dmg",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-linux-amd64.rpm",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.9.2/FlClash-0.9.2-android-arm64-v8a.apk",
+        "version": "v0.9.3",
+        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-windows-amd64.zip",
+        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-macos-amd64.dmg",
+        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-linux-amd64.rpm",
+        "android": "https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-android-arm64-v8a.apk",
         "github": "https://github.com/chen08209/FlClash"
     },
     "nekobox": {
