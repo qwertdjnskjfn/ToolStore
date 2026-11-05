@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 11/4/2026, 8:53:29 AM
+// 最后更新时间: 11/5/2026, 8:53:00 AM
 
 const downloadLinks = {
     "v2box": {
@@ -32,11 +32,12 @@ const downloadLinks = {
         "github": "https://github.com/SagerNet/sing-box"
     },
     "hiddify": {
-        "version": "v4.1.1",
-        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Windows-x64.msix",
-        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-MacOS-Installer.pkg",
-        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Linux-x64-AppImage.tar.gz",
-        "android": "https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Android-universal.apk",
+        "version": "v5.5.5",
+        "windows": "https://github.com/hiddify/hiddify-app/releases/download/v5.5.5/Hiddify-Windows-Setup-x64.Msix",
+        "mac": "https://github.com/hiddify/hiddify-app/releases/download/v5.5.5/Hiddify-MacOS-AppStore.dmg",
+        "linux": "https://github.com/hiddify/hiddify-app/releases/download/v5.5.5/Hiddify-Linux-x64-AppImage.tar.gz",
+        "android": "https://github.com/hiddify/hiddify-app/releases/download/v5.5.5/Hiddify-Android-universal.apk",
+        "ios": "https://github.com/hiddify/hiddify-app/releases/download/v5.5.5/Hiddify-iOS.ipa",
         "github": "https://github.com/hiddify/hiddify-app"
     },
     "clash verge": {
@@ -71,8 +72,8 @@ const downloadLinks = {
         "github": "https://github.com/2dust/v2rayN"
     },
     "v2rayng": {
-        "version": "v2.3.14",
-        "android": "https://github.com/2dust/v2rayNG/releases/download/2.3.14/v2rayNG_2.3.14_universal.apk",
+        "version": "v2.3.15",
+        "android": "https://github.com/2dust/v2rayNG/releases/download/2.3.15/v2rayNG_2.3.15_universal.apk",
         "github": "https://github.com/2dust/v2rayNG"
     },
     "gui.for.singbox": {
