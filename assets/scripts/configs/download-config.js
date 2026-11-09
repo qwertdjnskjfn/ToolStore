@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 11/8/2026, 8:49:38 AM
+// 最后更新时间: 11/9/2026, 9:32:34 AM
 
 const downloadLinks = {
     "v2box": {
@@ -95,9 +95,9 @@ const downloadLinks = {
         "github": "https://github.com/MatsuriDayo/NekoBoxForAndroid"
     },
     "v2rayu": {
-        "version": "v5.4.0",
-        "windows": "https://github.com/yanue/V2rayU/releases/download/v5.4.0/V2rayU-dSYM.zip",
-        "mac": "https://github.com/yanue/V2rayU/releases/download/v5.4.0/V2rayU-64.dmg",
+        "version": "v5.4.1",
+        "windows": "https://github.com/yanue/V2rayU/releases/download/v5.4.1/V2rayU-dSYM.zip",
+        "mac": "https://github.com/yanue/V2rayU/releases/download/v5.4.1/V2rayU-64.dmg",
         "github": "https://github.com/yanue/V2rayU"
     }
 };
