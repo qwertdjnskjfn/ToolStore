@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 11/21/2026, 9:30:14 AM
+// 最后更新时间: 11/22/2026, 9:36:02 AM
 
 const downloadLinks = {
     "v2box": {
@@ -60,8 +60,8 @@ const downloadLinks = {
         "github": "https://github.com/MetaCubeX/ClashMetaForAndroid"
     },
     "surfboard": {
-        "version": "v2.35.2",
-        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.35.2/mobile-universal-release.apk",
+        "version": "v2.36.0",
+        "android": "https://github.com/getsurfboard/surfboard/releases/download/mobile-2.36.0/mobile-universal-release.apk",
         "github": "https://github.com/getsurfboard/surfboard"
     },
     "v2rayn": {
