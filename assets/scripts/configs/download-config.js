@@ -1,5 +1,5 @@
 // 下载链接配置  全是小写
-// 最后更新时间: 11/25/2026, 11:03:13 AM
+// 最后更新时间: 11/26/2026, 10:41:02 AM
 
 const downloadLinks = {
     "v2box": {
@@ -82,11 +82,11 @@ const downloadLinks = {
         "github": "https://github.com/GUI-for-Cores/GUI.for.SingBox"
     },
     "flclash": {
-        "version": "v0.9.4",
-        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-windows-amd64-setup.exe",
-        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-macos-amd64.dmg",
-        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-linux-amd64.rpm",
-        "android": "https://github.com/chen08209/FlClash/releases/download/v0.9.4/FlClash-0.9.4-android-amd64.apk",
+        "version": "v0.9.5",
+        "windows": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-windows-amd64-setup.exe",
+        "mac": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-macos-amd64.dmg",
+        "linux": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-linux-amd64.rpm",
+        "android": "https://github.com/chen08209/FlClash/releases/download/v0.9.5/FlClash-0.9.5-android-amd64.apk",
         "github": "https://github.com/chen08209/FlClash"
     },
     "nekobox": {
